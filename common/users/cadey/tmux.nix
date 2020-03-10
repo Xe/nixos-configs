@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-   programs.tmux = {
+  programs.tmux = {
     enable = true;
     shortcut = "s"; # Use Ctrl-s
     baseIndex = 1; # Widows numbers begin with 1

@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -6,10 +6,7 @@
   nix.trustedUsers = [ "root" "cadey" ];
 
   # caches
-  nix.binaryCaches = [
-    "https://cache.dhall-lang.org"
-    "https://xe.cachix.org"
-  ];
+  nix.binaryCaches = [ "https://cache.dhall-lang.org" "https://xe.cachix.org" ];
 
   nix.binaryCachePublicKeys = [
     "cache.dhall-lang.org:I9/H18WHd60olG5GsIjolp7CtepSgJmM2CsO813VTmM="

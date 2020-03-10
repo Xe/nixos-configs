@@ -1,9 +1,7 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 {
-  imports = [
-    <home-manager/nixos>
-  ];
+  imports = [ <home-manager/nixos> ];
 
   users.users.cadey = {
     isNormalUser = true;
