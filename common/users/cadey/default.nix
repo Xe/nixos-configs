@@ -1,16 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ <home-manager/nixos> ./git.nix ];
+  imports = [ ./dev.nix ./git.nix ./tmux.nix ];
 
-  users.users.cadey = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ];
-    shell = pkgs.fish;
-  };
+  nixpkgs.config.allowUnfree = true;
 
-  home-manager.users.cadey = { pkgs, ... }: {
-    home.packages = with pkgs; [ neofetch git vim nixfmt ];
-    programs.fish.enable = true;
-  };
+  home.packages = with pkgs; [ neofetch vim htop ];
+  programs.fish.enable = true;
+  programs.home-manager.enable = true;
 }
