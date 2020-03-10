@@ -1,9 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./dev.nix ./git.nix ./tmux.nix ];
+  imports = [ ./dev.nix ./dhall.nix ./git.nix ./tmux.nix ];
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowBroken = true;
+    allowUnfree = true;
+  };
 
   home.packages = with pkgs; [ neofetch vim htop ];
   programs.fish.enable = true;
