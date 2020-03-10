@@ -4,7 +4,6 @@
   imports =
     [
       ./hardware-configuration.nix
-      <home-manager/nixos>
     ];
 
   boot.loader.grub.enable = true;
@@ -21,24 +20,11 @@
     defaultLocale = "en_US.UTF-8";
   };
 
-  environment.systemPackages = with pkgs; [
-    wget vim
-  ];
+  environment.systemPackages = with pkgs; [ wget ];
 
   programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
   services.openssh.enable = true;
   networking.firewall.enable = false;
-
-  users.users.cadey = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ];
-    shell = pkgs.fish;
-  };
-
-  home-manager.users.cadey = { pkgs, ... }: {
-    home.packages = with pkgs; [ neofetch git ];
-    programs.fish.enable = true;
-  };
 
   virtualisation.docker.enable = true;
 
