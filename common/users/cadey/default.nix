@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./dev.nix ./fish ./git.nix ./tmux.nix ./spacemacs ];
+  imports = [ ./dev.nix ./fish ./git.nix ./k8s.nix ./tmux.nix ./spacemacs ];
 
   nixpkgs.config = {
     allowBroken = true;
