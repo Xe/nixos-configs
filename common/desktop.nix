@@ -9,6 +9,7 @@
     firefox
     steam
     kdeApplications.spectacle
+    wireguard
   ];
 
   virtualisation.docker.enable = true;
