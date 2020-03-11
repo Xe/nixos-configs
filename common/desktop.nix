@@ -10,6 +10,7 @@
     steam
     kdeApplications.spectacle
     wireguard
+    killall
   ];
 
   virtualisation.docker.enable = true;

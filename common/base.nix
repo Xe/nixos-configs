@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  imports = [ ./xeserv ];
+
   nixpkgs.config.allowUnfree = true;
   nix.autoOptimiseStore = true;
   nix.trustedUsers = [ "root" "cadey" ];
