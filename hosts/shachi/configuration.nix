@@ -11,6 +11,7 @@
       /home/cadey/code/nixos-configs/common/users
       /home/cadey/code/nixos-configs/common/base.nix
       /home/cadey/code/nixos-configs/common/desktop.nix
+      /home/cadey/code/nixos-configs/common/wireguard
     ];
 
   # Use the systemd-boot EFI boot loader.
