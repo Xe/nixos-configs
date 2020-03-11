@@ -1,4 +1,6 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }:
+
+{
   services.lorri.enable = true;
   home.packages = with pkgs; [ cachix direnv niv nixfmt lorri mosh ];
 
