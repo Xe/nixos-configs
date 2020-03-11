@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./dev.nix ./dhall.nix ./git.nix ./tmux.nix ];
+  imports = [ ./dev.nix ./git.nix ./tmux.nix ];
 
   nixpkgs.config = {
     allowBroken = true;
