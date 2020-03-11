@@ -5,7 +5,7 @@
 
   users.users.cadey = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "audio" "plugdev" ];
+    extraGroups = [ "wheel" "docker" "audio" "plugdev" "libvirtd" ];
     shell = pkgs.fish;
   };
 

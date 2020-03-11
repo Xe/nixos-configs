@@ -10,6 +10,7 @@
     extraConfig = {
       core.editor = "vim";
       credential.helper = "store --file ~/.git-credentials";
+      protocol.keybase.allow = "always";
     };
   };
 }

@@ -5,14 +5,13 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      /home/cadey/code/nixos-configs/common/users
-      /home/cadey/code/nixos-configs/common/base.nix
-      /home/cadey/code/nixos-configs/common/desktop.nix
-      /home/cadey/code/nixos-configs/common/wireguard
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    /home/cadey/code/nixos-configs/common/users
+    /home/cadey/code/nixos-configs/common/base.nix
+    /home/cadey/code/nixos-configs/common/desktop.nix
+    /home/cadey/code/nixos-configs/common/wireguard
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -44,13 +43,19 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget vim logitech-udev-rules ltunify
+    wget
+    vim
+    logitech-udev-rules
+    ltunify
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   # List services that you want to enable:
 
@@ -89,6 +94,9 @@
   #   isNormalUser = true;
   #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   # };
+
+  virtualisation.libvirtd.enable = true;
+  networking.firewall.checkReversePath = false;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

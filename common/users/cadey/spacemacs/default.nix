@@ -4,9 +4,7 @@
   programs.emacs.enable = true;
   services.emacs.enable = true;
 
-  home.file = {
-    ".spacemacs".source = ./spacemacs;
-  };
+  home.file.".spacemacs".source = ./spacemacs;
 
   home.file."bin/e" = {
     text = ''

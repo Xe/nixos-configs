@@ -1,0 +1,3 @@
+#!/bin/sh
+
+curl -F 'clbin=<-' https://clbin.com

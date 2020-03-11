@@ -1,8 +1,7 @@
 { config, pkgs, ... }:
 
 let dquot = "''";
-in
-{
+in {
   home.packages = with pkgs; [ fish ];
 
   home.file = {
@@ -11,7 +10,8 @@ in
     '';
 
     ".config/fish/functions/fish_prompt.fish".source = ./fish_prompt.fish;
-    ".config/fish/functions/fish_right_prompt.fish".source = ./fish_right_prompt.fish;
+    ".config/fish/functions/fish_right_prompt.fish".source =
+      ./fish_right_prompt.fish;
     ".config/fish/fish_variables".source = ./fish_variables;
 
     # global fish config
