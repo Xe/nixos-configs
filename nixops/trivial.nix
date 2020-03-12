@@ -2,12 +2,14 @@
   network.description = "Web server";
 
   webserver = { config, pkgs, ... }: {
-    imports = [ ../common/xeserv ];
-
-    services.nginx.enable = true;
-    services.nginx.virtualHosts."foo.localhost.cetacean.club" = {
-      root = "${pkgs.valgrind.doc}/share/doc/valgrind/html";
+    docker-containers."nginx" = {
+      image = "nginx:latest";
+      environment = {
+        "FOO" = "bar";
+      };
+      ports = [ "80:80" ];
     };
+
     networking.firewall.allowedTCPPorts = [ 80 ];
   };
 }
