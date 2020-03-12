@@ -6,6 +6,7 @@
     ./dhall.nix
     ./fish
     ./git.nix
+    ./htop.nix
     ./k8s.nix
     ./keybase.nix
     ./media.nix
@@ -13,6 +14,7 @@
     ./pastebins
     ./spacemacs
     ./tmux.nix
+    ./xresources.nix
   ];
 
   nixpkgs.config = {
