@@ -47,6 +47,7 @@ values."
      go
      nim
      org
+     rust
      shell
      spell-checking
      syntax-checking
