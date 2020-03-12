@@ -337,6 +337,7 @@ you should place your code here."
     (split-window-horizontally)
     (other-window 1)
     (find-file arg))
+  (direnv-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

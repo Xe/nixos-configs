@@ -8,6 +8,7 @@
     ./git.nix
     ./k8s.nix
     ./keybase.nix
+    ./media.nix
     ./nixops.nix
     ./pastebins
     ./spacemacs
