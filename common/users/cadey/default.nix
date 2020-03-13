@@ -14,6 +14,7 @@
     ./pastebins
     ./spacemacs
     ./tmux.nix
+    ./urxvt.nix
     ./xresources.nix
   ];
 
@@ -22,7 +23,7 @@
     allowUnfree = true;
   };
 
-  home.packages = with pkgs; [ neofetch vim htop ];
+  home.packages = with pkgs; [ neofetch vim htop xclip xsel ];
   programs.fish.enable = true;
   programs.home-manager.enable = true;
 }

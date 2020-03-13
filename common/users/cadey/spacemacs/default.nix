@@ -1,6 +1,23 @@
 { config, pkgs, ... }:
 
+let e = pkgs.writeTextFile {
+      name = "cadey-emacs.desktop";
+      destination = "/share/applications/cadey-emacs.desktop";
+      text = ''
+[Desktop Entry]
+Exec=emacsclient -nc
+Icon=emacs
+Name[en_US]=Emacs Client
+Name=Emacs Client
+StartupNotify=true
+Terminal=false
+Type=Application
+      '';
+    };
+in
 {
+  home.packages = with pkgs; [ anonymousPro e ];
+
   programs.emacs.enable = true;
   services.emacs.enable = true;
 

@@ -2,7 +2,7 @@
 
 let dquot = "''";
 in {
-  home.packages = with pkgs; [ fish ];
+  programs.fish.enable = true;
 
   home.file = {
     ".config/fish/functions/fish_greeting.fish".text = ''
@@ -35,5 +35,30 @@ in {
       set -gx WASMER_CACHE_DIR $WASMER_DIR/cache
       set -gx PATH $PATH $WASMER_DIR/bin $WASMER_DIR/globals/wapm_packages/.bin
     '';
+
+    ".config/fish/conf.d/colors.fish".text = ''
+      switch $TERM
+        case '*xte*'
+          set -gx TERM xterm-256color
+        case '*scree*'
+          set -gx TERM screen-256color
+        case '*rxvt*'
+          set -gx TERM rxvt-unicode-256color
+      end
+    '';
+
+    ".config/fish/conf.d/tramp.fish".text = ''
+      if test $TERM = "dumb"
+        function fish_prompt
+          echo "\$ "
+        end
+        exec sh
+      end
+    '';
+  };
+
+  programs.fish.shellAliases = {
+    pbcopy = "${pkgs.xclip}/bin/xclip -selection clipboard";
+    pbpaste = "${pkgs.xclip}/bin/xclip -selection clipboard -o";
   };
 }

@@ -9,6 +9,7 @@
     firefox
     steam
     kdeApplications.spectacle
+    plasma-browser-integration
     wireguard
     killall
   ];

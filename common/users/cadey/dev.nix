@@ -2,9 +2,8 @@
 
 {
   services.lorri.enable = true;
-  home.packages = with pkgs; [ cachix direnv niv nixfmt mosh gist ];
+  home.packages = with pkgs; [ cachix niv nixfmt mosh gist ];
 
-  programs.fish.interactiveShellInit = ''
-    eval (${pkgs.direnv}/bin/direnv hook fish)
-  '';
+  programs.direnv.enable = true;
+  programs.direnv.enableFishIntegration = true;
 }
