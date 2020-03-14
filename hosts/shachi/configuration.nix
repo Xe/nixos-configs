@@ -74,6 +74,10 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
+  # bluetooth
+  hardware.bluetooth.enable = true;
+
+  # make steam work
   hardware.opengl.driSupport32Bit = true;
 
   # Enable the X11 windowing system.

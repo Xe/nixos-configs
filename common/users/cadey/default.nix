@@ -1,6 +1,13 @@
 { config, pkgs, ... }:
 
-{
+let
+  extraImports = [
+    ./keybase.nix
+    ./media.nix
+    ./urxvt.nix
+    ./xresources.nix
+  ];
+in rec {
   imports = [
     ./dev.nix
     ./dhall.nix
@@ -8,22 +15,18 @@
     ./git.nix
     ./htop.nix
     ./k8s.nix
-    ./keybase.nix
-    ./media.nix
     ./nixops.nix
     ./pastebins
     ./spacemacs
     ./tmux.nix
-    ./urxvt.nix
-    ./xresources.nix
-  ];
+  ] ++ extraImports;
 
   nixpkgs.config = {
     allowBroken = true;
     allowUnfree = true;
   };
 
-  home.packages = with pkgs; [ neofetch vim htop xclip xsel ];
+  home.packages = with pkgs; [ neofetch vim htop ];
   programs.fish.enable = true;
   programs.home-manager.enable = true;
 }

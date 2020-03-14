@@ -48,10 +48,7 @@ in {
     '';
 
     ".config/fish/conf.d/tramp.fish".text = ''
-      if test $TERM = "dumb"
-        function fish_prompt
-          echo "\$ "
-        end
+      if test "$TERM" = "dumb"
         exec sh
       end
     '';
