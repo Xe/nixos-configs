@@ -1,12 +1,5 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./keybase.nix
-    ./media.nix
-    ./obs.nix
-    ./urxvt.nix
-    ./xresources.nix
-    ./st
-  ];
+  imports = [ ./keybase.nix ./media.nix ./obs.nix ./st ./xresources.nix ];
 }
