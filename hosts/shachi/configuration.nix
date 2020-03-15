@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
     ./hardware-configuration.nix
     /home/cadey/code/nixos-configs/common/users
     /home/cadey/code/nixos-configs/common/base.nix
@@ -16,8 +16,16 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # 4 TB drive
+  boot.supportedFilesystems = [ "ntfs" ];
+
+  fileSystems."/data" = {
+    device = "/dev/disk/by-uuid/8464C10764C0FCC4";
+    fsType = "ntfs";
+    options = [ "rw" "uid=1001" ];
+  };
+
   networking.hostName = "shachi"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -83,20 +91,10 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.layout = "us";
-  #services.xserver.xkbOptions = "eurosign:e";
-
-  # Enable touchpad support.
-  # services.xserver.libinput.enable = true;
 
   # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.jane = {
-  #   isNormalUser = true;
-  #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  # };
 
   virtualisation.libvirtd.enable = true;
   networking.firewall.checkReversePath = false;
@@ -109,6 +107,7 @@
   # should.
   system.stateVersion = "19.09"; # Did you read the comment?
 
+  # Akua
   networking.wireguard.interfaces = {
     akua = {
       ips = [ "10.77.2.8/16" "fda2:d982:1da2:2::8/128" ];
