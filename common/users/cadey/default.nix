@@ -4,6 +4,7 @@ let
   extraImports = [
     ./keybase.nix
     ./media.nix
+    ./obs.nix
     ./urxvt.nix
     ./xresources.nix
   ];
