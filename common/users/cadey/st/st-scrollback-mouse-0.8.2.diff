@@ -1,0 +1,85 @@
+From 315f69069017122ca69d0319d0ad9481113fe5c8 Mon Sep 17 00:00:00 2001
+From: Jacob Prosser <jacoblouisprosser@protonmail.com>
+Date: Fri, 26 Apr 2019 17:23:27 +1000
+Subject: [PATCH] Scrollback-Mouse for 0.8.2
+
+---
+ config.def.h | 10 ++++++++--
+ st.h         |  8 ++++++++
+ x.c          |  9 +++++++++
+ 3 files changed, 25 insertions(+), 2 deletions(-)
+
+diff --git a/config.def.h b/config.def.h
+index 7326a74..ad20c4c 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -156,8 +156,14 @@ static unsigned int defaultattr = 11;
+  */
+ static MouseShortcut mshortcuts[] = {
+ 	/* button               mask            string */
+-	{ Button4,              XK_ANY_MOD,     "\031" },
+-	{ Button5,              XK_ANY_MOD,     "\005" },
++	{ Button4,              XK_NO_MOD,      "\031" },
++	{ Button5,              XK_NO_MOD,      "\005" },
++};
++
++MouseKey mkeys[] = {
++	/* button               mask            function        argument */
++	{ Button4,              ShiftMask,      kscrollup,      {.i =  1} },
++	{ Button5,              ShiftMask,      kscrolldown,    {.i =  1} },
+ };
+ 
+ /* Internal keyboard shortcuts. */
+diff --git a/st.h b/st.h
+index 17a79e0..3ac7f57 100644
+--- a/st.h
++++ b/st.h
+@@ -76,6 +76,13 @@ typedef union {
+ 	const void *v;
+ } Arg;
+ 
++typedef struct {
++	 uint b;
++	 uint mask;
++	 void (*func)(const Arg *);
++	 const Arg arg;
++} MouseKey;
++
+ void die(const char *, ...);
+ void redraw(void);
+ void draw(void);
+@@ -122,3 +129,4 @@ extern char *termname;
+ extern unsigned int tabspaces;
+ extern unsigned int defaultfg;
+ extern unsigned int defaultbg;
++extern MouseKey mkeys[];
+diff --git a/x.c b/x.c
+index 0422421..e9fd6e9 100644
+--- a/x.c
++++ b/x.c
+@@ -409,6 +409,7 @@ bpress(XEvent *e)
+ {
+ 	struct timespec now;
+ 	MouseShortcut *ms;
++	MouseKey *mk;
+ 	int snap;
+ 
+ 	if (IS_SET(MODE_MOUSE) && !(e->xbutton.state & forceselmod)) {
+@@ -424,6 +425,14 @@ bpress(XEvent *e)
+ 		}
+ 	}
+ 
++	for (mk = mkeys; mk < mkeys + LEN(mkeys); mk++) {
++		if (e->xbutton.button == mk->b
++				&& match(mk->mask, e->xbutton.state)) {
++			mk->func(&mk->arg);
++			return;
++		}
++	}
++
+ 	if (e->xbutton.button == Button1) {
+ 		/*
+ 		 * If the user clicks below predefined timeouts specific
+-- 
+2.21.0
+

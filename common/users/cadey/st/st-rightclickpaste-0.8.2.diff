@@ -1,0 +1,28 @@
+From 111e5d0311f174592ccecee2af11067103abaee7 Mon Sep 17 00:00:00 2001
+From: aleks <aleks.stier@icloud.com>
+Date: Sun, 11 Aug 2019 03:15:26 +0200
+Subject: [PATCH] Make right-click paste
+
+Pressing right-click pastes from the primary-selection.
+If combined with the clipboard-patch right-click pastes from the clipboard.
+Middle-click does nothing.
+---
+ x.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/x.c b/x.c
+index 0422421..13a5849 100644
+--- a/x.c
++++ b/x.c
+@@ -643,7 +643,7 @@ brelease(XEvent *e)
+ 		return;
+ 	}
+ 
+-	if (e->xbutton.button == Button2)
++	if (e->xbutton.button == Button3)
+ 		selpaste(NULL);
+ 	else if (e->xbutton.button == Button1)
+ 		mousesel(e, 1);
+-- 
+2.22.0
+
