@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  imports = [ <home-manager/nixos> ];
+
   environment.systemPackages = with pkgs; [
     discord
     slack
@@ -19,4 +21,6 @@
   virtualisation.virtualbox.host.enable = true;
   virtualisation.virtualbox.host.enableExtensionPack = true;
   users.extraGroups.vboxusers.members = [ "cadey" ];
+
+  home-manager.users.cadey = (import ./users/cadey/gui.nix);
 }
