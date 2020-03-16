@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ <home-manager/nixos> ];
+  imports = [ <home-manager/nixos> ./yubikey.nix ./programs/virtualbox.nix ];
 
   environment.systemPackages = with pkgs; [
     discord
@@ -18,9 +18,6 @@
 
   cadey.gui.enable = true;
   virtualisation.docker.enable = true;
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-  users.extraGroups.vboxusers.members = [ "cadey" ];
 
   home-manager.users.cadey = (import ./users/cadey/gui.nix);
 }
