@@ -87,16 +87,30 @@
   #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   # };
   
-  users.users.cadey = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-  };
-
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
   system.stateVersion = "19.09"; # Did you read the comment?
   nixpkgs.config.allowUnfree = true;
+
+  # Akua
+  networking.wireguard.interfaces = {
+    akua = {
+      ips = [ "10.77.2.2/16" "fda2:d982:1da2:2::2/128" ];
+
+      privateKeyFile = "/root/wireguard-keys/private";
+
+      peers = [
+        # kahless
+        {
+          allowedIPs = [ "10.77.0.0/16" "10.88.0.0/16" "fda2:d982:1da2::/48" ];
+          publicKey = "MvBR3bV1TfACKcF5LQmLL3xlzpdDEatg5dHEyNKA5mw=";
+          endpoint = "kahless.cetacean.club:51820";
+          persistentKeepalive = 25;
+        }
+      ];
+    };
+  };
 }
 
