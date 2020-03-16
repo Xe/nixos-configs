@@ -1,0 +1,27 @@
+From bd6efd81eabab77c91a3e95b528b19db2d58525b Mon Sep 17 00:00:00 2001
+From: Sacules <leociancalucas@gmail.com>
+Date: Sun, 9 Sep 2018 17:12:58 -0300
+Subject: [PATCH] Centers windows names on status bar.
+
+---
+ dwm.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/dwm.c b/dwm.c
+index 4465af1..9d5ef7a 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -730,8 +730,9 @@ drawbar(Monitor *m)
+ 
+ 	if ((w = m->ww - sw - x) > bh) {
+ 		if (m->sel) {
++			int mid = (m->ww - TEXTW(m->sel->name)) / 2 - x;
+ 			drw_setscheme(drw, scheme[m == selmon ? SchemeSel : SchemeNorm]);
+-			drw_text(drw, x, 0, w, bh, lrpad / 2, m->sel->name, 0);
++			drw_text(drw, x, 0, w, bh, mid, m->sel->name, 0);
+ 			if (m->sel->isfloating)
+ 				drw_rect(drw, x + boxs, boxs, boxw, boxw, m->sel->isfixed, 0);
+ 		} else {
+-- 
+2.18.0
+

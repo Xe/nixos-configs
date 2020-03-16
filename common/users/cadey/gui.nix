@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./keybase.nix ./media.nix ./obs.nix ./st ./xresources.nix ];
+  imports = [ ./dwm ./keybase.nix ./media.nix ./obs.nix ./st ./xresources.nix ];
 }
