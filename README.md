@@ -8,6 +8,11 @@ works for me.
 Arabic for orca, this is a transliteration of أرك . This is a VM running in
 VirtualBox.
 
+## chrysalis
+
+Named after a character from My Little Pony: Friendship is Magic. This is my
+old 2013 trashcan mac pro. It is now delegated to server tasks.
+
 ## shachi
 
 Japanese for orca, this is a transliteration of シャチ. This is a Ryzen 5 3600
