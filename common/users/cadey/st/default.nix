@@ -4,6 +4,7 @@ let
   st = pkgs.st.override rec {
     conf = pkgs.lib.readFile ./config.h;
     patches = [
+      ./st-alpha-0.8.2.diff
       ./st-clipboard-0.8.2.diff
       ./st-bold-is-not-bright-20190127-3be4cf1.diff
       ./st-scrollback-0.8.2.diff

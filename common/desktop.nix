@@ -1,7 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ <home-manager/nixos> ./yubikey.nix ./programs/virtualbox.nix ];
+  imports = [
+    <home-manager/nixos>
+    ./yubikey.nix
+    ./programs/etcher.nix
+    ./programs/virtualbox.nix
+  ];
 
   environment.systemPackages = with pkgs; [
     discord

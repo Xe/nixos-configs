@@ -26,7 +26,7 @@ static const char col_gruvbox_yellow[] = "#fabd2f";
 static const char col_gruvbox_purple_dark[] = "#b16286";
 static const char col_gruvbox_purple[] = "#d3869b";
 static const unsigned int baralpha = 0xd0;
-static const unsigned int borderalpha = OPAQUE;
+static const unsigned int borderalpha = 0xd0;
 static const char *colors[][3]      = {
     /*               fg         bg         border   */
     [SchemeNorm] = { col_gruvbox_fg0, col_gruvbox_bg0, col_gruvbox_purple },
@@ -53,7 +53,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -77,6 +77,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gruvbox_bg0_h, "-nf", col_gruvbox_fg, "-sb", col_gruvbox_purple_dark, "-sf", col_gruvbox_fg0, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *emacscmd[] = { "~/bin/e", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */

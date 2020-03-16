@@ -40,12 +40,18 @@ values."
      auto-completion
      better-defaults
      emacs-lisp
-     nixos
+     (nixos :variables nixos-enable-company t)
+     (docker :variables docker-dockerfile-backend 'lsp)
+     (terraform :variables terraform-auto-format-on-save t)
      lua
      git
      markdown
      yaml
-     go
+     (go :variables go-backend 'lsp)
+     csv
+     sql
+     html
+     systemd
      nim
      org
      rust
@@ -54,13 +60,14 @@ values."
      syntax-checking
      version-control
      themes-megapack
+     kubernetes
      lsp
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(direnv dhall-mode)
+   dotspacemacs-additional-packages '(direnv dhall-mode zig-mode 0x0 moonscript protobuf-mode)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -132,7 +139,7 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(gruvbox-dark-soft)
+   dotspacemacs-themes '(gruvbox-dark-hard gruvbox-light-hard)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to

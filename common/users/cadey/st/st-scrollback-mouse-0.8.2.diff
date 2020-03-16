@@ -48,10 +48,11 @@ index 17a79e0..3ac7f57 100644
  void die(const char *, ...);
  void redraw(void);
  void draw(void);
-@@ -122,3 +129,4 @@ extern char *termname;
+@@ -122,4 +129,5 @@ extern char *termname;
  extern unsigned int tabspaces;
  extern unsigned int defaultfg;
  extern unsigned int defaultbg;
+ extern float alpha;
 +extern MouseKey mkeys[];
 diff --git a/x.c b/x.c
 index 0422421..e9fd6e9 100644

@@ -10,6 +10,7 @@
     yubikey-neo-manager
     yubioath-desktop
     yubico-piv-tool
+    gnupg
   ];
 
   # expose u2f
@@ -23,4 +24,11 @@
 
   # smartcard daemon
   services.pcscd.enable = true;
+
+  # GPG agent setup
+  environment.shellInit = ''
+    export GPG_TTY="$(tty)"
+    gpg-connect-agent /bye
+    export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+  '';
 }
