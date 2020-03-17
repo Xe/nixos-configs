@@ -94,6 +94,8 @@
   system.stateVersion = "19.09"; # Did you read the comment?
   nixpkgs.config.allowUnfree = true;
 
+  virtualisation.docker.enable = true;
+
   # Akua
   networking.wireguard.interfaces = {
     akua = {
