@@ -16,6 +16,7 @@
     firefox
     steam
     kdeApplications.spectacle
+    kdeApplications.okular
     plasma-browser-integration
     wireguard
     killall
