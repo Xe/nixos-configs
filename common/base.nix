@@ -2,7 +2,7 @@
 
 with lib;
 {
-  imports = [ ./xeserv ];
+  imports = [ ./xeserv ./wireguard ];
 
   options.cadey.gui.enable = mkEnableOption "Enables GUI programs";
 
