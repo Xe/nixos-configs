@@ -346,6 +346,8 @@ you should place your code here."
     (other-window 1)
     (find-file arg))
   (direnv-mode)
+  (set-frame-parameter (selected-frame) 'alpha '(90 . 50))
+  (add-to-list 'default-frame-alist '(alpha . (90 . 50)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
