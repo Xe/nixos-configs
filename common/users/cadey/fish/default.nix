@@ -46,12 +46,6 @@ in {
           set -gx TERM rxvt-unicode-256color
       end
     '';
-
-    ".config/fish/conf.d/tramp.fish".text = ''
-      if test "$TERM" = "dumb"
-        exec sh
-      end
-    '';
   };
 
   programs.fish.shellAliases = {
