@@ -348,6 +348,7 @@ you should place your code here."
   (direnv-mode)
   (set-frame-parameter (selected-frame) 'alpha '(90 . 50))
   (add-to-list 'default-frame-alist '(alpha . (90 . 50)))
+  (setenv "GOPATH" (concat (getenv "HOME") "/go"))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
