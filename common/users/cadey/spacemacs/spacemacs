@@ -47,7 +47,7 @@ values."
      git
      markdown
      yaml
-     (go :variables go-backend 'lsp)
+     (go :variables go-backend 'lsp go-format-before-save t)
      csv
      sql
      html
