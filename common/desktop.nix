@@ -16,6 +16,8 @@
     rambox
     firefox
     steam
+    kdeApplications.ark
+    kdeApplications.kate
     kdeApplications.spectacle
     kdeApplications.okular
     plasma-browser-integration
