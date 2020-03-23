@@ -14,8 +14,12 @@ let
       ./dwm-autostart-20161205-bb3bd6f.diff
     ];
   });
-  cfg = config.cadey.gui;
+  cfg = config.cadey.dwm;
 in {
+  options = {
+    cadey.dwm.enable = mkEnableOption "dwm";
+  };
+
   config = mkIf cfg.enable {
     environment.systemPackages = [ dwm ];
 
