@@ -11,7 +11,7 @@
       security = user
       #use sendfile = yes
       #max protocol = smb2
-      hosts allow = 0.0.0.0/0
+      hosts allow = 10.77  192.168.0 127.
       guest account = nobody
       map to guest = bad user
       ntlm auth = true

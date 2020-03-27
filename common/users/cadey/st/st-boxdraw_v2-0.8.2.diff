@@ -535,10 +535,12 @@ index 38c61c4..9275632 100644
  /* config.h globals */
  extern char *utmp;
  extern char *stty_args;
-@@ -120,3 +129,4 @@ extern char *termname;
+@@ -120,5 +129,6 @@ extern char *termname;
  extern unsigned int tabspaces;
  extern unsigned int defaultfg;
  extern unsigned int defaultbg;
+ extern float alpha;
+ extern MouseKey mkeys[];
 +extern const int boxdraw, boxdraw_bold, boxdraw_braille;
 diff --git a/x.c b/x.c
 index 0422421..c740bed 100644
