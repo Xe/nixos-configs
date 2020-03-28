@@ -116,6 +116,7 @@
         [ "10.77.2.8/16" "fda2:d982:1da2:2::8/128" "fda2:d982:1da2:8::/64" ];
 
       privateKeyFile = "/root/wireguard-keys/private";
+      listenPort = "51820";
 
       peers = [
         # kahless
@@ -123,6 +124,14 @@
           allowedIPs = [ "10.77.0.0/16" "10.88.0.0/16" "fda2:d982:1da2::/48" ];
           publicKey = "MvBR3bV1TfACKcF5LQmLL3xlzpdDEatg5dHEyNKA5mw=";
           endpoint = "kahless.cetacean.club:51820";
+          persistentKeepalive = 25;
+        }
+
+        # chrysalis
+        {
+          allowedIPs = [ "10.77.2.2/32" "fda2:d982:1da2:2::2/128" ];
+          publicKey = "h7TPPO3mLG2Fq4PDI47mly3DioNhvmIUKOExnUfLqTA=";
+          endpoint = "192.168.0.161:51820";
           persistentKeepalive = 25;
         }
       ];

@@ -16,6 +16,7 @@
     rambox
     firefox
     steam
+    latte-dock
     kdeApplications.ark
     kdeApplications.kate
     kdeApplications.spectacle
