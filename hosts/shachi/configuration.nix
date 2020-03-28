@@ -116,7 +116,7 @@
         [ "10.77.2.8/16" "fda2:d982:1da2:2::8/128" "fda2:d982:1da2:8::/64" ];
 
       privateKeyFile = "/root/wireguard-keys/private";
-      listenPort = "51820";
+      listenPort = 51820;
 
       peers = [
         # kahless
