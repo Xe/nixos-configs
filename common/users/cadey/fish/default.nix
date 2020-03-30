@@ -46,6 +46,11 @@ in {
           set -gx TERM rxvt-unicode-256color
       end
     '';
+
+    ".config/fish/conf.d/gpg.fish".text = ''
+      # Set GPG TTY
+      set -x GPG_TTY (tty)
+    '';
   };
 
   programs.fish.shellAliases = {
