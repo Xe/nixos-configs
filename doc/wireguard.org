@@ -1,0 +1,24 @@
+#+TITLE: Wireguard Subnet Allocations
+#+AUTHOR: Within
+
+* IPv4
+
+10.77.0.0/16
+
+* IPv6
+
+fda2:d982:1da2::/48
+
+Subnet ID: a2d9821da2
+
+* Address allocations
+
+| Hostname  | IPv4 Address | IPv6 Address             |
+|-----------+--------------+--------------------------|
+| kahless   |    10.77.0.1 | fda2:d982:1da2::/128     |
+| luna      |    10.77.0.2 | fda2:d982:1da2::2/128    |
+| nirvana   |    10.77.0.4 | fda2:d982:1da2::4/128    |
+| minipaas  |    10.77.0.8 | fda2:d982:1da2::8/128    |
+| keanu     |    10.77.2.1 | fda2:d982:1da2:2::1/128  |
+| chrysalis |    10.77.2.2 | fda2:d982:1da2:ed22::/64 |
+| shachi    |    10.77.2.8 | fda2:d982:1da2:8::/64    |
