@@ -96,7 +96,7 @@
   # Akua
   networking.wireguard.interfaces = {
     akua = {
-      ips = [ "10.77.2.2/16" "fda2:d982:1da2:2::2/128" ];
+      ips = [ "10.77.2.2/16" "fda2:d982:1da2:ed22::/64" ];
 
       privateKeyFile = "/root/wireguard-keys/private";
       listenPort = 51820;
