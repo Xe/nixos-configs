@@ -24,6 +24,9 @@
     plasma-browser-integration
     wireguard
     killall
+    file
+    gimp
+    waifu2x-converter-cpp
   ];
 
   cadey.gui.enable = true;

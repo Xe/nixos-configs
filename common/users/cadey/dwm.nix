@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  wp = ./cadey_pool_wp.png;
+  wp = ./cadey_seaside_wp.png;
 in {
   home.packages = with pkgs; [ dmenu ];
 
@@ -15,10 +15,5 @@ in {
         ${pkgs.compton}/bin/picom &
       '';
     };
-  };
-
-  services.dwm-status = {
-    enable = true;
-    order = [ "audio" "cpu_load" "time" ];
   };
 }
