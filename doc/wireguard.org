@@ -2,13 +2,10 @@
 #+AUTHOR: Within
 
 * IPv4
-
 10.77.0.0/16
 
 * IPv6
-
-fda2:d982:1da2::/48
-
+fda2:d982:1da2::/48 \\
 Subnet ID: a2d9821da2
 
 * Address allocations

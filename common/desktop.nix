@@ -27,7 +27,7 @@
   ];
 
   cadey.gui.enable = true;
-  cadey.dwm.enable = false;
+  cadey.dwm.enable = true;
   virtualisation.docker.enable = true;
 
   home-manager.users.cadey = (import ./users/cadey/gui.nix);
