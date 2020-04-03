@@ -21,6 +21,7 @@
     kdeApplications.kate
     kdeApplications.spectacle
     kdeApplications.okular
+    amarok
     plasma-browser-integration
     wireguard
     killall
