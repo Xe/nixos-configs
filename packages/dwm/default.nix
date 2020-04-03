@@ -21,7 +21,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ dwm ];
+    environment.systemPackages = with pkgs; [ dwm ];
 
     services.xserver.windowManager.session = singleton {
       name = "dwm";

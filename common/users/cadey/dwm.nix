@@ -13,6 +13,7 @@ in {
 
         ${pkgs.feh}/bin/feh --bg-scale ${wp}
         ${pkgs.compton}/bin/picom &
+        ${pkgs.pasystray}/bin/pasystray &
       '';
     };
   };
