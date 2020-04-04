@@ -8,6 +8,7 @@
     ./git.nix
     ./htop.nix
     ./k8s.nix
+    ./neofetch.nix
     ./nixops.nix
     ./pastebins
     ./spacemacs

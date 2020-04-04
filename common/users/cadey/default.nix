@@ -3,5 +3,5 @@
 {
   imports = [ ./core.nix ];
 
-  home.packages = with pkgs; [ neofetch vim ];
+  home.packages = with pkgs; [ vim ];
 }
