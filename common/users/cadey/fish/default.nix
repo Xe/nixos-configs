@@ -9,6 +9,9 @@ in {
       function fish_greeting;end
     '';
 
+    ".config/fish/functions/fish_prompt.fish".source = ./fish_prompt.fish;
+    ".config/fish/functions/fish_right_prompt.fish".source =
+      ./fish_right_prompt.fish;
     ".config/fish/fish_variables".source = ./fish_variables;
 
     # global fish config
@@ -54,16 +57,4 @@ in {
     pbcopy = "${pkgs.xclip}/bin/xclip -selection clipboard";
     pbpaste = "${pkgs.xclip}/bin/xclip -selection clipboard -o";
   };
-
-  programs.fish.plugins = [
-    {
-      name = "kawasaki";
-      src = pkgs.fetchFromGitHub {
-        owner = "hastinbe";
-        repo = "theme-kawasaki";
-        rev = "e5c3a7c33485fe3fe28c66fd3dd924ac6c8eac98";
-        sha256 = "11mhd75nyiw4rpcmj6f128jxxvy1d9g8yka9wyh34h5r8i7dzdld";
-      };
-    }
-  ];
 }

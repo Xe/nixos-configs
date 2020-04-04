@@ -11,7 +11,7 @@
     doctl
 
     # dhall-yaml
-    (import <dhall> { }).linux-dhall-yaml
+    #(import <dhall> { }).linux-dhall-yaml
 
     # kubernetes in docker
     kind

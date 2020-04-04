@@ -6,7 +6,7 @@
     ./yubikey.nix
     ./programs/etcher.nix
     ./programs/virtualbox.nix
-    ../packages/dwm
+    ./programs/dwm.nix
   ];
 
   environment.systemPackages = with pkgs; [
