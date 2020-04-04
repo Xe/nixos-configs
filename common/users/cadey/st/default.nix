@@ -1,10 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  nur = import (builtins.fetchTarball
-    "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      inherit pkgs;
-    };
+  nur = import <nur> { inherit pkgs; };
   termDesktop = pkgs.writeTextFile {
     name = "cadey-st.desktop";
     destination = "/share/applications/cadey-st.desktop";

@@ -2,10 +2,7 @@
 
 with lib;
 let
-  nur = import (builtins.fetchTarball
-    "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      inherit pkgs;
-    };
+  nur = import <nur> { inherit pkgs; };
   dwm = nur.repos.xe.dwm;
   cfg = config.cadey.dwm;
 in {

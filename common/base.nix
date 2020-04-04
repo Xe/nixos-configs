@@ -26,7 +26,7 @@ with lib;
   }];
 
   config.nixpkgs.config.packageOverrides = pkgs: {
-    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+    nur = import <nur> {
       inherit pkgs;
     };
   };
