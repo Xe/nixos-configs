@@ -18,6 +18,8 @@ with lib;
     "xe.cachix.org-1:kT/2G09KzMvQf64WrPBDcNWTKsA79h7+y2Fn2N7Xk2Y="
   ];
 
+  config.boot.cleanTmpDir = true;
+
   config.security.pam.loginLimits = [{
     domain = "*";
     type = "soft";

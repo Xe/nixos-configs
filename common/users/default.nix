@@ -9,5 +9,5 @@
     shell = pkgs.fish;
   };
 
-  home-manager.users.cadey = (import ./cadey/default.nix);
+  home-manager.users.cadey = (import ./cadey/core.nix);
 }
