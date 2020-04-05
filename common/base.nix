@@ -24,7 +24,7 @@ with lib;
     domain = "*";
     type = "soft";
     item = "nofile";
-    value = "8192";
+    value = "unlimited";
   }];
 
   config.nixpkgs.config.packageOverrides = pkgs: {
