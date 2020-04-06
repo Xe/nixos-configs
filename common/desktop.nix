@@ -28,6 +28,7 @@
     file
     gimp
     waifu2x-converter-cpp
+    (import <nur> { inherit pkgs; }).repos.xe.st
   ];
 
   cadey.gui.enable = true;
