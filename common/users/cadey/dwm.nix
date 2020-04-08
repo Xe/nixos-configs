@@ -2,6 +2,7 @@
 
 let
   wp = ./cadey_seaside_wp.png;
+  nur = import <nur> { inherit pkgs; };
 in {
   home.packages = with pkgs; [ dmenu ];
 
@@ -14,6 +15,7 @@ in {
         ${pkgs.feh}/bin/feh --bg-scale ${wp}
         ${pkgs.compton}/bin/picom &
         ${pkgs.pasystray}/bin/pasystray &
+        ${nur.repos.xe.cabytcini}/bin/cabytcini &
       '';
     };
   };

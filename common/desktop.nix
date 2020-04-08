@@ -28,6 +28,8 @@
     file
     gimp
     waifu2x-converter-cpp
+    riot-desktop
+    michabo
     (import <nur> { inherit pkgs; }).repos.xe.st
   ];
 
