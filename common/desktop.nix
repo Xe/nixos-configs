@@ -31,7 +31,7 @@
     riot-desktop
     michabo
     openssl
-    (import <nur> { inherit pkgs; }).repos.xe.st
+    nur.repos.xe.st
   ];
 
   cadey.gui.enable = true;

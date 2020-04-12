@@ -2,9 +2,8 @@
 
 let
   wp = ./cadey_seaside_wp.png;
-  nur = import <nur> { inherit pkgs; };
 in {
-  home.packages = with pkgs; [ dmenu ];
+  home.packages = with pkgs; [ dmenu libnotify ];
 
   home.file = {
     ".dwm/autostart.sh" = {
@@ -17,7 +16,7 @@ in {
         ${pkgs.pasystray}/bin/pasystray &
         ${pkgs.dunst}/bin/dunst &
         ${pkgs.xorg.xmodmap}/bin/xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-        ${nur.repos.xe.cabytcini}/bin/cabytcini &
+        ${pkgs.nur.repos.xe.cabytcini}/bin/cabytcini &
       '';
     };
 
