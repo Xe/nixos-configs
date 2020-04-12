@@ -13,7 +13,7 @@ in {
         #!/bin/sh
 
         ${pkgs.feh}/bin/feh --bg-scale ${wp}
-        ${pkgs.compton}/bin/picom &
+        ${pkgs.picom}/bin/picom --vsync --use-damage &
         ${pkgs.pasystray}/bin/pasystray &
         ${pkgs.dunst}/bin/dunst &
         ${pkgs.xorg.xmodmap}/bin/xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
