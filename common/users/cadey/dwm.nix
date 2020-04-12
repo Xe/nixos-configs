@@ -15,8 +15,12 @@ in {
         ${pkgs.feh}/bin/feh --bg-scale ${wp}
         ${pkgs.compton}/bin/picom &
         ${pkgs.pasystray}/bin/pasystray &
+        ${pkgs.dunst}/bin/dunst &
+        ${pkgs.xorg.xmodmap}/bin/xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
         ${nur.repos.xe.cabytcini}/bin/cabytcini &
       '';
     };
+
+    ".config/dunst/dunstrc".source = ./dunstrc;
   };
 }

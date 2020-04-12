@@ -30,6 +30,7 @@
     waifu2x-converter-cpp
     riot-desktop
     michabo
+    openssl
     (import <nur> { inherit pkgs; }).repos.xe.st
   ];
 
