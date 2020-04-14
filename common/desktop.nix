@@ -34,6 +34,8 @@
     nur.repos.xe.st
   ];
 
+  programs.slock.enable = true;
+
   cadey.gui.enable = true;
   cadey.dwm.enable = true;
   virtualisation.docker.enable = true;
