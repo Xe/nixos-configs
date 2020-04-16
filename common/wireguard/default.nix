@@ -6,4 +6,8 @@
     "8.8.8.8"
     "1.1.1.1"
   ];
+
+  environment.systemPackages = with pkgs; [
+    wireguard
+  ];
 }

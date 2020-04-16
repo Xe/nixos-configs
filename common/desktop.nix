@@ -4,25 +4,19 @@
   imports = [
     <home-manager/nixos>
     ./yubikey.nix
-    ./programs/etcher.nix
-    ./programs/virtualbox.nix
+    ./programs/discord.nix
     ./programs/dwm.nix
+    ./programs/etcher.nix
+    ./programs/kde.nix
+    ./programs/virtualbox.nix
+    ./programs/telegram.nix
   ];
 
   environment.systemPackages = with pkgs; [
-    discord
     slack
-    tdesktop
     rambox
     firefox
     steam
-    latte-dock
-    kdeApplications.ark
-    kdeApplications.kate
-    kdeApplications.spectacle
-    kdeApplications.okular
-    amarok
-    plasma-browser-integration
     wireguard
     killall
     file
@@ -31,13 +25,16 @@
     riot-desktop
     michabo
     openssl
-    nur.repos.xe.st
   ];
 
-  programs.slock.enable = true;
+  cadey = {
+    discord.enable = true;
+    dwm.enable = true;
+    gui.enable = true;
+    kde.enable = true;
+    telegram.enable = true;
+  };
 
-  cadey.gui.enable = true;
-  cadey.dwm.enable = true;
   virtualisation.docker.enable = true;
 
   home-manager.users.cadey = (import ./users/cadey/gui.nix);

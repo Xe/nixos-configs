@@ -3,13 +3,6 @@
 {
   # yubikey tools
   environment.systemPackages = with pkgs; [
-    yubikey-personalization
-    yubikey-personalization-gui
-    yubikey-manager
-    yubikey-manager-qt
-    yubikey-neo-manager
-    yubioath-desktop
-    yubico-piv-tool
     gnupg
   ];
 
