@@ -8,5 +8,6 @@
     ./obs.nix
     ./st
     ./xresources.nix
+    ./zathura
   ];
 }
