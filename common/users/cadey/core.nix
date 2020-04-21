@@ -1,18 +1,21 @@
 { config, pkgs, ... }:
 
-{
-  imports = [
+let
+  nur-no-pkgs = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {};
+in {
+  imports = with nur-no-pkgs.repos.xe.modules; [
     ./dev.nix
     ./dhall.nix
-    ./fish
     ./git.nix
-    ./htop.nix
     ./k8s.nix
-    ./neofetch.nix
     ./nixops.nix
     ./pastebins
     ./spacemacs
-    ./tmux.nix
+
+    fish
+    htop
+    neofetch
+    tmux
   ];
 
   programs.home-manager.enable = true;
