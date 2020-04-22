@@ -17,11 +17,11 @@ let
   };
   cert = builtins.fetchurl {
     url = "https://certs.akua/start.akua/cert.pem";
-    sha256 = "06c85sb23qsa7am0qiib5jff7l1fncbd7mjn981w07m04zdv2iil";
+    sha256 = "16d823kcn76wg9p78y80grmk5pz56nmfxhl68jg5lyz82h2j4nxj";
   };
   key = builtins.fetchurl {
     url = "https://certs.akua/start.akua/key.pem";
-    sha256 = "1akv91cgb1mkja4n53imz8b7fdrwy8ajhsxavwmijdambkrrj3by";
+    sha256 = "1r5v5sw721x719vc27h7194hjy512vhljc28lpipzkanbqf0sa72";
   };
 
 in {
