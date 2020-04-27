@@ -5,6 +5,7 @@ let
 in {
   imports = with nur-no-pkgs.repos.xe.modules; [
     ./dwm.nix
+    ./front
     ./keybase.nix
     ./media.nix
     ./obs.nix
