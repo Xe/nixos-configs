@@ -13,6 +13,11 @@ VirtualBox.
 Named after a character from My Little Pony: Friendship is Magic. This is my
 old 2013 trashcan mac pro. It is now delegated to server tasks.
 
+## keanu
+
+Named after Keanu Reeves. This is my fiance's old laptop. It's delegated to
+server tasks and anything that can take a while without much worry.
+
 ## shachi
 
 Japanese for orca, this is a transliteration of シャチ. This is a Ryzen 5 3600
