@@ -134,6 +134,14 @@
           endpoint = "192.168.0.161:51820";
           persistentKeepalive = 25;
         }
+
+        # keanu
+        {
+          allowedIPs = [ "10.77.2.1/32" "fda2:d982:1da2:8265::/64" ];
+          publicKey = "Dh0D2bdtSmx1Udvuwh7BdWuCADsHEfgWy8usHc1SJkU=";
+          endpoint = "192.168.0.128:51820";
+          persistentKeepalive = 25;
+        }
       ];
     };
   };

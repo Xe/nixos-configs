@@ -89,7 +89,7 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "19.09"; # Did you read the comment?
+  system.stateVersion = "20.03"; # Did you read the comment?
   nixpkgs.config.allowUnfree = true;
 
   virtualisation.docker.enable = true;
@@ -120,6 +120,14 @@
           ];
           publicKey = "S8XgS18Z8xiKwed6wu9FE/JEp1a/tFRemSgfUl3JPFw=";
           endpoint = "192.168.0.177:51820";
+          persistentKeepalive = 25;
+        }
+
+        # keanu
+        {
+          allowedIPs = [ "10.77.2.1/32" "fda2:d982:1da2:8265::/64" ];
+          publicKey = "Dh0D2bdtSmx1Udvuwh7BdWuCADsHEfgWy8usHc1SJkU=";
+          endpoint = "192.168.0.128:51820";
           persistentKeepalive = 25;
         }
       ];
