@@ -10,7 +10,7 @@ in {
     ./k8s.nix
     ./nixops.nix
     ./pastebins
-    ./spacemacs
+    ./emacs
 
     fish
     htop
