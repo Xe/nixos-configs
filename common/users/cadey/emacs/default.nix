@@ -32,7 +32,7 @@
         (setq inhibit-startup-screen t)
 
         (menu-bar-mode -1)
- 
+
         (electric-pair-mode)
 
         (recentf-mode 1)
@@ -100,9 +100,7 @@
           '';
         };
 
-        dockerfile-mode = {
-          enable = true;
-        };
+        dockerfile-mode = { enable = true; };
 
         counsel = {
           enable = true;
@@ -382,7 +380,50 @@
           mode = [ ''"\\.rs\\'"'' ];
         };
 
-        toml-mode.enable = true;
+        toml-mode = {
+          enable = true;
+          mode = [ ''"\\.toml\\'"'' ];
+        };
+
+        zig-mode = {
+          enable = true;
+          mode = [ ''"\\.zig\\'"'' ];
+        };
+
+        nov = {
+          enable = true;
+          mode = [ ''"\\.epub\\'"'' ];
+        };
+
+        nim-mode = {
+          enable = true;
+          mode = [ ''"\\.nim\\'"'' ];
+
+          config = ''
+            (add-hook 'nim-mode-hook 'nimsuggest-mode)
+            (add-hook 'nimsuggest-mode-hook 'company-mode)
+          '';
+        };
+
+        web-mode = {
+          enable = true;
+          mode = [ ''"\\.html\\'"'' ''"\\.tmpl\\'"'' ];
+        };
+
+        ob.enable = true;
+        org-download.enable = true;
+        org.enable = true;
+        org-mime.enable = true;
+        org-plus-contrib.enable = true;
+        org-pomodoro.enable = true;
+        org-projectile.enable = true;
+
+        systemd.enable = true;
+
+        markdown-mode = {
+          enable = true;
+          mode = [ ''"\\.md\\'"'' ''"\\.markdown\\'"'' ];
+        };
       };
     };
   };

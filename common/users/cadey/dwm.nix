@@ -12,7 +12,7 @@ in {
         #!/bin/sh
 
         ${pkgs.feh}/bin/feh --bg-scale ${wp}
-        ${pkgs.picom}/bin/picom --vsync --use-damage --dbus --config ${./picom.conf} --experimental-backends --backend glx -c &
+        ${pkgs.picom}/bin/picom --vsync --dbus --config ${./picom.conf} --experimental-backends --backend glx -c &
         ${pkgs.pasystray}/bin/pasystray &
         ${pkgs.dunst}/bin/dunst &
         ${pkgs.xorg.xmodmap}/bin/xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
