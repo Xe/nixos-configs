@@ -65,7 +65,21 @@ in {
       ../common/users/cadey/pastebins
     ];
 
-    home.packages = with pkgs; [ hack-font ];
+    services.lorri.enable = true;
+
+    home.packages = with pkgs; [
+      hack-font
+      cachix
+      niv
+      nixfmt
+      mosh
+      bind
+      unzip
+      drone-cli
+    ];
+
+    programs.direnv.enable = true;
+    programs.direnv.enableFishIntegration = true;
 
     nixpkgs.config = {
       allowBroken = true;
