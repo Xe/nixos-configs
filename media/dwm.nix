@@ -61,7 +61,7 @@ in {
       zathura
 
       ../common/users/cadey/xresources.nix
-      ../common/users/cadey/spacemacs
+      ../common/users/cadey/emacs
       ../common/users/cadey/pastebins
     ];
 

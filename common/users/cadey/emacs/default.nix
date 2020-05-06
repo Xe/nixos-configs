@@ -419,11 +419,6 @@
         org-projectile.enable = true;
 
         systemd.enable = true;
-
-        markdown-mode = {
-          enable = true;
-          mode = [ ''"\\.md\\'"'' ''"\\.markdown\\'"'' ];
-        };
       };
     };
   };
