@@ -3,7 +3,7 @@
 let
   wp = ./cadey_seaside_wp.png;
 in {
-  home.packages = with pkgs; [ dmenu libnotify ];
+  home.packages = with pkgs; [ dmenu libnotify feh ];
 
   home.file = {
     ".dwm/autostart.sh" = {
@@ -11,8 +11,8 @@ in {
       text = ''
         #!/bin/sh
 
-        ${pkgs.feh}/bin/feh --bg-scale ${wp}
-        ${pkgs.picom}/bin/picom --vsync --dbus --config ${./picom.conf} --experimental-backends --backend glx -c &
+        ~/.fehbg || ${pkgs.feh}/bin/feh --bg-scale ${wp}
+        ${pkgs.picom}/bin/picom --vsync --dbus --config ${./picom.conf} --experimental-backends --backend glx -c -C &
         ${pkgs.pasystray}/bin/pasystray &
         ${pkgs.dunst}/bin/dunst &
         ${pkgs.xorg.xmodmap}/bin/xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
