@@ -100,7 +100,7 @@
       ips = [ "10.77.2.2/16" "fda2:d982:1da2:ed22::/64" ];
 
       privateKeyFile = "/root/wireguard-keys/private";
-      listenPort = 51820;
+      listenPort = 51822;
 
       peers = [
         # kahless

@@ -11,8 +11,9 @@ in {
     ./nixops.nix
     ./pastebins
     ./spacemacs
+    ./fish
+    ./vim
 
-    fish
     htop
     neofetch
     tmux

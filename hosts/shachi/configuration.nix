@@ -130,8 +130,8 @@
         # chrysalis
         {
           allowedIPs = [ "10.77.2.2/32" "fda2:d982:1da2:ed22::/64" ];
-          publicKey = "h7TPPO3mLG2Fq4PDI47mly3DioNhvmIUKOExnUfLqTA=";
-          endpoint = "192.168.0.161:51820";
+          publicKey = "Um46toyF9DPeyQWmy4nyyxJH/m37HWXcX+ncJa3Mg0A=";
+          endpoint = "192.168.0.161:51822";
           persistentKeepalive = 25;
         }
 

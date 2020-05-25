@@ -65,18 +65,19 @@ let
         glfw
         libGL
         unixtools.hexdump
+        clang_10
       ];
 
       src = fetchgit {
         url = "https://tulpa.dev/saved/sm64pc";
-        rev = "c69c75bf9beed9c7f7c8e9612e5e351855065120";
-        sha256 = "148pk9iqpcgzwnxlcciqz0ngy6vsvxiv5lp17qg0bs7ph8ly3k4l";
+        rev = "c52fdb27f81cbb39459e1200cd3498b820c6da6a";
+        sha256 = "0bxihrvxzgjxbrf8iby5vs0nddsl8y9k5bd2hy6j33vrfaqa3yd9";
       };
 
       buildPhase = ''
         chmod +x ./extract_assets.py
         cp ${baserom} ./baserom.us.z64
-        make
+        make -j
       '';
 
       installPhase = ''

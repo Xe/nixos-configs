@@ -47,7 +47,7 @@ values."
      git
      markdown
      yaml
-     (go :variables go-backend 'lsp go-format-before-save t)
+     (go :variables go-backend 'lsp go-format-before-save t go-tab-width 2)
      csv
      sql
      html
@@ -62,6 +62,7 @@ values."
      themes-megapack
      kubernetes
      lsp
+     typescript
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -346,10 +347,12 @@ you should place your code here."
     (other-window 1)
     (find-file arg))
   (direnv-mode)
-  ;(add-to-list 'default-frame-alist '(alpha . (90 . 50)))
   (setenv "GOPATH" (concat (getenv "HOME") "/go"))
   (setq frame-resize-pixelwise t)
   (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
+  (set-frame-parameter (selected-frame) 'alpha '(85 . 85))
+  (add-to-list 'default-frame-alist '(alpha . (85 . 85)))
+  (setq default-tab-width 2)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
