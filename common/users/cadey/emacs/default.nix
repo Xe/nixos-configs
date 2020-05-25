@@ -422,6 +422,14 @@
         org-projectile.enable = true;
 
         systemd.enable = true;
+
+        highlight-indent-guides = {
+          enable = true;
+
+          config = ''
+            (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+          '';
+        };
       };
     };
   };
