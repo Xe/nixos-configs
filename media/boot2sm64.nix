@@ -108,6 +108,7 @@ in {
 
   networking.hostName = "its-a-me";
   hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.support32Bit = true;
 
   environment.systemPackages = with pkgs; [ st hack-font dwm sm64pc ];
 
@@ -119,7 +120,7 @@ in {
     '';
   };
 
-  users.users.mario = { isNormalUser = true; };
+  users.users.mario = { isNormalUser = true; extraGroups = [ "audio" ]; };
 
   services.xserver.enable = true;
   services.xserver.displayManager.defaultSession = "none+dwm";
@@ -134,8 +135,7 @@ in {
         text = ''
           #!/bin/sh
 
-          export LIBGL_ALWAYS_SOFTWARE=1
-          ${sm64pc}/bin/sm64pc
+          ${sm64pc}/bin/sm64pc &
         '';
       };
     };

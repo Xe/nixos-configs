@@ -68,7 +68,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(direnv dhall-mode zig-mode 0x0 moonscript protobuf-mode nov highlight-indent-guides)
+   dotspacemacs-additional-packages '(direnv dhall-mode zig-mode 0x0 moonscript protobuf-mode nov highlight-indent-guides elcord)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -141,8 +141,8 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
-                         gruvbox-light-soft
                          gruvbox-dark-soft
+                         gruvbox-light-soft
                         )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -357,6 +357,9 @@ you should place your code here."
   (add-to-list 'default-frame-alist '(alpha . (85 . 85)))
   (setq default-tab-width 2)
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  (when (display-graphic-p)
+    (elcord-mode)
+    )
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

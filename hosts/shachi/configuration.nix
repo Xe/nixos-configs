@@ -87,6 +87,7 @@
 
   # make steam work
   hardware.opengl.driSupport32Bit = true;
+  hardware.steam-hardware.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;

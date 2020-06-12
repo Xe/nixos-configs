@@ -37,5 +37,7 @@
 
   virtualisation.docker.enable = true;
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   home-manager.users.cadey = (import ./users/cadey/gui.nix);
 }
