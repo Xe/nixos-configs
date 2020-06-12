@@ -25,7 +25,7 @@ in {
       set -gx GO111MODULE on
       set -gx GOPROXY https://cache.greedo.xeserv.us
 
-      set -gx PATH $PATH /home/cadey/.local/bin
+      set -gx PATH $PATH $HOME/.local/bin
 
       set -gx PATH $PATH $HOME/.luarocks/bin
 
