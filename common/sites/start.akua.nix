@@ -26,8 +26,6 @@ let
 
 in {
   services.nginx = {
-    enable = true;
-
     virtualHosts."start.akua" = {
       forceSSL = true;
       root = "${start}";

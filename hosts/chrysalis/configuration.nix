@@ -9,6 +9,7 @@
     ./hardware-configuration.nix
     /home/cadey/code/nixos-configs/common/users
     /home/cadey/code/nixos-configs/common/base.nix
+    /home/cadey/code/nixos-configs/common/sites/keyzen.akua.nix
     /home/cadey/code/nixos-configs/common/sites/start.akua.nix
   ];
 
@@ -91,6 +92,8 @@
   # should.
   system.stateVersion = "20.03"; # Did you read the comment?
   nixpkgs.config.allowUnfree = true;
+
+  services.nginx.enable = true;
 
   virtualisation.docker.enable = true;
 
