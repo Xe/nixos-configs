@@ -15,4 +15,6 @@ in {
     luakit
     zathura
   ];
+
+  home.packages = with pkgs; [ krita ];
 }
