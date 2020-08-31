@@ -8,7 +8,6 @@
     ./programs/dwm.nix
     ./programs/etcher.nix
     ./programs/kde.nix
-    ./programs/virtualbox.nix
     ./programs/telegram.nix
   ];
 
@@ -22,9 +21,9 @@
     file
     gimp
     waifu2x-converter-cpp
-    riot-desktop
-    michabo
+    element-desktop
     openssl
+    unrar
   ];
 
   cadey = {

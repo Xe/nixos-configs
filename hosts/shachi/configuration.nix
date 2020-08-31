@@ -27,6 +27,11 @@
     options = [ "rw" "uid=1001" ];
   };
 
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/03CF-4140";
+    fsType = "vfat";
+  };
+
   networking.hostName = "shachi"; # Define your hostname.
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
@@ -42,7 +47,6 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console.font = "Lat2-Terminus16";
-  console.keyMap = "us";
 
   # Set your time zone.
   time.timeZone = "America/Toronto";
