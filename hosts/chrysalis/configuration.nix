@@ -136,5 +136,16 @@
       ];
     };
   };
+
+  # 9p
+  services.diod = {
+    allsquash = false;
+    enable = true;
+    exports = [
+      "/home/cadey"
+    ];
+    userdb = true;
+    squashuser = "cadey";
+  };
 }
 
