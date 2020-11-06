@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 with lib; {
-  imports = [ ./xeserv ./wireguard ];
+  imports = [ ./xeserv ./wireguard ./microcode.nix ];
 
   options.cadey.gui.enable = mkEnableOption "Enables GUI programs";
 
@@ -27,6 +27,7 @@ with lib; {
             inherit pkgs;
           };
       };
+      manual.manpages.enable = false;
     };
 
     security.pam.loginLimits = [{
@@ -36,11 +37,11 @@ with lib; {
       value = "unlimited";
     }];
 
-    console.useXkbConfig = true;
-    services.xserver = {
-      layout = "us";
-      xkbVariant = "colemak";
-      xkbOptions = "caps:escape";
-    };
+    # console.useXkbConfig = true;
+    # services.xserver = {
+    #   layout = "us";
+    #   xkbVariant = "colemak";
+    #   xkbOptions = "caps:escape";
+    # };
   };
 }

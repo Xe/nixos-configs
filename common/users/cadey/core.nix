@@ -31,5 +31,7 @@ in {
           inherit pkgs;
         };
     };
+
+    manual.manpages.enable = false;
   };
 }

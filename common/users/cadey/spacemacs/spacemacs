@@ -362,6 +362,7 @@ you should place your code here."
   (when (display-graphic-p)
     (elcord-mode)
     )
+  (setq rust-format-on-save t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
