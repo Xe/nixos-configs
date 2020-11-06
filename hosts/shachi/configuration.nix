@@ -118,6 +118,7 @@
     enable = true;
     vendor = "amd";
   };
+  cadey.colemak.enable = true;
 
   # Akua
   networking.wireguard.interfaces = {

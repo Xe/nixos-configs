@@ -25,7 +25,7 @@
 
   networking.firewall.enable = false;
 
-  system.stateVersion = "20.09"; # Did you read the comment?
+  system.stateVersion = "20.09";
   nixpkgs.config.allowUnfree = true;
 
   services.nginx.enable = true;

@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 with lib; {
-  imports = [ ./xeserv ./wireguard ./microcode.nix ];
+  imports = [ ./xeserv ./wireguard ./colemak.nix ./microcode.nix ./ssd.nix ];
 
   options.cadey.gui.enable = mkEnableOption "Enables GUI programs";
 
@@ -12,9 +12,8 @@ with lib; {
       autoOptimiseStore = true;
 
       binaryCaches = [ "https://xe.cachix.org" ];
-      binaryCachePublicKeys = [
-        "xe.cachix.org-1:kT/2G09KzMvQf64WrPBDcNWTKsA79h7+y2Fn2N7Xk2Y="
-      ];
+      binaryCachePublicKeys =
+        [ "xe.cachix.org-1:kT/2G09KzMvQf64WrPBDcNWTKsA79h7+y2Fn2N7Xk2Y=" ];
 
       trustedUsers = [ "root" "cadey" ];
     };
@@ -36,12 +35,5 @@ with lib; {
       item = "nofile";
       value = "unlimited";
     }];
-
-    # console.useXkbConfig = true;
-    # services.xserver = {
-    #   layout = "us";
-    #   xkbVariant = "colemak";
-    #   xkbOptions = "caps:escape";
-    # };
   };
 }
