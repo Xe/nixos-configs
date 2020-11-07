@@ -39,4 +39,12 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   home-manager.users.cadey = (import ./users/cadey/gui.nix);
+
+  hardware.pulseaudio.extraConfig = ''
+    .ifexists module-echo-cancel.so
+    load-module module-echo-cancel aec_method=webrtc source_name=echocancel sink_name=echocancel1
+    set-default-source echocancel
+    set-default-sink echocancel1
+    .endif
+  '';
 }

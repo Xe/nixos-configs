@@ -31,12 +31,14 @@ with lib; {
           MatchIsKeyboard "on"
           MatchProduct "Yubikey"
           Option "XkbLayout" "us"
+          Option "XkbVariant" "basic"
         ''
         ''
           Identifier "${config.cadey.colemak.ignore.identifier}"
           MatchIsKeyboard "on"
           MatchProduct "${config.cadey.colemak.ignore.product}"
           Option "XkbLayout" "us"
+          Option "XkbVariant" "basic"
         ''
       ];
     };
