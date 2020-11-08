@@ -15,7 +15,6 @@
     slack
     rambox
     firefox
-    steam
     wireguard
     killall
     file
@@ -47,4 +46,6 @@
     set-default-sink echocancel1
     .endif
   '';
+
+  programs.steam.enable = true;
 }

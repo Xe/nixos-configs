@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 with lib; {
-  imports = [ ./xeserv ./wireguard ./colemak.nix ./microcode.nix ./ssd.nix ];
+  imports = [ ./services ./xeserv ./wireguard ./colemak.nix ./microcode.nix ./ssd.nix ];
 
   options.cadey.gui.enable = mkEnableOption "Enables GUI programs";
 
@@ -25,6 +25,10 @@ with lib; {
           "https://github.com/nix-community/NUR/archive/master.tar.gz") {
             inherit pkgs;
           };
+
+        within = {
+          tron = import (builtins.fetchTarball "https://tulpa.dev/cadey/tron/archive/b20b6461eb6ea793bbeaf716a57a2b4dc6860ecc.tar.gz") { };
+        };
       };
       manual.manpages.enable = false;
     };

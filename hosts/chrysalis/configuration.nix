@@ -88,5 +88,9 @@
     enable = true;
     vendor = "intel";
   };
+
+  within.services = {
+    tron.enable = true;
+  };
 }
 
