@@ -1,7 +1,7 @@
 {config, lib, ...}:
 
 {
-  imports = [ ./tron.nix ];
+  imports = [ ./tron.nix ./withinbot.nix ];
 
   users.groups.within = {};
 }

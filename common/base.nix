@@ -1,7 +1,8 @@
 { config, lib, pkgs, ... }:
 
 with lib; {
-  imports = [ ./services ./xeserv ./wireguard ./colemak.nix ./microcode.nix ./ssd.nix ];
+  imports =
+    [ ./services ./xeserv ./wireguard ./colemak.nix ./microcode.nix ./ssd.nix ];
 
   options.cadey.gui.enable = mkEnableOption "Enables GUI programs";
 
@@ -27,7 +28,12 @@ with lib; {
           };
 
         within = {
-          tron = import (builtins.fetchTarball "https://tulpa.dev/cadey/tron/archive/b20b6461eb6ea793bbeaf716a57a2b4dc6860ecc.tar.gz") { };
+          mi = import (builtins.fetchTarball
+            "https://github.com/Xe/mi/archive/mara.tar.gz") { };
+          tron = import (builtins.fetchTarball
+            "https://tulpa.dev/cadey/tron/archive/master.tar.gz") { };
+          withinbot = import (builtins.fetchTarball "https://github.com/Xe/withinbot/archive/main.tar.gz") { };
+          # withinbot = import (/home/cadey/code/Xe/withinbot) { };
         };
       };
       manual.manpages.enable = false;

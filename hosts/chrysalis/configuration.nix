@@ -91,6 +91,7 @@
 
   within.services = {
     tron.enable = true;
+    withinbot.enable = true;
   };
 }
 
