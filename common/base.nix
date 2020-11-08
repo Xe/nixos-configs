@@ -2,7 +2,7 @@
 
 with lib; {
   imports =
-    [ ./services ./xeserv ./wireguard ./colemak.nix ./microcode.nix ./ssd.nix ];
+    [ ./xeserv ./wireguard ./colemak.nix ./microcode.nix ./ssd.nix ];
 
   options.cadey.gui.enable = mkEnableOption "Enables GUI programs";
 

@@ -7,6 +7,7 @@
     /home/cadey/code/nixos-configs/common/base.nix
     /home/cadey/code/nixos-configs/common/sites/keyzen.akua.nix
     /home/cadey/code/nixos-configs/common/sites/start.akua.nix
+    /home/cadey/code/nixos-configs/common/services
   ];
 
   boot.loader.systemd-boot.enable = true;
