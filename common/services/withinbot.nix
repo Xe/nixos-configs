@@ -29,6 +29,7 @@ with lib; {
         User = "withinbot";
         Group = "within";
         Restart = "on-failure";
+        WorkingDirectory = "/srv/within/withinbot";
       };
 
       script = let withinbot = pkgs.within.withinbot;
