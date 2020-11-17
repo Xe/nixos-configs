@@ -83,7 +83,7 @@
   within.services = {
     mi = {
       enable = true;
-      domain = "mi.akua";
+      domain = "mi.within.website";
       port = 28384;
     };
 
