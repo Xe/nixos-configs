@@ -114,11 +114,13 @@
 
   programs.adb.enable = true;
 
-  cadey.cpu = {
-    enable = true;
-    vendor = "amd";
+  cadey = {
+    colemak.enable = true;
+    cpu = {
+      enable = true;
+      vendor = "amd";
+    };
   };
-  cadey.colemak.enable = true;
 
   # Akua
   networking.wireguard.interfaces = {
@@ -142,15 +144,7 @@
         {
           allowedIPs = [ "10.77.2.2/32" "fda2:d982:1da2:ed22::/64" ];
           publicKey = "Um46toyF9DPeyQWmy4nyyxJH/m37HWXcX+ncJa3Mg0A=";
-          endpoint = "192.168.0.161:51822";
-          persistentKeepalive = 25;
-        }
-
-        # keanu
-        {
-          allowedIPs = [ "10.77.2.1/32" "fda2:d982:1da2:8265::/64" ];
-          publicKey = "Dh0D2bdtSmx1Udvuwh7BdWuCADsHEfgWy8usHc1SJkU=";
-          endpoint = "192.168.0.128:51820";
+          endpoint = "192.168.0.127:51822";
           persistentKeepalive = 25;
         }
       ];

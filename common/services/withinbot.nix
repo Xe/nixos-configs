@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 with lib; {
   options.within.services.withinbot.enable =
-    mkEnableOption "Activates Withinbot (the furryhole chatbot";
+    mkEnableOption "Activates Withinbot (the furryhole chatbot)";
 
-  config = {
+  config = mkIf config.within.services.withinbot.enable {
     users.users.withinbot = {
       createHome = true;
       description = "github.com/Xe/withinbot";
@@ -30,6 +30,7 @@ with lib; {
         Group = "within";
         Restart = "on-failure";
         WorkingDirectory = "/srv/within/withinbot";
+        RestartSec = "30s";
       };
 
       script = let withinbot = pkgs.within.withinbot;

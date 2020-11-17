@@ -329,13 +329,14 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (add-hook 'text-mode-hook 'auto-fill-mode)
   (setq-default fill-column 80)
+
+  ;; eshell
   (defun chomp (str)
     "Chomp leading and tailing whitespace from STR."
     (while (string-match "\\`\n+\\|^\\s-+\\|\\s-+$\\|\n+\\'"
                          str)
       (setq str (replace-match "" t t str)))
     str)
-  (setq gofmt-command "goimports")
   (defun eshell/e (arg)
     "opens a given file in emacs from eshell"
     (find-file arg))
@@ -351,18 +352,29 @@ you should place your code here."
     (split-window-horizontally)
     (other-window 1)
     (find-file arg))
+
+  ;; nixos
   (direnv-mode)
-  (setenv "GOPATH" (concat (getenv "HOME") "/go"))
-  (setq frame-resize-pixelwise t)
-  (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
   (set-frame-parameter (selected-frame) 'alpha '(85 . 85))
   (add-to-list 'default-frame-alist '(alpha . (85 . 85)))
-  (setq default-tab-width 2)
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   (when (display-graphic-p)
     (elcord-mode)
     )
+
+  ;; go
+  (setenv "GOPATH" (concat (getenv "HOME") "/go"))
+  (setq gofmt-command "goimports")
+  (setq frame-resize-pixelwise t)
+  (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
+  (setq default-tab-width 2)
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+
+  ;; rust
   (setq rust-format-on-save t)
+
+  ;; elm
+  (add-hook 'elm-mode-hook 'elm-format-on-save-mode)
+  (remove-hook 'elm-mode-hook 'elm-indent-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

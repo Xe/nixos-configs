@@ -13,6 +13,7 @@
       credential.helper = "store --file ~/.git-credentials";
       protocol.keybase.allow = "always";
       init.defaultBranch = "main";
+      pull.rebase = "true";
 
       url = {
         "git@github.com:".insteadOf = "https://github.com/";

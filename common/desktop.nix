@@ -41,7 +41,7 @@
 
   hardware.pulseaudio.extraConfig = ''
     .ifexists module-echo-cancel.so
-    load-module module-echo-cancel aec_method=webrtc source_name=echocancel sink_name=echocancel1
+    load-module module-echo-cancel aec_method=webrtc aec_args="analog_gain_control=0\ digital_gain_control=1" source_name=echocancel sink_name=echocancel1
     set-default-source echocancel
     set-default-sink echocancel1
     .endif

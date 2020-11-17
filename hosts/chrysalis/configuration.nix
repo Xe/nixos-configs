@@ -59,15 +59,7 @@
             "fda2:d982:1da2:8::/64"
           ];
           publicKey = "S8XgS18Z8xiKwed6wu9FE/JEp1a/tFRemSgfUl3JPFw=";
-          endpoint = "192.168.0.177:51820";
-          persistentKeepalive = 25;
-        }
-
-        # keanu
-        {
-          allowedIPs = [ "10.77.2.1/32" "fda2:d982:1da2:8265::/64" ];
-          publicKey = "Dh0D2bdtSmx1Udvuwh7BdWuCADsHEfgWy8usHc1SJkU=";
-          endpoint = "192.168.0.128:51820";
+          endpoint = "192.168.0.179:51820";
           persistentKeepalive = 25;
         }
       ];
@@ -78,9 +70,7 @@
   services.diod = {
     allsquash = false;
     enable = true;
-    exports = [
-      "/home/cadey"
-    ];
+    exports = [ "/home/cadey" ];
     userdb = true;
     squashuser = "cadey";
   };
@@ -91,6 +81,12 @@
   };
 
   within.services = {
+    mi = {
+      enable = true;
+      domain = "mi.akua";
+      port = 28384;
+    };
+
     tron.enable = true;
     withinbot.enable = true;
   };

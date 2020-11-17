@@ -32,6 +32,7 @@ with lib; {
         User = "tron";
         Group = "within";
         Restart = "on-failure";
+        RestartSec = "30s";
       };
 
       script = let tron = pkgs.within.tron;

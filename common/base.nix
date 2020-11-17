@@ -33,10 +33,8 @@ with lib; {
           tron = import (builtins.fetchTarball
             "https://tulpa.dev/cadey/tron/archive/master.tar.gz") { };
           withinbot = import (builtins.fetchTarball "https://github.com/Xe/withinbot/archive/main.tar.gz") { };
-          # withinbot = import (/home/cadey/code/Xe/withinbot) { };
         };
       };
-      manual.manpages.enable = false;
     };
 
     security.pam.loginLimits = [{
