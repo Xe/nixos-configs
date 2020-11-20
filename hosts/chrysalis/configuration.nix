@@ -81,15 +81,18 @@
     vendor = "intel";
   };
 
-  within.services = {
-    mi = {
-      enable = true;
-      domain = "mi.within.website";
-      port = 28384;
-    };
+  within = {
+    backups.enable = true;
+    services = {
+      mi = {
+        enable = true;
+        domain = "mi.within.website";
+        port = 28384;
+      };
 
-    tron.enable = true;
-    withinbot.enable = true;
+      tron.enable = true;
+      withinbot.enable = true;
+    };
   };
 
   # monitoring
