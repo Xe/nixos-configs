@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     /home/cadey/code/nixos-configs/common/users
     /home/cadey/code/nixos-configs/common/base.nix
+    /home/cadey/code/nixos-configs/common/sites/grafana.akua.nix
     /home/cadey/code/nixos-configs/common/sites/keyzen.akua.nix
     /home/cadey/code/nixos-configs/common/sites/start.akua.nix
     /home/cadey/code/nixos-configs/common/services
@@ -89,6 +90,55 @@
 
     tron.enable = true;
     withinbot.enable = true;
+  };
+
+  # monitoring
+  services.grafana = {
+    enable = true;
+    domain = "grafana.akua";
+    port = 2342;
+    addr = "0.0.0.0";
+    # provision."loki" = {
+    #   name = "Loki";
+    #   url = "http://127.0.0.1:3100";
+    # };
+  };
+
+  services.loki = {
+    enable = true;
+    configFile = ./loki-local-config.yaml;
+  };
+
+  services.prometheus = {
+    enable = true;
+    scrapeConfigs = [
+      {
+        job_name = "mi";
+        static_configs = [{
+          targets = [ "127.0.0.1:28384" ];
+          labels = { service = "mi"; };
+        }];
+      }
+      {
+        job_name = "site";
+        scheme = "https";
+        static_configs = [{
+          targets = [ "christine.website" ];
+          labels = { service = "site"; };
+        }];
+      }
+    ];
+  };
+
+  systemd.services.promtail = {
+    description = "Promtail service for Loki";
+    wantedBy = [ "multi-user.target" ];
+
+    serviceConfig = {
+      ExecStart = ''
+        ${pkgs.grafana-loki}/bin/promtail --config.file ${./promtail.yaml}
+      '';
+    };
   };
 }
 
