@@ -6,13 +6,24 @@ in with lib; {
     enable = mkEnableOption "Enables per-host backups to borgbase";
     paths = mkOption {
       type = with types; listOf str;
-      default = [ "/home" "/srv" "/var/lib" "'**/.cache'" "'**/.nix-profile'" "'**/.elm'" "'**/.emacs.d'" ];
+      default = [ "/home" "/srv" "/var/lib" ];
       description = "paths to backup to borgbase";
     };
     exclude = mkOption {
       type = with types; listOf str;
-      default = [ "/var/lib/docker" "/var/lib/systemd" ];
+      default = [
+        "/var/lib/docker"
+        "/var/lib/systemd"
+        "'**/.cache'"
+        "'**/.nix-profile'"
+        "'**/.elm'"
+        "'**/.emacs.d'"
+      ];
       description = "paths to NOT backup to borgbase";
+    };
+    repo = mkOption {
+      type = types.str;
+      description = "Repo to submit backups to";
     };
   };
 
@@ -20,7 +31,7 @@ in with lib; {
     services.borgbackup.jobs."borgbase" = {
       paths = cfg.paths;
       exclude = cfg.exclude;
-      repo = "o6h6zl22@o6h6zl22.repo.borgbase.com:repo";
+      repo = "${cfg.repo}";
       encryption = {
         mode = "repokey-blake2";
         passCommand = "cat /run/keys/borgbackup_passphrase";
@@ -30,7 +41,9 @@ in with lib; {
       startAt = "daily";
     };
 
-    deployment.keys.borgbackup_passphrase.text = builtins.readFile ./secrets/borg_passphrase;
-    deployment.keys.borgbackup_ssh_key.text = builtins.readFile ./secrets/borg_ssh_key;
+    deployment.keys.borgbackup_passphrase.text =
+      builtins.readFile ./secrets/borg_passphrase;
+    deployment.keys.borgbackup_ssh_key.text =
+      builtins.readFile ./secrets/borg_ssh_key;
   };
 }

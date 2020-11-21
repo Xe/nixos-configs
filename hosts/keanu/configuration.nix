@@ -33,6 +33,16 @@
 
   virtualisation.docker.enable = true;
 
+  services.prometheus = {
+    exporters = {
+      node = {
+        enable = true;
+        enabledCollectors = [ "systemd" ];
+      };
+      wireguard.enable = true;
+    };
+  };
+
   networking.wireguard.interfaces = {
     akua = {
       ips = [ "10.77.2.1/16" "fda2:d982:1da2:8265::/64" ];

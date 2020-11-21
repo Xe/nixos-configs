@@ -90,7 +90,11 @@
   };
 
   within = {
-    backups.enable = true;
+    backups = {
+      enable = true;
+      repo = "o6h6zl22@o6h6zl22.repo.borgbase.com:repo";
+    };
+
     services = {
       mi = {
         enable = true;
@@ -136,6 +140,12 @@
         job_name = "chrysalis";
         static_configs = [{
           targets = [ "10.77.2.2:9100" "10.77.2.2:9586" ];
+        }];
+      }
+      {
+        job_name = "keanu";
+        static_configs = [{
+          targets = [ "10.77.2.1:9100" "10.77.2.1:9586" ];
         }];
       }
     ];
