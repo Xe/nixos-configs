@@ -101,6 +101,9 @@
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+
   virtualisation.libvirtd.enable = true;
   networking.firewall.checkReversePath = false;
 
@@ -137,6 +140,14 @@
           allowedIPs = [ "10.77.0.0/16" "10.88.0.0/16" "fda2:d982:1da2::/48" ];
           publicKey = "MvBR3bV1TfACKcF5LQmLL3xlzpdDEatg5dHEyNKA5mw=";
           endpoint = "kahless.cetacean.club:51820";
+          persistentKeepalive = 25;
+        }
+
+        # keanu
+        {
+          allowedIPs = [ "10.77.2.1/32" "fda2:d982:1da2:8265::/64" ];
+          publicKey = "Dh0D2bdtSmx1Udvuwh7BdWuCADsHEfgWy8usHc1SJkU=";
+          endpoint = "192.168.0.159:51820";
           persistentKeepalive = 25;
         }
 

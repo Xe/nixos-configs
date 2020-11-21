@@ -52,6 +52,14 @@
           persistentKeepalive = 25;
         }
 
+        # keanu
+        {
+          allowedIPs = [ "10.77.2.1/32" "fda2:d982:1da2:8265::/64" ];
+          publicKey = "Dh0D2bdtSmx1Udvuwh7BdWuCADsHEfgWy8usHc1SJkU=";
+          endpoint = "192.168.0.159:51820";
+          persistentKeepalive = 25;
+        }
+
         # shachi
         {
           allowedIPs = [
@@ -101,10 +109,6 @@
     domain = "grafana.akua";
     port = 2342;
     addr = "0.0.0.0";
-    # provision."loki" = {
-    #   name = "Loki";
-    #   url = "http://127.0.0.1:3100";
-    # };
   };
 
   services.loki = {
@@ -119,7 +123,6 @@
         job_name = "mi";
         static_configs = [{
           targets = [ "127.0.0.1:28384" ];
-          labels = { service = "mi"; };
         }];
       }
       {
@@ -127,10 +130,23 @@
         scheme = "https";
         static_configs = [{
           targets = [ "christine.website" ];
-          labels = { service = "site"; };
+        }];
+      }
+      {
+        job_name = "chrysalis";
+        static_configs = [{
+          targets = [ "10.77.2.2:9100" "10.77.2.2:9586" ];
         }];
       }
     ];
+
+    exporters = {
+      node = {
+        enable = true;
+        enabledCollectors = [ "systemd" ];
+      };
+      wireguard.enable = true;
+    };
   };
 
   systemd.services.promtail = {
