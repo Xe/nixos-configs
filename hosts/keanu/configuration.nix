@@ -43,6 +43,11 @@
     };
   };
 
+  cadey.cpu = {
+    enable = true;
+    vendor = "intel";
+  };
+
   networking.wireguard.interfaces = {
     akua = {
       ips = [ "10.77.2.1/16" "fda2:d982:1da2:8265::/64" ];
