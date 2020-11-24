@@ -123,6 +123,11 @@
       enable = true;
       vendor = "amd";
     };
+    tailscale = {
+      enable = true;
+      notifySupport = true;
+      package = pkgs.xxx.hack.tailscale;
+    };
   };
 
   # Akua

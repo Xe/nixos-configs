@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 with lib; {
-  imports = [ ./xeserv ./wireguard ./colemak.nix ./microcode.nix ./ssd.nix ];
+  imports = [ ./xeserv ./wireguard ./colemak.nix ./microcode.nix ./ssd.nix ./tailscale.nix ];
 
   options.cadey = {
     gui.enable = mkEnableOption "Enables GUI programs";
@@ -27,6 +27,7 @@ with lib; {
 
     nix = {
       autoOptimiseStore = true;
+      useSandbox = false;
 
       binaryCaches = [ "https://xe.cachix.org" ];
       binaryCachePublicKeys =
@@ -50,6 +51,10 @@ with lib; {
             "https://tulpa.dev/cadey/tron/archive/master.tar.gz") { };
           withinbot = import (builtins.fetchTarball
             "https://github.com/Xe/withinbot/archive/main.tar.gz") { };
+        };
+
+        xxx.hack = {
+          tailscale = pkgs.callPackage ../pkgs/tailscale.nix { };
         };
       };
     };
