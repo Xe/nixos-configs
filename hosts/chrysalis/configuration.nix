@@ -125,28 +125,20 @@
     scrapeConfigs = [
       {
         job_name = "mi";
-        static_configs = [{
-          targets = [ "127.0.0.1:28384" ];
-        }];
+        static_configs = [{ targets = [ "127.0.0.1:28384" ]; }];
       }
       {
         job_name = "site";
         scheme = "https";
-        static_configs = [{
-          targets = [ "christine.website" ];
-        }];
+        static_configs = [{ targets = [ "christine.website" ]; }];
       }
       {
         job_name = "chrysalis";
-        static_configs = [{
-          targets = [ "10.77.2.2:9100" "10.77.2.2:9586" ];
-        }];
+        static_configs = [{ targets = [ "10.77.2.2:9100" "10.77.2.2:9586" ]; }];
       }
       {
         job_name = "keanu";
-        static_configs = [{
-          targets = [ "10.77.2.1:9100" "10.77.2.1:9586" ];
-        }];
+        static_configs = [{ targets = [ "10.77.2.1:9100" "10.77.2.1:9586" ]; }];
       }
     ];
 
@@ -168,6 +160,31 @@
         ${pkgs.grafana-loki}/bin/promtail --config.file ${./promtail.yaml}
       '';
     };
+  };
+
+  services.tor = {
+    enable = true;
+
+    hiddenServices = {
+      "hunt" = {
+        name = "hunt";
+        version = 3;
+        map = [{
+          port = 80;
+          toPort = 80;
+        }];
+      };
+    };
+  };
+
+  services.nginx = {
+    appendHttpConfig = ''
+      server_names_hash_bucket_size 1024;
+    '';
+    virtualHosts."yvzvgjiuz5tkhfuhvjqroybx6d7swzzcaia2qkgeskhu4tv76xiplwad.onion" =
+      {
+        root = "/srv/http/marahunt";
+      };
   };
 }
 

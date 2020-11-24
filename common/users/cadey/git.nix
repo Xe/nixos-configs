@@ -1,14 +1,15 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, nixosConfig, ... }:
 
 {
   programs.git = {
     package = pkgs.gitAndTools.gitFull;
     enable = true;
     userName = "Christine Dodrill";
-    userEmail = "me@christine.website";
+    userEmail = nixosConfig.cadey.git.email;
     ignores = [ "*~" "*.swp" "*#" ];
     delta.enable = true;
     extraConfig = {
+      format.signoff = true;
       core.editor = "vim";
       credential.helper = "store --file ~/.git-credentials";
       protocol.keybase.allow = "always";

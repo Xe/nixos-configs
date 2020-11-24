@@ -98,7 +98,7 @@ in
     "URxvt.matcher.button" = "1";
 
     # Tabs
-    "URxvt.tabbedex.autohide" = "true";
+    "URxvt.tabbedex.autohide" = "false";
     "URxvt.tabbedex.reopen-on-close" = "no";
     "URxvt.keysym.Control-t" = "perl:tabbedex:new_tab";
     "URxvt.keysym.Control-Tab" = "perl:tabbedex:next_tab";
@@ -120,9 +120,11 @@ in
     "URxvt.iso14755" = "false";
     "URxvt.iso14755_52" = "false";
     "URxvt.geometry" = "100x50";
+    "URxvt.depth" = "32";
+    "URxvt.background" = "[95]#32302f";
 
     # Font
-    "URxvt.font" = "xft:Anonymous Pro:size=11";
+    "URxvt.font" = "xft:Hack:size=9";
   };
 
   systemd.user.services = {

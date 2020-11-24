@@ -1,10 +1,18 @@
 { config, lib, pkgs, ... }:
 
 with lib; {
-  imports =
-    [ ./xeserv ./wireguard ./colemak.nix ./microcode.nix ./ssd.nix ];
+  imports = [ ./xeserv ./wireguard ./colemak.nix ./microcode.nix ./ssd.nix ];
 
-  options.cadey.gui.enable = mkEnableOption "Enables GUI programs";
+  options.cadey = {
+    gui.enable = mkEnableOption "Enables GUI programs";
+
+    git.email = mkOption rec {
+      type = types.str;
+      default = "me@christine.website";
+      example = default;
+      description = "Email to use with git commits";
+    };
+  };
 
   config = {
     boot.cleanTmpDir = true;
@@ -32,7 +40,8 @@ with lib; {
             "https://github.com/Xe/mi/archive/mara.tar.gz") { };
           tron = import (builtins.fetchTarball
             "https://tulpa.dev/cadey/tron/archive/master.tar.gz") { };
-          withinbot = import (builtins.fetchTarball "https://github.com/Xe/withinbot/archive/main.tar.gz") { };
+          withinbot = import (builtins.fetchTarball
+            "https://github.com/Xe/withinbot/archive/main.tar.gz") { };
         };
       };
     };

@@ -34,6 +34,13 @@ with lib; {
           Option "XkbVariant" "basic"
         ''
         ''
+          Identifier "gergoplex"
+          MatchIsKeyboard "on"
+          MatchProduct "GergoPlex"
+          Option "XkbLayout" "us"
+          Option "XkbVariant" "basic"
+        ''
+        ''
           Identifier "${config.cadey.colemak.ignore.identifier}"
           MatchIsKeyboard "on"
           MatchProduct "${config.cadey.colemak.ignore.product}"

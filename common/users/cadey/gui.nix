@@ -11,6 +11,7 @@ in {
     ./obs.nix
     ./st
     ./xresources.nix
+    ./urxvt.nix
 
     luakit
     #zathura
