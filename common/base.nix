@@ -6,11 +6,19 @@ with lib; {
   options.cadey = {
     gui.enable = mkEnableOption "Enables GUI programs";
 
-    git.email = mkOption rec {
-      type = types.str;
-      default = "me@christine.website";
-      example = default;
-      description = "Email to use with git commits";
+    git = {
+      name = mkOption rec {
+        type = types.str;
+        default = "Christine Dodrill";
+        example = default;
+        description = "Name to use with git commits";
+      };
+      email = mkOption rec {
+        type = types.str;
+        default = "me@christine.website";
+        example = default;
+        description = "Email to use with git commits";
+      };
     };
   };
 
