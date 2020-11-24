@@ -6,13 +6,13 @@ buildGoModule rec {
   tagHash =
     "37adb62a35d818f4af638924d3fc1526bdeaf215"; # from `git rev-parse v1.2.7`
 
-  src = /home/cadey/code/Xe/tailscale;
+  src = builtins.fetchTarball "https://github.com/Xe/tailscale/archive/report-status-systemd.tar.gz";
 
   nativeBuildInputs = [ makeWrapper ];
 
   CGO_ENABLED = 0;
 
-  vendorSha256 = null;
+  vendorSha256 = "1l894lw23aj8r3ypr9i4d1hklz1kfqshnqgdfi1xfzx8k7zw1a36";
 
   doCheck = false;
 
