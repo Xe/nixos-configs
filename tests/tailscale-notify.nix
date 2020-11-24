@@ -11,7 +11,6 @@ in import "${nixpkgs}/nixos/tests/make-test-python.nix" ({ pkgs, ... }: {
   nodes.machine = { config, pkgs, ... }: {
     imports = [ ../common/tailscale.nix ];
 
-    nix.useSandbox = false;
     nixpkgs.config.packageOverrides = pkgs: {
       xxx.hack.tailscale = pkgs.callPackage ../pkgs/tailscale.nix { };
     };
