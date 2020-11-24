@@ -4,7 +4,11 @@ let
   commitTemplate = with nixosConfig.cadey.git;
     pkgs.writeTextFile {
       name = "cadey-commit-template";
-      text = "Signed-off-by: ${name} <${email}>";
+      text = ''
+
+
+        Signed-off-by: ${name} <${email}>
+      '';
     };
 in {
   programs.git = {
