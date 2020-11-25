@@ -55,6 +55,8 @@ with lib; {
         within = {
           mi = import (builtins.fetchTarball
             "https://github.com/Xe/mi/archive/mara.tar.gz") { };
+          pahi = import (builtins.fetchTarball
+            "https://github.com/Xe/pahi/archive/main.tar.gz") { };
           tron = import (builtins.fetchTarball
             "https://tulpa.dev/cadey/tron/archive/master.tar.gz") { };
           withinbot = import (builtins.fetchTarball

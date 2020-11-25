@@ -30,7 +30,6 @@ in import "${nixpkgs}/nixos/tests/make-test-python.nix" ({ pkgs, ... }: {
   };
 
   testScript = ''
-    import json
     import sys
     import time
 
