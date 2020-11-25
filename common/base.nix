@@ -1,7 +1,15 @@
 { config, lib, pkgs, ... }:
 
 with lib; {
-  imports = [ ./xeserv ./wireguard ./colemak.nix ./microcode.nix ./ssd.nix ./tailscale.nix ];
+  imports = [
+    ./xeserv
+    ./wireguard
+    ./colemak.nix
+    ./microcode.nix
+    ./ssd.nix
+    ./tailscale.nix
+    ./users
+  ];
 
   options.cadey = {
     gui.enable = mkEnableOption "Enables GUI programs";
@@ -53,9 +61,7 @@ with lib; {
             "https://github.com/Xe/withinbot/archive/main.tar.gz") { };
         };
 
-        xxx.hack = {
-          tailscale = pkgs.callPackage ../pkgs/tailscale.nix { };
-        };
+        xxx.hack = { tailscale = pkgs.callPackage ../pkgs/tailscale.nix { }; };
       };
     };
 

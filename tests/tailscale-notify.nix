@@ -37,8 +37,8 @@ in import "${nixpkgs}/nixos/tests/make-test-python.nix" ({ pkgs, ... }: {
     start_all()
 
     machine.wait_for_unit("tailscale.service")
-    time.sleep(15)
-    if "login successful" not in machine.succeed("systemctl status tailscale"):
+    machine.wait_for_console_text("auth=machine-authorized")
+    if "login successful" not in machine.wait_until_succeeds("systemctl status tailscale"):
         sys.exit(1)
   '';
 })
