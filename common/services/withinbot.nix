@@ -31,12 +31,14 @@ with lib; {
         Restart = "on-failure";
         WorkingDirectory = "/srv/within/withinbot";
         RestartSec = "30s";
+        Type = "notify";
       };
 
       script = let withinbot = pkgs.within.withinbot;
       in ''
         export $(grep -v '^#' /run/keys/withinbot | xargs)
         export CAMPAIGN_FOLDER=${withinbot}/campaigns
+        export RUST_LOG=info,serenity::client::bridge::gateway::shard_runner=error,serenity::gateway::shard=error
         exec ${withinbot}/bin/withinbot
       '';
     };

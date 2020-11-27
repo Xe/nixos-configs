@@ -1,11 +1,4 @@
-let
-  nixpkgs = builtins.fetchTarball {
-    url =
-      "https://github.com/NixOS/nixpkgs/archive/58f9c4c7d3a42c912362ca68577162e38ea8edfb.tar.gz";
-
-    sha256 = "1517dy07jf4zhzknqbgm617lgjxsn7a6k1vgq61c67f6h55qs5ij";
-  };
-in import "${nixpkgs}/nixos/tests/make-test-python.nix" ({ pkgs, ... }: {
+import "${<nixpkgs>}/nixos/tests/make-test-python.nix" ({ pkgs, ... }: {
   system = "x86_64-linux";
 
   nodes.machine = { config, pkgs, ... }: {

@@ -52,6 +52,11 @@ with lib; {
             inherit pkgs;
           };
 
+        xe = import (builtins.fetchTarball
+          "https://github.com/Xe/xepkgs/archive/master.tar.gz") {
+            inherit pkgs;
+          };
+
         within = {
           mi = import (builtins.fetchTarball
             "https://github.com/Xe/mi/archive/mara.tar.gz") { };
