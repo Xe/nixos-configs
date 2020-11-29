@@ -8,6 +8,7 @@ with lib; {
     ./microcode.nix
     ./ssd.nix
     ./tailscale.nix
+    ./rhea.nix
     ./users
   ];
 

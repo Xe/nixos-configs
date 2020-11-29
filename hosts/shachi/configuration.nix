@@ -128,6 +128,20 @@
       notifySupport = true;
       package = pkgs.xxx.hack.tailscale;
     };
+
+    rhea = {
+      enable = false;
+      sites = [
+        rec {
+          domain = "rhea.local.cetacean.club";
+          certPath = "/home/cadey/code/Xe/rhea/var/${domain}/cert.pem";
+          keyPath = "/home/cadey/code/Xe/rhea/var/${domain}/key.pem";
+          files = {
+            root = "/home/cadey/code/Xe/public/";
+          };
+        }
+      ];
+    };
   };
 
   # Akua
