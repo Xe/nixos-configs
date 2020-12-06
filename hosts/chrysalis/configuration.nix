@@ -138,6 +138,10 @@
         static_configs = [{ targets = [ "10.77.2.2:9100" "10.77.2.2:9586" ]; }];
       }
       {
+        job_name = "shachi";
+        static_configs = [{ targets = [ "10.77.2.8:9100" "10.77.2.8:9586" ]; }];
+      }
+      {
         job_name = "keanu";
         static_configs = [{ targets = [ "10.77.2.1:9100" "10.77.2.1:9586" ]; }];
       }

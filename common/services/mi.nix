@@ -48,6 +48,7 @@ with lib; {
         Restart = "on-failure";
         WorkingDirectory = "/srv/within/mi";
         RestartSec = "30s";
+        Type = "notify";
       };
 
       script = let mi = pkgs.within.mi;
