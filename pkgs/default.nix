@@ -22,5 +22,7 @@ pkgs: {
     rhea = pkgs.callPackage ./rhea {};
   };
 
+  lagrange = pkgs.callPackage ./lagrange {};
+
   xxx.hack = { tailscale = pkgs.callPackage ../pkgs/tailscale.nix { }; };
 }
