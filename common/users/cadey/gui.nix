@@ -14,7 +14,7 @@ in {
     ./xresources.nix
     ./urxvt.nix
 
-    luakit
+    #luakit
     #zathura
   ];
 

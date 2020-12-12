@@ -8,7 +8,7 @@ in {
     ./dhall.nix
     ./git.nix
     ./k8s.nix
-    ./nixops.nix
+    #./nixops.nix
     ./pastebins
     ./spacemacs
     ./fish
