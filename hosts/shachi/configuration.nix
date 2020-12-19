@@ -12,6 +12,7 @@
     /home/cadey/code/nixos-configs/common/desktop.nix
     /home/cadey/code/nixos-configs/common/programs/plex.nix
     /home/cadey/code/nixos-configs/common/programs/samba.nix
+    ./rhea.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -58,6 +59,7 @@
     vim
     logitech-udev-rules
     ltunify
+    lagrange
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -116,6 +118,7 @@
   system.stateVersion = "20.09"; # Did you read the comment?
 
   programs.adb.enable = true;
+  services.tailscale.enable = true;
 
   cadey = {
     colemak.enable = true;
@@ -124,23 +127,9 @@
       vendor = "amd";
     };
     tailscale = {
-      enable = true;
-      notifySupport = true;
-      package = pkgs.xxx.hack.tailscale;
-    };
-
-    rhea = {
       enable = false;
-      sites = [
-        rec {
-          domain = "rhea.local.cetacean.club";
-          certPath = "/home/cadey/code/Xe/rhea/var/${domain}/cert.pem";
-          keyPath = "/home/cadey/code/Xe/rhea/var/${domain}/key.pem";
-          files = {
-            root = "/home/cadey/code/Xe/public/";
-          };
-        }
-      ];
+      notifySupport = false;
+      package = pkgs.xxx.hack.tailscale;
     };
   };
 

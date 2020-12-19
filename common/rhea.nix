@@ -13,12 +13,36 @@ let
       };
 
       userPaths = mkEnableOption "Enables ~user for ~user/public_gemini";
+      autoIndex = mkEnableOption "Enables automatic index creation";
     };
   };
 
   filesToJSON = files: {
     root = files.root;
     user_paths = files.userPaths;
+    auto_index = files.autoIndex;
+  };
+
+  reverseProxy = types.submodule {
+    options = {
+      domain = mkOption {
+        type = types.str;
+        example = "cetacean.club";
+        description =
+          "Domain to use with the remote host after proxying the request";
+      };
+
+      to = mkOption {
+        type = types.listOf types.str;
+        example = ''[ "cetacean.club:1965"]'';
+        description = "list of host:port sets of backend servers for this site";
+      };
+    };
+  };
+
+  reverseProxyToJSON = rp: {
+    domain = rp.domain;
+    to = rp.to;
   };
 
   site = types.submodule {
@@ -42,8 +66,15 @@ let
       };
 
       files = mkOption {
-        type = files;
+        type = types.nullOr files;
+        default = null;
         description = "files to serve for this site";
+      };
+
+      reverseProxy = mkOption {
+        type = types.nullOr reverseProxy;
+        default = null;
+        description = "reverse proxy target";
       };
     };
   };
@@ -52,7 +83,9 @@ let
     domain = site.domain;
     cert_path = site.certPath;
     key_path = site.keyPath;
-    files = if site != null then (filesToJSON site.files) else null;
+    files = if site.files != null then (filesToJSON site.files) else null;
+    reverse_proxy =
+      if site.reverseProxy != null then (reverseProxyToJSON site.reverseProxy) else null;
   };
 
   configToJSON = cfg: {

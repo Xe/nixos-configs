@@ -23,6 +23,7 @@
     element-desktop
     openssl
     unrar
+steam-run-native
   ];
 
   cadey = {

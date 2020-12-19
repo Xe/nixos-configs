@@ -3,11 +3,11 @@
 let cfg = config.within.backups;
 in with lib; {
   options.within.backups = {
-    enable = mkEnableOption "Enables per-host backups to borgbase";
+    enable = mkEnableOption "Enables per-host backups to rsync.net";
     paths = mkOption {
       type = with types; listOf str;
       default = [ "/home" "/srv" "/var/lib" ];
-      description = "paths to backup to borgbase";
+      description = "paths to backup to rsync.net";
     };
     exclude = mkOption {
       type = with types; listOf str;
@@ -19,7 +19,7 @@ in with lib; {
         "'**/.elm'"
         "'**/.emacs.d'"
       ];
-      description = "paths to NOT backup to borgbase";
+      description = "paths to NOT backup to rsync.net";
     };
     repo = mkOption {
       type = types.str;
@@ -31,7 +31,7 @@ in with lib; {
     services.borgbackup.jobs."borgbase" = {
       paths = cfg.paths;
       exclude = cfg.exclude;
-      repo = "${cfg.repo}";
+      repo = cfg.repo;
       encryption = {
         mode = "repokey-blake2";
         passCommand = "cat /run/keys/borgbackup_passphrase";

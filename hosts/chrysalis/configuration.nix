@@ -10,6 +10,7 @@
     /home/cadey/code/nixos-configs/common/sites/start.akua.nix
     /home/cadey/code/nixos-configs/common/services
     ./tulpachat.nix
+    ./josh.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -93,7 +94,7 @@
   within = {
     backups = {
       enable = true;
-      repo = "o6h6zl22@o6h6zl22.repo.borgbase.com:repo";
+      repo = "57196@usw-s007.rsync.net:chrysalis";
     };
 
     services = {
@@ -120,6 +121,8 @@
     enable = true;
     configFile = ./loki-local-config.yaml;
   };
+
+  services.tailscale.enable = true;
 
   services.prometheus = {
     enable = true;

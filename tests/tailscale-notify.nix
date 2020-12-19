@@ -30,7 +30,11 @@ import "${<nixpkgs>}/nixos/tests/make-test-python.nix" ({ pkgs, ... }: {
 
     machine.wait_for_unit("tailscale.service")
     machine.wait_for_console_text("auth=machine-authorized")
-    if "login successful" not in machine.wait_until_succeeds("systemctl status tailscale"):
+    machine.wait_for_console_text("Finished Tailscale autoprovision hack")
+    time.sleep(5)
+    if "me@christine.website" not in machine.wait_until_succeeds(
+        "systemctl status tailscale"
+    ):
         sys.exit(1)
   '';
 })
