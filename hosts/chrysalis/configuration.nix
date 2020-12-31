@@ -99,6 +99,8 @@
     };
 
     services = {
+      aerial.enable = true;
+
       mi = {
         enable = true;
         domain = "mi.within.website";

@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ ./backup.nix ./mi.nix ./tron.nix ./withinbot.nix ];
+  imports = [ ./aerial.nix ./backup.nix ./mi.nix ./tron.nix ./withinbot.nix ];
 }

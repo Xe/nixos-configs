@@ -19,6 +19,7 @@ pkgs: {
     withinbot = import (builtins.fetchTarball
       "https://github.com/Xe/withinbot/archive/main.tar.gz") { };
 
+    aura = pkgs.callPackage ./aura {};
     rhea = pkgs.callPackage ./rhea {};
   };
 

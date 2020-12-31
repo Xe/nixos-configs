@@ -3,3 +3,4 @@
 
 # github repos
 nix-prefetch-github Xe rhea > ./rhea/source.json
+nix-prefetch-github PonyvilleFM aura > ./aura/source.json
