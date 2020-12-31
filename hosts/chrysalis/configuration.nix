@@ -10,6 +10,7 @@
     /home/cadey/code/nixos-configs/common/sites/start.akua.nix
     /home/cadey/code/nixos-configs/common/services
     ./tulpachat.nix
+    ./furryhole.nix
     ./josh.nix
   ];
 
