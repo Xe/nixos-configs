@@ -60,6 +60,26 @@ with lib; {
       '';
     };
 
+    systemd.services.mi-package-updater = {
+      wantedBy = [ "multi-user.target" ];
+      after = [ "mi-key.service" ];
+      wants = [ "mi-key.service" ];
+
+      serviceConfig = {
+        User = "mi";
+        Group = "within";
+        WorkingDirectory = "/srv/within/mi";
+      };
+
+      script = let mi = pkgs.within.mi;
+      in ''
+        export DATABASE_URL=./mi.db
+        exec ${mi}/bin/package_track
+      '';
+
+      startAt = "*-*-* 00:00:00"; # daily
+    };
+
     services.nginx.virtualHosts."mi" = {
       serverName = "${config.within.services.mi.domain}";
       locations."/" = {

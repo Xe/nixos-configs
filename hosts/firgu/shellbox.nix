@@ -1,11 +1,12 @@
 { config, lib, pkgs, ... }:
 
 let
-  mkUser = info: {
+  mkUser = {shell, keys, ...}: {
     isNormalUser = true;
-    extraGroups = [ "ponydevs" ];
-    shell = info.shell;
-    openssh.authorizedKeys.keys = info.keys;
+    extraGroups = [ "ponydev" ];
+    createHome = true;
+    inherit shell;
+    openssh.authorizedKeys.keys = keys;
   };
 
 in {
@@ -45,7 +46,7 @@ in {
      |__|  |__||__|  \___  /|____/
                     /_____/
 
-    firgu(noun): Benificial, nice, an aid to
+    firgu(noun/adj): Benificial, nice, an aid to
 
     Welcome to the ponydev pubnix! Things are still being set up.
 
@@ -79,7 +80,7 @@ in {
         certPath = "/var/lib/acme/${domain}/cert.pem";
         keyPath = "/var/lib/acme/${domain}/key.pem";
         files = {
-          root = "/srv/gemini/sh.pony.dev";
+          root = "/srv/gemini/${domain}";
           autoIndex = true;
           userPaths = true;
         };
@@ -90,7 +91,7 @@ in {
   security.acme.acceptTerms = true;
   security.acme.email = "me+firgu@christine.website";
 
-  systemd.services.nginx.serviceConfig.ProtectHome = false;
+  systemd.services.nginx.serviceConfig.ProtectHome = "read-only";
   services.nginx = {
     enable = true;
     group = "users";

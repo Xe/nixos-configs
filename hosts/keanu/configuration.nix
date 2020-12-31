@@ -33,6 +33,7 @@
   services.logind.lidSwitch = "ignore";
 
   virtualisation.docker.enable = true;
+  virtualisation.libvirtd.enable = true;
 
   services.prometheus = {
     exporters = {
