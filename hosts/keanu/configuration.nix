@@ -88,5 +88,16 @@
       ];
     };
   };
+
+  services.nginx.enable = true;
+
+  within = {
+    backups = {
+      enable = true;
+      repo = "57196@usw-s007.rsync.net:keanu";
+    };
+
+    services.xesite.enable = true;
+  };
 }
 

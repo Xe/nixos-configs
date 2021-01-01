@@ -34,7 +34,7 @@ with lib; {
       text = builtins.readFile ./secrets/mi.toml;
       user = "mi";
       group = "within";
-      permissions = "0640";
+      permissions = "0400";
     };
 
     systemd.services.mi = {
@@ -69,6 +69,7 @@ with lib; {
         User = "mi";
         Group = "within";
         WorkingDirectory = "/srv/within/mi";
+        Type = "oneshot";
       };
 
       script = let mi = pkgs.within.mi;
