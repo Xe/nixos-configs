@@ -18,9 +18,14 @@ github Xe rhea &
 github PonyvilleFM aura &
 github Xe site &
 github Xe mi &
+github goproxyio goproxy &
 
 # git repos
-git https tulpa.dev/cadey/dwm &
 git https tulpa.dev/cadey/cabytcini &
+git https tulpa.dev/cadey/dwm &
+git https tulpa.dev/cadey/hlang &
+git https tulpa.dev/cadey/lewa &
+git https tulpa.dev/cadey/printerfacts &
+git https tulpa.dev/Xe/quickserv &
 
 wait
