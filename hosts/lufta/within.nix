@@ -53,11 +53,14 @@
       };
 
       aerial.enable = true;
+      graphviz.enable = true;
+      idp.enable = true;
       oragono.enable = true;
       tron.enable = true;
       tulpaforce.enable = true;
       tulpanomicon.enable = true;
       withinbot.enable = true;
+      withinwebsite.enable = true;
     };
   };
 }

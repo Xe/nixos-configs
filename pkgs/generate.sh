@@ -18,6 +18,7 @@ github PonyvilleFM aura &
 github Xe mi &
 github Xe rhea &
 github Xe site &
+github Xe GraphvizOnline &
 github goproxyio goproxy &
 github oragono oragono &
 github jroimartin sw &

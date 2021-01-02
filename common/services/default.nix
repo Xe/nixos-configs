@@ -5,8 +5,10 @@
     ./aerial.nix
     ./backup.nix
     ./goproxy.nix
+    ./graphvizonline.nix
     ./hlang.nix
     ./lewa.nix
+    ./idp.nix
     ./mi.nix
     ./oragono.nix
     ./printerfacts.nix
@@ -14,6 +16,7 @@
     ./tulpaforce.nix
     ./tulpanomicon.nix
     ./withinbot.nix
+    ./withinwebsite.nix
     ./xesite.nix
   ];
 }

@@ -53,6 +53,11 @@ in {
     email = "me@christine.website";
     dnsProvider = "cloudflare";
     credentialsFile = "${creds}";
-    extraDomainNames = [ "*.xeserv.us" "*.greedo.xeserv.us" ];
+    extraDomainNames = [
+      "*.xeserv.us"
+      "*.greedo.xeserv.us"
+      "*.apps.xeserv.us"
+      "*.minipaas.xeserv.us"
+    ];
   };
 }

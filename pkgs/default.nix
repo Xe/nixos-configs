@@ -10,6 +10,7 @@ pkgs: rec {
     oragono.oragono = pkgs.callPackage ./github.com/oragono/oragono { };
     PonyvilleFM.aura = pkgs.callPackage ./github.com/PonyvilleFM/aura { };
     Xe = {
+      GraphvizOnline = pkgs.callPackage ./github.com/Xe/GraphvizOnline { };
       mi = pkgs.callPackage ./github.com/Xe/mi { };
       rhea = pkgs.callPackage ./github.com/Xe/rhea { };
       site = pkgs.callPackage ./github.com/Xe/site { };
@@ -46,6 +47,11 @@ pkgs: rec {
   };
 
   lagrange = pkgs.callPackage ./lagrange { };
+
+  x = {
+    idp = pkgs.callPackage ./x/idp.nix { };
+    withinwebsite = pkgs.callPackage ./x/withinwebsite.nix { };
+  };
 
   xxx.hack = { tailscale = pkgs.callPackage ./tailscale.nix { }; };
 }
