@@ -5,6 +5,7 @@
     ./aerial.nix
     ./backup.nix
     ./goproxy.nix
+    ./hlang.nix
     ./lewa.nix
     ./mi.nix
     ./oragono.nix

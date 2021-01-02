@@ -4,6 +4,7 @@ let cfg = config.within.services.printerfacts;
 in {
   options.within.services.printerfacts = {
     enable = mkEnableOption "Activates the printerfacts server";
+    useACME = mkEnableOption "Enables ACME for cert stuff";
 
     port = mkOption {
       type = types.int;
@@ -29,13 +30,6 @@ in {
       group = "within";
       home = "/srv/within/printerfacts";
       extraGroups = [ "keys" ];
-    };
-
-    deployment.keys.printerfacts = {
-      text = builtins.readFile ./secrets/printerfacts.env;
-      user = "printerfacts";
-      group = "within";
-      permissions = "0400";
     };
 
     systemd.services.printerfacts = {
@@ -94,17 +88,21 @@ in {
       script = let site = pkgs.tulpa.dev.cadey.printerfacts; in ''
         export PORT=${toString cfg.port}
         export DOMAIN=${toString cfg.domain}
+        export RUST_LOG=info
         cd ${site}
         exec ${site}/bin/printerfacts
       '';
     };
 
-    services.nginx.virtualHosts."printerfacts" = {
-      serverName = "${cfg.domain}";
+    services.cfdyndns = mkIf cfg.useACME { records = [ "${cfg.domain}" ]; };
+
+    services.nginx.virtualHosts."${cfg.domain}" = {
       locations."/" = {
         proxyPass = "http://127.0.0.1:${toString cfg.port}";
         proxyWebsockets = true;
       };
+      forceSSL = cfg.useACME;
+      enableACME = cfg.useACME;
     };
   };
 }

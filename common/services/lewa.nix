@@ -19,10 +19,11 @@ let cfg = config.within.services.lewa; in {
   config = mkIf cfg.enable {
     services.nginx.virtualHosts."lewa" = {
       serverName = "${cfg.domain}";
-      locations."/".root = "${pkgs.tulpa.dev.cadey.lewa}";
-    } // mkIf cfg.useACME {
-      forceSSL = true;
-      enableACME = true;
+      locations."/".root = "${pkgs.tulpa.dev.cadey.lewa}/book";
+      forceSSL = cfg.useACME;
+      enableACME = cfg.useACME;
     };
+
+    services.cfdyndns = mkIf cfg.useACME { records = [ "${cfg.domain}" ]; };
   };
 }

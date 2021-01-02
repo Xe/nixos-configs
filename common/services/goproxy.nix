@@ -80,12 +80,13 @@ in {
       '';
     };
 
+    services.cfdyndns = mkIf cfg.useACME { records = [ "${cfg.domain}" ]; };
+
     services.nginx.virtualHosts."goproxy" = {
       serverName = "${cfg.domain}";
       locations."/".proxyPass = "http://127.0.0.1:${toString cfg.port}";
-    } // mkIf cfg.useACME {
-      forceSSL = true;
-      enableACME = true;
+      forceSSL = cfg.useACME;
+      enableACME = cfg.useACME;
     };
   };
 }

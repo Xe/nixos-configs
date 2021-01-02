@@ -31,6 +31,7 @@ in {
       isSystemUser = true;
       group = "within";
       home = "/srv/within/hlang";
+      packages = with pkgs; [ wabt ];
     };
 
     systemd.services.hlang = {
@@ -46,16 +47,17 @@ in {
 
       script = let h = pkgs.tulpa.dev.cadey.hlang;
       in ''
-        exec ${h}/bin/h -port=${toString cfg.port}" 
+        exec ${h}/bin/hlang -port=${toString cfg.port}
       '';
     };
+
+    services.cfdyndns = mkIf cfg.useACME { records = [ "${cfg.domain}" ]; };
 
     services.nginx.virtualHosts."hlang" = {
       serverName = "${cfg.domain}";
       locations."/".proxyPass = "http://127.0.0.1:${toString cfg.port}";
-    } // mkIf cfg.useACME {
-      forceSSL = true;
-      enableACME = true;
+      forceSSL = cfg.useACME;
+      enableACME = cfg.useACME;
     };
   };
 }

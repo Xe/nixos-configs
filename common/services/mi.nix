@@ -1,8 +1,11 @@
 { config, lib, pkgs, ... }:
 
-with lib; {
+with lib;
+
+let cfg = config.within.services.mi; in {
   options.within.services.mi = {
     enable = mkEnableOption "Activates mi (a personal API)";
+    useACME = mkEnableOption "Enables ACME for cert stuff";
 
     port = mkOption {
       type = types.int;
@@ -20,7 +23,7 @@ with lib; {
     };
   };
 
-  config = mkIf config.within.services.mi.enable {
+  config = mkIf cfg.enable {
     users.users.mi = {
       createHome = true;
       description = "github.com/Xe/mi";
@@ -55,7 +58,7 @@ with lib; {
       in ''
         rm Rocket.toml ||:
         ln -s /run/keys/mi ./Rocket.toml
-        export ROCKET_PORT=${toString config.within.services.mi.port}
+        export ROCKET_PORT=${toString cfg.port}
         exec ${mi}/bin/mi-backend
       '';
     };
@@ -82,11 +85,15 @@ with lib; {
     };
 
     services.nginx.virtualHosts."mi" = {
-      serverName = "${config.within.services.mi.domain}";
+      serverName = "${cfg.domain}";
       locations."/" = {
-        proxyPass = "http://127.0.0.1:${toString config.within.services.mi.port}";
+        proxyPass = "http://127.0.0.1:${toString cfg.port}";
         proxyWebsockets = true;
       };
+      forceSSL = cfg.useACME;
+      enableACME = cfg.useACME;
     };
+
+    services.cfdyndns = mkIf cfg.useACME { records = [ "${cfg.domain}" ]; };
   };
 }

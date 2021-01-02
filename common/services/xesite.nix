@@ -4,6 +4,7 @@ let cfg = config.within.services.xesite;
 in {
   options.within.services.xesite = {
     enable = mkEnableOption "Activates my personal website";
+    useACME = mkEnableOption "Enables ACME for cert stuff";
 
     port = mkOption {
       type = types.int;
@@ -108,6 +109,8 @@ in {
         proxyPass = "http://127.0.0.1:${toString cfg.port}";
         proxyWebsockets = true;
       };
+      forceSSL = cfg.useACME;
+      enableACME = cfg.useACME;
     };
   };
 }

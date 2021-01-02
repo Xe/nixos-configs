@@ -10,6 +10,7 @@
     /home/cadey/code/nixos-configs/common/services
     /home/cadey/code/nixos-configs/common/users
     /home/cadey/code/nixos-configs/common/base.nix
+    /home/cadey/code/nixos-configs/common/sites/start.akua.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -100,7 +101,12 @@
     };
 
     services = {
+      goproxy.enable = true;
+      lewa.enable = true;
+      hlang.enable = true;
       oragono.enable = true;
+      printerfacts.enable = true;
+      xesite.enable = true;
     };
   };
 }

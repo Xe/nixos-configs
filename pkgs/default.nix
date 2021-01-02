@@ -33,7 +33,13 @@ pkgs: rec {
     mi = github.com.Xe.mi;
   };
 
-  tulpa.dev = { };
+  tulpa.dev = {
+    cadey = {
+      lewa = pkgs.callPackage ./tulpa.dev/cadey/lewa { };
+      hlang = pkgs.callPackage ./tulpa.dev/cadey/hlang { };
+      printerfacts = pkgs.callPackage ./tulpa.dev/cadey/printerfacts { };
+    };
+  };
 
   lagrange = pkgs.callPackage ./lagrange { };
 
