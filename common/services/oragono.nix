@@ -50,7 +50,7 @@ in {
     services.tor.hiddenServices = {
       "oragono" = {
         name = "oragono";
-        version = 3;
+        version = 2;
         map = [{
           port = "6667";
           toPort = "23181";
