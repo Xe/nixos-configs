@@ -5,13 +5,12 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      /home/cadey/code/nixos-configs/common/services
-      /home/cadey/code/nixos-configs/common/users
-      /home/cadey/code/nixos-configs/common/base.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    /home/cadey/code/nixos-configs/common/services
+    /home/cadey/code/nixos-configs/common/users
+    /home/cadey/code/nixos-configs/common/base.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -90,6 +89,9 @@
   };
 
   services.nginx.enable = true;
+  services.tor.enable = true;
+  services.mysql.enable = true;
+  services.mysql.package = pkgs.mariadb;
 
   within = {
     backups = {
@@ -97,7 +99,9 @@
       repo = "57196@usw-s007.rsync.net:keanu";
     };
 
-    services.xesite.enable = true;
+    services = {
+      oragono.enable = true;
+    };
   };
 }
 

@@ -5,11 +5,13 @@ pkgs: rec {
     };
 
   github.com = {
-    PonyvilleFM.aura = pkgs.callPackage ./github.com/PonyvilleFM/aura {};
+    goproxyio.goproxy = pkgs.callPackage ./github.com/goproxyio/goproxy { };
+    oragono.oragono = pkgs.callPackage ./github.com/oragono/oragono { };
+    PonyvilleFM.aura = pkgs.callPackage ./github.com/PonyvilleFM/aura { };
     Xe = {
-      mi = pkgs.callPackage ./github.com/Xe/mi {};
-      rhea = pkgs.callPackage ./github.com/Xe/rhea {};
-      site = pkgs.callPackage ./github.com/Xe/site {};
+      mi = pkgs.callPackage ./github.com/Xe/mi { };
+      rhea = pkgs.callPackage ./github.com/Xe/rhea { };
+      site = pkgs.callPackage ./github.com/Xe/site { };
     };
   };
 
@@ -31,9 +33,9 @@ pkgs: rec {
     mi = github.com.Xe.mi;
   };
 
-  tulpa.dev = {};
+  tulpa.dev = { };
 
-  lagrange = pkgs.callPackage ./lagrange {};
+  lagrange = pkgs.callPackage ./lagrange { };
 
   xxx.hack = { tailscale = pkgs.callPackage ./tailscale.nix { }; };
 }

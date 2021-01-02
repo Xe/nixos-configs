@@ -14,11 +14,12 @@ function git() {
 }
 
 # github repos
-github Xe rhea &
 github PonyvilleFM aura &
-github Xe site &
 github Xe mi &
+github Xe rhea &
+github Xe site &
 github goproxyio goproxy &
+github oragono oragono &
 
 # git repos
 git https tulpa.dev/cadey/cabytcini &
