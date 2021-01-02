@@ -19,9 +19,10 @@ in {
     rootUrl = "https://${cfg.domain}/";
     httpAddress = "127.0.0.1";
     httpPort = 49381;
+    log.level = "Error";
     settings = {
-      server = { SSH_DOMAIN = "ssh.tulpa.dev"; };
-      other = { SHOW_FOOTER_VERSION = false; };
+      server.SSH_DOMAIN = "ssh.tulpa.dev";
+      other.SHOW_FOOTER_VERSION = false;
     };
     dump.enable = false;
     extraConfig = builtins.readFile ./secret/gitea.ini;
