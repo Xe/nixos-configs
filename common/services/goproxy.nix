@@ -86,7 +86,7 @@ in {
       serverName = "${cfg.domain}";
       locations."/".proxyPass = "http://127.0.0.1:${toString cfg.port}";
       forceSSL = cfg.useACME;
-      enableACME = cfg.useACME;
+      useACMEHost = "xeserv.us";
     };
   };
 }

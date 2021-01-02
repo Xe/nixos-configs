@@ -6,6 +6,7 @@ pkgs: rec {
 
   github.com = {
     goproxyio.goproxy = pkgs.callPackage ./github.com/goproxyio/goproxy { };
+    jroimartin.sw = pkgs.callPackage ./github.com/jroimartin/sw { };
     oragono.oragono = pkgs.callPackage ./github.com/oragono/oragono { };
     PonyvilleFM.aura = pkgs.callPackage ./github.com/PonyvilleFM/aura { };
     Xe = {
@@ -34,11 +35,14 @@ pkgs: rec {
   };
 
   tulpa.dev = {
-    cadey = {
+    cadey = let sw = github.com.jroimartin.sw;
+    in {
       lewa = pkgs.callPackage ./tulpa.dev/cadey/lewa { };
       hlang = pkgs.callPackage ./tulpa.dev/cadey/hlang { };
       printerfacts = pkgs.callPackage ./tulpa.dev/cadey/printerfacts { };
+      tulpaforce = pkgs.callPackage ./tulpa.dev/cadey/tulpaforce { inherit sw; };
     };
+    tulpa-ebooks.tulpanomicon = pkgs.callPackage ./tulpa.dev/tulpa-ebooks/tulpanomicon { };
   };
 
   lagrange = pkgs.callPackage ./lagrange { };

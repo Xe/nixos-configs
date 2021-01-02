@@ -151,6 +151,14 @@
           persistentKeepalive = 25;
         }
 
+        # lufta
+        {
+          publicKey = "GJMOmAHUXQ7NfAMuEKQ7zhMmd1TIuJKKGYiC8hVpgEU=";
+          allowedIPs = [ "10.77.3.1/32" "fda2:d982:1da2:4711::/64" ];
+          endpoint = "135.181.162.99:51822";
+          persistentKeepalive = 25;
+        }
+
         # keanu
         {
           allowedIPs = [ "10.77.2.1/32" "fda2:d982:1da2:8265::/64" ];

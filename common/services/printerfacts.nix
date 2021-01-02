@@ -102,7 +102,7 @@ in {
         proxyWebsockets = true;
       };
       forceSSL = cfg.useACME;
-      enableACME = cfg.useACME;
+      useACMEHost = "cetacean.club";
     };
   };
 }

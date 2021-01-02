@@ -11,6 +11,8 @@
     ./oragono.nix
     ./printerfacts.nix
     ./tron.nix
+    ./tulpaforce.nix
+    ./tulpanomicon.nix
     ./withinbot.nix
     ./xesite.nix
   ];

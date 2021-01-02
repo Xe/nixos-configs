@@ -55,6 +55,14 @@
           persistentKeepalive = 25;
         }
 
+        # lufta
+        {
+          publicKey = "GJMOmAHUXQ7NfAMuEKQ7zhMmd1TIuJKKGYiC8hVpgEU=";
+          allowedIPs = [ "10.77.3.1/32" "fda2:d982:1da2:4711::/64" ];
+          endpoint = "135.181.162.99:51822";
+          persistentKeepalive = 25;
+        }
+
         # keanu
         {
           allowedIPs = [ "10.77.2.1/32" "fda2:d982:1da2:8265::/64" ];
@@ -97,19 +105,6 @@
       enable = true;
       repo = "57196@usw-s007.rsync.net:chrysalis";
     };
-
-    services = {
-      aerial.enable = true;
-
-      mi = {
-        enable = true;
-        domain = "mi.within.website";
-        port = 28384;
-      };
-
-      tron.enable = true;
-      withinbot.enable = true;
-    };
   };
 
   # monitoring
@@ -132,7 +127,7 @@
     scrapeConfigs = [
       {
         job_name = "mi";
-        static_configs = [{ targets = [ "127.0.0.1:28384" ]; }];
+        static_configs = [{ targets = [ "10.77.3.1:38184" ]; }];
       }
       {
         job_name = "site";
@@ -150,6 +145,10 @@
       {
         job_name = "keanu";
         static_configs = [{ targets = [ "10.77.2.1:9100" "10.77.2.1:9586" ]; }];
+      }
+      {
+        job_name = "lufta";
+        static_configs = [{ targets = [ "10.77.3.1:9100" "10.77.3.1:9586" ]; }];
       }
     ];
 

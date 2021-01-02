@@ -85,13 +85,21 @@
           endpoint = "192.168.0.176:51820";
           persistentKeepalive = 25;
         }
+
+        # lufta
+        {
+          publicKey = "GJMOmAHUXQ7NfAMuEKQ7zhMmd1TIuJKKGYiC8hVpgEU=";
+          allowedIPs = [ "10.77.3.1/32" "fda2:d982:1da2:4711::/64" ];
+          endpoint = "135.181.162.99:51822";
+          persistentKeepalive = 25;
+        }
       ];
     };
   };
 
   services.nginx.enable = true;
-  services.tor.enable = true;
-  services.mysql.enable = true;
+  services.tor.enable = false;
+  services.mysql.enable = false;
   services.mysql.package = pkgs.mariadb;
 
   within = {
@@ -101,12 +109,12 @@
     };
 
     services = {
-      goproxy.enable = true;
-      lewa.enable = true;
-      hlang.enable = true;
-      oragono.enable = true;
-      printerfacts.enable = true;
-      xesite.enable = true;
+      goproxy.enable = false;
+      lewa.enable = false;
+      hlang.enable = false;
+      oragono.enable = false;
+      printerfacts.enable = false;
+      xesite.enable = false;
     };
   };
 }

@@ -20,6 +20,7 @@ github Xe rhea &
 github Xe site &
 github goproxyio goproxy &
 github oragono oragono &
+github jroimartin sw &
 
 # git repos
 git https tulpa.dev/cadey/cabytcini &
@@ -27,6 +28,8 @@ git https tulpa.dev/cadey/dwm &
 git https tulpa.dev/cadey/hlang &
 git https tulpa.dev/cadey/lewa &
 git https tulpa.dev/cadey/printerfacts &
+git https tulpa.dev/cadey/tulpaforce &
 git https tulpa.dev/Xe/quickserv &
+git https tulpa.dev/tulpa-ebooks/tulpanomicon &
 
 wait

@@ -91,7 +91,7 @@ let cfg = config.within.services.mi; in {
         proxyWebsockets = true;
       };
       forceSSL = cfg.useACME;
-      enableACME = cfg.useACME;
+      useACMEHost = "within.website";
     };
 
     services.cfdyndns = mkIf cfg.useACME { records = [ "${cfg.domain}" ]; };

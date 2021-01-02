@@ -21,7 +21,7 @@ let cfg = config.within.services.lewa; in {
       serverName = "${cfg.domain}";
       locations."/".root = "${pkgs.tulpa.dev.cadey.lewa}/book";
       forceSSL = cfg.useACME;
-      enableACME = cfg.useACME;
+      useACMEHost = "within.website";
     };
 
     services.cfdyndns = mkIf cfg.useACME { records = [ "${cfg.domain}" ]; };

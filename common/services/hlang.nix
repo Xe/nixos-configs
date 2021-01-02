@@ -31,7 +31,6 @@ in {
       isSystemUser = true;
       group = "within";
       home = "/srv/within/hlang";
-      packages = with pkgs; [ wabt ];
     };
 
     systemd.services.hlang = {
@@ -47,6 +46,7 @@ in {
 
       script = let h = pkgs.tulpa.dev.cadey.hlang;
       in ''
+        export PATH=${pkgs.wabt}/bin:$PATH
         exec ${h}/bin/hlang -port=${toString cfg.port}
       '';
     };
@@ -57,7 +57,7 @@ in {
       serverName = "${cfg.domain}";
       locations."/".proxyPass = "http://127.0.0.1:${toString cfg.port}";
       forceSSL = cfg.useACME;
-      enableACME = cfg.useACME;
+      useACMEHost = "christine.website";
     };
   };
 }

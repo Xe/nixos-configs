@@ -110,7 +110,7 @@ in {
         proxyWebsockets = true;
       };
       forceSSL = cfg.useACME;
-      enableACME = cfg.useACME;
+      useACMEHost = "christine.website";
     };
   };
 }
