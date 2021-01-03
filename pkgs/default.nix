@@ -49,6 +49,7 @@ pkgs: rec {
   lagrange = pkgs.callPackage ./lagrange { };
 
   x = {
+    caddy = pkgs.callPackage ./x/caddy.nix { };
     idp = pkgs.callPackage ./x/idp.nix { };
     withinwebsite = pkgs.callPackage ./x/withinwebsite.nix { };
     johaus = pkgs.callPackage ./x/johaus.nix { };

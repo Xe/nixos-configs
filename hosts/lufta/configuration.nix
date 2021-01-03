@@ -3,9 +3,11 @@
 {
   imports = [
     ./acme.nix
+    ./docker.nix
     ./gitea.nix
     ./hardware-configuration.nix
     ./within.nix
+    ./when-then-zen.nix
 
     /home/cadey/code/nixos-configs/common/users
     /home/cadey/code/nixos-configs/common/base.nix
