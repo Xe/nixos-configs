@@ -79,10 +79,11 @@
   services.cfdyndns = {
     enable = true;
     email = "shadow.h511@gmail.com";
-    apikeyFile = "${pkgs.writeTextFile {text = builtins.readFile ./secret/cf-api-key; name = "cf.key"; }}";
-    records = [
-      "lufta.cetacean.club"
-    ];
+    apikeyFile = "${pkgs.writeTextFile {
+      text = builtins.readFile ./secret/cf-api-key;
+      name = "cf.key";
+    }}";
+    records = [ "lufta.cetacean.club" ];
   };
 
   virtualisation.docker.enable = true;
@@ -94,47 +95,53 @@
   services.mysql.enable = true;
   services.mysql.package = pkgs.mariadb;
 
-  # networking.wireguard.interfaces = {
-  #   akua = {
-  #     ips = [ "10.77.3.1/16" "fda2:d982:1da2:4711::/64" ];
+  services.zfs.autoScrub.enable = true;
+  services.zfs.autoSnapshot = {
+    enable = true;
+    monthly = 1;
+  };
 
-  #     privateKeyFile = "/root/wireguard-keys/private";
-  #     listenPort = 51822;
+  networking.wireguard.interfaces = {
+    akua = {
+      ips = [ "10.77.3.1/16" "fda2:d982:1da2:4711::/64" ];
 
-  #     peers = [
-  #       # kahless
-  #       {
-  #         allowedIPs = [ "10.77.0.0/16" "10.88.0.0/16" "fda2:d982:1da2::/48" ];
-  #         publicKey = "MvBR3bV1TfACKcF5LQmLL3xlzpdDEatg5dHEyNKA5mw=";
-  #         endpoint = "kahless.cetacean.club:51820";
-  #         persistentKeepalive = 25;
-  #       }
+      privateKeyFile = "/root/wireguard-keys/private";
+      listenPort = 51822;
 
-  #       # chrysalis
-  #       {
-  #         allowedIPs = [ "10.77.2.2/32" "fda2:d982:1da2:ed22::/64" ];
-  #         publicKey = "Um46toyF9DPeyQWmy4nyyxJH/m37HWXcX+ncJa3Mg0A=";
-  #         persistentKeepalive = 25;
-  #       }
+      peers = [
+        # kahless
+        {
+          allowedIPs = [ "10.77.0.0/16" "10.88.0.0/16" "fda2:d982:1da2::/48" ];
+          publicKey = "MvBR3bV1TfACKcF5LQmLL3xlzpdDEatg5dHEyNKA5mw=";
+          endpoint = "kahless.cetacean.club:51820";
+          persistentKeepalive = 25;
+        }
 
-  #       # keanu
-  #       {
-  #         allowedIPs = [ "10.77.2.1/32" "fda2:d982:1da2:8265::/64" ];
-  #         publicKey = "Dh0D2bdtSmx1Udvuwh7BdWuCADsHEfgWy8usHc1SJkU=";
-  #         persistentKeepalive = 25;
-  #       }
+        # chrysalis
+        {
+          allowedIPs = [ "10.77.2.2/32" "fda2:d982:1da2:ed22::/64" ];
+          publicKey = "Um46toyF9DPeyQWmy4nyyxJH/m37HWXcX+ncJa3Mg0A=";
+          persistentKeepalive = 25;
+        }
 
-  #       # shachi
-  #       {
-  #         allowedIPs = [
-  #           "10.77.2.8/32"
-  #           "fda2:d982:1da2:2::8/128"
-  #           "fda2:d982:1da2:8::/64"
-  #         ];
-  #         publicKey = "S8XgS18Z8xiKwed6wu9FE/JEp1a/tFRemSgfUl3JPFw=";
-  #         persistentKeepalive = 25;
-  #       }
-  #     ];
-  #   };
-  # };
+        # keanu
+        {
+          allowedIPs = [ "10.77.2.1/32" "fda2:d982:1da2:8265::/64" ];
+          publicKey = "Dh0D2bdtSmx1Udvuwh7BdWuCADsHEfgWy8usHc1SJkU=";
+          persistentKeepalive = 25;
+        }
+
+        # shachi
+        {
+          allowedIPs = [
+            "10.77.2.8/32"
+            "fda2:d982:1da2:2::8/128"
+            "fda2:d982:1da2:8::/64"
+          ];
+          publicKey = "S8XgS18Z8xiKwed6wu9FE/JEp1a/tFRemSgfUl3JPFw=";
+          persistentKeepalive = 25;
+        }
+      ];
+    };
+  };
 }
