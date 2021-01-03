@@ -51,6 +51,7 @@ pkgs: rec {
   x = {
     idp = pkgs.callPackage ./x/idp.nix { };
     withinwebsite = pkgs.callPackage ./x/withinwebsite.nix { };
+    johaus = pkgs.callPackage ./x/johaus.nix { };
   };
 
   xxx.hack = { tailscale = pkgs.callPackage ./tailscale.nix { }; };

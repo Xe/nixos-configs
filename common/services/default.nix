@@ -7,6 +7,7 @@
     ./goproxy.nix
     ./graphvizonline.nix
     ./hlang.nix
+    ./johaus.nix
     ./lewa.nix
     ./idp.nix
     ./mi.nix

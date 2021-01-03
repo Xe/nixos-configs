@@ -1,4 +1,4 @@
-{...}:
+{ ... }:
 
 {
   within = {
@@ -55,6 +55,7 @@
       aerial.enable = true;
       graphviz.enable = true;
       idp.enable = true;
+      johaus.enable = true;
       oragono.enable = true;
       tron.enable = true;
       tulpaforce.enable = true;

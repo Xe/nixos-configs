@@ -31,7 +31,6 @@ with lib; {
         Restart = "on-failure";
         WorkingDirectory = "/srv/within/withinbot";
         RestartSec = "30s";
-        Type = "notify";
 
         # security settings
         CapabilityBoundingSet = "";
