@@ -19,7 +19,6 @@
     killall
     file
     gimp
-    waifu2x-converter-cpp
     element-desktop
     openssl
     unrar

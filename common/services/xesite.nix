@@ -7,10 +7,10 @@ in {
     useACME = mkEnableOption "Enables ACME for cert stuff";
 
     port = mkOption {
-      type = types.int;
-      default = 3030;
+      type = types.port;
+      default = 32837;
       example = 9001;
-      description = "The port number mi should listen on for HTTP traffic";
+      description = "The port number xesite should listen on for HTTP traffic";
     };
 
     domain = mkOption {
@@ -41,8 +41,8 @@ in {
 
     systemd.services.xesite = {
       wantedBy = [ "multi-user.target" ];
-      after = [ "xesite-key.service" ];
-      wants = [ "xesite-key.service" ];
+      after = [ "xesite-key.service" "mi.service" ];
+      wants = [ "xesite-key.service" "mi.service" ];
 
       serviceConfig = {
         User = "xesite";
@@ -53,7 +53,7 @@ in {
 
         # Security
         CapabilityBoundingSet = "";
-        DeviceAllow = [];
+        DeviceAllow = [ ];
         NoNewPrivileges = "true";
         ProtectControlGroups = "true";
         ProtectClock = "true";
@@ -94,12 +94,20 @@ in {
         UMask = "077";
       };
 
-      script = let site = pkgs.github.com.Xe.site; in ''
+      script = let site = pkgs.github.com.Xe.site;
+      in ''
         export $(grep -v '^#' /run/keys/xesite | xargs)
         export PORT=${toString cfg.port}
         export DOMAIN=${toString cfg.domain}
         cd ${site}
         exec ${site}/bin/xesite
+      '';
+
+      postStart = with pkgs; ''
+        export $(grep -v '^#' /run/keys/xesite | xargs)
+        ${curl}/bin/curl 'https://www.bing.com/ping?sitemap=https://christine.website/sitemap.xml'
+        ${curl}/bin/curl 'https://www.google.com/ping?sitemap=https://christine.website/sitemap.xml'
+        ${curl}/bin/curl -H "Authorization: $MI_TOKEN" https://mi.within.website/api/blog/refresh -XPOST
       '';
     };
 

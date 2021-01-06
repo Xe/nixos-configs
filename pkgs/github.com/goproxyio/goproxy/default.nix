@@ -7,5 +7,5 @@ buildGoModule {
 
   src = fetchFromGitHub (builtins.fromJSON (builtins.readFile ./source.json));
 
-  vendorSha256 = "17pzn8jbdvgrb0gxn6hmd985q7024kk0x5qagi37g8v7053hx10m";
+  vendorSha256 = "1d4i3c36fqzmcp4pfdzqshyvxd9j7ncpgxirdn73cg3hbqk44sch";
 }
