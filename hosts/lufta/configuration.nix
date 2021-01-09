@@ -6,6 +6,7 @@
     ./docker.nix
     ./gitea.nix
     ./hardware-configuration.nix
+    ./weechat.nix
     ./within.nix
     ./when-then-zen.nix
 
@@ -54,14 +55,11 @@
     enableSSHSupport = true;
   };
 
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 22 80 443 6667 6697 ];
+  networking.firewall.allowedUDPPorts = [ 51822 ];
   networking.firewall.enable = false;
 
   system.stateVersion = "20.09"; # Did you read the comment?
-
-  security.acme.email = "me@christine.website";
-  security.acme.acceptTerms = true;
 
   cadey.cpu = {
     enable = true;
@@ -91,8 +89,15 @@
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
 
+  services.nginx = {
+    enable = true;
+    recommendedGzipSettings = true;
+    recommendedOptimisation = true;
+    recommendedProxySettings = true;
+    recommendedTlsSettings = true;
+  };
+
   services.tailscale.enable = true;
-  services.nginx.enable = true;
   services.tor.enable = true;
   services.mysql.enable = true;
   services.mysql.package = pkgs.mariadb;

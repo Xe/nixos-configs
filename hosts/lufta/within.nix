@@ -13,18 +13,14 @@
         "/var/lib/acme"
       ];
     };
+
     services = {
+      # webapps
       goproxy = {
         enable = true;
         useACME = true;
         domain = "cache.greedo.xeserv.us";
         port = 28381;
-      };
-
-      lewa = {
-        enable = true;
-        useACME = true;
-        domain = "lewa.within.website";
       };
 
       hlang = {
@@ -52,16 +48,28 @@
         domain = "christine.website";
       };
 
-      aerial.enable = true;
-      graphviz.enable = true;
       idp.enable = true;
       johaus.enable = true;
-      oragono.enable = true;
+      withinwebsite.enable = true;
+
+      # bots
+      aerial.enable = true;
       tron.enable = true;
+      withinbot.enable = true;
+
+      # IRC
+      oragono.enable = true;
+
+      # static sites
+      lewa = {
+        enable = true;
+        useACME = true;
+        domain = "lewa.within.website";
+      };
+
       tulpaforce.enable = true;
       tulpanomicon.enable = true;
-      withinbot.enable = true;
-      withinwebsite.enable = true;
+      graphviz.enable = true;
     };
   };
 }

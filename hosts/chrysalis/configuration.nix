@@ -171,21 +171,6 @@
     };
   };
 
-  services.tor = {
-    enable = true;
-
-    hiddenServices = {
-      "hunt" = {
-        name = "hunt";
-        version = 3;
-        map = [{
-          port = 80;
-          toPort = 80;
-        }];
-      };
-    };
-  };
-
   services.nginx = {
     appendHttpConfig = ''
       server_names_hash_bucket_size 1024;

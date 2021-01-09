@@ -7,6 +7,9 @@ let
   };
 
 in {
+  security.acme.email = "me@christine.website";
+  security.acme.acceptTerms = true;
+
   security.acme.certs."tulpa.dev" = {
     group = "nginx";
     email = "me@christine.website";

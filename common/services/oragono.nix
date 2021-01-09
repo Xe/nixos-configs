@@ -47,14 +47,10 @@ in {
       '';
     };
 
-    services.tor.hiddenServices = {
+    services.tor.relay.onionServices = {
       "oragono" = {
-        name = "oragono";
         version = 2;
-        map = [{
-          port = "6667";
-          toPort = "23181";
-        }];
+        map = [6667 23181];
       };
     };
 
