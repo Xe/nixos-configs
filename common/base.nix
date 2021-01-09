@@ -10,6 +10,7 @@ with lib; {
     ./tailscale.nix
     ./rhea.nix
     ./users
+    ./coredns
   ];
 
   options.cadey = {
@@ -76,5 +77,6 @@ with lib; {
         ${coreutils}/bin/chmod 770 /srv/within
       '';
     };
+    within.coredns.enable = true;
   };
 }
