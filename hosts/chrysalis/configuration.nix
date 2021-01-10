@@ -131,7 +131,7 @@
       }
       {
         job_name = "site";
-        static_configs = [{ targets = [ "10.77.3.1:3030" ]; }];
+        static_configs = [{ targets = [ "10.77.3.1:32837" ]; }];
       }
       {
         job_name = "chrysalis";

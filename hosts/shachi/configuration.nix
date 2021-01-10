@@ -198,4 +198,28 @@
       wireguard.enable = true;
     };
   };
+
+  services.borgbackup.jobs."rsyncnet" = {
+    paths = [
+      "/home/cadey/.ssh"
+      "/home/cadey/code/nixos-configs"
+      "/home/cadey/books"
+      "/home/cadey/Pictures"
+      "/home/cadey/Documents"
+      "/home/cadey/sm64_save_file.bin"
+      "/root"
+    ];
+    exclude = [
+      # temporary files created by cargo
+      "**/target"
+    ];
+    repo = "57196@usw-s007.rsync.net:shachi";
+    encryption = {
+      mode = "repokey-blake2";
+      passCommand = "cat /root/borg_passphrase";
+    };
+    environment.BORG_RSH = "ssh -i /root/borg_ssh_key";
+    compression = "auto,lzma";
+    startAt = "daily";
+  };
 }
