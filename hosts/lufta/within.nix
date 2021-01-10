@@ -1,17 +1,43 @@
-{ ... }:
+{ config, ... }:
 
-{
+let
+  paths = [
+    "/srv"
+    "/home/cadey/.weechat"
+    "/home/mai/.weechat"
+    "/home/cadey/life"
+    "/home/cadey/org"
+    "/var/lib/acme"
+    "/var/lib/gitea"
+    "/var/lib/mysql"
+    "/var/lib/tor/onion"
+    "/home/cadey/public_html/books"
+    "/home/cadey/public_html/pkg"
+    "/home/cadey/public_html/repo"
+    "/run/keys"
+  ];
+in {
+  services.borgbackup.jobs."hetzner" = {
+    inherit paths;
+    exclude = [
+      # temporary files created by cargo
+      "**/target"
+    ];
+    repo = "ssh://u252481@u252481.your-storagebox.de:23/./lufta";
+    encryption = {
+      mode = "repokey-blake2";
+      passCommand = "cat /run/keys/borgbackup_passphrase";
+    };
+    environment.BORG_RSH = "ssh -i /root/.ssh/id_rsa";
+    compression = "auto,lzma";
+    startAt = "daily";
+  };
+
   within = {
     backups = {
+      inherit paths;
       enable = true;
       repo = "57196@usw-s007.rsync.net:lufta";
-      paths = [
-        "/srv"
-        "/home/cadey/.weechat"
-        "/home/mai/.weechat"
-        "/var/lib/gitea"
-        "/var/lib/acme"
-      ];
     };
 
     services = {
