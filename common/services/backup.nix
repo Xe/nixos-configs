@@ -6,7 +6,7 @@ in with lib; {
     enable = mkEnableOption "Enables per-host backups to rsync.net";
     paths = mkOption {
       type = with types; listOf str;
-      default = [ "/home" "/srv" "/var/lib" ];
+      default = [ "/home" "/srv" "/var/lib" "/root" ];
       description = "paths to backup to rsync.net";
     };
     exclude = mkOption {
