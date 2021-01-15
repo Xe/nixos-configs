@@ -12,6 +12,9 @@ in {
       locations."/".root = "${pkgs.tulpa.dev.cadey.tulpaforce}";
       forceSSL = true;
       useACMEHost = "tulpanomicon.guide";
+      extraConfig = ''
+        access_log /var/log/nginx/tulpaforce.access.log;
+      '';
     };
 
     services.cfdyndns.records = [ "tulpaforce.xyz" ];

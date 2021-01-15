@@ -87,6 +87,9 @@ in {
       locations."/".proxyPass = "http://127.0.0.1:${toString cfg.port}";
       forceSSL = cfg.useACME;
       useACMEHost = "xeserv.us";
+      extraConfig = ''
+        access_log /var/log/nginx/goproxy.access.log;
+      '';
     };
   };
 }

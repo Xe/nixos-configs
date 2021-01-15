@@ -32,8 +32,13 @@
     fsType = "zfs";
   };
 
-  fileSystems."/var/lib/aura" = {
-    device = "rpool/local/aura";
+  fileSystems."/srv/within/aura" = {
+    device = "rpool/safe/srv/aura";
+    fsType = "zfs";
+  };
+
+  fileSystems."/srv/http/xena.greedo.xeserv.us" = {
+    device = "rpool/safe/srv/xena-greedo-xeserv-us";
     fsType = "zfs";
   };
 

@@ -13,6 +13,9 @@ in {
       locations."/".root = "${pkgs.tulpa.dev.tulpa-ebooks.tulpanomicon}";
       forceSSL = true;
       useACMEHost = "tulpanomicon.guide";
+      extraConfig = ''
+        access_log /var/log/nginx/tulpanomicon.access.log;
+      '';
     };
 
     services.cfdyndns.records = [ "tulpanomicon.guide" ];

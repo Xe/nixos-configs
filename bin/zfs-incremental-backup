@@ -1,0 +1,14 @@
+#!/usr/bin/env nix-shell
+#! nix-shell -p zfs -p openssh -p coreutils -i bash
+
+fs=srv/certs
+host='fda2:d982:1da2:8265::'
+
+for fs in srv/aura srv/certs srv/http srv/within vm-images root
+do
+  zfs send -RI \
+    rpool/safe/${fs}@$(date -d 'yesterday' +"zfs-auto-snap_daily-%F-00h00") \
+    rpool/safe/${fs}@$(date +"zfs-auto-snap_daily-%F-00h00") \
+      | ssh root@${host} zfs receive -Fu \
+      rpool/backups/$(hostname).$(echo ${fs} | sed 's#/#.#g')
+done

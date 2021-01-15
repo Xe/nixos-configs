@@ -7,16 +7,18 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    /home/cadey/code/nixos-configs/common/services
-    /home/cadey/code/nixos-configs/common/users
-    /home/cadey/code/nixos-configs/common/base.nix
-    /home/cadey/code/nixos-configs/common/sites/start.akua.nix
+    ./tunnelbroker.nix
+    ../../common/services
+    ../../common/users
+    ../../common/base.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "zfs" ];
 
+  networking.hostId = "babecafe";
   networking.hostName = "keanu"; # Define your hostname.
   networking.useDHCP = false;
   networking.interfaces.enp3s0f2.useDHCP = true;
@@ -48,6 +50,12 @@
   cadey.cpu = {
     enable = true;
     vendor = "intel";
+  };
+
+  services.zfs.autoScrub.enable = true;
+  services.zfs.autoSnapshot = {
+    enable = true;
+    monthly = 1;
   };
 
   networking.wireguard.interfaces = {
@@ -97,24 +105,12 @@
     };
   };
 
-  services.nginx.enable = true;
-  services.tor.enable = false;
-  services.mysql.enable = false;
-  services.mysql.package = pkgs.mariadb;
+  networking.nameservers = [ "10.77.2.2" ];
 
   within = {
     backups = {
       enable = true;
       repo = "57196@usw-s007.rsync.net:keanu";
-    };
-
-    services = {
-      goproxy.enable = false;
-      lewa.enable = false;
-      hlang.enable = false;
-      oragono.enable = false;
-      printerfacts.enable = false;
-      xesite.enable = false;
     };
   };
 }

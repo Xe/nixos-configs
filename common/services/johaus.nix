@@ -19,8 +19,7 @@ in {
       type = types.int;
       default = 52338;
       example = 9001;
-      description =
-        "The port number johaus should listen on for HTTP traffic";
+      description = "The port number johaus should listen on for HTTP traffic";
     };
   };
 
@@ -57,6 +56,9 @@ in {
       locations."/".proxyPass = "http://127.0.0.1:${toString cfg.port}";
       forceSSL = false;
       useACMEHost = "xeserv.us";
+      extraConfig = ''
+        access_log /var/log/nginx/johaus.access.log;
+      '';
     };
   };
 }

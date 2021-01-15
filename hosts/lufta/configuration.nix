@@ -7,6 +7,7 @@
     ./docker.nix
     ./gitea.nix
     ./hardware-configuration.nix
+    ./monitoring.nix
     ./weechat.nix
     ./within.nix
     ./when-then-zen.nix
@@ -67,16 +68,6 @@
     vendor = "amd";
   };
 
-  services.prometheus = {
-    exporters = {
-      node = {
-        enable = true;
-        enabledCollectors = [ "systemd" ];
-      };
-      wireguard.enable = true;
-    };
-  };
-
   services.cfdyndns = {
     enable = true;
     email = "shadow.h511@gmail.com";
@@ -96,6 +87,7 @@
     recommendedOptimisation = true;
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
+    statusPage = true;
   };
 
   services.tailscale.enable = true;

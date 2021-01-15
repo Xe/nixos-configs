@@ -58,6 +58,9 @@ in {
       locations."/".proxyPass = "http://127.0.0.1:${toString cfg.port}";
       forceSSL = cfg.useACME;
       useACMEHost = "christine.website";
+      extraConfig = ''
+        access_log /var/log/nginx/hlang.access.log;
+      '';
     };
   };
 }

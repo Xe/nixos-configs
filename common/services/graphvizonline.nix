@@ -13,6 +13,9 @@ in {
       locations."/".root = "${pkgs.github.com.Xe.GraphvizOnline}";
       forceSSL = true;
       useACMEHost = "christine.website";
+      extraConfig = ''
+        access_log /var/log/nginx/graphviz.access.log;
+      '';
     };
 
     services.cfdyndns.records = [ "graphviz.christine.website" ];

@@ -10,7 +10,8 @@ in {
       type = types.int;
       default = 28318;
       example = 9001;
-      description = "The port number printerfacts should listen on for HTTP traffic";
+      description =
+        "The port number printerfacts should listen on for HTTP traffic";
     };
 
     domain = mkOption {
@@ -44,7 +45,7 @@ in {
 
         # Security
         CapabilityBoundingSet = "";
-        DeviceAllow = [];
+        DeviceAllow = [ ];
         NoNewPrivileges = "true";
         ProtectControlGroups = "true";
         ProtectClock = "true";
@@ -85,7 +86,8 @@ in {
         UMask = "077";
       };
 
-      script = let site = pkgs.tulpa.dev.cadey.printerfacts; in ''
+      script = let site = pkgs.tulpa.dev.cadey.printerfacts;
+      in ''
         export PORT=${toString cfg.port}
         export DOMAIN=${toString cfg.domain}
         export RUST_LOG=info
@@ -103,6 +105,9 @@ in {
       };
       forceSSL = cfg.useACME;
       useACMEHost = "cetacean.club";
+      extraConfig = ''
+        access_log /var/log/nginx/printerfacts.access.log;
+      '';
     };
   };
 }

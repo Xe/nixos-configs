@@ -19,8 +19,7 @@ in {
       type = types.int;
       default = 57438;
       example = 9001;
-      description =
-        "The port number idp should listen on for HTTP traffic";
+      description = "The port number idp should listen on for HTTP traffic";
     };
   };
 
@@ -46,7 +45,9 @@ in {
 
       script = let ww = pkgs.x.idp;
       in ''
-        exec ${ww}/bin/idp -port=${toString cfg.port} -otp-secret=${builtins.readFile ./secrets/idp.secret}
+        exec ${ww}/bin/idp -port=${toString cfg.port} -otp-secret=${
+          builtins.readFile ./secrets/idp.secret
+        }
       '';
     };
 
@@ -57,6 +58,9 @@ in {
       locations."/".proxyPass = "http://127.0.0.1:${toString cfg.port}";
       forceSSL = true;
       useACMEHost = "christine.website";
+      extraConfig = ''
+        access_log /var/log/nginx/idp.access.log;
+      '';
     };
   };
 }

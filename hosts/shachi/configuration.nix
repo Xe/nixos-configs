@@ -6,6 +6,7 @@
 
 {
   imports = [
+    ./dns.nix
     ./hardware-configuration.nix
     /home/cadey/code/nixos-configs/common/users
     /home/cadey/code/nixos-configs/common/base.nix

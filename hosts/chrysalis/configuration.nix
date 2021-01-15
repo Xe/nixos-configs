@@ -12,6 +12,7 @@
     ./tulpachat.nix
     ./furryhole.nix
     ./josh.nix
+    ./prometheus.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -122,44 +123,6 @@
 
   services.tailscale.enable = true;
 
-  services.prometheus = {
-    enable = true;
-    scrapeConfigs = [
-      {
-        job_name = "mi";
-        static_configs = [{ targets = [ "10.77.3.1:38184" ]; }];
-      }
-      {
-        job_name = "site";
-        static_configs = [{ targets = [ "10.77.3.1:32837" ]; }];
-      }
-      {
-        job_name = "chrysalis";
-        static_configs = [{ targets = [ "10.77.2.2:9100" "10.77.2.2:9586" ]; }];
-      }
-      {
-        job_name = "shachi";
-        static_configs = [{ targets = [ "10.77.2.8:9100" "10.77.2.8:9586" ]; }];
-      }
-      {
-        job_name = "keanu";
-        static_configs = [{ targets = [ "10.77.2.1:9100" "10.77.2.1:9586" ]; }];
-      }
-      {
-        job_name = "lufta";
-        static_configs = [{ targets = [ "10.77.3.1:9100" "10.77.3.1:9586" ]; }];
-      }
-    ];
-
-    exporters = {
-      node = {
-        enable = true;
-        enabledCollectors = [ "systemd" ];
-      };
-      wireguard.enable = true;
-    };
-  };
-
   systemd.services.promtail = {
     description = "Promtail service for Loki";
     wantedBy = [ "multi-user.target" ];
@@ -179,6 +142,17 @@
       {
         root = "/srv/http/marahunt";
       };
+    virtualHosts."100.97.53.92".locations."/" = {
+      root = "/srv/http/iso";
+      extraConfig = "autoindex on;";
+    };
+  };
+
+  within.coredns = {
+    enable = true;
+    addr = "10.77.2.2";
+    addServer = true;
+    prometheus.enable = true;
   };
 }
 

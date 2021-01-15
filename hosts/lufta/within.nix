@@ -24,6 +24,21 @@ let
     "/home/cadey/backup/ponychat"
     "/home/cadey/backup/shadowh511"
   ];
+  exclude = [
+    # temporary files created by cargo
+    "**/target"
+    "/home/cadey/prefix/aura"
+    "/srv/within/aura"
+    "/srv/http/xena.greedo.xeserv.us"
+
+    "/var/lib/docker"
+    "/var/lib/systemd"
+    "/var/lib/libvirt"
+    "'**/.cache'"
+    "'**/.nix-profile'"
+    "'**/.elm'"
+    "'**/.emacs.d'"
+  ];
 in {
   services.borgbackup.jobs."hetzner" = {
     paths = paths ++ [
@@ -35,11 +50,7 @@ in {
       "/home/cadey/backup/luna"
       "/home/cadey/backup/tulpa"
     ];
-    exclude = [
-      # temporary files created by cargo
-      "**/target"
-      "/home/cadey/prefix/aura"
-    ];
+    inherit exclude;
     repo = "ssh://u252481@u252481.your-storagebox.de:23/./lufta";
     encryption = {
       mode = "repokey-blake2";
@@ -52,7 +63,7 @@ in {
 
   within = {
     backups = {
-      inherit paths;
+      inherit exclude paths;
       enable = true;
       repo = "57196@usw-s007.rsync.net:lufta";
     };

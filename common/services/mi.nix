@@ -2,7 +2,8 @@
 
 with lib;
 
-let cfg = config.within.services.mi; in {
+let cfg = config.within.services.mi;
+in {
   options.within.services.mi = {
     enable = mkEnableOption "Activates mi (a personal API)";
     useACME = mkEnableOption "Enables ACME for cert stuff";
@@ -92,6 +93,9 @@ let cfg = config.within.services.mi; in {
       };
       forceSSL = cfg.useACME;
       useACMEHost = "within.website";
+      extraConfig = ''
+        access_log /var/log/nginx/mi.access.log;
+      '';
     };
 
     services.cfdyndns = mkIf cfg.useACME { records = [ "${cfg.domain}" ]; };

@@ -38,6 +38,9 @@ in {
     };
     forceSSL = true;
     useACMEHost = "tulpa.dev";
+    extraConfig = ''
+      access_log /var/log/nginx/gitea.access.log;
+    '';
   };
 
   services.nginx.virtualHosts."tulpa.dev" = {
@@ -47,5 +50,8 @@ in {
     };
     forceSSL = true;
     useACMEHost = "tulpa.dev";
+    extraConfig = ''
+      access_log /var/log/nginx/gitea.access.log;
+    '';
   };
 }

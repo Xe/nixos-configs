@@ -2,7 +2,8 @@
 
 with lib;
 
-let cfg = config.within.services.lewa; in {
+let cfg = config.within.services.lewa;
+in {
   options.within.services.lewa = {
     enable = mkEnableOption "Activates the eBook for l'ewa";
     useACME = mkEnableOption "enables ACME for cert stuff";
@@ -22,6 +23,9 @@ let cfg = config.within.services.lewa; in {
       locations."/".root = "${pkgs.tulpa.dev.cadey.lewa}/book";
       forceSSL = cfg.useACME;
       useACMEHost = "within.website";
+      extraConfig = ''
+        access_log /var/log/nginx/lewa.access.log;
+      '';
     };
 
     services.cfdyndns = mkIf cfg.useACME { records = [ "${cfg.domain}" ]; };
