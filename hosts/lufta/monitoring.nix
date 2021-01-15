@@ -42,7 +42,9 @@
             (mkApp "printerfacts")
             (mkApp "tulpaforce")
             (mkApp "tulpanomicon")
+            (mkApp "when-then-zen")
             (mkApp "withinwebsite")
+            (mkApp "xenafiles")
             (mkApp "xesite")
           ];
         };

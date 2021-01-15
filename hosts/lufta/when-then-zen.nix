@@ -27,19 +27,46 @@ let
                   template templates/page.html
           }
       }
+
+      xena.greedo.xeserv.us:${toString port} {
+          tls off
+          errors syslog
+
+          header / X-Clacks-Overhead "GNU Ashlynn"
+
+          root /srv/http/xena.greedo.xeserv.us
+          markdown / {
+                  template blog templates/blog.html
+                  template index templates/index.html
+          }
+
+          browse
+      }
     '';
   };
 in {
-  services.nginx.virtualHosts."when-then-zen.christine.website" = {
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:${toString port}";
-      extraConfig = "proxy_set_header Host $host;";
+  services.nginx.virtualHosts = {
+    "when-then-zen.christine.website" = {
+      locations."/" = { proxyPass = "http://127.0.0.1:${toString port}"; };
+      forceSSL = true;
+      useACMEHost = "christine.website";
+    extraConfig = ''
+      access_log /var/log/nginx/when-then-zen.access.log;
+    '';
     };
-    forceSSL = true;
-    useACMEHost = "christine.website";
+
+    "xena.greedo.xeserv.us" = {
+      locations."/".proxyPass = "http://127.0.0.1:${toString port}";
+      forceSSL = true;
+      useACMEHost = "xeserv.us";
+    extraConfig = ''
+      access_log /var/log/nginx/xenafiles.access.log;
+    '';
+    };
   };
 
-  services.cfdyndns.records = [ "when-then-zen.christine.website" ];
+  services.cfdyndns.records =
+    [ "when-then-zen.christine.website" "xena.greedo.xeserv.us" ];
 
   systemd.services.caddy = {
     wantedBy = [ "multi-user.target" ];

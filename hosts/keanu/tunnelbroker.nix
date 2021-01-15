@@ -38,7 +38,7 @@
   };
 
   services.corerad = {
-    enable = true;
+    enable = false;
     settings = {
       interfaces = [{
         name = "enp3s0f2";
