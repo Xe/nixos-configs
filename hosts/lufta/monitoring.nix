@@ -18,7 +18,7 @@
             format = ''
               $remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent"'';
             mkApp = name: {
-              metricsoverride.prefix = "nginx";
+              metrics_override.prefix = "nginx";
               inherit name format;
               source.files = [ "/var/log/nginx/${name}.access.log" ];
               namespace_label = "vhost";
@@ -36,7 +36,9 @@
             (mkApp "idp")
             (mkApp "johaus")
             (mkApp "lewa")
+            (mkApp "maison")
             (mkApp "mi")
+            (mkApp "olin")
             (mkApp "printerfacts")
             (mkApp "tulpaforce")
             (mkApp "tulpanomicon")

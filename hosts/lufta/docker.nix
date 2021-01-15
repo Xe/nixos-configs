@@ -21,11 +21,17 @@
     locations."/".proxyPass = "http://127.0.0.1:38182";
     forceSSL = true;
     useACMEHost = "within.website";
+    extraConfig = ''
+      access_log /var/log/nginx/maison.access.log;
+    '';
   };
 
   services.nginx.virtualHosts."olin.within.website" = {
     locations."/".proxyPass = "http://127.0.0.1:25723";
     forceSSL = true;
     useACMEHost = "within.website";
+    extraConfig = ''
+      access_log /var/log/nginx/olin.access.log;
+    '';
   };
 }
