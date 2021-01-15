@@ -20,6 +20,7 @@
 
   networking.hostName = "genza"; # Define your hostname.
   networking.networkmanager.enable = true;
+  services.tailscale.enable = true;
 
   # Set your time zone.
   # time.timeZone = "Europe/Amsterdam";
@@ -79,7 +80,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget vim
-    firefox file gimp openssl unrar slack wireguard
+    firefox file gimp openssl unrar slack wireguard tailscale
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
