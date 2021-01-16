@@ -12,9 +12,9 @@
     ./within.nix
     ./when-then-zen.nix
 
-    /home/cadey/code/nixos-configs/common/users
-    /home/cadey/code/nixos-configs/common/base.nix
-    /home/cadey/code/nixos-configs/common/services
+    ../../common/base.nix
+    ../../common/services
+    ../../common/users/home-manager.nix
   ];
 
   boot.loader.grub.enable = true;

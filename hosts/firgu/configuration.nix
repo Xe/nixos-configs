@@ -2,8 +2,9 @@
 
 {
   imports = [
-    ../../common/services
     ../../common/base.nix
+    ../../common/services
+    ../../common/users/home-manager.nix
     ./hardware-configuration.nix
     ./shellbox.nix
   ];

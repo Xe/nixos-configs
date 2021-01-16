@@ -9,6 +9,7 @@
     ./programs/etcher.nix
     ./programs/kde.nix
     ./programs/telegram.nix
+    ./users/home-manager.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -22,7 +23,7 @@
     element-desktop
     openssl
     unrar
-steam-run-native
+    steam-run-native
   ];
 
   cadey = {

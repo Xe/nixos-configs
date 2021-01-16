@@ -3,12 +3,12 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    /home/cadey/code/nixos-configs/common/users
-    /home/cadey/code/nixos-configs/common/base.nix
-    /home/cadey/code/nixos-configs/common/sites/grafana.akua.nix
-    /home/cadey/code/nixos-configs/common/sites/keyzen.akua.nix
-    /home/cadey/code/nixos-configs/common/sites/start.akua.nix
-    /home/cadey/code/nixos-configs/common/services
+    ../../common/base.nix
+    ../../common/services
+    ../../common/sites/grafana.akua.nix
+    ../../common/sites/keyzen.akua.nix
+    ../../common/sites/start.akua.nix
+    ../../common/users/home-manager.nix
     ./tulpachat.nix
     ./furryhole.nix
     ./josh.nix
@@ -101,11 +101,9 @@
     vendor = "intel";
   };
 
-  within = {
-    backups = {
-      enable = true;
-      repo = "57196@usw-s007.rsync.net:chrysalis";
-    };
+  within.backups = {
+    enable = true;
+    repo = "57196@usw-s007.rsync.net:chrysalis";
   };
 
   # monitoring
@@ -138,10 +136,6 @@
     appendHttpConfig = ''
       server_names_hash_bucket_size 1024;
     '';
-    virtualHosts."yvzvgjiuz5tkhfuhvjqroybx6d7swzzcaia2qkgeskhu4tv76xiplwad.onion" =
-      {
-        root = "/srv/http/marahunt";
-      };
     virtualHosts."100.97.53.92".locations."/" = {
       root = "/srv/http/iso";
       extraConfig = "autoindex on;";

@@ -8,9 +8,9 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./tunnelbroker.nix
-    ../../common/services
-    ../../common/users
     ../../common/base.nix
+    ../../common/users/home-manager.nix
+    ../../common/services
   ];
 
   # Use the systemd-boot EFI boot loader.

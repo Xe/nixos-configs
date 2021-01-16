@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ <home-manager/nixos> ];
-
   users.users.cadey = {
     isNormalUser = true;
     extraGroups =
@@ -21,8 +19,6 @@
     ];
   };
 
-  home-manager.users.cadey = (import ./cadey/core.nix);
-
   users.users.mai = {
     isNormalUser = true;
     shell = pkgs.fish;
@@ -33,6 +29,4 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF0I+UJPT7noL/bDvPj25SC24kpThqHUtge3tSQ9sIUx"
     ];
   };
-
-  home-manager.users.mai = (import ./mai);
 }
