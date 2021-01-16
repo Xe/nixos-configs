@@ -5,4 +5,5 @@ set -e
 set -x
 
 morph deploy ./network.nix switch --upload-secrets --skip-health-checks --reboot --on="$1"
+morph deploy ./network.nix switch --upload-secrets
 morph check-health ./network.nix --on="$1"

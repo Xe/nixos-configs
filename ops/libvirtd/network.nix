@@ -5,11 +5,11 @@ in {
     deployment.targetUser = "root";
   };
 
-  "ns1" = { config, pkgs, ... }: {
+  "ns1" = { config, pkgs, lib, ... }: {
     imports =
       [ ../../common/generic-libvirtd.nix ../../common/coredns ./wireguard ];
-    networking.firewall.enable = false;
-    networking.nameservers = [ "192.168.122.187" ];
+    networking.firewall.allowedUDPPorts = [ 53 ];
+    networking.nameservers = lib.mkForce [ "192.168.122.187" ];
 
     within.coredns = {
       enable = true;
@@ -23,11 +23,11 @@ in {
     }];
   };
 
-  "ns2" = { config, pkgs, ... }: {
+  "ns2" = { config, pkgs, lib, ... }: {
     imports =
       [ ../../common/generic-libvirtd.nix ../../common/coredns ./wireguard ];
-    networking.firewall.enable = false;
-    networking.nameservers = [ "192.168.122.80" ];
+    networking.firewall.allowedUDPPorts = [ 53 ];
+    networking.nameservers = lib.mkForce [ "192.168.122.80" ];
 
     within.coredns = {
       enable = true;
@@ -44,7 +44,6 @@ in {
   "shell" = { config, pkgs, ... }: {
     imports = [ ../../common/generic-libvirtd.nix ./wireguard ];
     networking.firewall.enable = false;
-    networking.nameservers = [ "192.168.122.187" "192.168.122.80" ];
 
     deployment.targetHost = "192.168.122.191";
     deployment.healthChecks.cmd = [{
