@@ -1,24 +1,38 @@
-{ ... }:
-let listenPort = 51822;
+{ config, pkgs, ... }:
+let
+  listenPort = 51822;
+  hosts = builtins.fromJSON (builtins.readFile ./hosts.json);
 in {
   networking.wireguard.interfaces.pele = {
+    ips = hosts."${config.networking.hostName}".allowedIPs;
+    privateKeyFile = "/root/pele.key";
     inherit listenPort;
-    peers = [
-      # ns1
-      {
-        allowedIPs = [ "fdd9:4a1e:bb91:810e::/64" ];
-        publicKey = "QmoBSiBT92pBx+QrP2OgaAMI+pPULdG0nwsrETKKeS0=";
-        endpoint = "192.168.122.187:${toString listenPort}";
-        persistentKeepalive = 25;
-      }
+    peers = with hosts; [ ns1 ns2 shell ];
+  };
 
-      # shell
+  deployment = {
+    healthChecks.cmd = [
       {
-        allowedIPs = [ "fdd9:4a1e:bb91:e6d1::/64" ];
-        publicKey = "N/BF91qksWD8akPKIWTZ2KbIxyxxap1mxTj59c1tr3E=";
-        endpoint = "192.168.122.191:${toString listenPort}";
-        persistentKeepalive = 25;
+        cmd = [ "ping" "-6" "-c" "4" "fdd9:4a1e:bb91:810e::" ];
+        description = "ping ns1 over wireguard";
+      }
+      {
+        cmd = [ "ping" "-6" "-c" "4" "fdd9:4a1e:bb91:af30::" ];
+        description = "ping ns2 over wireguard";
+      }
+      {
+        cmd = [ "ping" "-6" "-c" "4" "fdd9:4a1e:bb91:e6d1::" ];
+        description = "ping shell over wireguard";
       }
     ];
+    secrets = {
+      "wireguard" = {
+        source = "./wireguard/secret/${config.networking.hostName}.privkey";
+        destination = "/root/pele.key";
+        owner.user = "root";
+        owner.group = "root";
+        permissions = "0400"; # this is the default
+      };
+    };
   };
 }

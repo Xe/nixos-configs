@@ -1,0 +1,7 @@
+#!/usr/bin/env nix-shell
+#! nix-shell -p morph -i bash
+
+set -e
+set -x
+
+morph deploy ./network.nix switch --upload-secrets
