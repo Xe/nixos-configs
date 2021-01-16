@@ -11,7 +11,12 @@ in {
   };
 
   networking.firewall.trustedInterfaces = [ "pele" ];
-  networking.nameservers = [ "fdd9:4a1e:bb91:810e::" "fdd9:4a1e:bb91:af30::" ];
+  networking.nameservers = [
+    "192.168.122.187"
+    "192.168.122.80"
+    "fdd9:4a1e:bb91:810e::"
+    "fdd9:4a1e:bb91:af30::"
+  ];
 
   deployment = {
     healthChecks.cmd = [

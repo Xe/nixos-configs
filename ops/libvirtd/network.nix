@@ -45,6 +45,8 @@ in {
     imports = [ ../../common/generic-libvirtd.nix ./wireguard ];
     networking.firewall.enable = false;
 
+    environment.systemPackages = with pkgs; [ bind ];
+
     deployment.targetHost = "192.168.122.191";
     deployment.healthChecks.cmd = [{
       cmd = [ "${pkgs.dnsutils}/bin/nslookup shachi.wg.akua" ];
