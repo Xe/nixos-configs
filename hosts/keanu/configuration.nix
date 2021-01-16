@@ -8,9 +8,10 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./tunnelbroker.nix
+
     ../../common/base.nix
-    ../../common/users/home-manager.nix
     ../../common/services
+    ../../common/users/home-manager.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -28,7 +29,12 @@
 
   services.openssh.enable = true;
 
-  networking.firewall.enable = false;
+  networking.firewall = {
+    enable = false;
+    allowedTCPPorts = [ 22 80 443 ];
+    allowedUDPPorts = [ 51820 ];
+    trustedInterfaces = [ "enp3s0f2" ];
+  };
 
   system.stateVersion = "20.09"; # Did you read the comment?
 
@@ -107,10 +113,41 @@
 
   networking.nameservers = [ "10.77.2.2" ];
 
-  within = {
-    backups = {
-      enable = true;
-      repo = "57196@usw-s007.rsync.net:keanu";
+  within.backups = {
+    enable = true;
+    repo = "57196@usw-s007.rsync.net:keanu";
+  };
+
+  networking.nat.enable = true;
+  networking.nat.internalInterfaces = [ "ve-+" ];
+  networking.nat.externalInterface = "enp3s0f2";
+
+  containers.sshbox = {
+    hostAddress = "10.255.0.0";
+    localAddress = "10.255.0.1";
+    hostAddress6 = "2001:470:1d:4ee:4fcf:cb3c:0a8c:40c7";
+    localAddress6 = "2001:470:1d:4ee:6b67:96d0:8cb3:7b12";
+    privateNetwork = true;
+    autoStart = true;
+    config = let
+      fetchKeys = username:
+        (builtins.fetchurl "https://github.com/${username}.keys");
+    in { pkgs, ... }: {
+      imports = [ ../../common/base.nix ];
+      services.openssh.enable = true;
+      users.users.root.openssh.authorizedKeys.keyFiles = [ (fetchKeys "Xe") ];
+    };
+  };
+
+  security.acme.acceptTerms = true;
+  security.acme.email = "cadey@firemail.cc";
+
+  services.nginx = {
+    enable = true;
+    virtualHosts."keanu.hexagone.within.website" = {
+      addSSL = true;
+      enableACME = true;
+      locations."/".root = "/srv/http/keanu.hexagone.within.website";
     };
   };
 }

@@ -44,6 +44,7 @@ pkgs: rec {
       tulpaforce = pkgs.callPackage ./tulpa.dev/cadey/tulpaforce { inherit sw; };
     };
     tulpa-ebooks.tulpanomicon = pkgs.callPackage ./tulpa.dev/tulpa-ebooks/tulpanomicon { };
+    Xe.quickserv = pkgs.callPackage ./tulpa.dev/Xe/quickserv { };
   };
 
   lagrange = pkgs.callPackage ./lagrange { };

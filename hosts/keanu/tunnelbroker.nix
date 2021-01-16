@@ -4,29 +4,29 @@
   networking.interfaces = {
     he-ipv6 = {
       ipv6 = {
-        addresses = [{
-          address = "2001:470:1c:4ee::2";
-          prefixLength = 64;
-        }];
+        addresses = [
+          {
+            address = "2001:470:1c:4ee::2";
+            prefixLength = 64;
+          }
+          {
+            address = "2001:470:1d:4ee::";
+            prefixLength = 64;
+          }
+        ];
         routes = [{
           address = "::";
           prefixLength = 0;
-          via = "2001:470:1c:4ee::1";
+          options.dev = "he-ipv6";
         }];
       };
       mtu = 1480;
       virtual = true;
     };
-    enp3s0f2.ipv6.addresses = [
-      {
-        address = "2001:470:1d:4ee::";
-        prefixLength = 64;
-      }
-      {
-        address = "2001:470:bb1b:1::";
-        prefixLength = 64;
-      }
-    ];
+    enp3s0f2.ipv6.addresses = [{
+      address = "2001:470:1d:4ee::1";
+      prefixLength = 64;
+    }];
   };
   networking.sits = {
     he-ipv6 = {

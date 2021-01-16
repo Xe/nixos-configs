@@ -200,6 +200,8 @@
     };
   };
 
+  programs.mtr.enable = true;
+
   services.borgbackup.jobs."rsyncnet" = {
     paths = [
       "/home/cadey/.ssh"
