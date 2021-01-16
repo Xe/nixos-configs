@@ -26,10 +26,10 @@ local ipaddr = string.format("%s:%s::/64", network, subnet)
 local hostname = arg[1]
 local endpoint = arg[2]
 
-run(string.format("wg genkey | tee wireguard/secret/%s.privkey | wg pubkey | tr -d '\n' > wireguard/secret/%s.pubkey", hostname, hostname))
-local pubkey = read_file(string.format("wireguard/secret/%s.pubkey", hostname))
+run(string.format("wg genkey | tee ./secret/%s.privkey | wg pubkey | tr -d '\n' > ./secret/%s.pubkey", hostname, hostname))
+local pubkey = read_file(string.format("./secret/%s.pubkey", hostname))
 
-local hosts = json.decode(read_file("./wireguard/hosts.json"))
+local hosts = json.decode(read_file("./hosts.json"))
 hosts[hostname] = {
   allowedIPs = { ipaddr },
   publicKey = pubkey,
@@ -37,6 +37,6 @@ hosts[hostname] = {
   persistentKeepalive = 25
 }
 
-local fout = assert(io.open("./wireguard/hosts.json", "w"))
+local fout = assert(io.open("./hosts.json", "w"))
 fout:write(json.encode(hosts, { indent = true }))
 fout:close()
