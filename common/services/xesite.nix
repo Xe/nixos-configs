@@ -50,6 +50,7 @@ in {
         Restart = "on-failure";
         WorkingDirectory = "/srv/within/xesite";
         RestartSec = "30s";
+        Type = "notify";
 
         # Security
         CapabilityBoundingSet = "";
@@ -67,16 +68,6 @@ in {
         ProtectSystem = "true";
         ProtectProc = "invisible";
         RemoveIPC = "true";
-        RestrictAddressFamilies = [ "~AF_UNIX" "~AF_NETLINK" ];
-        RestrictNamespaces = [
-          "CLONE_NEWCGROUP"
-          "CLONE_NEWIPC"
-          "CLONE_NEWNET"
-          "CLONE_NEWNS"
-          "CLONE_NEWPID"
-          "CLONE_NEWUTS"
-          "CLONE_NEWUSER"
-        ];
         RestrictSUIDSGID = "true";
         RestrictRealtime = "true";
         SystemCallArchitectures = "native";
@@ -101,13 +92,6 @@ in {
         export DOMAIN=${toString cfg.domain}
         cd ${site}
         exec ${site}/bin/xesite
-      '';
-
-      postStart = with pkgs; ''
-        export $(grep -v '^#' /run/keys/xesite | xargs)
-        ${curl}/bin/curl 'https://www.bing.com/ping?sitemap=https://christine.website/sitemap.xml'
-        ${curl}/bin/curl 'https://www.google.com/ping?sitemap=https://christine.website/sitemap.xml'
-        ${curl}/bin/curl -H "Authorization: $MI_TOKEN" https://mi.within.website/api/blog/refresh -XPOST
       '';
     };
 
