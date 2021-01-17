@@ -59,6 +59,15 @@ pubkey = "Um46toyF9DPeyQWmy4nyyxJH/m37HWXcX+ncJa3Mg0A="
 port = 51822
 addrs = { v4 = "10.77.2.2", v6 = "ed22:9064:6df9:4855:611d" }
 
+[hosts.shachi]
+network = "hexagone"
+ip_addr = "192.168.0.176"
+
+[hosts.shachi.wireguard]
+pubkey = "S8XgS18Z8xiKwed6wu9FE/JEp1a/tFRemSgfUl3JPFw="
+port = 51820
+addrs = { v4 = "10.77.2.8", v6 = "ed22:a601:31ef:e676:e9bd" } 
+
 # cloud machines
 [hosts.lufta]
 network = "cloud"
