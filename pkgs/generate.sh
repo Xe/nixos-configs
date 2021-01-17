@@ -18,6 +18,7 @@ github PonyvilleFM aura &
 github Xe mi &
 github Xe rhea &
 github Xe site &
+github Xe withinbot &
 github Xe GraphvizOnline &
 github goproxyio goproxy &
 github oragono oragono &
@@ -30,6 +31,7 @@ git https tulpa.dev/cadey/hlang &
 git https tulpa.dev/cadey/lewa &
 git https tulpa.dev/cadey/printerfacts &
 git https tulpa.dev/cadey/tulpaforce &
+git https tulpa.dev/cadey/tron &
 git https tulpa.dev/Xe/quickserv &
 git https tulpa.dev/tulpa-ebooks/tulpanomicon &
 

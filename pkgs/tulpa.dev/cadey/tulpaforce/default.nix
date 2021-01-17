@@ -7,7 +7,7 @@ stdenv.mkDerivation {
 
   phases = "buildPhase installPhase";
 
-  buildInputs = [sw pandoc];
+  buildInputs = [ sw pandoc ];
 
   buildPhase = ''
     cp -vrf $src/site .

@@ -1,4 +1,4 @@
-{ fetchgit ? (import <nixpkgs> { }).fetchgit }:
+{ pkgs ? (import <nixpkgs> { }), fetchgit ? pkgs.fetchgit, callPackage ? pkgs.callPackage }:
 
-import (fetchgit (builtins.fromJSON (builtins.readFile ./source.json)))
-{ }
+callPackage
+(fetchgit (builtins.fromJSON (builtins.readFile ./source.json))) { }

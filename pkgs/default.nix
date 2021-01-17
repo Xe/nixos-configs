@@ -14,37 +14,38 @@ pkgs: rec {
       mi = pkgs.callPackage ./github.com/Xe/mi { };
       rhea = pkgs.callPackage ./github.com/Xe/rhea { };
       site = pkgs.callPackage ./github.com/Xe/site { };
+      withinbot = pkgs.callPackage ./github.com/Xe/withinbot { };
     };
   };
 
   xe = import (builtins.fetchTarball
     "https://github.com/Xe/xepkgs/archive/master.tar.gz") { inherit pkgs; };
 
+  tulpa.dev = {
+    cadey = let sw = github.com.jroimartin.sw;
+    in {
+      cabytcini = pkgs.callPackage ./tulpa.dev/cadey/cabytcini { };
+      lewa = pkgs.callPackage ./tulpa.dev/cadey/lewa { };
+      hlang = pkgs.callPackage ./tulpa.dev/cadey/hlang { };
+      printerfacts = pkgs.callPackage ./tulpa.dev/cadey/printerfacts { };
+      tulpaforce = pkgs.callPackage ./tulpa.dev/cadey/tulpaforce { inherit sw; };
+      tron = pkgs.callPackage ./tulpa.dev/cadey/tron { };
+    };
+    tulpa-ebooks.tulpanomicon = pkgs.callPackage ./tulpa.dev/tulpa-ebooks/tulpanomicon { };
+    Xe.quickserv = pkgs.callPackage ./tulpa.dev/Xe/quickserv { };
+  };
+
   within = {
     pahi = import
       (builtins.fetchTarball "https://github.com/Xe/pahi/archive/main.tar.gz")
       { };
-    tron = import (builtins.fetchTarball
-      "https://tulpa.dev/cadey/tron/archive/master.tar.gz") { };
-    withinbot = import (builtins.fetchTarball
-      "https://github.com/Xe/withinbot/archive/main.tar.gz") { };
 
     # transitional hacks
     aura = github.com.PonyvilleFM.aura;
     rhea = github.com.Xe.rhea;
     mi = github.com.Xe.mi;
-  };
-
-  tulpa.dev = {
-    cadey = let sw = github.com.jroimartin.sw;
-    in {
-      lewa = pkgs.callPackage ./tulpa.dev/cadey/lewa { };
-      hlang = pkgs.callPackage ./tulpa.dev/cadey/hlang { };
-      printerfacts = pkgs.callPackage ./tulpa.dev/cadey/printerfacts { };
-      tulpaforce = pkgs.callPackage ./tulpa.dev/cadey/tulpaforce { inherit sw; };
-    };
-    tulpa-ebooks.tulpanomicon = pkgs.callPackage ./tulpa.dev/tulpa-ebooks/tulpanomicon { };
-    Xe.quickserv = pkgs.callPackage ./tulpa.dev/Xe/quickserv { };
+    tron = tulpa.dev.cadey.tron;
+    withinbot = github.com.Xe.withinbot;
   };
 
   lagrange = pkgs.callPackage ./lagrange { };
