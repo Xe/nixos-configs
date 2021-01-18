@@ -4,7 +4,8 @@
 
 { config, pkgs, ... }:
 
-{
+let metadata = pkgs.callPackage /home/cadey/code/nixos-configs/ops/metadata/peers.nix { };
+in {
   imports = [
     ./dns.nix
     ./hardware-configuration.nix
@@ -134,50 +135,8 @@
     };
   };
 
-  # Akua
-  networking.wireguard.interfaces = {
-    akua = {
-      ips =
-        [ "10.77.2.8/16" "fda2:d982:1da2:2::8/128" "fda2:d982:1da2:8::/64" ];
-
-      privateKeyFile = "/root/wireguard-keys/private";
-      listenPort = 51820;
-
-      peers = [
-        # kahless
-        {
-          allowedIPs = [ "10.77.0.0/16" "10.88.0.0/16" "fda2:d982:1da2::/48" ];
-          publicKey = "MvBR3bV1TfACKcF5LQmLL3xlzpdDEatg5dHEyNKA5mw=";
-          endpoint = "kahless.cetacean.club:51820";
-          persistentKeepalive = 25;
-        }
-
-        # lufta
-        {
-          publicKey = "GJMOmAHUXQ7NfAMuEKQ7zhMmd1TIuJKKGYiC8hVpgEU=";
-          allowedIPs = [ "10.77.3.1/32" "fda2:d982:1da2:4711::/64" ];
-          endpoint = "135.181.162.99:51822";
-          persistentKeepalive = 25;
-        }
-
-        # keanu
-        {
-          allowedIPs = [ "10.77.2.1/32" "fda2:d982:1da2:8265::/64" ];
-          publicKey = "Dh0D2bdtSmx1Udvuwh7BdWuCADsHEfgWy8usHc1SJkU=";
-          endpoint = "192.168.0.159:51820";
-          persistentKeepalive = 25;
-        }
-
-        # chrysalis
-        {
-          allowedIPs = [ "10.77.2.2/32" "fda2:d982:1da2:ed22::/64" ];
-          publicKey = "Um46toyF9DPeyQWmy4nyyxJH/m37HWXcX+ncJa3Mg0A=";
-          endpoint = "192.168.0.127:51822";
-          persistentKeepalive = 25;
-        }
-      ];
-    };
-  };
+  networking.wireguard.interfaces.akua =
+    metadata.hosts."${config.networking.hostName}";
 
   systemd.services.promtail = {
     description = "Promtail service for Loki";

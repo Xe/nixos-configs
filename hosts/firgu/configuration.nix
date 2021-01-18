@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
-{
+let metadata = pkgs.callPackage ../../ops/metadata/peers.nix { };
+in {
   imports = [
     ../../common/base.nix
     ../../common/services
@@ -26,7 +27,14 @@
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/vda"; # or "nodev" for efi only
 
-  environment.systemPackages = with pkgs; [ wget vim python3 lua5_2 lua5_sec git ];
+  environment.systemPackages = with pkgs; [
+    wget
+    vim
+    python3
+    lua5_2
+    lua5_sec
+    git
+  ];
 
   programs.gnupg.agent = {
     enable = true;
@@ -34,4 +42,19 @@
   };
 
   system.stateVersion = "20.09"; # Did you read the comment?
+
+  networking.wireguard.interfaces.akua =
+    metadata.hosts."${config.networking.hostName}";
+
+  within.coredns = {
+    enable = true;
+    addr = "10.77.3.2";
+    addServer = true;
+    prometheus.enable = true;
+  };
+
+  boot.kernel.sysctl = {
+    "net.ipv4.forward" = 1;
+    "net.ipv6.conf.all.forwarding" = 1;
+  };
 }

@@ -13,6 +13,10 @@
             address = "2001:470:1d:4ee::";
             prefixLength = 64;
           }
+          {
+            address = "2001:470:bb1b::";
+            prefixLength = 64;
+          }
         ];
         routes = [{
           address = "::";

@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
-{
+let metadata = pkgs.callPackage ../../ops/metadata/peers.nix { };
+in {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../common/base.nix
@@ -39,53 +40,8 @@
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
 
-  # Akua
-  networking.wireguard.interfaces = {
-    akua = {
-      ips = [ "10.77.2.2/16" "fda2:d982:1da2:ed22::/64" ];
-
-      privateKeyFile = "/root/wireguard-keys/private";
-      listenPort = 51822;
-
-      peers = [
-        # kahless
-        {
-          allowedIPs = [ "10.77.0.0/16" "10.88.0.0/16" "fda2:d982:1da2::/48" ];
-          publicKey = "MvBR3bV1TfACKcF5LQmLL3xlzpdDEatg5dHEyNKA5mw=";
-          endpoint = "kahless.cetacean.club:51820";
-          persistentKeepalive = 25;
-        }
-
-        # lufta
-        {
-          publicKey = "GJMOmAHUXQ7NfAMuEKQ7zhMmd1TIuJKKGYiC8hVpgEU=";
-          allowedIPs = [ "10.77.3.1/32" "fda2:d982:1da2:4711::/64" ];
-          endpoint = "135.181.162.99:51822";
-          persistentKeepalive = 25;
-        }
-
-        # keanu
-        {
-          allowedIPs = [ "10.77.2.1/32" "fda2:d982:1da2:8265::/64" ];
-          publicKey = "Dh0D2bdtSmx1Udvuwh7BdWuCADsHEfgWy8usHc1SJkU=";
-          endpoint = "192.168.0.159:51820";
-          persistentKeepalive = 25;
-        }
-
-        # shachi
-        {
-          allowedIPs = [
-            "10.77.2.8/32"
-            "fda2:d982:1da2:2::8/128"
-            "fda2:d982:1da2:8::/64"
-          ];
-          publicKey = "S8XgS18Z8xiKwed6wu9FE/JEp1a/tFRemSgfUl3JPFw=";
-          endpoint = "192.168.0.179:51820";
-          persistentKeepalive = 25;
-        }
-      ];
-    };
-  };
+  networking.wireguard.interfaces.akua =
+    metadata.hosts."${config.networking.hostName}";
 
   # 9p
   services.diod = {

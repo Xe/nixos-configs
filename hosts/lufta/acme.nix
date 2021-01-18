@@ -15,7 +15,7 @@ in {
     email = "me@christine.website";
     dnsProvider = "cloudflare";
     credentialsFile = "${creds}";
-    extraDomainNames = [ "lufta.tulpa.dev" ];
+    extraDomainNames = [ ];
   };
 
   security.acme.certs."christine.website" = {
@@ -40,7 +40,8 @@ in {
     email = "me@christine.website";
     dnsProvider = "cloudflare";
     credentialsFile = "${creds}";
-    extraDomainNames = [ "tulpaforce.xyz" ];
+    extraDomainNames =
+      [ "*.tulpanomicon.guide" "tulpaforce.xyz" "*.tulpaforce.xyz" ];
   };
 
   security.acme.certs."within.website" = {

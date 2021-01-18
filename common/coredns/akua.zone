@@ -2,7 +2,7 @@ $TTL 60
 
 $ORIGIN akua.
 @       IN      SOA     kahless.wg.akua.	me@christine.website. (
-                        2021010301	; serial number YYMMDDNN
+                        2021011702	; serial number YYMMDDNN
                         28800           ; Refresh
                         7200            ; Retry
                         864000          ; Expire
@@ -16,11 +16,11 @@ $ORIGIN akua.
 kahless.cloud.akua. IN A 198.27.67.207
 minipaas.cloud.akua. IN A 165.227.53.75
 lufta.cloud          IN A 135.181.162.99
+firgu.cloud          IN A 149.248.59.1
 
 ;;; hexagone
 
-; amd64
-keanu.hexagone.akua.  IN  A 192.168.0.128
+keanu.hexagone.akua.        IN  A 192.168.0.128
 128.0.168.192.in-addr.arpa. IN  PTR keanu.hexagone.akua.
 
 luna.hexagone.akua.         IN  A   192.168.0.108
@@ -45,19 +45,22 @@ minipaas.wg.akua. IN AAAA fda2:d982:1da2::8
 8.0.77.10.in-addr.arpa. IN PTR minipaas.wg.akua.
 
 chrysalis.wg.akua.      IN A    10.77.2.2
-chrysalis.wg.akua.      IN AAAA fda2:d982:1da2:ed22::
+chrysalis.wg.akua.      IN AAAA fda2:d982:1da2:ed22:9064:6df9:4855:611d
 2.2.77.10.in-addr.arpa. IN PTR  chrysalis.wg.akua.
 
 shachi.wg.akua.         IN A    10.77.2.8
-shachi.wg.akua.         IN AAAA fda2:d982:1da2:8::
+shachi.wg.akua.         IN AAAA fda2:d982:1da2:ed22:a601:31ef:e676:e9bd
 8.2.77.10.in-addr.apra. IN PTR  shachi.wg.akua.
 
 keanu.wg.akua.          IN A    10.77.2.1
-keanu.wg.akua.          IN AAAA fda2:d982:1da2:8265::
+keanu.wg.akua.          IN AAAA fda2:d982:1da2:ed22:c815:3632:42fc:a1d2
 1.2.77.10.in-addr.arpa. IN PTR  keanu.wg.akua.
 
 lufta.wg                IN A    10.77.3.1
-lufta.wg                IN AAAA fda2:d982:1da2:4711::
+lufta.wg                IN AAAA fda2:d982:1da2:180d:b7a4:9c5c:989b:ba02
+
+firgu.wg                IN A    10.77.3.2
+firgu.wg                IN AAAA fda2:d982:1da2:180d:8b49:c521:5fb2:5e55
 
 ;; client devices
 
