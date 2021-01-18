@@ -40,6 +40,13 @@ network = "roadwarrior"
 pubkey = "tDQlTm35G9LT9GE+VX1gWgnd2i9dmsmC6hSnTjiOBXM="
 addrs = { v4 = "10.77.1.3", v6 = "a88b:771c:4af8:b5c3:d2e1" }
 
+[hosts.genza]
+network = "roadwarrior"
+
+[hosts.genza.wireguard]
+pubkey = "Q9QO+IsK5ISqdEnXm0EMovEXKSZ15J3ASlUaX7bZDm0="
+addrs = { v4 = "10.77.1.4", v6 = "a88b:06c8:3903:be65:3261" }
+
 # hexagone
 [hosts.keanu]
 network = "hexagone"
