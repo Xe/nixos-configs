@@ -23,15 +23,17 @@ let
         "${metadata.common.ula}:${wireguard.addrs.v6}/128"
         "${metadata.common.gua}:${wireguard.addrs.v6}/128"
         "${wireguard.addrs.v4}/32"
-      ];
+      ] ++ (if ip_addr == "10.77.3.1" then [ "10.77.0.0/16" ] else [ ]);
       publicKey = wireguard.pubkey;
       persistentKeepalive = 25;
       endpoint = "${ip_addr}:${toString wireguard.port}";
     };
-  interfaceInfo = {network, wireguard, ...}: peers: let
+  interfaceInfo = { network, wireguard, ... }:
+    peers:
+    let
       net = metadata.networks."${network}";
       v6subnet = net.ula;
-    in{
+    in {
       ips = [
         "${metadata.common.ula}:${wireguard.addrs.v6}/128"
         "${metadata.common.gua}:${wireguard.addrs.v6}/128"
@@ -40,11 +42,14 @@ let
       privateKeyFile = "/root/wireguard-keys/private";
       listenPort = wireguard.port;
       inherit peers;
-  };
-  mkClientConfig = {network, wireguard, ...}: name: let
+    };
+  mkClientConfig = { network, wireguard, ... }:
+    name:
+    let
       net = metadata.networks."${network}";
       v6subnet = net.ula;
-    in with metadata.hosts; writeTextFile {
+    in with metadata.hosts;
+    writeTextFile {
       name = "${name}.conf";
       text = ''
         [Interface]
@@ -75,6 +80,7 @@ in with metadata.hosts; rec {
     (serverPeer chrysalis)
     (serverPeer keanu)
     (serverPeer shachi)
+    (serverPeer genza)
   ];
 
   cloud = [
@@ -82,20 +88,17 @@ in with metadata.hosts; rec {
     (roamPeer la-tahorskami)
     (roamPeer la-selbeifonxa)
     (roamPeer tolsutra)
-    (roamPeer genza)
     # hexagone
     (roamPeer chrysalis)
     (roamPeer keanu)
     (roamPeer shachi)
+    (roamPeer genza)
     # cloud
     (serverPeer lufta)
     (serverPeer firgu)
   ];
 
-  roadwarrior = [
-    (serverPeer lufta)
-    (serverPeer firgu)
-  ];
+  roadwarrior = [ (serverPeer lufta) (serverPeer firgu) ];
 
   hosts = {
     # hexagone
@@ -108,7 +111,7 @@ in with metadata.hosts; rec {
     firgu = interfaceInfo firgu cloud;
 
     # roadwarrior
-    genza = interfaceInfo genza roadwarrior;
+    genza = interfaceInfo genza hexagone;
   };
 
   confs = {
