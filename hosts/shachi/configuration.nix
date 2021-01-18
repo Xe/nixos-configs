@@ -4,7 +4,9 @@
 
 { config, pkgs, ... }:
 
-let metadata = pkgs.callPackage /home/cadey/code/nixos-configs/ops/metadata/peers.nix { };
+let
+  metadata =
+    pkgs.callPackage /home/cadey/code/nixos-configs/ops/metadata/peers.nix { };
 in {
   imports = [
     ./dns.nix
@@ -13,7 +15,6 @@ in {
     /home/cadey/code/nixos-configs/common/base.nix
     /home/cadey/code/nixos-configs/common/desktop.nix
     /home/cadey/code/nixos-configs/common/programs/plex.nix
-    /home/cadey/code/nixos-configs/common/programs/samba.nix
     ./rhea.nix
   ];
 
@@ -131,7 +132,7 @@ in {
     tailscale = {
       enable = false;
       notifySupport = false;
-      package = pkgs.xxx.hack.tailscale;
+      package = pkgs.tailscale;
     };
   };
 
@@ -183,5 +184,27 @@ in {
     environment.BORG_RSH = "ssh -i /root/borg_ssh_key";
     compression = "auto,lzma";
     startAt = "daily";
+  };
+
+  services.avahi = {
+    enable = true;
+    publish = {
+      enable = true;
+      addresses = true;
+    };
+  };
+
+  services.samba = {
+    enable = true;
+    nsswins = true;
+    shares = {
+      data = {
+        path = "/data";
+        "read only" = false;
+        browseable = "yes";
+        "guest ok" = "yes";
+        comment = "Public samba share.";
+      };
+    };
   };
 }

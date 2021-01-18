@@ -104,5 +104,13 @@ in {
     addServer = true;
     prometheus.enable = true;
   };
+
+  services.avahi = {
+    enable = true;
+    publish = {
+      enable = true;
+      addresses = true;
+    };
+  };
 }
 

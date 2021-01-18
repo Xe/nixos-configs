@@ -4,53 +4,61 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [ "ahci" "ehci_pci" "usb_storage" "sd_mod" "sr_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules =
+    [ "ahci" "ehci_pci" "usb_storage" "sd_mod" "sr_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "rpool/safe/root";
-      fsType = "zfs";
-    };
+  fileSystems."/" = {
+    device = "rpool/safe/root";
+    fsType = "zfs";
+  };
 
-  fileSystems."/nix" =
-    { device = "rpool/local/nix";
-      fsType = "zfs";
-    };
+  fileSystems."/nix" = {
+    device = "rpool/local/nix";
+    fsType = "zfs";
+  };
 
-  fileSystems."/var" =
-    { device = "rpool/local/var";
-      fsType = "zfs";
-    };
+  fileSystems."/var" = {
+    device = "rpool/local/var";
+    fsType = "zfs";
+  };
 
-  fileSystems."/home" =
-    { device = "rpool/safe/home";
-      fsType = "zfs";
-    };
+  fileSystems."/home" = {
+    device = "rpool/safe/home";
+    fsType = "zfs";
+  };
 
-  fileSystems."/srv" =
-    { device = "rpool/safe/srv";
-      fsType = "zfs";
-    };
+  fileSystems."/srv/share" = {
+    device = "rpool/local/share";
+    fsType = "zfs";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/9876-D1E9";
-      fsType = "vfat";
-    };
+  fileSystems."/srv/backup/shachi" = {
+    device = "rpool/local/shachi";
+    fsType = "zfs";
+  };
 
-  fileSystems."/var/lib" =
-    { device = "rpool/safe/var/lib";
-      fsType = "zfs";
-    };
+  fileSystems."/srv" = {
+    device = "rpool/safe/srv";
+    fsType = "zfs";
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/9876-D1E9";
+    fsType = "vfat";
+  };
+
+  fileSystems."/var/lib" = {
+    device = "rpool/safe/var/lib";
+    fsType = "zfs";
+  };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/85a4195e-98c5-4e7c-a418-901cbf5694c1"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/85a4195e-98c5-4e7c-a418-901cbf5694c1"; }];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }

@@ -4,7 +4,9 @@
 
 { config, pkgs, ... }:
 
-let metadata = pkgs.callPackage /home/cadey/code/nixos-configs/ops/metadata/peers.nix { };
+let
+  metadata =
+    pkgs.callPackage /home/cadey/code/nixos-configs/ops/metadata/peers.nix { };
 in {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -105,6 +107,44 @@ in {
       addSSL = true;
       enableACME = true;
       locations."/".root = "/srv/http/keanu.hexagone.within.website";
+    };
+  };
+
+  services.avahi = {
+    enable = true;
+    publish = {
+      enable = true;
+      addresses = true;
+    };
+  };
+
+  users.users.share.isNormalUser = false;
+
+  # trick to create a directory with proper ownership
+  # note that tmpfiles are not necesserarly temporary if you don't
+  # set an expire time. Trick given on irc by someone I forgot the name..
+  systemd.tmpfiles.rules = [ "d /srv/share 0755 share users" ];
+
+  services.samba.enable = true;
+  services.samba.enableNmbd = true;
+  services.samba.extraConfig = ''
+    workgroup = WORKGROUP
+    server string = Samba Server
+    server role = standalone server
+    log file = /var/log/samba/smbd.%m
+    max log size = 50
+    dns proxy = no
+    map to guest = Bad User
+    browseable = yes
+  '';
+  services.samba.shares = {
+    public = {
+      path = "/srv/share";
+      browseable = "yes";
+      "writable" = "yes";
+      "guest ok" = "yes";
+      "public" = "yes";
+      "force user" = "share";
     };
   };
 }
