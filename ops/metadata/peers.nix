@@ -106,6 +106,9 @@ in with metadata.hosts; rec {
     # cloud
     lufta = interfaceInfo lufta cloud;
     firgu = interfaceInfo firgu cloud;
+
+    # roadwarrior
+    genza = interfaceInfo genza roadwarrior;
   };
 
   confs = {
