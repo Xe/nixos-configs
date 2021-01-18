@@ -82,6 +82,7 @@ in with metadata.hosts; rec {
     (roamPeer la-tahorskami)
     (roamPeer la-selbeifonxa)
     (roamPeer tolsutra)
+    (roamPeer genza)
     # hexagone
     (roamPeer chrysalis)
     (roamPeer keanu)
