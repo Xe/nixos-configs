@@ -1,0 +1,8 @@
+{
+  "url": "https://tulpa.dev/cadey/maj.git",
+  "rev": "f6424dca1a198299074932946c6fa1ec100b72b9",
+  "sha256": "128v9j50cdxn732311244hz0swhp53bdnl5imhajajz4nxs4ib0f",
+  "fetchSubmodules": false,
+  "deepClone": false,
+  "leaveDotGit": false
+}
