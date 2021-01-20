@@ -7,11 +7,6 @@ let
 
   secret = types.submodule {
     options = {
-      name = mkOption {
-        type = types.str;
-        description = "human-readable name";
-      };
-
       source = mkOption {
         type = types.path;
         description = "local secret path";
@@ -44,7 +39,8 @@ let
 
   metadata = lib.importTOML ../../ops/metadata/hosts.toml;
 
-  mkSecretOnDisk = { name, source, ... }:
+  mkSecretOnDisk = name:
+    { source, ... }:
     pkgs.stdenv.mkDerivation {
       name = "${name}-secret";
       phases = "installPhase";
@@ -56,8 +52,8 @@ let
         '';
     };
 
-  mkService = { name, source, dest, owner, group, permissions, ... }: {
-    "${name}-key" = {
+  mkService = name:
+    { source, dest, owner, group, permissions, ... }: {
       description = "decrypt secret for ${name}";
       wantedBy = [ "multi-user.target" ];
 
@@ -66,20 +62,24 @@ let
       script = with pkgs; ''
         rm -rf ${dest}
         ${age}/bin/age -d -i /etc/ssh/ssh_host_ed25519_key -o ${dest} ${
-          mkSecretOnDisk { inherit name source; }
+          mkSecretOnDisk name { inherit source; }
         }
 
         chown ${owner}:${group} ${dest}
         chmod ${permissions} ${dest}
       '';
     };
-  };
 in {
   options.within.secrets = mkOption {
-    type = types.listOf secret;
+    type = types.attrsOf secret;
     description = "secret configuration";
-    default = [ ];
+    default = { };
   };
 
-  config.systemd.services = (foldAttrs (n: a: recursiveUpdate a n) {} (forEach cfg mkService));
+  config.systemd.services = let
+    units = mapAttrs' (name: info: {
+      name = "${name}-key";
+      value = (mkService name info);
+    }) cfg;
+  in units;
 }

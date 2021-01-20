@@ -13,14 +13,13 @@ with lib; {
       extraGroups = [ "keys" ];
     };
 
-    within.secrets = [{
-      name = "withinbot";
+    within.secrets.withinbot = {
       source = ./secrets/withinbot.env;
       dest = "/srv/within/withinbot/.env";
       owner = "withinbot";
       group = "within";
       permissions = "0400";
-    }];
+    };
 
     systemd.services.withinbot = {
       wantedBy = [ "multi-user.target" ];
