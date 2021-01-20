@@ -11,6 +11,7 @@ with lib; {
     ./rhea.nix
     ./users
     ./coredns
+    ./crypto
   ];
 
   options.cadey = {

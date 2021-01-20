@@ -139,17 +139,6 @@ in {
   networking.wireguard.interfaces.akua =
     metadata.hosts."${config.networking.hostName}";
 
-  systemd.services.promtail = {
-    description = "Promtail service for Loki";
-    wantedBy = [ "multi-user.target" ];
-
-    serviceConfig = {
-      ExecStart = ''
-        ${pkgs.grafana-loki}/bin/promtail --config.file ${./promtail.yaml}
-      '';
-    };
-  };
-
   services.prometheus = {
     exporters = {
       node = {

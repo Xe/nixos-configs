@@ -13,12 +13,14 @@ with lib; {
       extraGroups = [ "keys" ];
     };
 
-    deployment.keys.withinbot = {
-      text = builtins.readFile ./secrets/withinbot.env;
-      user = "withinbot";
+    within.secrets = [{
+      name = "withinbot";
+      source = ./secrets/withinbot.env;
+      dest = "/srv/within/withinbot/.env";
+      owner = "withinbot";
       group = "within";
-      permissions = "0640";
-    };
+      permissions = "0400";
+    }];
 
     systemd.services.withinbot = {
       wantedBy = [ "multi-user.target" ];
@@ -77,7 +79,6 @@ with lib; {
 
       script = let withinbot = pkgs.within.withinbot;
       in ''
-        export $(grep -v '^#' /run/keys/withinbot | xargs)
         export CAMPAIGN_FOLDER=${withinbot}/campaigns
         export RUST_LOG=error,serenity::client::bridge::gateway::shard_runner=error,serenity::gateway::shard=error
         exec ${withinbot}/bin/withinbot

@@ -53,6 +53,7 @@ addrs = { v4 = "10.77.1.4", v6 = "a88b:06c8:3903:be65:3261" }
 [hosts.keanu]
 network = "hexagone"
 ip_addr = "192.168.0.159"
+ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGDZUmuhfjEIROo2hog2c8J53taRuPJLNOtdaT8Nt69W"
 
 [hosts.keanu.wireguard]
 pubkey = "Dh0D2bdtSmx1Udvuwh7BdWuCADsHEfgWy8usHc1SJkU="
@@ -62,6 +63,7 @@ addrs = { v4 = "10.77.2.1", v6 = "ed22:c815:3632:42fc:a1d2" }
 [hosts.chrysalis]
 network = "hexagone"
 ip_addr = "192.168.0.127"
+ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGDA5iXvkKyvAiMEd/5IruwKwoymC8WxH4tLcLWOSYJ1"
 
 [hosts.chrysalis.wireguard]
 pubkey = "Um46toyF9DPeyQWmy4nyyxJH/m37HWXcX+ncJa3Mg0A="
@@ -71,6 +73,7 @@ addrs = { v4 = "10.77.2.2", v6 = "ed22:9064:6df9:4855:611d" }
 [hosts.shachi]
 network = "hexagone"
 ip_addr = "192.168.0.176"
+ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL3Jt26HXD7mLNjg+B+pB5+fXtxEmMeR6Bqv1Z5/819n"
 
 [hosts.shachi.wireguard]
 pubkey = "S8XgS18Z8xiKwed6wu9FE/JEp1a/tFRemSgfUl3JPFw="
@@ -81,6 +84,7 @@ addrs = { v4 = "10.77.2.8", v6 = "ed22:a601:31ef:e676:e9bd" }
 [hosts.lufta]
 network = "cloud"
 ip_addr = "135.181.162.99"
+ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMADhGV0hKt3ZY+uBjgOXX08txBS6MmHZcSL61KAd3df"
 
 [hosts.lufta.wireguard]
 pubkey = "GJMOmAHUXQ7NfAMuEKQ7zhMmd1TIuJKKGYiC8hVpgEU="
@@ -90,6 +94,7 @@ addrs = { v4 = "10.77.3.1", v6 = "180d:b7a4:9c5c:989b:ba02" }
 [hosts.firgu]
 network = "cloud"
 ip_addr = "149.248.59.1"
+ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB8+mCR+MEsv0XYi7ohvdKLbDecBtb3uKGQOPfIhdj3C"
 
 [hosts.firgu.wireguard]
 pubkey = "iGQ40ldOoV4QzLdvlzsTzaQxI4cmVMz1fguPoN44swU="

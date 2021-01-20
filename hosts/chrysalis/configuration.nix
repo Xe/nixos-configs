@@ -62,6 +62,8 @@ in {
     repo = "57196@usw-s007.rsync.net:chrysalis";
   };
 
+  within.services.withinbot.enable = true;
+
   # monitoring
   services.grafana = {
     enable = true;
@@ -70,23 +72,7 @@ in {
     addr = "0.0.0.0";
   };
 
-  services.loki = {
-    enable = true;
-    configFile = ./loki-local-config.yaml;
-  };
-
   services.tailscale.enable = true;
-
-  systemd.services.promtail = {
-    description = "Promtail service for Loki";
-    wantedBy = [ "multi-user.target" ];
-
-    serviceConfig = {
-      ExecStart = ''
-        ${pkgs.grafana-loki}/bin/promtail --config.file ${./promtail.yaml}
-      '';
-    };
-  };
 
   services.nginx = {
     appendHttpConfig = ''
