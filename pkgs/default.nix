@@ -58,4 +58,6 @@ pkgs: rec {
   };
 
   xxx.hack = { tailscale = pkgs.callPackage ./tailscale.nix { }; };
+
+  fish-foreign-env = pkgs.fishPlugins.foreign-env;
 }
