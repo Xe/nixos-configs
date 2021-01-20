@@ -62,8 +62,6 @@ in {
     repo = "57196@usw-s007.rsync.net:chrysalis";
   };
 
-  within.services.withinbot.enable = true;
-
   # monitoring
   services.grafana = {
     enable = true;

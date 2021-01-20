@@ -52,7 +52,7 @@ let
       installPhase =
         let key = metadata.hosts."${config.networking.hostName}".ssh_pubkey;
         in ''
-          age -a -r "${key}" -o $out
+          age -a -r "${key}" -o $out ${source}
         '';
     };
 
