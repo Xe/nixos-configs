@@ -35,16 +35,20 @@ in with lib; {
       repo = cfg.repo;
       encryption = {
         mode = "repokey-blake2";
-        passCommand = "cat /run/keys/borgbackup_passphrase";
+        passCommand = "cat /root/borgbackup_passphrase";
       };
-      environment.BORG_RSH = "ssh -i /run/keys/borgbackup_ssh_key";
+      environment.BORG_RSH = "ssh -i /root/borgbackup_ssh_key";
       compression = "auto,lzma";
       startAt = "daily";
     };
 
-    deployment.keys.borgbackup_passphrase.text =
-      builtins.readFile ./secrets/borg_passphrase;
-    deployment.keys.borgbackup_ssh_key.text =
-      builtins.readFile ./secrets/borg_ssh_key;
+    within.secrets.borgbackup_passphrase = {
+      source = ./secrets/borg_passphrase;
+      dest = "/root/borgbackup_passphrase";
+    };
+    within.secrets.borgbackup_ssh_key = {
+      source = ./secrets/borg_ssh_key;
+      dest = "/root/borgbackup_ssh_key";
+    };
   };
 }

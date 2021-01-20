@@ -32,9 +32,10 @@ in {
       extraGroups = [ "keys" ];
     };
 
-    deployment.keys.xesite = {
-      text = builtins.readFile ./secrets/xesite.env;
-      user = "xesite";
+    within.secrets.xesite = {
+      source = ./secrets/xesite.env;
+      dest = "/srv/within/xesite/.env";
+      owner = "xesite";
       group = "within";
       permissions = "0400";
     };
@@ -87,7 +88,7 @@ in {
 
       script = let site = pkgs.github.com.Xe.site;
       in ''
-        export $(grep -v '^#' /run/keys/xesite | xargs)
+        export $(cat /srv/within/xesite/.env | xargs)
         export PORT=${toString cfg.port}
         export DOMAIN=${toString cfg.domain}
         cd ${site}

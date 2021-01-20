@@ -34,9 +34,10 @@ in {
       extraGroups = [ "keys" ];
     };
 
-    deployment.keys.mi = {
-      text = builtins.readFile ./secrets/mi.toml;
-      user = "mi";
+    within.secrets.mi = {
+      source = ./secrets/mi.toml;
+      dest = "/srv/within/mi/Rocket.toml";
+      owner = "mi";
       group = "within";
       permissions = "0400";
     };

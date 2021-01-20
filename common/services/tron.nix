@@ -15,9 +15,10 @@ with lib; {
     };
 
     # Secret config
-    deployment.keys.tron = {
-      text = builtins.readFile ./secrets/tron.env;
-      user = "tron";
+    within.secrets.tron = {
+      source = ./secrets/tron.env;
+      dest = "/srv/within/tron/.env";
+      owner = "tron";
       group = "within";
       permissions = "0640";
     };

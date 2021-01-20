@@ -13,9 +13,10 @@ with lib; {
       extraGroups = [ "keys" ];
     };
 
-    deployment.keys.aerial = {
-      text = builtins.readFile ./secrets/aerial.env;
-      user = "aerial";
+    within.secrets.aerial = {
+      source = ./secrets/aerial.env;
+      dest = "/srv/within/aerial/.env";
+      owner = "aerial";
       group = "within";
       permissions = "0640";
     };
@@ -77,7 +78,6 @@ with lib; {
 
       script = let aura = pkgs.within.aura;
       in ''
-        export $(grep -v '^#' /run/keys/aerial | xargs)
         exec ${aura}/bin/aerial
       '';
     };
