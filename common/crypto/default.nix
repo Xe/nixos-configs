@@ -48,7 +48,7 @@ let
       installPhase =
         let key = metadata.hosts."${config.networking.hostName}".ssh_pubkey;
         in ''
-          age -a -r "${key}" -o $out ${source}
+          age -a -r '${key}' -o "$out" '${source}'
         '';
     };
 
@@ -61,12 +61,12 @@ let
 
       script = with pkgs; ''
         rm -rf ${dest}
-        ${age}/bin/age -d -i /etc/ssh/ssh_host_ed25519_key -o ${dest} ${
+        "${age}"/bin/age -d -i /etc/ssh/ssh_host_ed25519_key -o '${dest}' '${
           mkSecretOnDisk name { inherit source; }
-        }
+        }'
 
-        chown ${owner}:${group} ${dest}
-        chmod ${permissions} ${dest}
+        chown '${owner}':'${group}' '${dest}'
+        chmod '${permissions}' '${dest}'
       '';
     };
 in {
