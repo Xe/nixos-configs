@@ -3,6 +3,7 @@
 {
   imports = [
     ./aerial.nix
+    ./aura.nix
     ./backup.nix
     ./goproxy.nix
     ./graphvizonline.nix

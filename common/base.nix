@@ -77,7 +77,7 @@ with lib; {
       script = with pkgs; ''
         ${coreutils}/bin/mkdir -p /srv/within
         ${coreutils}/bin/chown root:within /srv/within
-        ${coreutils}/bin/chmod 770 /srv/within
+        ${coreutils}/bin/chmod 775 /srv/within
       '';
     };
   };

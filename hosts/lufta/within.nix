@@ -70,6 +70,11 @@ in {
 
     services = {
       # webapps
+      aura = {
+        enable = true;
+        domain = "pvfmsets.cf";
+      };
+
       goproxy = {
         enable = true;
         useACME = true;

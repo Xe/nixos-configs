@@ -6,7 +6,7 @@ in {
     metadata.hosts."${config.networking.hostName}";
 
   within.coredns = {
-    enable = true;
+    enable = false;
     addr = "10.77.3.1";
     addServer = true;
     prometheus.enable = true;
