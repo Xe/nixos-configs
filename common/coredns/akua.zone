@@ -2,7 +2,7 @@ $TTL 60
 
 $ORIGIN akua.
 @       IN      SOA     kahless.wg.akua.	me@christine.website. (
-                        2021011702	; serial number YYMMDDNN
+                        2021012300	; serial number YYMMDDNN
                         28800           ; Refresh
                         7200            ; Retry
                         864000          ; Expire
@@ -20,7 +20,7 @@ firgu.cloud          IN A 149.248.59.1
 
 ;;; hexagone
 
-keanu.hexagone.akua.        IN  A 192.168.0.128
+keanu.hexagone.akua.        IN  A 192.168.0.158
 128.0.168.192.in-addr.arpa. IN  PTR keanu.hexagone.akua.
 
 luna.hexagone.akua.         IN  A   192.168.0.108

@@ -52,7 +52,7 @@ addrs = { v4 = "10.77.1.4", v6 = "a88b:06c8:3903:be65:3261" }
 # hexagone
 [hosts.keanu]
 network = "hexagone"
-ip_addr = "192.168.0.159"
+ip_addr = "192.168.0.158"
 ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGDZUmuhfjEIROo2hog2c8J53taRuPJLNOtdaT8Nt69W"
 
 [hosts.keanu.wireguard]

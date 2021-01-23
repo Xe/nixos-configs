@@ -5,52 +5,50 @@ in {
     deployment.targetUser = "root";
   };
 
-  "ns1" = { config, pkgs, lib, ... }: {
+  "pa" = { config, pkgs, lib, ... }: {
     imports =
-      [ ../../common/generic-libvirtd.nix ../../common/coredns ./wireguard ];
-    networking.firewall.allowedUDPPorts = [ 53 ];
-    networking.nameservers = lib.mkForce [ "192.168.122.187" ];
+      [ ../../common/generic-libvirtd.nix ./wireguard ];
+    networking.firewall.enable = false;
+    deployment.targetHost = "192.168.122.153";
 
-    within.coredns = {
+    services.cockroachdb = {
       enable = true;
-      addr = "192.168.122.187";
+      locality = "country=ca,province=qc,region=hexagone,vm-host=shachi";
+      join = "192.168.122.153:26257,192.168.122.175:26257,192.168.122.147:26257";
+      insecure = true;
+      http.address = "0.0.0.0";
+      listen.address = config.deployment.targetHost;
     };
-
-    deployment.targetHost = "192.168.122.187";
-    deployment.healthChecks.cmd = [{
-      cmd = [ "${pkgs.dnsutils}/bin/nslookup shachi.wg.akua" ];
-      description = "Testing that dns resolution of shachi.wg.akua works.";
-    }];
   };
 
-  "ns2" = { config, pkgs, lib, ... }: {
+  "re" = { config, pkgs, lib, ... }: {
     imports =
-      [ ../../common/generic-libvirtd.nix ../../common/coredns ./wireguard ];
-    networking.firewall.allowedUDPPorts = [ 53 ];
-    networking.nameservers = lib.mkForce [ "192.168.122.80" ];
+      [ ../../common/generic-libvirtd.nix ./wireguard ];
+    networking.firewall.enable = false;
+    deployment.targetHost = "192.168.122.175";
 
-    within.coredns = {
+    services.cockroachdb = {
       enable = true;
-      addr = "192.168.122.80";
+      locality = "country=ca,province=qc,region=hexagone,vm-host=shachi";
+      join = "192.168.122.153:26257,192.168.122.175:26257,192.168.122.147:26257";
+      insecure = true;
+      http.address = "0.0.0.0";
+      listen.address = config.deployment.targetHost;
     };
-
-    deployment.targetHost = "192.168.122.80";
-    deployment.healthChecks.cmd = [{
-      cmd = [ "${pkgs.dnsutils}/bin/nslookup shachi.wg.akua" ];
-      description = "Testing that dns resolution of shachi.wg.akua works.";
-    }];
   };
 
-  "shell" = { config, pkgs, ... }: {
+  "ci" = { config, pkgs, ... }: {
     imports = [ ../../common/generic-libvirtd.nix ./wireguard ];
     networking.firewall.enable = false;
+    deployment.targetHost = "192.168.122.147";
 
-    environment.systemPackages = with pkgs; [ bind ];
-
-    deployment.targetHost = "192.168.122.191";
-    deployment.healthChecks.cmd = [{
-      cmd = [ "${pkgs.dnsutils}/bin/nslookup shachi.wg.akua" ];
-      description = "Testing that dns resolution of shachi.wg.akua works.";
-    }];
+    services.cockroachdb = {
+      enable = true;
+      locality = "country=ca,province=qc,region=hexagone,vm-host=shachi";
+      join = "192.168.122.153:26257,192.168.122.175:26257,192.168.122.147:26257";
+      insecure = true;
+      http.address = "0.0.0.0";
+      listen.address = config.deployment.targetHost;
+    };
   };
 }

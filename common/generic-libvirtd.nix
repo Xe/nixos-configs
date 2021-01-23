@@ -17,6 +17,8 @@ in {
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "/dev/vda";
 
+  nixpkgs.config.allowUnfree = true;
+
   fileSystems."/" = {
     device = "/dev/vda1";
     fsType = "ext4";

@@ -4,4 +4,7 @@
 set -e
 set -x
 
+export SSH_USER=root
+morph build ./network.nix
+morph push ./network.nix
 morph deploy ./network.nix switch --upload-secrets
