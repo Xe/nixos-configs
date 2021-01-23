@@ -76,6 +76,7 @@ in with metadata.hosts; rec {
     # cloud
     (serverPeer lufta)
     (serverPeer firgu)
+    (serverPeer kahless)
     # hexagone
     (serverPeer chrysalis)
     (serverPeer keanu)
@@ -96,6 +97,7 @@ in with metadata.hosts; rec {
     # cloud
     (serverPeer lufta)
     (serverPeer firgu)
+    (serverPeer kahless)
   ];
 
   roadwarrior = [ (serverPeer lufta) (serverPeer firgu) ];

@@ -100,3 +100,12 @@ ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB8+mCR+MEsv0XYi7ohvdKLbDecBtb
 pubkey = "iGQ40ldOoV4QzLdvlzsTzaQxI4cmVMz1fguPoN44swU="
 port = 51822
 addrs = { v4 = "10.77.3.2", v6 = "180d:8b49:c521:5fb2:5e55" }
+
+[hosts.kahless]
+network = "cloud"
+ip_addr = "198.27.67.207"
+
+[hosts.kahless.wireguard]
+pubkey = "MvBR3bV1TfACKcF5LQmLL3xlzpdDEatg5dHEyNKA5mw="
+port = 51820
+addrs = { v4 = "10.77.0.1", v6 = ":" }
