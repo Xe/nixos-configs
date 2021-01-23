@@ -7,7 +7,7 @@
     ./docker.nix
     ./gitea.nix
     ./hardware-configuration.nix
-    ./hydra.nix
+    ./hydra
     ./monitoring.nix
     ./weechat.nix
     ./within.nix
