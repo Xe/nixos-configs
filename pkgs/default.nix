@@ -48,8 +48,6 @@ pkgs: rec {
     withinbot = github.com.Xe.withinbot;
   };
 
-  lagrange = pkgs.callPackage ./lagrange { };
-
   x = {
     caddy = pkgs.callPackage ./x/caddy.nix { };
     idp = pkgs.callPackage ./x/idp.nix { };

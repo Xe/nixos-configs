@@ -18,9 +18,10 @@ in {
       extraGroups = [ "keys" ];
     };
 
-    deployment.keys.oragono = {
-      text = builtins.readFile ./secrets/oragono.yaml;
-      user = "oragono";
+    within.secrets.oragono = {
+      source = ./secrets/oragono.yaml;
+      dest = "/srv/within/oragono/oragono.yaml";
+      owner = "oragono";
       group = "within";
       permissions = "0400";
     };
@@ -43,7 +44,7 @@ in {
         rm ircd.yaml ||:
         ln -s /run/keys/oragono ircd.yaml
         ${ora}/bin/oragono mkcerts ||:
-        ${ora}/bin/oragono --conf=/run/keys/oragono run
+        ${ora}/bin/oragono --conf=/srv/within/oragono/oragono.yaml run
       '';
     };
 

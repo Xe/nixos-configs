@@ -5,8 +5,7 @@ let cfg = config.cadey.kde;
 in {
   options = { cadey.kde.enable = mkEnableOption "KDE apps"; };
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs;
-      with pkgs.kdeApplications; [
+    environment.systemPackages = with pkgs; [
         amarok
         ark
         kate
