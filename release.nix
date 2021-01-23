@@ -1,6 +1,6 @@
 let
   pkgs = import <nixpkgs> { };
-  myPkgs = (import ./.) pkgs;
+  myPkgs = (import ./pkgs) pkgs;
 in rec {
   inherit (myPkgs) github xe tulpa within x lagrange;
 
