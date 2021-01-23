@@ -3,7 +3,7 @@
     "hidden": false,
     "description": "nixos-configs pkgs",
     "nixexprinput": "src",
-    "nixexprpath": "pkgs/release.nix",
+    "nixexprpath": "pkgs/hydra.nix",
     "checkinterval": 300,
     "schedulingshares": 100,
     "enableemail": false,
