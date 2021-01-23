@@ -33,6 +33,7 @@
             (mkApp "goproxy")
             (mkApp "graphviz")
             (mkApp "hlang")
+            (mkApp "hydra")
             (mkApp "idp")
             (mkApp "johaus")
             (mkApp "lewa")

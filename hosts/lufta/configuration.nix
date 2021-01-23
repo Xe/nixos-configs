@@ -7,6 +7,7 @@
     ./docker.nix
     ./gitea.nix
     ./hardware-configuration.nix
+    ./hydra.nix
     ./monitoring.nix
     ./weechat.nix
     ./within.nix
@@ -119,6 +120,7 @@
   services.tor.enable = true;
   services.mysql.enable = true;
   services.mysql.package = pkgs.mariadb;
+  services.postgresql.enable = true;
 
   services.zfs.autoScrub.enable = true;
   services.zfs.autoSnapshot = {
