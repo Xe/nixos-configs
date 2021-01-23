@@ -1,9 +1,9 @@
 {
     "enabled": 1,
     "hidden": false,
-    "description": "Jobsets",
+    "description": "nixos-configs pkgs",
     "nixexprinput": "src",
-    "nixexprpath": "release.nix",
+    "nixexprpath": "pkgs/release.nix",
     "checkinterval": 300,
     "schedulingshares": 100,
     "enableemail": false,

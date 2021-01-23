@@ -9,7 +9,7 @@
   }];
 
   nix.extraOptions = ''
-    allowed-uris = https://github.com/NixOS https://github.com/Xe https://github.com/nmattia
+    allowed-uris = https://github.com/NixOS https://github.com/Xe https://github.com/nmattia https://github.com
   '';
 
   services.hydra = {
@@ -17,6 +17,7 @@
     hydraURL = "https://hydra.cetacean.club";
     notificationSender = "hydra@localhost";
     port = 56283;
+    useSubstitutes = true;
   };
 
   services.nginx.virtualHosts."hydra.cetacean.club" = {
