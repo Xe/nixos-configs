@@ -3,7 +3,7 @@ on:
   pull_request:
   push:
 jobs:
-  tests:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2.3.4
@@ -14,4 +14,4 @@ jobs:
       with:
         name: xe
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
-    - run: cd ./pkgs && nix-build ./release.nix
+    - run: cd ./pkgs && nix-build ./release.nix | cachix push xe
