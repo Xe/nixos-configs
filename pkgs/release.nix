@@ -2,7 +2,7 @@ let
   pkgs = import <nixpkgs> { };
   myPkgs = (import ./.) pkgs;
 in rec {
-  inherit (myPkgs) github xe tulpa within x lagrange;
+  inherit (myPkgs) github xe tulpa within x;
 
   goproxy = github.com.goproxyio.goproxy;
   sw = github.com.jroimartin.sw;
