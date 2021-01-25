@@ -17,6 +17,18 @@ v4 = "10.77.2.0"
 ula = "a88b"
 v4 = "10.77.1.0"
 
+[networks.fake]
+ula = "c93a"
+v4 = "10.77.127.0"
+
+# fake machines that use netstack
+[hosts.httpserver]
+network = "fake"
+
+[hosts.httpserver.wireguard]
+pubkey = "kKVzfevjDxgFEFpmexEiJqgL5x6OMV9B0EUiUWjo7Bc="
+addrs = { v4 = "10.77.127.1", v6 = "c93a:8746:e81e:b9ec:0943" }
+
 # roadwarrior machines that can move around
 
 [hosts.la-tahorskami]
@@ -72,7 +84,7 @@ addrs = { v4 = "10.77.2.2", v6 = "ed22:9064:6df9:4855:611d" }
 
 [hosts.shachi]
 network = "hexagone"
-ip_addr = "192.168.0.176"
+ip_addr = "192.168.0.177"
 ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL3Jt26HXD7mLNjg+B+pB5+fXtxEmMeR6Bqv1Z5/819n"
 
 [hosts.shachi.wireguard]
