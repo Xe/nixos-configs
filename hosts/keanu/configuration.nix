@@ -75,6 +75,19 @@ in {
   within.backups = {
     enable = true;
     repo = "57196@usw-s007.rsync.net:keanu";
+  exclude = [
+    # temporary files created by cargo
+    "**/target"
+    "/srv/share"
+    "/srv/backup"
+    "/var/lib/docker"
+    "/var/lib/systemd"
+    "/var/lib/libvirt"
+    "'**/.cache'"
+    "'**/.nix-profile'"
+    "'**/.elm'"
+    "'**/.emacs.d'"
+  ];
   };
 
   networking.nat.enable = true;

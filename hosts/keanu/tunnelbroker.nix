@@ -15,7 +15,7 @@
           }
           {
             address = "2001:470:bb1b::";
-            prefixLength = 64;
+            prefixLength = 128;
           }
         ];
         routes = [{
