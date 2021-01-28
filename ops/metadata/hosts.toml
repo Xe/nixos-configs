@@ -24,11 +24,9 @@ v4 = "10.77.127.0"
 # fake machines that use netstack
 [hosts.httpserver]
 network = "fake"
-ip_addr = "10.77.2.8"
 
 [hosts.httpserver.wireguard]
 pubkey = "kKVzfevjDxgFEFpmexEiJqgL5x6OMV9B0EUiUWjo7Bc="
-port = 38184
 addrs = { v4 = "10.77.127.1", v6 = "c93a:8746:e81e:b9ec:0943" }
 
 # roadwarrior machines that can move around

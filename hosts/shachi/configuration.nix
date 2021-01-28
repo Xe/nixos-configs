@@ -106,9 +106,6 @@ in {
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-
   virtualisation.libvirtd.enable = true;
   networking.firewall.checkReversePath = false;
 
@@ -151,6 +148,8 @@ in {
 
   programs.mtr.enable = true;
 
+  services.tor.enable = true;
+
   services.borgbackup.jobs."rsyncnet" = {
     paths = [
       "/home/cadey/.ssh"
@@ -160,6 +159,7 @@ in {
       "/home/cadey/Documents"
       "/home/cadey/sm64_save_file.bin"
       "/root"
+      "/var/lib/minecraft"
     ];
     exclude = [
       # temporary files created by cargo

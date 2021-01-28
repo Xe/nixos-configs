@@ -23,6 +23,7 @@ github Xe GraphvizOnline &
 github goproxyio goproxy &
 github oragono oragono &
 github jroimartin sw &
+github nomad-software meme &
 
 # git repos
 git https tulpa.dev/cadey/cabytcini &

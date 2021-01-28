@@ -7,6 +7,7 @@ pkgs: rec {
   github.com = {
     goproxyio.goproxy = pkgs.callPackage ./github.com/goproxyio/goproxy { };
     jroimartin.sw = pkgs.callPackage ./github.com/jroimartin/sw { };
+    nomad-software.meme = pkgs.callPackage ./github.com/nomad-software/meme { };
     oragono.oragono = pkgs.callPackage ./github.com/oragono/oragono { };
     PonyvilleFM.aura = pkgs.callPackage ./github.com/PonyvilleFM/aura { };
     Xe = {

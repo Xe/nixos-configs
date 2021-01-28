@@ -25,4 +25,6 @@ in {
   };
 
   users.users.root.openssh.authorizedKeys.keyFiles = [ (fetchKeys "Xe") ];
+
+  services.qemuGuest.enable = true;
 }

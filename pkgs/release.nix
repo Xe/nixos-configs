@@ -4,6 +4,7 @@ let
 in rec {
   inherit (myPkgs) github xe tulpa within x;
 
+  meme = github.com.nomad-software.meme;
   goproxy = github.com.goproxyio.goproxy;
   sw = github.com.jroimartin.sw;
   oragono = github.com.oragono.oragono;
