@@ -6,7 +6,7 @@
   home.file."bin/e" = {
     text = ''
       #!/bin/sh
-      emacsclient -a "" -nc $@
+      emacsclient $@
     '';
     executable = true;
   };
@@ -63,7 +63,6 @@
         (setq coding-system-for-write 'utf-8 )
         (setq sentence-end-double-space nil)	; sentence SHOULD end with only a point.
         (setq default-fill-column 80)		; toggle wrapping text at the 80th character
-        (setq initial-scratch-message "coi") ; print a default message in the empty scratch buffer opened at startup
 
         (defun chomp (str)
           "Chomp leading and tailing whitespace from STR."
@@ -364,7 +363,8 @@
         gruvbox-theme = {
           enable = true;
           config = ''
-            (load-theme 'gruvbox-dark-hard t)
+            (setq custom-safe-themes t)
+            (add-hook 'after-init-hook (lambda () (load-theme 'gruvbox t)))
           '';
         };
 
@@ -417,19 +417,10 @@
         org-download.enable = true;
         org.enable = true;
         org-mime.enable = true;
-        org-plus-contrib.enable = true;
         org-pomodoro.enable = true;
         org-projectile.enable = true;
 
         systemd.enable = true;
-
-        highlight-indent-guides = {
-          enable = true;
-
-          config = ''
-            (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-          '';
-        };
       };
     };
   };
