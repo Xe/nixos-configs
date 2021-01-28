@@ -49,4 +49,18 @@
   '';
 
   programs.steam.enable = true;
+
+  fonts.fonts = [
+    (pkgs.runCommandLocal "zbalermorna-fonts" {
+      src = pkgs.fetchFromGitHub {
+        owner = "jackhumbert";
+        repo = "zbalermorna";
+        rev = "920b28d798ae1c06885c674bbf02b08ffed12b2f";
+        sha256 = "sha256:00sl3f1x4frh166mq85lwl9v1f5r3ckkfg8id5fibafymick5vyp";
+      };
+    } ''
+      mkdir --parents "$out/share/fonts/opentype"
+      cp "$src/fonts"/*.otf "$out/share/fonts/opentype"
+    '')
+  ];
 }

@@ -58,8 +58,6 @@ in {
 
       script = let mi = pkgs.within.mi;
       in ''
-        rm Rocket.toml ||:
-        ln -s /run/keys/mi ./Rocket.toml
         export ROCKET_PORT=${toString cfg.port}
         exec ${mi}/bin/mi-backend
       '';
