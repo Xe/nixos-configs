@@ -103,6 +103,7 @@ in {
       '';
     };
     home.packages = with pkgs; [
+      grim # for screenshots
       swaylock
       swayidle
       wl-clipboard
