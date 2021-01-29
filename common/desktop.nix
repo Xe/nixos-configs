@@ -9,6 +9,7 @@
     ./programs/etcher.nix
     ./programs/kde.nix
     ./programs/telegram.nix
+    ./programs/sway.nix
     ./users/home-manager.nix
   ];
 

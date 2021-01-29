@@ -13,6 +13,7 @@ in {
     ./st
     ./xresources.nix
     ./urxvt.nix
+    ./sway.nix
 
     #luakit
     #zathura
