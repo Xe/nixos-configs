@@ -22,7 +22,7 @@ in {
         in {
           terminal = "${pkgs.nur.repos.xe.st}";
           bars = [{
-            fonts = [ "Dunda 8" "Hack 8" ];
+            fonts = [ "Crisa 10" "Hack 10" ];
             colors = {
               background = "#282828";
               statusline = "#ebdbb2";
@@ -51,6 +51,7 @@ in {
             position = "top";
             statusCommand = "${pkgs.i3status}/bin/i3status";
             workspaceButtons = true;
+            workspaceNumbers = true;
             trayOutput = "primary";
           }];
           colors = {
@@ -82,14 +83,15 @@ in {
             titlebar = true;
           };
           focus = { followMouse = "yes"; };
-          fonts = [ "Dunda 8" "Hack 8" ];
+          fonts = [ "Crisa 12" "Hack 10" ];
           gaps = {
-            horizontal = 6;
-            vertical = 6;
+            horizontal = 3;
+            vertical = 3;
             inner = 12;
             smartBorders = "on";
             smartGaps = true;
           };
+          workspaceAutoBackAndForth = true;
           keybindings =
             let modifier = config.wayland.windowManager.sway.config.modifier;
             in lib.mkOptionDefault {
@@ -102,6 +104,35 @@ in {
               "${modifier}+f" = "layout tabbed";
               "${modifier}+u" = "layout stacking";
               "${modifier}+e" = "exec $home/bin/e";
+
+              "${modifier}+1" = "workspace ";
+              "${modifier}+2" = "workspace ";
+              "${modifier}+3" = "workspace ";
+              "${modifier}+4" = "workspace ";
+              "${modifier}+5" = "workspace ";
+              "${modifier}+6" = "workspace ";
+              "${modifier}+7" = "workspace ";
+              "${modifier}+8" = "workspace ";
+              "${modifier}+9" = "workspace ";
+
+              "${modifier}+Shift+1" =
+                "move container to workspace ";
+              "${modifier}+Shift+2" =
+                "move container to workspace ";
+              "${modifier}+Shift+3" =
+                "move container to workspace ";
+              "${modifier}+Shift+4" =
+                "move container to workspace ";
+              "${modifier}+Shift+5" =
+                "move container to workspace ";
+              "${modifier}+Shift+6" =
+                "move container to workspace ";
+              "${modifier}+Shift+7" =
+                "move container to workspace ";
+              "${modifier}+Shift+8" =
+                "move container to workspace ";
+              "${modifier}+Shift+9" =
+                "move container to workspace ";
             };
           output = nixosConfig.cadey.sway.output;
           startup = [
@@ -114,6 +145,17 @@ in {
           ];
           window = { border = 1; };
         };
+      extraConfig = ''
+        set $ws1 1:
+        set $ws2 2:
+        set $ws3 3:
+        set $ws4 4:
+        set $ws5 5:
+        set $ws6 6:
+        set $ws7 7:
+        set $ws8 8:
+        set $ws9 9:
+      '';
       extraSessionCommands = ''
         export SDL_VIDEODRIVER=wayland
         # needs qt5.qtwayland in systemPackages

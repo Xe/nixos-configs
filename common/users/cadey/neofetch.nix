@@ -8,18 +8,19 @@
         info title
         info underline
 
-        info "samcmu" distro
-        info "skami" model
-        info "samcmuralju" kernel
-        info "akti temci" uptime
-        info "bakfu" packages
-        info "calku" shell
-        info "tilcfu" resolution
-        info "cankyuijde ralju" wm
-        info "cakselsampla" term
-        info "samkroxo" cpu
-        info "vidnyskami" gpu
-        info "datnyvaugunma" memory
+        info "" ""
+        info "" distro
+        info "" model
+        info "" kernel
+        info " " uptime
+        info "" packages
+        info "" shell
+        info "" resolution
+        info " " wm
+        info "" term
+        info "" cpu
+        info "" gpu
+        info "" memory
         #info "elsa" song
 
         info cols
