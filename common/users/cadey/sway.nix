@@ -22,7 +22,7 @@ in {
         in {
           terminal = "${pkgs.nur.repos.xe.st}";
           bars = [{
-            fonts = [ "Crisa 10" "Hack 10" ];
+            fonts = [ "Primihi 10" "Hack 10" ];
             colors = {
               background = "#282828";
               statusline = "#ebdbb2";
@@ -57,21 +57,21 @@ in {
           colors = {
             focused = rec {
               background = "#d3869b";
-              border = background;
+              border = "#bdae93";
               text = "#32302f";
               indicator = "#2e9ef4";
               childBorder = "#3d3285";
             };
             focusedInactive = rec {
               background = "#b16286";
-              border = background;
+              border = "#bdae93";
               text = "#ebdbb2";
               indicator = "#b57614";
               childBorder = "#3d3285";
             };
             unfocused = rec {
               background = "#8f3f71";
-              border = background;
+              border = "#bdae93";
               text = "#ebdbb2";
               indicator = "#b57614";
               childBorder = "#3d3285";
@@ -83,7 +83,7 @@ in {
             titlebar = true;
           };
           focus = { followMouse = "yes"; };
-          fonts = [ "Crisa 12" "Hack 10" ];
+          fonts = [ "Primihi 12" "Hack 10" ];
           gaps = {
             horizontal = 3;
             vertical = 3;
@@ -166,6 +166,7 @@ in {
         # Fix for some Java AWT applications (e.g. Android Studio),
         # use this if they aren't displayed properly:
         export _JAVA_AWT_WM_NONREPARENTING=1
+        MOZ_ENABLE_WAYLAND=0
       '';
     };
     home.packages = with pkgs; [
