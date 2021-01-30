@@ -103,7 +103,7 @@ in {
               "${modifier}+t" = "layout toggle split";
               "${modifier}+f" = "layout tabbed";
               "${modifier}+u" = "layout stacking";
-              "${modifier}+e" = "exec $home/bin/e";
+              "${modifier}+e" = "exec $HOME/bin/e";
 
               "${modifier}+1" = "workspace ";
               "${modifier}+2" = "workspace ";
@@ -116,7 +116,7 @@ in {
               "${modifier}+9" = "workspace ";
 
               "${modifier}+Shift+1" =
-                "move container to workspace ";
+                "move container to workspace ";
               "${modifier}+Shift+2" =
                 "move container to workspace ";
               "${modifier}+Shift+3" =
@@ -133,6 +133,7 @@ in {
                 "move container to workspace ";
               "${modifier}+Shift+9" =
                 "move container to workspace ";
+              "${modifier}+Shift+0" = "sticky toggle";
             };
           output = nixosConfig.cadey.sway.output;
           startup = [
@@ -142,6 +143,7 @@ in {
             }
             { command = "firefox"; }
             { command = "Discord"; }
+            { command = "mako"; }
           ];
           window = { border = 1; };
         };
