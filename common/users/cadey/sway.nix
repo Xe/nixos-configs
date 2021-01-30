@@ -49,7 +49,7 @@ in {
             hiddenState = "hide";
             mode = "dock";
             position = "top";
-            statusCommand = "${pkgs.i3status}/bin/i3status";
+            statusCommand = "${pkgs.tulpa.dev.cadey.cabytcini}/bin/cabytcinysuhei";
             workspaceButtons = true;
             workspaceNumbers = true;
             trayOutput = "primary";
