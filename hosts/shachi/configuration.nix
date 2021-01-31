@@ -121,7 +121,7 @@ in {
   services.tailscale.enable = true;
 
   cadey = {
-    colemak.enable = true;
+    colemak.enable = false;
     cpu = {
       enable = true;
       vendor = "amd";
@@ -139,7 +139,7 @@ in {
   services.prometheus = {
     exporters = {
       node = {
-        enable = true;
+        enable = false;
         enabledCollectors = [ "systemd" ];
       };
       wireguard.enable = true;
@@ -199,7 +199,8 @@ in {
 
   services.minecraft-server = {
     enable = true;
-    eula = true; # set to true if you agree to Mojang's EULA: https://account.mojang.com/documents/minecraft_eula
+    eula =
+      true; # set to true if you agree to Mojang's EULA: https://account.mojang.com/documents/minecraft_eula
     declarative = true;
 
     # see here for more info: https://minecraft.gamepedia.com/Server.properties#server.properties
@@ -217,19 +218,33 @@ in {
     };
   };
 
-  cadey.sway = {
-    enable = true;
-    output = {
-      "DP-1" = {
-        res = "2560x1440";
-        pos = "1920,0";
-        bg = "~/Pictures/wallpapers/Bliss.jpg fill";
-      };
-      "HDMI-A-1" = {
-        res = "1920x1080";
-        pos = "0,360";
-        bg = "~/Pictures/wallpapers/HiqIdzU.png fill";
+  programs.steam.enable = true;
+  virtualisation.docker.enable = true;
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
+  cadey = {
+    discord.enable = true;
+    dwm.enable = true;
+    gui.enable = true;
+    kde.enable = true;
+    telegram.enable = true;
+
+    sway = {
+      enable = true;
+      output = {
+        "DP-1" = {
+          res = "2560x1440";
+          pos = "1920,0";
+          bg = "~/Pictures/wallpapers/Bliss.jpg fill";
+        };
+        "HDMI-A-1" = {
+          res = "1920x1080";
+          pos = "0,360";
+          bg = "~/Pictures/wallpapers/HiqIdzU.png fill";
+        };
       };
     };
   };
+
+  boot.kernelPackages = pkgs.linuxPackages_5_10;
 }

@@ -20,7 +20,7 @@ in {
             text = "#fbf1c7";
           };
         in {
-          terminal = "${pkgs.nur.repos.xe.st}";
+          terminal = "${pkgs.nur.repos.xe.st}/bin/st";
           bars = [{
             fonts = [ "Primihi 10" "Hack 10" ];
             colors = {
@@ -166,7 +166,6 @@ in {
         # Fix for some Java AWT applications (e.g. Android Studio),
         # use this if they aren't displayed properly:
         export _JAVA_AWT_WM_NONREPARENTING=1
-        MOZ_ENABLE_WAYLAND=0
       '';
     };
     home.packages = with pkgs; [
