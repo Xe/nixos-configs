@@ -49,9 +49,12 @@ in {
             hiddenState = "hide";
             mode = "dock";
             position = "top";
-            statusCommand = "${pkgs.tulpa.dev.cadey.cabytcini}/bin/cabytcinysuhei";
+            statusCommand = if cfg.i3status then
+              "${pkgs.i3status}/bin/i3status"
+            else
+              "${pkgs.tulpa.dev.cadey.cabytcini}/bin/cabytcinysuhei";
             workspaceButtons = true;
-            workspaceNumbers = true;
+            workspaceNumbers = false;
             trayOutput = "primary";
           }];
           colors = {
@@ -87,7 +90,7 @@ in {
           gaps = {
             horizontal = 3;
             vertical = 3;
-            inner = 12;
+            inner = 3;
             smartBorders = "on";
             smartGaps = true;
           };
@@ -105,34 +108,25 @@ in {
               "${modifier}+u" = "layout stacking";
               "${modifier}+e" = "exec $HOME/bin/e";
 
-              "${modifier}+1" = "workspace ";
-              "${modifier}+2" = "workspace ";
-              "${modifier}+3" = "workspace ";
-              "${modifier}+4" = "workspace ";
-              "${modifier}+5" = "workspace ";
-              "${modifier}+6" = "workspace ";
-              "${modifier}+7" = "workspace ";
-              "${modifier}+8" = "workspace ";
-              "${modifier}+9" = "workspace ";
+              "${modifier}+1" = "workspace 1:";
+              "${modifier}+2" = "workspace 2:";
+              "${modifier}+3" = "workspace 3:";
+              "${modifier}+4" = "workspace 4:";
+              "${modifier}+5" = "workspace 5:";
+              "${modifier}+6" = "workspace 6:";
+              "${modifier}+7" = "workspace 7:";
+              "${modifier}+8" = "workspace 8:";
+              "${modifier}+9" = "workspace 9:";
 
-              "${modifier}+Shift+1" =
-                "move container to workspace ";
-              "${modifier}+Shift+2" =
-                "move container to workspace ";
-              "${modifier}+Shift+3" =
-                "move container to workspace ";
-              "${modifier}+Shift+4" =
-                "move container to workspace ";
-              "${modifier}+Shift+5" =
-                "move container to workspace ";
-              "${modifier}+Shift+6" =
-                "move container to workspace ";
-              "${modifier}+Shift+7" =
-                "move container to workspace ";
-              "${modifier}+Shift+8" =
-                "move container to workspace ";
-              "${modifier}+Shift+9" =
-                "move container to workspace ";
+              "${modifier}+Shift+1" = "move container to workspace 1:";
+              "${modifier}+Shift+2" = "move container to workspace 2:";
+              "${modifier}+Shift+3" = "move container to workspace 3:";
+              "${modifier}+Shift+4" = "move container to workspace 4:";
+              "${modifier}+Shift+5" = "move container to workspace 5:";
+              "${modifier}+Shift+6" = "move container to workspace 6:";
+              "${modifier}+Shift+7" = "move container to workspace 7:";
+              "${modifier}+Shift+8" = "move container to workspace 8:";
+              "${modifier}+Shift+9" = "move container to workspace 9:";
               "${modifier}+Shift+0" = "sticky toggle";
             };
           output = nixosConfig.cadey.sway.output;

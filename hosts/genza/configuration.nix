@@ -60,5 +60,26 @@ in {
 
   networking.wireguard.interfaces.akua =
     metadata.hosts."${config.networking.hostName}";
+
+  cadey = {
+    discord.enable = true;
+    dwm.enable = true;
+    gui.enable = true;
+    git.email = "xe@tailscale.com";
+    kde.enable = true;
+    sway = {
+      enable = true;
+      i3status = true;
+      output = {
+        "eDP-1" = {
+          res = "1920x1080";
+          pos = "0,0";
+          bg = "~/Pictures/Baphomet-wallpaper7.jpg.png fill";
+        };
+      };
+    };
+  };
+
+  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 }
 

@@ -5,6 +5,7 @@ let cfg = config.cadey.sway;
 in {
   options.cadey.sway = {
     enable = mkEnableOption "sway";
+    i3status = mkEnableOption "use i3status?";
     output = mkOption {
         type = types.attrsOf (types.attrsOf types.str);
         default = { };
