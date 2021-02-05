@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   metadata =
@@ -35,6 +35,7 @@ in {
 
   services.xserver.libinput.enable = true;
   virtualisation.docker.enable = true;
+  virtualisation.libvirtd.enable = true;
 
   home-manager.users.cadey =
     (import /home/cadey/code/nixos-configs/common/users/cadey/gui.nix);
@@ -81,5 +82,8 @@ in {
   };
 
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
+
+  users.users.mai.isSystemUser = true;
+  users.users.vic.isSystemUser = true;
 }
 

@@ -128,6 +128,9 @@ in {
               "${modifier}+Shift+8" = "move container to workspace 8:";
               "${modifier}+Shift+9" = "move container to workspace 9:";
               "${modifier}+Shift+0" = "sticky toggle";
+
+              "${modifier}+Shift+minus" = "move scratchpad";
+              "${modifier}+minus" = "scratchpad show";
             };
           output = nixosConfig.cadey.sway.output;
           startup = [
@@ -135,9 +138,9 @@ in {
               command = "systemctl --user restart waybar";
               always = true;
             }
+            { command = "mako"; }
             { command = "firefox"; }
             { command = "Discord"; }
-            { command = "mako"; }
           ];
           window = { border = 1; };
         };
