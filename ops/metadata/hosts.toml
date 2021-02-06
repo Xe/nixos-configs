@@ -33,24 +33,11 @@ addrs = { v4 = "10.77.127.1", v6 = "c93a:8746:e81e:b9ec:0943" }
 
 [hosts.la-tahorskami]
 network = "roadwarrior"
-
-[hosts.la-tahorskami.wireguard]
-pubkey = "d/0BCLjiJjxftyBrEOSoxUhz2FHxvKwgOA/hX73NpQ8="
-addrs = { v4 = "10.77.1.1", v6 = "a88b:0cd3:739c:9308:8c73" }
+tailscale = "100.90.200.5"
 
 [hosts.la-selbeifonxa]
 network = "roadwarrior"
-
-[hosts.la-selbeifonxa.wireguard]
-pubkey = "2eu4fh8STQDB1aeFP9C7nRyeOmw3k2ba/WpEBPJ5wmc="
-addrs = { v4 = "10.77.1.2", v6 = "a88b:6890:96a1:a25b:d0c3" }
-
-[hosts.tolsutra]
-network = "roadwarrior"
-
-[hosts.tolsutra.wireguard]
-pubkey = "tDQlTm35G9LT9GE+VX1gWgnd2i9dmsmC6hSnTjiOBXM="
-addrs = { v4 = "10.77.1.3", v6 = "a88b:771c:4af8:b5c3:d2e1" }
+tailscale = "100.125.113.109"
 
 [hosts.genza]
 network = "hexagone"
@@ -76,6 +63,7 @@ addrs = { v4 = "10.77.2.1", v6 = "ed22:c815:3632:42fc:a1d2" }
 network = "hexagone"
 ip_addr = "192.168.0.127"
 ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGDA5iXvkKyvAiMEd/5IruwKwoymC8WxH4tLcLWOSYJ1"
+tailscale = "100.97.53.92"
 
 [hosts.chrysalis.wireguard]
 pubkey = "Um46toyF9DPeyQWmy4nyyxJH/m37HWXcX+ncJa3Mg0A="
@@ -86,6 +74,7 @@ addrs = { v4 = "10.77.2.2", v6 = "ed22:9064:6df9:4855:611d" }
 network = "hexagone"
 ip_addr = "192.168.0.177"
 ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL3Jt26HXD7mLNjg+B+pB5+fXtxEmMeR6Bqv1Z5/819n"
+tailscale = "100.67.184.57"
 
 [hosts.shachi.wireguard]
 pubkey = "S8XgS18Z8xiKwed6wu9FE/JEp1a/tFRemSgfUl3JPFw="
@@ -97,6 +86,7 @@ addrs = { v4 = "10.77.2.8", v6 = "ed22:a601:31ef:e676:e9bd" }
 network = "cloud"
 ip_addr = "135.181.162.99"
 ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMADhGV0hKt3ZY+uBjgOXX08txBS6MmHZcSL61KAd3df"
+tailscale = "100.108.231.33"
 
 [hosts.lufta.wireguard]
 pubkey = "GJMOmAHUXQ7NfAMuEKQ7zhMmd1TIuJKKGYiC8hVpgEU="
