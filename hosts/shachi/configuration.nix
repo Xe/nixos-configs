@@ -63,6 +63,8 @@ in {
     logitech-udev-rules
     ltunify
     lagrange
+    manuskript
+    nur.repos.mic92.pandoc-bin
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

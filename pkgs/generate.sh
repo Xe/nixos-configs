@@ -21,9 +21,11 @@ github Xe site &
 github Xe withinbot &
 github Xe GraphvizOnline &
 github goproxyio goproxy &
-github oragono oragono &
 github jroimartin sw &
-github nomad-software meme &
+
+# needs to be fixed before updates are safe
+#github oragono oragono &
+#github nomad-software meme &
 
 # git repos
 git https tulpa.dev/cadey/cabytcini &
