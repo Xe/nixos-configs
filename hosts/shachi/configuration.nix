@@ -221,7 +221,7 @@ in {
   };
 
   programs.steam.enable = true;
-  virtualisation.docker.enable = true;
+  #virtualisation.docker.enable = true;
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   cadey = {
