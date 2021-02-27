@@ -17,8 +17,11 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC1e4qhGYEUCNoCYHUqfvPSkBfVdlIjmwQI7q8eibeWw"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMOyr7PjUfbALe3+zgygnL0fQz4GhQ7qT9b0Lw+1Gzwk"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMQAQCZLLbbrMTsR1NYqFRftXM2Dm8V83uaOrAxIy7zZ"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL46usOZyZD+CYa5wNBSpPxNWwF3EMeeAytPq6iVPO2X"
     ];
   };
+
+  users.users.root.openssh.authorizedKeys.keys = config.users.users.cadey.openssh.authorizedKeys.keys;
 
   users.users.mai = {
     isNormalUser = true;
@@ -28,6 +31,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPg9gYKVglnO2HQodSJt4z4mNrUSUiyJQ7b+J798bwD9"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPrz5T/RdragJF6StZm92JZKPMJinYdw5fYnV4osiY8Q"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF0I+UJPT7noL/bDvPj25SC24kpThqHUtge3tSQ9sIUx"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL46usOZyZD+CYa5wNBSpPxNWwF3EMeeAytPq6iVPO2X"
     ];
   };
 

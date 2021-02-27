@@ -14,6 +14,7 @@
     ./mi.nix
     ./oragono.nix
     ./printerfacts.nix
+    ./snoo2nebby.nix
     ./tron.nix
     ./tulpaforce.nix
     ./tulpanomicon.nix

@@ -53,6 +53,8 @@ in {
     prometheus.enable = true;
   };
 
+  within.services.snoo2nebby.enable = true;
+
   boot.kernel.sysctl = {
     "net.ipv4.forward" = 1;
     "net.ipv6.conf.all.forwarding" = 1;
