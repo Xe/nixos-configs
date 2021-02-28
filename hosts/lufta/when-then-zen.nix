@@ -42,6 +42,21 @@ let
 
           browse
       }
+
+      xn--u7hz981o.ws:${toString port} {
+          tls off
+          errors syslog
+
+          header / X-Clacks-Overhead "GNU Ashlynn"
+
+          internal /templates
+
+          root /srv/http/xn--u7hz981o.ws
+          markdown / {
+              template index templates/index.html
+              template page templates/page.html
+          }
+      }
     '';
   };
 in {
@@ -63,10 +78,16 @@ in {
       access_log /var/log/nginx/xenafiles.access.log;
     '';
     };
+
+    "xn--u7hz981o.ws" = {
+      locations."/".proxyPass = "http://127.0.0.1:${toString port}";
+      forceSSL = true;
+      useACMEHost = "xn--u7hz981o.ws";
+    };
   };
 
   services.cfdyndns.records =
-    [ "when-then-zen.christine.website" "xena.greedo.xeserv.us" ];
+    [ "when-then-zen.christine.website" "xena.greedo.xeserv.us" "xn--u7hz981o.ws" ];
 
   systemd.services.caddy = {
     wantedBy = [ "multi-user.target" ];

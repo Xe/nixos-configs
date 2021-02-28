@@ -64,4 +64,14 @@ in {
       "*.minipaas.xeserv.us"
     ];
   };
+
+  security.acme.certs."xn--u7hz981o.ws" = {
+    group = "nginx";
+    email = "me@christine.website";
+    dnsProvider = "cloudflare";
+    credentialsFile = "${creds}";
+    extraDomainNames = [
+      "*.xn--u7hz981o.ws"
+    ];
+  };
 }
