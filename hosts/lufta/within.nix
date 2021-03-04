@@ -76,7 +76,7 @@ in {
       };
 
       goproxy = {
-        enable = true;
+        enable = false;
         useACME = true;
         domain = "cache.greedo.xeserv.us";
         port = 28381;

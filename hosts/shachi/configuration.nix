@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   metadata =
@@ -42,7 +42,7 @@ in {
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.enp4s0.useDHCP = true;
+  networking.interfaces.enp5s0.useDHCP = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -221,7 +221,7 @@ in {
   };
 
   programs.steam.enable = true;
-  #virtualisation.docker.enable = true;
+  virtualisation.docker.enable = lib.mkForce false;
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   cadey = {
