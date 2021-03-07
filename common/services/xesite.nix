@@ -51,7 +51,7 @@ in {
         Restart = "on-failure";
         WorkingDirectory = "/srv/within/xesite";
         RestartSec = "30s";
-        #Type = "notify";
+        Type = "notify";
 
         # Security
         CapabilityBoundingSet = "";
