@@ -1,7 +1,7 @@
 {
     "owner": "Xe",
     "repo": "rhea",
-    "rev": "b712ae4768979e2042812c52cca0edb97b4bb7ff",
-    "sha256": "1nzal2n247g4jw5in2a93qsq6dxqq5w8kwbrhm44j6glsqkppcl2",
+    "rev": "4b03ffee8cf367772d4a1681913662a5b245e386",
+    "sha256": "0x11hq0837ls7k59gwmw8mjlcvwpw7ipracjrhmxyxpna523ysyy",
     "fetchSubmodules": true
 }
