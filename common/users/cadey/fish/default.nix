@@ -12,6 +12,7 @@ in {
     ".config/fish/functions/fish_prompt.fish".source = ./fish_prompt.fish;
     ".config/fish/functions/fish_right_prompt.fish".source =
       ./fish_right_prompt.fish;
+    ".config/fish/conf.d/ssh-agent.fish".source = ./ssh-agent.fish;
 
     # global fish config
     ".config/fish/conf.d/cadey.fish".text = ''
@@ -52,6 +53,8 @@ in {
       set -x GPG_TTY (tty)
     '';
   };
+
+  home.packages = [ pkgs.fishPlugins.foreign-env ];
 
   programs.fish.shellAliases = {
     pbcopy = "${pkgs.xclip}/bin/xclip -selection clipboard";
