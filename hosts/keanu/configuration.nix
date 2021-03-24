@@ -111,18 +111,6 @@ in {
     };
   };
 
-  security.acme.acceptTerms = true;
-  security.acme.email = "cadey@firemail.cc";
-
-  services.nginx = {
-    enable = true;
-    virtualHosts."keanu.hexagone.within.website" = {
-      addSSL = true;
-      enableACME = true;
-      locations."/".root = "/srv/http/keanu.hexagone.within.website";
-    };
-  };
-
   services.avahi = {
     enable = true;
     publish = {

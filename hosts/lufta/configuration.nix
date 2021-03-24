@@ -52,11 +52,6 @@
 
   environment.systemPackages = with pkgs; [ wget vim zfs weechat tailscale ];
 
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
   networking.firewall.allowedTCPPorts = [ 22 80 443 6667 6697 ];
   networking.firewall.allowedUDPPorts = [ 51822 ];
   networking.firewall.enable = false;

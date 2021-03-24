@@ -36,11 +36,6 @@ in {
     git
   ];
 
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
   system.stateVersion = "20.09"; # Did you read the comment?
 
   networking.wireguard.interfaces.akua =
