@@ -60,7 +60,47 @@ let
     '';
   };
 in {
+  services.fcgiwrap.enable = true;
   services.nginx.virtualHosts = {
+    "home.cetacean.club" = {
+      locations."/front".extraConfig = ''
+        root /tmp;
+        fastcgi_param   QUERY_STRING            $query_string;
+        fastcgi_param   REQUEST_METHOD          $request_method;
+        fastcgi_param   CONTENT_TYPE            $content_type;
+        fastcgi_param   CONTENT_LENGTH          $content_length;
+
+        fastcgi_param   PATH_INFO               $fastcgi_path_info;
+        fastcgi_param   PATH_TRANSLATED         $document_root$fastcgi_path_info;
+        fastcgi_param   REQUEST_URI             $request_uri;
+        fastcgi_param   DOCUMENT_URI            $document_uri;
+        fastcgi_param   DOCUMENT_ROOT           /srv/http/home.cetacean.club;
+        fastcgi_param   SERVER_PROTOCOL         $server_protocol;
+
+        fastcgi_param   GATEWAY_INTERFACE       CGI/1.1;
+        fastcgi_param   SERVER_SOFTWARE         nginx/$nginx_version;
+
+        fastcgi_param   REMOTE_ADDR             $remote_addr;
+        fastcgi_param   REMOTE_PORT             $remote_port;
+        fastcgi_param   SERVER_ADDR             $server_addr;
+        fastcgi_param   SERVER_PORT             $server_port;
+        fastcgi_param   SERVER_NAME             $server_name;
+
+        fastcgi_param   HTTPS                   $https;
+
+        # PHP only, required if PHP was built with --enable-force-cgi-redirect
+        fastcgi_param   REDIRECT_STATUS         200;
+        fastcgi_param MI_TOKEN ${builtins.readFile ./secret/mi-token};
+        fastcgi_param SCRIPT_FILENAME /srv/http/cgi-bin/whoisfront;
+        fastcgi_pass unix:/run/fcgiwrap.sock;
+      '';
+      forceSSL = true;
+      useACMEHost = "cetacean.club";
+    extraConfig = ''
+      access_log /var/log/nginx/home.cetacean.club.access.log;
+    '';
+    };
+
     "when-then-zen.christine.website" = {
       locations."/" = { proxyPass = "http://127.0.0.1:${toString port}"; };
       forceSSL = true;
@@ -87,7 +127,7 @@ in {
   };
 
   services.cfdyndns.records =
-    [ "when-then-zen.christine.website" "xena.greedo.xeserv.us" "xn--u7hz981o.ws" ];
+    [ "when-then-zen.christine.website" "xena.greedo.xeserv.us" "xn--u7hz981o.ws" "home.cetacean.club" ];
 
   systemd.services.caddy = {
     wantedBy = [ "multi-user.target" ];
