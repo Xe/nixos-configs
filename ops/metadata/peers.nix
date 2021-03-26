@@ -87,8 +87,11 @@ in with metadata.hosts; rec {
     # cloud
     lufta = interfaceInfo lufta cloud;
     firgu = interfaceInfo firgu cloud;
+    kahless = interfaceInfo kahless cloud;
 
     # roadwarrior
     genza = interfaceInfo genza hexagone;
   };
+
+  raw = metadata.hosts;
 }
