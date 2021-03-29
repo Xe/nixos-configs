@@ -44,11 +44,11 @@ let
     pkgs.stdenv.mkDerivation {
       name = "${name}-secret";
       phases = "installPhase";
-      buildInputs = [ pkgs.age ];
+      buildInputs = [ pkgs.rage ];
       installPhase =
         let key = metadata.hosts."${config.networking.hostName}".ssh_pubkey;
         in ''
-          age -a -r '${key}' -o "$out" '${source}'
+          rage -a -r '${key}' -o "$out" '${source}'
         '';
     };
 
@@ -61,7 +61,7 @@ let
 
       script = with pkgs; ''
         rm -rf ${dest}
-        "${age}"/bin/age -d -i /etc/ssh/ssh_host_ed25519_key -o '${dest}' '${
+        "${rage}"/bin/rage -d -i /etc/ssh/ssh_host_ed25519_key -o '${dest}' '${
           mkSecretOnDisk name { inherit source; }
         }'
 

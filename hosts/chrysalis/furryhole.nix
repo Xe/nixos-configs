@@ -27,6 +27,9 @@ in {
     };
   };
 
-  deployment.keys.furryhole-webhook.text =
-    builtins.readFile ./secret/furryhole-webhook;
+  within.secrets.furryhole-webhook = {
+    source = ./secret/furryhole-webhook;
+    dest = "/run/keys/furryhole-webhook";
+    permissions = "0400";
+  };
 }

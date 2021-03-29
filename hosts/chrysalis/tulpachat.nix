@@ -32,6 +32,9 @@ in {
     };
   };
 
-  deployment.keys.tulpachat-webhook.text =
-    builtins.readFile ./secret/tulpachat-webhook;
+  within.secrets.tulpachat-webhook = {
+    source = ./secret/tulpachat-webhook;
+    dest = "/run/keys/tulpachat-webhook";
+    permissions = "0400";
+  };
 }
