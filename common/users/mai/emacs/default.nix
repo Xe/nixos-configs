@@ -398,16 +398,6 @@
           mode = [ ''"\\.epub\\'"'' ];
         };
 
-        nim-mode = {
-          enable = true;
-          mode = [ ''"\\.nim\\'"'' ];
-
-          config = ''
-            (add-hook 'nim-mode-hook 'nimsuggest-mode)
-            (add-hook 'nimsuggest-mode-hook 'company-mode)
-          '';
-        };
-
         web-mode = {
           enable = true;
           mode = [ ''"\\.html\\'"'' ''"\\.tmpl\\'"'' ];

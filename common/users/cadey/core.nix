@@ -27,6 +27,6 @@ in {
 
     packageOverrides = import ../../../pkgs;
 
-    manual.manpages.enable = false;
+    manual.manpages.enable = true;
   };
 }

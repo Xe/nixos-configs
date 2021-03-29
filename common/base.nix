@@ -42,9 +42,12 @@ with lib; {
       autoOptimiseStore = true;
       useSandbox = false;
 
-      binaryCaches = [ "https://xe.cachix.org" ];
-      binaryCachePublicKeys =
-        [ "xe.cachix.org-1:kT/2G09KzMvQf64WrPBDcNWTKsA79h7+y2Fn2N7Xk2Y=" ];
+      binaryCaches =
+        [ "https://xe.cachix.org" "https://nix-community.cachix.org" ];
+      binaryCachePublicKeys = [
+        "xe.cachix.org-1:kT/2G09KzMvQf64WrPBDcNWTKsA79h7+y2Fn2N7Xk2Y="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
 
       trustedUsers = [ "root" "cadey" ];
     };
@@ -52,6 +55,9 @@ with lib; {
     nixpkgs.config = {
       allowUnfree = true;
       packageOverrides = import ../pkgs;
+      overlays = [
+       
+      ];
     };
 
     security.pam.loginLimits = [{

@@ -30,10 +30,12 @@ pkgs: rec {
       hlang = pkgs.callPackage ./tulpa.dev/cadey/hlang { };
       printerfacts = pkgs.callPackage ./tulpa.dev/cadey/printerfacts { };
       snoo2nebby = pkgs.callPackage ./tulpa.dev/cadey/snoo2nebby { };
-      tulpaforce = pkgs.callPackage ./tulpa.dev/cadey/tulpaforce { inherit sw; };
+      tulpaforce =
+        pkgs.callPackage ./tulpa.dev/cadey/tulpaforce { inherit sw; };
       tron = pkgs.callPackage ./tulpa.dev/cadey/tron { };
     };
-    tulpa-ebooks.tulpanomicon = pkgs.callPackage ./tulpa.dev/tulpa-ebooks/tulpanomicon { };
+    tulpa-ebooks.tulpanomicon =
+      pkgs.callPackage ./tulpa.dev/tulpa-ebooks/tulpanomicon { };
     Xe.quickserv = pkgs.callPackage ./tulpa.dev/Xe/quickserv { };
   };
 
