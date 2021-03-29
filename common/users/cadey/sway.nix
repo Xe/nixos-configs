@@ -12,12 +12,12 @@ in {
           focused = rec {
             border = "#d3869b";
             background = border;
-            text = "#fbf1c7";
+            text = "#32302f";
           };
           active = rec {
             border = "#b16286";
             background = border;
-            text = "#fbf1c7";
+            text = "#32302f";
           };
         in {
           terminal = "${pkgs.nur.repos.xe.st}/bin/st";
