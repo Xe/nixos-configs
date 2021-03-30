@@ -15,22 +15,10 @@ let
       cp $src $out/index.html
     '';
   };
-  cert = builtins.fetchurl {
-    url = "https://certs.akua/start.akua/cert.pem";
-    sha256 = "16d823kcn76wg9p78y80grmk5pz56nmfxhl68jg5lyz82h2j4nxj";
-  };
-  key = builtins.fetchurl {
-    url = "https://certs.akua/start.akua/key.pem";
-    sha256 = "1r5v5sw721x719vc27h7194hjy512vhljc28lpipzkanbqf0sa72";
-  };
-
 in {
   services.nginx = {
     virtualHosts."start.akua" = {
-      forceSSL = true;
       root = "${start}";
-      sslCertificate = "${cert}";
-      sslCertificateKey = "${key}";
     };
   };
 }
