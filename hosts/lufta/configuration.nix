@@ -47,7 +47,6 @@
       Gateway = 135.181.162.65
     '';
   };
-  services.resolved.dnssec = "false";
 
   boot.supportedFilesystems = [ "zfs" ];
 

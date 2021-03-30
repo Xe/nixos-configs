@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   metadata =
@@ -70,8 +70,6 @@ in {
   networking.wireguard.interfaces.akua =
     metadata.hosts."${config.networking.hostName}";
 
-  networking.nameservers = [ "10.77.2.2" ];
-
   within.backups = {
     enable = true;
     repo = "57196@usw-s007.rsync.net:keanu";
@@ -107,6 +105,7 @@ in {
     in { pkgs, ... }: {
       imports = [ ../../common/base.nix ];
       services.openssh.enable = true;
+      services.resolved.enable = lib.mkForce false;
       users.users.root.openssh.authorizedKeys.keyFiles = [ (fetchKeys "Xe") ];
     };
   };

@@ -6,7 +6,7 @@
     "8.8.8.8"
     "1.1.1.1"
   ];
-  networking.search = [ "christine.website.beta.tailscale.net" "wg.akua" ];
+  networking.search = [ "christine.website.beta.tailscale.net" "akua.xeserv.us" ];
 
   networking.firewall.trustedInterfaces = [ "akua" ];
 

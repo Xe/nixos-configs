@@ -56,7 +56,7 @@ with lib; {
       allowUnfree = true;
       packageOverrides = import ../pkgs;
       overlays = [
-       
+
       ];
     };
 
@@ -68,12 +68,6 @@ with lib; {
     }];
 
     users.groups.within = { };
-
-    services.journald.extraConfig = ''
-      SystemMaxUse=100M
-      MaxFileSec=7day
-    '';
-
     systemd.services.within-homedir-setup = {
       description = "Creates homedirs for /srv/within services";
       wantedBy = [ "multi-user.target" ];
@@ -85,6 +79,16 @@ with lib; {
         ${coreutils}/bin/chown root:within /srv/within
         ${coreutils}/bin/chmod 775 /srv/within
       '';
+    };
+
+    services.journald.extraConfig = ''
+      SystemMaxUse=100M
+      MaxFileSec=7day
+    '';
+
+    services.resolved = {
+      enable = true;
+      dnssec = "false";
     };
   };
 }
