@@ -44,8 +44,8 @@ in {
 
     systemd.services.mi = {
       wantedBy = [ "multi-user.target" ];
-      after = [ "mi-key.service" ];
-      wants = [ "mi-key.service" ];
+      after = [ "mi-key.service" "systemd-resolved.service" ];
+      wants = [ "mi-key.service" "systemd-resolved.service" ];
 
       serviceConfig = {
         User = "mi";
