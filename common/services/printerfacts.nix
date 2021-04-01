@@ -6,20 +6,19 @@ in {
     enable = mkEnableOption "Activates the printerfacts server";
     useACME = mkEnableOption "Enables ACME for cert stuff";
 
-    port = mkOption {
-      type = types.int;
-      default = 28318;
-      example = 9001;
-      description =
-        "The port number printerfacts should listen on for HTTP traffic";
-    };
-
     domain = mkOption {
       type = types.str;
       default = "printerfacts.akua";
       example = "printerfacts.cetacean.club";
       description =
         "The domain name that nginx should check against for HTTP hostnames";
+    };
+
+    sockPath = mkOption rec {
+      type = types.str;
+      default = "/tmp/printerfacts.sock";
+      example = default;
+      description = "The unix domain socket that printerfacts should listen on";
     };
   };
 
@@ -59,7 +58,7 @@ in {
         ProtectSystem = "true";
         ProtectProc = "invisible";
         RemoveIPC = "true";
-        RestrictAddressFamilies = [ "~AF_UNIX" "~AF_NETLINK" ];
+        RestrictAddressFamilies = [ "~AF_NETLINK" ];
         RestrictNamespaces = [
           "CLONE_NEWCGROUP"
           "CLONE_NEWIPC"
@@ -83,12 +82,12 @@ in {
           "~@debug"
           "~@privileged"
         ];
-        UMask = "077";
+        UMask = "007";
       };
 
       script = let site = pkgs.tulpa.dev.cadey.printerfacts;
       in ''
-        export PORT=${toString cfg.port}
+        export SOCKPATH=${cfg.sockPath}
         export DOMAIN=${toString cfg.domain}
         export RUST_LOG=info
         cd ${site}
@@ -100,7 +99,7 @@ in {
 
     services.nginx.virtualHosts."${cfg.domain}" = {
       locations."/" = {
-        proxyPass = "http://127.0.0.1:${toString cfg.port}";
+        proxyPass = "http://unix:${cfg.sockPath}";
         proxyWebsockets = true;
       };
       forceSSL = cfg.useACME;

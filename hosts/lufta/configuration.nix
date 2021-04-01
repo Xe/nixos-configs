@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -75,6 +75,11 @@
 
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
+
+  systemd.services.nginx.serviceConfig = {
+    PrivateTmp = lib.mkForce "false";
+    SupplementaryGroups = "within";
+  };
 
   services.nginx = {
     enable = true;
