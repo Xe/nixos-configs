@@ -22,6 +22,13 @@ in {
       example = 9001;
       description = "The port number hlang should listen on for HTTP traffic";
     };
+
+    sockPath = mkOption rec {
+      type = types.str;
+      default = "/srv/within/run/hlang.sock";
+      example = default;
+      description = "The unix domain socket that printerfacts should listen on";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -42,12 +49,13 @@ in {
         Restart = "on-failure";
         WorkingDirectory = "/srv/within/hlang";
         RestartSec = "30s";
+        UMask = "007";
       };
 
       script = let h = pkgs.tulpa.dev.cadey.hlang;
       in ''
         export PATH=${pkgs.wabt}/bin:$PATH
-        exec ${h}/bin/hlang -port=${toString cfg.port}
+        exec ${h}/bin/hlang -port=${toString cfg.port} -sockpath=${cfg.sockPath}
       '';
     };
 
@@ -55,7 +63,7 @@ in {
 
     services.nginx.virtualHosts."hlang" = {
       serverName = "${cfg.domain}";
-      locations."/".proxyPass = "http://127.0.0.1:${toString cfg.port}";
+      locations."/".proxyPass = "http://unix:${cfg.sockPath}";
       forceSSL = cfg.useACME;
       useACMEHost = "christine.website";
       extraConfig = ''

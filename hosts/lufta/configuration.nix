@@ -77,7 +77,6 @@
   virtualisation.libvirtd.enable = true;
 
   systemd.services.nginx.serviceConfig = {
-    PrivateTmp = lib.mkForce "false";
     SupplementaryGroups = "within";
   };
 

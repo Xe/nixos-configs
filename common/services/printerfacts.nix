@@ -16,7 +16,7 @@ in {
 
     sockPath = mkOption rec {
       type = types.str;
-      default = "/tmp/printerfacts.sock";
+      default = "/srv/within/run/printerfacts.sock";
       example = default;
       description = "The unix domain socket that printerfacts should listen on";
     };
