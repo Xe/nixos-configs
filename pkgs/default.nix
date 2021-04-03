@@ -25,6 +25,7 @@ pkgs: rec {
   tulpa.dev = {
     cadey = let sw = github.com.jroimartin.sw;
     in {
+      aegis = pkgs.callPackage ./tulpa.dev/cadey/aegis { };
       cabytcini = pkgs.callPackage ./tulpa.dev/cadey/cabytcini { };
       lewa = pkgs.callPackage ./tulpa.dev/cadey/lewa { };
       hlang = pkgs.callPackage ./tulpa.dev/cadey/hlang { };

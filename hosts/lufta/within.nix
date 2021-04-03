@@ -69,6 +69,12 @@ in {
     };
 
     services = {
+      aegis = {
+        enable = true;
+        hostport = "[fda2:d982:1da2:180d:b7a4:9c5c:989b:ba02]:43705";
+        sockdir = "/srv/within/run";
+      };
+
       # webapps
       aura = {
         enable = true;

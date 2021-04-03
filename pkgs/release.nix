@@ -15,6 +15,7 @@ in rec {
   xesite = github.com.Xe.site;
   withinbot = github.com.Xe.withinbot;
 
+  aegis = tulpa.dev.cadey.aegis;
   cabytcini = tulpa.dev.cadey.cabytcini;
   lewa = tulpa.dev.cadey.lewa;
   hlang = tulpa.dev.cadey.hlang;

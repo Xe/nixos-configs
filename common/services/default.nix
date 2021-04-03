@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./aegis.nix
     ./aerial.nix
     ./aura.nix
     ./backup.nix

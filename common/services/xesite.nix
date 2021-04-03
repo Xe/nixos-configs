@@ -20,6 +20,13 @@ in {
       description =
         "The domain name that nginx should check against for HTTP hostnames";
     };
+
+    sockPath = mkOption rec {
+      type = types.str;
+      default = "/srv/within/run/xesite.sock";
+      example = default;
+      description = "The unix domain socket that xesite should listen on";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -83,12 +90,13 @@ in {
           "~@debug"
           "~@privileged"
         ];
-        UMask = "077";
+        UMask = "007";
       };
 
       script = let site = pkgs.github.com.Xe.site;
       in ''
         export $(cat /srv/within/xesite/.env | xargs)
+        export SOCKPATH=${cfg.sockPath}
         export PORT=${toString cfg.port}
         export DOMAIN=${toString cfg.domain}
         cd ${site}
@@ -99,7 +107,7 @@ in {
     services.nginx.virtualHosts."xesite" = {
       serverName = "${cfg.domain}";
       locations."/" = {
-        proxyPass = "http://127.0.0.1:${toString cfg.port}";
+        proxyPass = "http://unix:${toString cfg.sockPath}";
         proxyWebsockets = true;
       };
       forceSSL = cfg.useACME;

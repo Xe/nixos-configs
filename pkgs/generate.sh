@@ -28,6 +28,7 @@ github jroimartin sw &
 #github nomad-software meme &
 
 # git repos
+git https tulpa.dev/cadey/aegis &
 git https tulpa.dev/cadey/cabytcini &
 git https tulpa.dev/cadey/dwm &
 git https tulpa.dev/cadey/hlang &
