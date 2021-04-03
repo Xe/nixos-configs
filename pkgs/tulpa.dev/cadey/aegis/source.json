@@ -1,7 +1,7 @@
 {
   "url": "https://tulpa.dev/cadey/aegis.git",
-  "rev": "828c63a7c6f3ba53150c93ee752819c62659cada",
-  "sha256": "1nrmvdq1vjc8ahb3kr0l1ic0lr9qzgc92gs5da3va2x64psdsmih",
+  "rev": "01889e1d63aba3326cf8130481c3051162dc3ce0",
+  "sha256": "19z9rljz1kkxilffq389v8hk9pzimd5nrixm9ndlh464v9rv45lw",
   "fetchSubmodules": false,
   "deepClone": false,
   "leaveDotGit": false
