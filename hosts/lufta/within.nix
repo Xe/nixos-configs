@@ -30,6 +30,7 @@ let
     "/home/cadey/prefix/aura"
     "/srv/within/aura"
     "/srv/http/xena.greedo.xeserv.us"
+    "/srv/backup"
 
     "/var/lib/docker"
     "/var/lib/systemd"

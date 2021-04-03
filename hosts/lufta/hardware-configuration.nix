@@ -52,6 +52,11 @@
     fsType = "zfs";
   };
 
+  fileSystems."/srv/backup" = {
+    device = "rpool/safe/srv/backup";
+    fsType = "zfs";
+  };
+
   fileSystems."/srv/certs" = {
     device = "rpool/safe/srv/certs";
     fsType = "zfs";
