@@ -11,6 +11,7 @@ in {
     ../../common/sites/start.akua.nix
     ../../common/users/home-manager.nix
     ./tulpachat.nix
+    ./tulpachat-mods.nix
     ./furryhole.nix
     ./josh.nix
     ./prometheus.nix
