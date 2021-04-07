@@ -85,5 +85,7 @@ in {
 
   users.users.mai.isSystemUser = true;
   users.users.vic.isSystemUser = true;
+
+  boot.kernelPackages = pkgs.linuxPackages_5_10;
 }
 
