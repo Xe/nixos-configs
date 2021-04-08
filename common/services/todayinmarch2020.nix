@@ -56,7 +56,7 @@ in {
       serverName = "${cfg.domain}";
       locations."/".proxyPass = "http://unix:${cfg.sockPath}";
       forceSSL = cfg.useACME;
-      useACMEHost = "xn--sz8hf6d.ws";
+      useACMEHost = "xn--u7hz981o.ws";
       extraConfig = ''
         access_log /var/log/nginx/todayinmarch2020.access.log;
       '';
