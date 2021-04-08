@@ -31,6 +31,7 @@ pkgs: rec {
       hlang = pkgs.callPackage ./tulpa.dev/cadey/hlang { };
       printerfacts = pkgs.callPackage ./tulpa.dev/cadey/printerfacts { };
       snoo2nebby = pkgs.callPackage ./tulpa.dev/cadey/snoo2nebby { };
+      todayinmarch2020 = pkgs.callPackage ./tulpa.dev/cadey/todayinmarch2020 { };
       tulpaforce =
         pkgs.callPackage ./tulpa.dev/cadey/tulpaforce { inherit sw; };
       tron = pkgs.callPackage ./tulpa.dev/cadey/tron { };

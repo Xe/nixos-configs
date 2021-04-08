@@ -16,6 +16,7 @@
     ./oragono.nix
     ./printerfacts.nix
     ./snoo2nebby.nix
+    ./todayinmarch2020.nix
     ./tron.nix
     ./tulpaforce.nix
     ./tulpanomicon.nix

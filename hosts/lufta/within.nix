@@ -117,6 +117,7 @@ in {
       idp.enable = true;
       johaus.enable = true;
       withinwebsite.enable = true;
+      todayinmarch2020.enable = true;
 
       # bots
       aerial.enable = true;

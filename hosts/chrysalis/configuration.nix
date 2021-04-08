@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 let metadata = pkgs.callPackage ../../ops/metadata/peers.nix { };
 in {

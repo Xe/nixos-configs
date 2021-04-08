@@ -36,6 +36,7 @@ git https tulpa.dev/cadey/lewa &
 git https tulpa.dev/cadey/maj &
 git https tulpa.dev/cadey/printerfacts &
 git https tulpa.dev/cadey/snoo2nebby &
+git https tulpa.dev/cadey/todayinmarch2020 &
 git https tulpa.dev/cadey/tulpaforce &
 git https tulpa.dev/cadey/tron &
 git https tulpa.dev/Xe/quickserv &

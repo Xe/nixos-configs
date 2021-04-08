@@ -20,6 +20,7 @@ in rec {
   lewa = tulpa.dev.cadey.lewa;
   hlang = tulpa.dev.cadey.hlang;
   printerfacts = tulpa.dev.cadey.printerfacts;
+  todayinmarch2020 = tulpa.dev.cadey.todayinmarch2020;
   tulpaforce = tulpa.dev.cadey.tulpaforce;
   tron = tulpa.dev.cadey.tron;
 

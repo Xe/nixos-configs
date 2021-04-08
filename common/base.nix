@@ -12,6 +12,7 @@ with lib; {
     ./users
     ./coredns
     ./crypto
+    ./services
   ];
 
   options.cadey = {
