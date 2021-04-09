@@ -90,5 +90,8 @@ in {
   users.users.vic.isSystemUser = true;
 
   boot.kernelPackages = pkgs.linuxPackages_5_10;
+
+  services.zfs.autoScrub.enable = true;
+  services.zfs.autoSnapshot.enable = true;
 }
 
