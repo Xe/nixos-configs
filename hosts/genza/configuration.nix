@@ -14,9 +14,12 @@ in {
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "zfs" ];
+  boot.zfs.devNodes = "/dev/disk/by-partuuid";
 
   networking.hostName = "genza"; # Define your hostname.
   networking.networkmanager.enable = true;
+  networking.hostId = "bddd8eb7";
   services.tailscale.enable = true;
 
   time.timeZone = "America/Toronto";
@@ -57,7 +60,7 @@ in {
   services.openssh.enable = true;
 
   networking.firewall.enable = false;
-  system.stateVersion = "21.03";
+  system.stateVersion = "20.09";
 
   networking.wireguard.interfaces.akua =
     metadata.hosts."${config.networking.hostName}";
