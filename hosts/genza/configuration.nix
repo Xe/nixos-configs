@@ -35,7 +35,6 @@ in {
   services.xserver.desktopManager.plasma5.enable = true;
 
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
 
   services.xserver.libinput.enable = true;
   virtualisation.docker.enable = true;
@@ -55,6 +54,7 @@ in {
     slack
     wireguard
     tailscale
+    pulsemixer
   ];
 
   programs.mtr.enable = true;
