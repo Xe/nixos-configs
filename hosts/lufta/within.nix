@@ -139,4 +139,31 @@ in {
       graphviz.enable = true;
     };
   };
+
+  within.secrets = {
+    xn--sz8hf6d-ws-cert = {
+      source = ./secret/xn--sz8hf6d.ws.crt;
+      dest = "/run/xn--sz8hf6d.ws.crt";
+    };
+    xn--sz8hf6d-ws-key = {
+      source = ./secret/xn--sz8hf6d.ws.key;
+      dest = "/run/xn--sz8hf6d.ws.key";
+    };
+  };
+
+  cadey.rhea = {
+    enable = true;
+    sites = [
+      rec {
+        domain = "xn--sz8hf6d.ws";
+        certPath = "/run/${domain}.crt";
+        keyPath = "/run/${domain}.key";
+        files = {
+          root = "/srv/gemini/${domain}";
+          autoIndex = true;
+          userPaths = false;
+        };
+      }
+    ];
+  };
 }

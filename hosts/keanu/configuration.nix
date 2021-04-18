@@ -118,7 +118,7 @@ in {
     };
   };
 
-  users.users.share.isNormalUser = false;
+  users.users.share.isSystemUser = true;
 
   # trick to create a directory with proper ownership
   # note that tmpfiles are not necesserarly temporary if you don't
