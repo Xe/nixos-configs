@@ -21,7 +21,7 @@ in {
         ${pkgs.pasystray}/bin/pasystray &
         ${pkgs.dunst}/bin/dunst &
         ${pkgs.xorg.xmodmap}/bin/xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-        ${pkgs.nur.repos.xe.cabytcini}/bin/cabytcini &
+        ${pkgs.tulpa.dev.cadey.cabytcini}/bin/cabytcini &
       '';
     };
 

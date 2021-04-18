@@ -1,7 +1,7 @@
 {
     "owner": "goproxyio",
     "repo": "goproxy",
-    "rev": "cb5069aea21251a1e4843b1d2258769f58d65476",
-    "sha256": "0wyaykjmdpx9m2j678m4wp84bbjj0g7vlsdb36wqb4w554ym8631",
+    "rev": "236ffb49965fc624e418b354a8c3a046a4ff406b",
+    "sha256": "1xf3a27d0fh2h9qfdaqjavpzd6krgrg21nmld83rzwjn4ckd3cd3",
     "fetchSubmodules": true
 }

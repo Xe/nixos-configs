@@ -42,7 +42,7 @@ in {
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.enp5s0.useDHCP = true;
+  networking.networkmanager.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -92,7 +92,14 @@ in {
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  services.pipewire = {
+    enable = true;
+    # Compatibility shims, adjust according to your needs
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
 
   # bluetooth
   hardware.bluetooth.enable = true;
@@ -250,4 +257,12 @@ in {
   };
 
   boot.kernelPackages = pkgs.linuxPackages_5_10;
+
+  security.auditd.enable = true;
+  security.audit = {
+    enable = true;
+    rules = [
+      # "-a exit,always -F arch=b64 -S execve"
+    ];
+  };
 }
