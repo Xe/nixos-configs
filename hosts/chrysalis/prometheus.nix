@@ -13,9 +13,7 @@
       {
         job_name = "site";
         metrics_path = "/xesite";
-        static_configs = [{
-          targets = [ "lufta.akua.xeserv.us:43705" ];
-        }];
+        static_configs = [{ targets = [ "lufta.akua.xeserv.us:43705" ]; }];
       }
       {
         job_name = "corerad";
@@ -31,6 +29,10 @@
           targets = [ "10.77.3.1:9113" "10.77.3.1:9117" ];
           labels.host = "lufta";
         }];
+      }
+      {
+        job_name = "rhea";
+        static_configs = [{ targets = [ "lufta.akua.xeserv.us:23818" ]; }];
       }
 
       # computers
