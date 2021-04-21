@@ -1,7 +1,7 @@
 {
   "url": "https://tulpa.dev/cadey/todayinmarch2020.git",
-  "rev": "15b5ed47387cf6e2e41095fca507e5eb560e396b",
-  "sha256": "0pjy26yaflaqbi6ggfh8chd8r1lh49dwc62s25wydcwz3i9kzpdz",
+  "rev": "8e0ff7513cfee3fdc7ff7fb19f00892e66af9705",
+  "sha256": "03qdiyfd4xinyc1mm5pa8xk1z00a8d7s1qw02zd12j46rsn8jfps",
   "fetchSubmodules": false,
   "deepClone": false,
   "leaveDotGit": false
