@@ -13,6 +13,7 @@ in {
     ./spacemacs
     ./fish
     ./vim
+    ./powershell
 
     htop
     neofetch

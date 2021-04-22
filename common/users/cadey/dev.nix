@@ -13,7 +13,6 @@
     drone-cli
     nur.repos.xe.pridecat
     nodejs
-    powershell
   ];
 
   programs.direnv.enable = true;
