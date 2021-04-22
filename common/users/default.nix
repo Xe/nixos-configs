@@ -21,7 +21,8 @@
     ];
   };
 
-  users.users.root.openssh.authorizedKeys.keys = config.users.users.cadey.openssh.authorizedKeys.keys;
+  users.users.root.openssh.authorizedKeys.keys =
+    config.users.users.cadey.openssh.authorizedKeys.keys;
 
   users.users.mai = {
     isNormalUser = true;
@@ -44,4 +45,6 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIChFSS2KUKbGYFrkbO2VwxuWqFkCSdzbxh68Edk+Pkss victo@Nami"
     ];
   };
+
+  environment.systemPackages = [ pkgs.git ];
 }

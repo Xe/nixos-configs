@@ -2,6 +2,7 @@ if (Get-InstalledModule -Name posh-git) {
     Import-Module posh-git
 } 
 else {
+    Set-PSRepository -name PSGallery -InstallationPolicy Trusted
     Install-Module posh-git -Scope CurrentUser -Force -Repository PSGallery
     Import-Module posh-git
 }

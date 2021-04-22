@@ -129,6 +129,13 @@ in {
       ];
     };
 
+    cloudhop = mkUser {
+      shell = pkgs.powershell;
+      keys = [
+        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC1XRspEClARKnN06gEdb88Wh8XAz5nJqcQORV8UC++dEXOT+xSc7fp9WuVg02n++OtUQMnaRdZFXxhrF64zb4q8/HW9ycWlablt6Pl/E3kTIdXr+X3N/FMJoPSjAOqjgPrhGnw5Tkk72c1ZQKxyVRnyVysBFj/07sWgVYVgxAHtCP6AiKu9CLrdomz642GGuMsyL+GK/cWaabAdJLtFK/w6nh8CfljyhTEvGhkYDt2fW5dtnH8RhQ7opFHhG/NixbxlNrYSXpoKma7W2XzE5jDWEyMKDjXk51e0os+IWtjC8godJgy3cSp0Y9MkCRe1hu6uhtWQiFJLr/qOMHC5NJf mcclu@ERIKDESKTOP"
+      ];
+    };
+
     openskies = mkUser {
       shell = pkgs.bashInteractive;
       keys = [
