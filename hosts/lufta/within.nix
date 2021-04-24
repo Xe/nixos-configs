@@ -141,6 +141,14 @@ in {
   };
 
   within.secrets = {
+    cetacean-club-cert = {
+      source = ./secret/cetacean.club.crt;
+      dest = "/run/cetacean.club.crt";
+    };
+    cetacean-club-key = {
+      source = ./secret/cetacean.club.key;
+      dest = "/run/cetacean.club.key";
+    };
     xn--sz8hf6d-ws-cert = {
       source = ./secret/xn--sz8hf6d.ws.crt;
       dest = "/run/xn--sz8hf6d.ws.crt";
@@ -156,6 +164,16 @@ in {
     sites = [
       rec {
         domain = "xn--sz8hf6d.ws";
+        certPath = "/run/${domain}.crt";
+        keyPath = "/run/${domain}.key";
+        files = {
+          root = "/srv/gemini/${domain}";
+          autoIndex = true;
+          userPaths = false;
+        };
+      }
+      rec {
+        domain = "cetacean.club";
         certPath = "/run/${domain}.crt";
         keyPath = "/run/${domain}.key";
         files = {

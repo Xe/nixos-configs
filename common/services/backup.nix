@@ -40,6 +40,7 @@ in with lib; {
       environment.BORG_RSH = "ssh -i /root/borgbackup_ssh_key";
       compression = "auto,lzma";
       startAt = "daily";
+      extraArgs = "--remote-path=borg1";
     };
 
     within.secrets.borgbackup_passphrase = {
