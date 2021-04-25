@@ -120,6 +120,9 @@ in {
               "${modifier}+8" = "exec ${nanpa}/bin/nanpac switch 8";
               "${modifier}+9" = "exec ${nanpa}/bin/nanpac switch 9";
 
+              "${modifier}+m" = "focus output DP-1";
+              "${modifier}+k" = "focus output HDMI-A-1";
+
               "${modifier}+Shift+1" = "exec ${nanpa}/bin/nanpac move 1";
               "${modifier}+Shift+2" = "exec ${nanpa}/bin/nanpac move 2";
               "${modifier}+Shift+3" = "exec ${nanpa}/bin/nanpac move 3";
@@ -169,12 +172,12 @@ in {
     ];
 
     systemd.user.services.nanpad = {
-      Unit = { Description = "workspace nanpa daemon"; };
+      Unit.Description = "workspace nanpa daemon";
       Service = {
         Type = "simple";
         ExecStart = "${nanpa}/bin/nanpad";
       };
-      Install = { WantedBy = [ "sway-session.target" ]; };
+      Install.WantedBy = [ "sway-session.target" ];
     };
   };
 }
