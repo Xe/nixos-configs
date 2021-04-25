@@ -1,6 +1,8 @@
 { config, nixosConfig, pkgs, lib, ... }:
 with lib;
-let cfg = nixosConfig.cadey.sway;
+let
+  cfg = nixosConfig.cadey.sway;
+  nanpa = pkgs.tulpa.dev.cadey.nanpa;
 in {
   config = mkIf cfg.enable {
     wayland.windowManager.sway = {
@@ -22,7 +24,7 @@ in {
         in {
           terminal = "${pkgs.nur.repos.xe.st}/bin/st";
           bars = [{
-            fonts = [ "Primihi 10" "Hack 10" ];
+            fonts = [ "Primihi 11" "Hack 10" ];
             colors = {
               background = "#282828";
               statusline = "#ebdbb2";
@@ -108,25 +110,26 @@ in {
               "${modifier}+u" = "layout stacking";
               "${modifier}+e" = "exec $HOME/bin/e";
 
-              "${modifier}+1" = "workspace 1:";
-              "${modifier}+2" = "workspace 2:";
-              "${modifier}+3" = "workspace 3:";
-              "${modifier}+4" = "workspace 4:";
-              "${modifier}+5" = "workspace 5:";
-              "${modifier}+6" = "workspace 6:";
-              "${modifier}+7" = "workspace 7:";
-              "${modifier}+8" = "workspace 8:";
-              "${modifier}+9" = "workspace 9:";
+              "${modifier}+1" = "exec ${nanpa}/bin/nanpac switch 1";
+              "${modifier}+2" = "exec ${nanpa}/bin/nanpac switch 2";
+              "${modifier}+3" = "exec ${nanpa}/bin/nanpac switch 3";
+              "${modifier}+4" = "exec ${nanpa}/bin/nanpac switch 4";
+              "${modifier}+5" = "exec ${nanpa}/bin/nanpac switch 5";
+              "${modifier}+6" = "exec ${nanpa}/bin/nanpac switch 6";
+              "${modifier}+7" = "exec ${nanpa}/bin/nanpac switch 7";
+              "${modifier}+8" = "exec ${nanpa}/bin/nanpac switch 8";
+              "${modifier}+9" = "exec ${nanpa}/bin/nanpac switch 9";
 
-              "${modifier}+Shift+1" = "move container to workspace 1:";
-              "${modifier}+Shift+2" = "move container to workspace 2:";
-              "${modifier}+Shift+3" = "move container to workspace 3:";
-              "${modifier}+Shift+4" = "move container to workspace 4:";
-              "${modifier}+Shift+5" = "move container to workspace 5:";
-              "${modifier}+Shift+6" = "move container to workspace 6:";
-              "${modifier}+Shift+7" = "move container to workspace 7:";
-              "${modifier}+Shift+8" = "move container to workspace 8:";
-              "${modifier}+Shift+9" = "move container to workspace 9:";
+              "${modifier}+Shift+1" = "exec ${nanpa}/bin/nanpac move 1";
+              "${modifier}+Shift+2" = "exec ${nanpa}/bin/nanpac move 2";
+              "${modifier}+Shift+3" = "exec ${nanpa}/bin/nanpac move 3";
+              "${modifier}+Shift+4" = "exec ${nanpa}/bin/nanpac move 4";
+              "${modifier}+Shift+5" = "exec ${nanpa}/bin/nanpac move 5";
+              "${modifier}+Shift+6" = "exec ${nanpa}/bin/nanpac move 6";
+              "${modifier}+Shift+7" = "exec ${nanpa}/bin/nanpac move 7";
+              "${modifier}+Shift+8" = "exec ${nanpa}/bin/nanpac move 8";
+              "${modifier}+Shift+9" = "exec ${nanpa}/bin/nanpac move 9";
+
               "${modifier}+Shift+0" = "sticky toggle";
 
               "${modifier}+Shift+minus" = "move scratchpad";
@@ -144,17 +147,6 @@ in {
           ];
           window = { border = 1; };
         };
-      extraConfig = ''
-        set $ws1 1:
-        set $ws2 2:
-        set $ws3 3:
-        set $ws4 4:
-        set $ws5 5:
-        set $ws6 6:
-        set $ws7 7:
-        set $ws8 8:
-        set $ws9 9:
-      '';
       extraSessionCommands = ''
         export SDL_VIDEODRIVER=wayland
         # needs qt5.qtwayland in systemPackages
@@ -170,9 +162,19 @@ in {
       swaylock
       swayidle
       wl-clipboard
+      nanpa
       mako # notification daemon
       alacritty # Alacritty is the default terminal in the config
       dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
     ];
+
+    systemd.user.services.nanpad = {
+      Unit = { Description = "workspace nanpa daemon"; };
+      Service = {
+        Type = "simple";
+        ExecStart = "${nanpa}/bin/nanpad";
+      };
+      Install = { WantedBy = [ "sway-session.target" ]; };
+    };
   };
 }

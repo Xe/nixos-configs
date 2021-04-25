@@ -17,8 +17,9 @@ in rec {
 
   aegis = tulpa.dev.cadey.aegis;
   cabytcini = tulpa.dev.cadey.cabytcini;
-  lewa = tulpa.dev.cadey.lewa;
   hlang = tulpa.dev.cadey.hlang;
+  lewa = tulpa.dev.cadey.lewa;
+  nanpa = tulpa.dev.cadey.nanpa;
   printerfacts = tulpa.dev.cadey.printerfacts;
   todayinmarch2020 = tulpa.dev.cadey.todayinmarch2020;
   tulpaforce = tulpa.dev.cadey.tulpaforce;

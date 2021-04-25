@@ -27,8 +27,9 @@ pkgs: rec {
     in {
       aegis = pkgs.callPackage ./tulpa.dev/cadey/aegis { };
       cabytcini = pkgs.callPackage ./tulpa.dev/cadey/cabytcini { };
-      lewa = pkgs.callPackage ./tulpa.dev/cadey/lewa { };
       hlang = pkgs.callPackage ./tulpa.dev/cadey/hlang { };
+      lewa = pkgs.callPackage ./tulpa.dev/cadey/lewa { };
+      nanpa = pkgs.callPackage ./tulpa.dev/cadey/nanpa { };
       printerfacts = pkgs.callPackage ./tulpa.dev/cadey/printerfacts { };
       snoo2nebby = pkgs.callPackage ./tulpa.dev/cadey/snoo2nebby { };
       todayinmarch2020 = pkgs.callPackage ./tulpa.dev/cadey/todayinmarch2020 { };
