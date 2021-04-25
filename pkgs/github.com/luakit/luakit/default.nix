@@ -1,5 +1,5 @@
 { stdenv, fetchurl, pkgconfig, wrapGAppsHook, help2man, luafilesystem
-, luajit, sqlite, webkitgtk, gtk3, gst_all_1, glib-networking, luasocket }:
+, luajit, sqlite, webkitgtk, gtk3, gst_all_1, glib-networking, luasocket, lib }:
 
 stdenv.mkDerivation rec {
   pname = "luakit";
@@ -55,7 +55,7 @@ stdenv.mkDerivation rec {
     )
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description =
       "Fast, small, webkit based browser framework extensible in Lua";
     homepage = "https://luakit.github.io/";

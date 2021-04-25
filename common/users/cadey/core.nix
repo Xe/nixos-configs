@@ -6,14 +6,13 @@ in {
   imports = with nur-no-pkgs.repos.xe.modules; [
     ./dev.nix
     ./git.nix
-    ./k8s.nix
     #./nixops.nix
     ./spacemacs
-    ./fish
     ../../home-manager
   ];
 
   xe = {
+    fish.enable = true;
     htop.enable = true;
     neofetch.enable = true;
     powershell.enable = true;

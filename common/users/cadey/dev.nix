@@ -12,7 +12,6 @@
     unzip
     drone-cli
     nur.repos.xe.pridecat
-    nodejs
   ];
 
   programs.direnv.enable = true;

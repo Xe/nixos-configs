@@ -3,17 +3,20 @@
 {
   imports = [
     # explicit xe.*
-    ./luakit
-    ./powershell
-    ./emacs
-    ./tmux.nix
-    ./keybase.nix
-    ./vim
-    ./htop.nix
-    ./neofetch.nix
     ./dwm
-    ./urxvt.nix
+    ./emacs
+    ./fish
+    ./htop.nix
+    ./k8s.nix
+    ./keybase.nix
+    ./luakit
+    ./neofetch.nix
+    ./powershell
     ./sway.nix
+    ./tmux.nix
+    ./urxvt.nix
+    ./vim
+    ./zathura
 
     # implicit
     ./pastebins
