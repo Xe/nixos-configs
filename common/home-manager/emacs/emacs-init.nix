@@ -17,7 +17,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-# 
+#
 # Vendored from: https://gitlab.com/rycee/nur-expressions/blob/master/hm-modules/emacs-init.nix
 
 { config, lib, pkgs, ... }:
@@ -25,7 +25,6 @@
 with lib;
 
 let
-
   cfg = config.programs.emacs.init;
 
   packageFunctionType = mkOptionType {

@@ -7,7 +7,6 @@ in {
   imports = with nur-no-pkgs.repos.xe.modules; [
     ./dwm.nix
     ./front
-    ./keybase.nix
     ./media.nix
     ./obs.nix
     ./st
@@ -15,9 +14,14 @@ in {
     ./urxvt.nix
     ./sway.nix
 
-    #luakit
     #zathura
   ];
+
+  xe = {
+    keybase.enable = true;
+    keybase.gui = true;
+    luakit.enable = true;
+  };
 
   home.packages = with pkgs; [
     krita

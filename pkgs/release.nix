@@ -32,4 +32,6 @@ in rec {
   idp = x.idp;
   withinwebsite = x.withinwebsite;
   johaus = x.johaus;
+
+  luakit = myPkgs.luakit;
 }

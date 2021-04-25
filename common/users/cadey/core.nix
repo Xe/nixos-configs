@@ -9,16 +9,19 @@ in {
     ./git.nix
     ./k8s.nix
     #./nixops.nix
-    ./pastebins
     ./spacemacs
     ./fish
-    ./vim
-    ./powershell
+    ../../home-manager
 
     htop
     neofetch
-    tmux
   ];
+
+  xe = {
+    powershell.enable = true;
+    tmux.enable = true;
+    vim.enable = true;
+  };
 
   programs.home-manager.enable = true;
 

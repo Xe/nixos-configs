@@ -7,6 +7,9 @@ pkgs: rec {
   github.com = {
     goproxyio.goproxy = pkgs.callPackage ./github.com/goproxyio/goproxy { };
     jroimartin.sw = pkgs.callPackage ./github.com/jroimartin/sw { };
+    luakit.luakit = pkgs.callPackage ./github.com/luakit/luakit {
+      inherit (pkgs.luajitPackages) luafilesystem luasocket;
+    };
     nomad-software.meme = pkgs.callPackage ./github.com/nomad-software/meme { };
     oragono.oragono = pkgs.callPackage ./github.com/oragono/oragono { };
     PonyvilleFM.aura = pkgs.callPackage ./github.com/PonyvilleFM/aura { };
@@ -64,5 +67,7 @@ pkgs: rec {
 
   xxx.hack = { tailscale = pkgs.callPackage ./tailscale.nix { }; };
 
+  # hacks
   fish-foreign-env = pkgs.fishPlugins.foreign-env;
+  luakit = github.com.luakit.luakit;
 }

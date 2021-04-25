@@ -22,6 +22,7 @@ github Xe withinbot &
 github Xe GraphvizOnline &
 github goproxyio goproxy &
 github jroimartin sw &
+github luakit luakit &
 
 # needs to be fixed before updates are safe
 #github oragono oragono &

@@ -1,7 +1,9 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./powershell ];
+  imports = [ ../../home-manager ];
+
+  xe.powershell.enable = true;
 
   home.packages = [ pkgs.vim ];
 

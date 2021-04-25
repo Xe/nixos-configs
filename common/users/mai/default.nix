@@ -1,7 +1,14 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./emacs ./tmux.nix ];
+  imports = [ ../../home-manager ];
+
+  xe = {
+    emacs.enable = true;
+    tmux.enable = true;
+    tmux.shortcut = "a";
+    vim.enable = true;
+  };
 
   programs.direnv = {
     enable = true;
