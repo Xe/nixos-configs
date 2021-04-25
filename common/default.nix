@@ -13,6 +13,8 @@ with lib; {
     ./coredns
     ./crypto
     ./services
+    ./programs/dwm.nix
+    ./programs/sway.nix
   ];
 
   options.cadey = {
