@@ -1,7 +1,21 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./core.nix ];
+  imports = [
+    ./dev.nix
+    ./git.nix
+    ./spacemacs
+    ../../home-manager
+  ];
 
-  home.packages = with pkgs; [ vim ];
+  xe = {
+    fish.enable = true;
+    htop.enable = true;
+    neofetch.enable = true;
+    powershell.enable = true;
+    tmux.enable = true;
+    vim.enable = true;
+  };
+
+  programs.home-manager.enable = true;
 }

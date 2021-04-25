@@ -6,9 +6,8 @@ let
 in {
   imports = [
     ./hardware-configuration.nix
-    /home/cadey/code/nixos-configs/common/users
-    /home/cadey/code/nixos-configs/common/base.nix
-    /home/cadey/code/nixos-configs/common/desktop.nix
+    ../../common
+    ../../common/desktop.nix
     <home-manager/nixos>
   ];
 

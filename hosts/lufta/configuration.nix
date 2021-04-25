@@ -12,7 +12,7 @@
     ./within.nix
     ./when-then-zen.nix
 
-    ../../common/base.nix
+    ../../common
     ../../common/services
     ../../common/users/home-manager.nix
   ];

@@ -9,7 +9,7 @@
       ./hardware-configuration.nix
       ./akua.nix
 
-      ../../common/base.nix
+      ../../common
       ../../common/services
       ../../common/users/home-manager.nix
   ];

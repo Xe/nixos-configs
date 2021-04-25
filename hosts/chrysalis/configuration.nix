@@ -4,7 +4,7 @@ let metadata = pkgs.callPackage ../../ops/metadata/peers.nix { };
 in {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../common/base.nix
+    ../../common
     ../../common/services
     ../../common/sites/grafana.akua.nix
     ../../common/sites/keyzen.akua.nix

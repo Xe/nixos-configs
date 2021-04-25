@@ -3,7 +3,7 @@
 let metadata = pkgs.callPackage ../../ops/metadata/peers.nix { };
 in {
   imports = [
-    ../../common/base.nix
+    ../../common
     ../../common/services
     ../../common/users/home-manager.nix
     ./hardware-configuration.nix

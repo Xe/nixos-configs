@@ -9,12 +9,12 @@ let
     pkgs.callPackage /home/cadey/code/nixos-configs/ops/metadata/peers.nix { };
 in {
   imports = [
+    ../../common
+    ../../common/desktop.nix
+    ../../common/programs/plex.nix
+
     ./dns.nix
     ./hardware-configuration.nix
-    /home/cadey/code/nixos-configs/common/users
-    /home/cadey/code/nixos-configs/common/base.nix
-    /home/cadey/code/nixos-configs/common/desktop.nix
-    /home/cadey/code/nixos-configs/common/programs/plex.nix
     ./rhea.nix
   ];
 
