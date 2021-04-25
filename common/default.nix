@@ -41,7 +41,7 @@ with lib; {
 
     nix = {
       autoOptimiseStore = true;
-      useSandbox = false;
+      useSandbox = true;
 
       binaryCaches =
         [ "https://xe.cachix.org" "https://nix-community.cachix.org" ];
