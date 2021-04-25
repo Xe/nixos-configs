@@ -5,14 +5,10 @@ let
     "https://github.com/nix-community/NUR/archive/master.tar.gz") { };
 in {
   imports = with nur-no-pkgs.repos.xe.modules; [
-    ./dwm.nix
     ./front
     ./media.nix
     ./obs.nix
     ./st
-    ./xresources.nix
-    ./urxvt.nix
-    ./sway.nix
 
     #zathura
   ];
@@ -21,6 +17,7 @@ in {
     keybase.enable = true;
     keybase.gui = true;
     luakit.enable = true;
+    urxvt.enable = true;
   };
 
   home.packages = with pkgs; [

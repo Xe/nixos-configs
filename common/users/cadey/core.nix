@@ -5,32 +5,21 @@ let
 in {
   imports = with nur-no-pkgs.repos.xe.modules; [
     ./dev.nix
-    ./dhall.nix
     ./git.nix
     ./k8s.nix
     #./nixops.nix
     ./spacemacs
     ./fish
     ../../home-manager
-
-    htop
-    neofetch
   ];
 
   xe = {
+    htop.enable = true;
+    neofetch.enable = true;
     powershell.enable = true;
     tmux.enable = true;
     vim.enable = true;
   };
 
   programs.home-manager.enable = true;
-
-  nixpkgs.config = {
-    allowBroken = true;
-    allowUnfree = true;
-
-    packageOverrides = import ../../../pkgs;
-
-    manual.manpages.enable = true;
-  };
 }
