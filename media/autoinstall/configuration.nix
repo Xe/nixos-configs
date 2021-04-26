@@ -5,7 +5,7 @@ let
     (builtins.fetchurl "https://github.com/${username}.keys");
 in {
   imports = [
-    #installer-only ./hardware-config.nix
+    #installer-only ./hardware-configuration.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
