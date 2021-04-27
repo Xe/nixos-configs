@@ -86,9 +86,6 @@ in {
 
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 
-  users.users.mai.isSystemUser = true;
-  users.users.vic.isSystemUser = true;
-
   boot.kernelPackages = pkgs.linuxPackages_5_10;
 
   services.zfs.autoScrub.enable = true;

@@ -11,7 +11,7 @@
   xe = {
     keybase.enable = true;
     keybase.gui = true;
-    luakit.enable = true;
+    luakit.enable = false;
     urxvt.enable = true;
   };
 
