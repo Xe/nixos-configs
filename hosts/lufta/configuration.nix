@@ -52,9 +52,18 @@
 
   environment.systemPackages = with pkgs; [ wget vim zfs weechat tailscale ];
 
-  networking.firewall.allowedTCPPorts = [ 22 80 443 6667 6697 ];
-  networking.firewall.allowedUDPPorts = [ 51822 ];
-  networking.firewall.enable = false;
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 22 80 443 1965 6667 6697 ];
+    allowedUDPPorts = [ 41641 51822 ];
+
+    allowedUDPPortRanges = [{
+      from = 32768;
+      to = 65535;
+    }];
+
+    trustedInterfaces = [ "akua" "tailscale0" ];
+  };
 
   system.stateVersion = "20.09"; # Did you read the comment?
 
@@ -76,10 +85,7 @@
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
 
-  systemd.services.nginx.serviceConfig = {
-    SupplementaryGroups = "within";
-  };
-
+  systemd.services.nginx.serviceConfig.SupplementaryGroups = "within";
   services.nginx = {
     enable = true;
     recommendedGzipSettings = true;
@@ -117,8 +123,12 @@
 
   services.tailscale.enable = true;
   services.tor.enable = true;
-  services.mysql.enable = true;
-  services.mysql.package = pkgs.mariadb;
+
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+    bind = "127.0.0.1";
+  };
 
   services.zfs.autoScrub.enable = true;
   services.zfs.autoSnapshot = {
