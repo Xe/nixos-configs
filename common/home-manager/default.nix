@@ -12,7 +12,7 @@
     ./luakit
     ./neofetch.nix
     ./powershell
-    ./sway.nix
+    ./sway
     ./tmux.nix
     ./urxvt.nix
     ./vim
