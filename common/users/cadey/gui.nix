@@ -19,6 +19,7 @@
     krita
     virtmanager
     github.com.nomad-software.meme
+    chromium
   ];
 
   home.file = {
