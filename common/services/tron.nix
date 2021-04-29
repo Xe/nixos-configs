@@ -38,6 +38,7 @@ with lib; {
 
       script = let tron = pkgs.within.tron;
       in ''
+        export $(cat /srv/within/tron/.env | xargs)
         export REGEXES=${tron}/regexes.dhall
         exec ${tron}/bin/tron
       '';
