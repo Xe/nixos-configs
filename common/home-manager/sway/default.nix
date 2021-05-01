@@ -144,7 +144,7 @@ in {
               command = "systemctl --user restart waybar";
               always = true;
             }
-            { command = "mako"; }
+            { command = "mako -c ${./mako.conf}"; }
             { command = "firefox"; }
             { command = "Discord"; }
             {
