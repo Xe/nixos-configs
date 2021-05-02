@@ -244,14 +244,15 @@ in {
       output = {
         "DP-1" = {
           res = "2560x1440";
-          pos = "1920,0";
+          # pos = "1920,0";
+          pos = "0,0";
           bg = "~/Pictures/wallpapers/Bliss.jpg fill";
         };
-        "HDMI-A-1" = {
-          res = "1920x1080";
-          pos = "0,360";
-          bg = "~/Pictures/wallpapers/HiqIdzU.png fill";
-        };
+        # "HDMI-A-1" = {
+        #   res = "1920x1080";
+        #   pos = "0,360";
+        #   bg = "~/Pictures/wallpapers/HiqIdzU.png fill";
+        # };
       };
     };
   };
