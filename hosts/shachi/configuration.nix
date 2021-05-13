@@ -250,7 +250,7 @@ in {
         "HDMI-A-1" = {
           res = "2560x1440";
           pos = "0,0";
-          bg = "~/Pictures/wallpapers/HiqIdzU.png fill";
+          bg = "~/Pictures/E1Hf2ZKUUAM9Qgv.jpg fill";
         };
       };
     };

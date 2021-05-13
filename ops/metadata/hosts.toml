@@ -41,7 +41,7 @@ tailscale = "100.125.113.109"
 
 [hosts.genza]
 network = "hexagone"
-ip_addr = "192.168.0.115"
+ip_addr = "192.168.2.24"
 
 [hosts.genza.wireguard]
 pubkey = "Q9QO+IsK5ISqdEnXm0EMovEXKSZ15J3ASlUaX7bZDm0="
@@ -61,7 +61,7 @@ addrs = { v4 = "10.77.2.1", v6 = "ed22:c815:3632:42fc:a1d2" }
 
 [hosts.chrysalis]
 network = "hexagone"
-ip_addr = "192.168.0.127"
+ip_addr = "192.168.2.29"
 ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGDA5iXvkKyvAiMEd/5IruwKwoymC8WxH4tLcLWOSYJ1"
 tailscale = "100.97.53.92"
 
@@ -72,7 +72,7 @@ addrs = { v4 = "10.77.2.2", v6 = "ed22:9064:6df9:4855:611d" }
 
 [hosts.shachi]
 network = "hexagone"
-ip_addr = "192.168.0.177"
+ip_addr = "192.168.2.14"
 ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL3Jt26HXD7mLNjg+B+pB5+fXtxEmMeR6Bqv1Z5/819n"
 tailscale = "100.67.184.57"
 
