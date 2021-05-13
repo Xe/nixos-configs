@@ -34,6 +34,8 @@ in {
   services.xserver.desktopManager.plasma5.enable = true;
 
   sound.enable = true;
+  hardware.pulseaudio.enable = true;
+hardware.pulseaudio.support32Bit = true;
 
   services.xserver.libinput.enable = true;
   virtualisation.docker.enable = true;
@@ -75,9 +77,14 @@ in {
       enable = true;
       i3status = true;
       output = {
+        "DP-1" = {
+          res = "2560x1440";
+          pos = "0,0";
+          bg = "~/Pictures/Baphomet-wallpaper7.jpg.png fill";
+        };
         "eDP-1" = {
           res = "1920x1080";
-          pos = "0,0";
+          pos = "1580,1440";
           bg = "~/Pictures/Baphomet-wallpaper7.jpg.png fill";
         };
       };
@@ -93,7 +100,7 @@ in {
 
   security.rtkit.enable = true;
   services.pipewire = {
-    enable = true;
+    enable = false;
     # Compatibility shims, adjust according to your needs
     alsa.enable = true;
     alsa.support32Bit = true;
