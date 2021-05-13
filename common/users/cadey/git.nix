@@ -21,11 +21,13 @@ in {
     extraConfig = {
       commit.template = "${commitTemplate}";
       core.editor = "vim";
+      color.ui = "auto";
       credential.helper = "store --file ~/.git-credentials";
       format.signoff = true;
       init.defaultBranch = "main";
       protocol.keybase.allow = "always";
       pull.rebase = "true";
+      push.default = "current";
 
       url = {
         "git@github.com:".insteadOf = "https://github.com/";
