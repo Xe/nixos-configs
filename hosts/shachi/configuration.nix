@@ -245,12 +245,12 @@ in {
         "DP-1" = {
           res = "2560x1440";
           pos = "2560,0";
-          bg = "~/Pictures/wallpapers/Bliss.jpg fill";
+          bg = "${./pneumakiss.png} fill";
         };
         "HDMI-A-1" = {
           res = "2560x1440";
           pos = "0,0";
-          bg = "~/Pictures/E1Hf2ZKUUAM9Qgv.jpg fill";
+          bg = "${./first-sword.jpg} fill";
         };
       };
     };
