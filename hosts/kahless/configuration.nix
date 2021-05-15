@@ -19,6 +19,7 @@
   boot.loader.grub.version = 2;
   boot.loader.grub.devices = [ "/dev/sda" "/dev/sdb" "/dev/sdc" ];
   boot.zfs.devNodes = "/dev/disk/by-partuuid";
+  boot.kernelParams = [ "zfs.zfs_arc_max=1073741824" ];
 
   networking.hostName = "kahless"; # Define your hostname.
   networking.useDHCP = false;
@@ -74,5 +75,6 @@
   };
 
   services.tailscale.enable = true;
+  virtualisation.libvirtd.enable = true;
 }
 

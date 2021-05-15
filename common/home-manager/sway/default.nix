@@ -110,6 +110,9 @@ in {
               "${modifier}+u" = "layout stacking";
               "${modifier}+e" = "exec $HOME/bin/e";
 
+              "${modifier}+s" = "exec grim";
+              "${modifier}+Shift+s" = "exec slurp | grim -g -";
+
               "${modifier}+1" = "exec ${nanpa}/bin/nanpac switch 1";
               "${modifier}+2" = "exec ${nanpa}/bin/nanpac switch 2";
               "${modifier}+3" = "exec ${nanpa}/bin/nanpac switch 3";
@@ -171,6 +174,7 @@ in {
     };
     home.packages = with pkgs; [
       grim # for screenshots
+      slurp
       swaylock
       swayidle
       wl-clipboard

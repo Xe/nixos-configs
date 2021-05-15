@@ -20,6 +20,7 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "/dev/nvme0n1"; # or "nodev" for efi only
+  boot.kernelParams = [ "zfs.zfs_arc_max=1073741824" ];
   boot.zfs.devNodes = "/dev/disk/by-partuuid";
 
   networking.hostName = "lufta"; # Define your hostname.
