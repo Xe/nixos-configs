@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 with lib;
-let cfg = config.within.services.xesite;
+let cfg = config.within.services.ircmon;
 in {
   options.within.services.ircmon = {
     enable = mkEnableOption "enables IRC monitoring of liberachat";
@@ -36,6 +36,7 @@ in {
         wantedBy = [ "multi-user.target" ];
         after = [ "ircmon-key.service" ];
         wants = [ "ircmon-key.service" ];
+        path = [ pkgs.perl ];
 
         serviceConfig = {
           User = "ircmon";
@@ -46,7 +47,7 @@ in {
         };
 
         script = let ircmon = pkgs.github.com.Xe.ircmon;
-        in ''
+        in with pkgs.perl532Packages; ''
           exec ${ircmon}/main.pl
         '';
       };
@@ -54,6 +55,7 @@ in {
         wantedBy = [ "multi-user.target" ];
         after = [ "ircmon-bot.service" ];
         wants = [ "ircmon-bot.service" ];
+        path = [ pkgs.perl ];
 
         serviceConfig = {
           User = "ircmon";

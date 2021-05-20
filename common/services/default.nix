@@ -12,6 +12,7 @@
     ./johaus.nix
     ./lewa.nix
     ./idp.nix
+    ./ircmon.nix
     ./mi.nix
     ./oragono.nix
     ./printerfacts.nix
