@@ -16,6 +16,11 @@
         static_configs = [{ targets = [ "lufta.akua.xeserv.us:43705" ]; }];
       }
       {
+        job_name = "ircmon";
+        metrics_path = "/ircmon";
+        static_configs = [{ targets = [ "lufta.akua.xeserv.us:43705" ]; }];
+      }
+      {
         job_name = "corerad";
         static_configs = [{ targets = [ "10.77.2.1:38177" ]; }];
       }

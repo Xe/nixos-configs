@@ -16,6 +16,7 @@ pkgs: rec {
     Xe = {
       GraphvizOnline = pkgs.callPackage ./github.com/Xe/GraphvizOnline { };
       mi = pkgs.callPackage ./github.com/Xe/mi { };
+      ircmon = pkgs.callPackage ./github.com/Xe/ircmon { };
       rhea = pkgs.callPackage ./github.com/Xe/rhea { };
       site = pkgs.callPackage ./github.com/Xe/site { };
       withinbot = pkgs.callPackage ./github.com/Xe/withinbot { };

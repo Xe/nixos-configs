@@ -16,6 +16,7 @@ function git() {
 # github repos
 github PonyvilleFM aura &
 github Xe mi &
+github Xe ircmon &
 github Xe rhea &
 github Xe site &
 github Xe withinbot &
