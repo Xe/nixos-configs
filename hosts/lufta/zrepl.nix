@@ -24,7 +24,8 @@
           "rpool/safe/vm-images" = true;
           "rpool/safe/srv<" = true;
           "rpool/mkvm-test/buddy" = true;
-          "rpool/ts<" = true;
+          "rpool/safe/home" = true;
+          "rpool/safe/root" = true;
         };
         snapshotting = {
           type = "periodic";
