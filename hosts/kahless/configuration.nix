@@ -8,6 +8,7 @@
   imports = [
       ./hardware-configuration.nix
       ./akua.nix
+      ./zrepl.nix
 
       ../../common
       ../../common/services
@@ -76,5 +77,7 @@
 
   services.tailscale.enable = true;
   virtualisation.libvirtd.enable = true;
+
+  security.sudo.wheelNeedsPassword = false;
 }
 

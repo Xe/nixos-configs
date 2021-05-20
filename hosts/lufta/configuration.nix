@@ -11,6 +11,7 @@
     ./weechat.nix
     ./within.nix
     ./when-then-zen.nix
+    ./zrepl.nix
 
     ../../common
     ../../common/services
