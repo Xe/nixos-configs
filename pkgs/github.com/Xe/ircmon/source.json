@@ -1,7 +1,7 @@
 {
     "owner": "Xe",
     "repo": "ircmon",
-    "rev": "df6d720ff0757ac47645bdb75f65103df4ef66ea",
-    "sha256": "0xlg6sx6192wgdphsgx9d6bqvjgbf11nbywanlzc93i4l824lf07",
+    "rev": "c9d29089bd6c8f0b9339ba74e34944ed243a7899",
+    "sha256": "0knrqm7c7f08zdmsa4y57vfdys0c8yqbbddvv9isqjwcv3k8amca",
     "fetchSubmodules": true
 }
