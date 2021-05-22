@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ capture vlc transmission ];
+  home.packages = with pkgs; [ vlc transmission ];
 }

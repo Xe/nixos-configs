@@ -2,7 +2,7 @@ $TTL 60
 
 $ORIGIN akua.
 @       IN      SOA     kahless.wg.akua.	me@christine.website. (
-                        2021012300	; serial number YYMMDDNN
+                        2021052216	; serial number YYMMDDNN
                         28800           ; Refresh
                         7200            ; Retry
                         864000          ; Expire
@@ -13,36 +13,18 @@ $ORIGIN akua.
 
 ;;; cloud servers
 
-kahless.cloud.akua. IN A 198.27.67.207
-minipaas.cloud.akua. IN A 165.227.53.75
-lufta.cloud          IN A 135.181.162.99
-firgu.cloud          IN A 149.248.59.1
-
-;;; hexagone
-
-keanu.hexagone.akua.        IN  A 192.168.0.158
-128.0.168.192.in-addr.arpa. IN  PTR keanu.hexagone.akua.
-
-luna.hexagone.akua.         IN  A   192.168.0.108
-108.0.168.192.in-addr.arpa. IN  PTR luna.hexagone.akua.
-
-chrysalis.hexagone.akua.	IN	A	192.168.0.127
-127.0.168.192.in-addr.arpa.	IN	PTR	chrysalis.hexagone.akua.
-
-shachi.hexagone.akua.       IN  A   192.168.0.177
-177.0.168.192.in-addr.arpa. IN  PTR shachi.hexagone.akua.
+kahless.cloud  IN A 198.27.67.207
+minipaas.cloud IN A 165.227.53.75
+lufta.cloud    IN A 135.181.162.99
+firgu.cloud    IN A 149.248.59.1
 
 ;;; wireguard prefix
 
 ;; core
 
-kahless.wg.akua. IN A 10.77.0.1
-kahless.wg.akua. IN AAAA fda2:d982:1da2::
-1.0.77.10.in-addr.arpa. IN PTR kahless.wg.akua.
-
-minipaas.wg.akua. IN A 10.77.0.8
-minipaas.wg.akua. IN AAAA fda2:d982:1da2::8
-8.0.77.10.in-addr.arpa. IN PTR minipaas.wg.akua.
+kahless.wg.akua. IN A 10.77.3.3
+kahless.wg.akua. IN AAAA fda2:d982:1da2:180d:ce10:49d:742d:aab7
+3.3.77.10.in-addr.arpa. IN PTR kahless.wg.akua.
 
 chrysalis.wg.akua.      IN A    10.77.2.2
 chrysalis.wg.akua.      IN AAAA fda2:d982:1da2:ed22:9064:6df9:4855:611d
@@ -62,58 +44,21 @@ lufta.wg                IN AAAA fda2:d982:1da2:180d:b7a4:9c5c:989b:ba02
 firgu.wg                IN A    10.77.3.2
 firgu.wg                IN AAAA fda2:d982:1da2:180d:8b49:c521:5fb2:5e55
 
-;; client devices
-
-la-tahorskami.wg.akua.  IN A 10.77.1.1
-1.1.77.10.in-addr.arpa. IN PTR la-tahorskami.wg.akua.
-
-la-selbeifonxa.wg.akua. IN A 10.77.1.2
-2.1.77.10.in-addr.arpa. IN PTR la-selbeifonxa.wg.akua.
-
-om.wg.akua. IN A 10.77.1.3
-3.1.77.10.in-addr.arpa. IN PTR om.wg.akua.
-
-senpai.wg.akua. IN A 10.77.1.4
-4.1.77.10.in-addr.arpa. IN PTR senpai.wg.akua.
-
 ;; apps
-drone IN  CNAME kahless.wg.akua.
 certs IN  CNAME kahless.wg.akua.
-mi.akua.    IN  CNAME chrysalis.wg.akua.
+mi    IN  CNAME lufta.wg.akua.
 grafana IN CNAME chrysalis.wg.akua.
 xesite IN CNAME keanu.wg.akua.
-goproxy          IN CNAME keanu.wg.akua.
-printerfacts     IN CNAME keanu.wg.akua.
-hlang            IN CNAME keanu.wg.akua.
-lewa             IN CNAME keanu.wg.akua.
 
 ; chrysalis
-home		IN	CNAME	kahless.wg.akua.
-catest		IN	CNAME	kahless.wg.akua.
-
-; kahless
-sl.kahless.akua. IN CNAME lufta.wg.akua.
-derpiback.akua. IN CNAME kahless.wg.akua.
-
-; hacks!
-xena.greedo.xeserv.us. IN CNAME kahless.wg.akua.
-
-yhyujfo4qk5ce3nteihjxrdhwc64yx3p5s3ubl7heovj3c67uornlpad.onion. IN CNAME kahless.wg.akua.
+home		IN	CNAME chrysalis.wg.akua.
 
 ;;; go.
-go.akua. IN CNAME kahless.wg.akua.
-g.o. IN CNAME kahless.wg.akua.
+go IN CNAME kahless.wg.akua.
 
 ;; IRC
-
-irc.akua. IN CNAME keanu.wg.akua.
+irc IN CNAME lufta.wg.akua.
 
 ;; start
 start   IN  CNAME chrysalis.wg.akua.
 keyzen  IN  CNAME chrysalis.wg.akua.
-
-;; maymayz
-seinfeld.irc. IN  CNAME irc.within.website.
-
-; cloudhopMC
-mc.cloudhop.  IN  A     207.115.66.238
