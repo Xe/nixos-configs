@@ -51,7 +51,7 @@
 
   boot.supportedFilesystems = [ "zfs" ];
 
-  environment.systemPackages = with pkgs; [ wget vim zfs ];
+  environment.systemPackages = with pkgs; [ wget vim zfs weechat ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

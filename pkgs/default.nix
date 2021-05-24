@@ -36,7 +36,8 @@ pkgs: rec {
       nanpa = pkgs.callPackage ./tulpa.dev/cadey/nanpa { };
       printerfacts = pkgs.callPackage ./tulpa.dev/cadey/printerfacts { };
       snoo2nebby = pkgs.callPackage ./tulpa.dev/cadey/snoo2nebby { };
-      todayinmarch2020 = pkgs.callPackage ./tulpa.dev/cadey/todayinmarch2020 { };
+      todayinmarch2020 =
+        pkgs.callPackage ./tulpa.dev/cadey/todayinmarch2020 { };
       tulpaforce =
         pkgs.callPackage ./tulpa.dev/cadey/tulpaforce { inherit sw; };
       tron = pkgs.callPackage ./tulpa.dev/cadey/tron { };
@@ -71,4 +72,20 @@ pkgs: rec {
   # hacks
   fish-foreign-env = pkgs.fishPlugins.foreign-env;
   luakit = github.com.luakit.luakit;
+
+  weechat-matrix-fixed =
+    pkgs.weechatScripts.weechat-matrix.overrideAttrs (oldAttrs: rec {
+      postFixup = oldAttrs.postFixup + ''
+        substituteInPlace $out/lib/*/site-packages/matrix/server.py --replace "\"matrix_sso_helper\"" "\"$out/bin/matrix_sso_helper\""
+      '';
+    });
+
+  weechat = with pkgs.weechatScripts;
+    pkgs.weechat.override {
+      configure = { availablePlugins, ... }: {
+        scripts = [ weechat-otr weechat-matrix-fixed wee-slack multiline ];
+        extraBuildInputs =
+          [ availablePlugins.python.withPackages (_: [ weechat-matrix ]) ];
+      };
+    };
 }
