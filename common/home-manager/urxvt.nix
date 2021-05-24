@@ -165,6 +165,5 @@ in {
         Install = { WantedBy = [ "default.target" ]; };
       };
     };
-    systemd.user.startServices = true;
   };
 }

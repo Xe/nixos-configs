@@ -5,6 +5,7 @@
 
   xe = {
     emacs.enable = true;
+    fish.enable = true;
     tmux.enable = true;
     tmux.shortcut = "a";
     vim.enable = true;

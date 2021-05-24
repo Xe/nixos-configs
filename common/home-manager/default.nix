@@ -17,6 +17,7 @@
     ./urxvt.nix
     ./vim
     ./zathura
+    ./weechat
 
     # implicit
     ./pastebins
@@ -30,4 +31,6 @@
 
     manual.manpages.enable = true;
   };
+
+  systemd.user.startServices = true;
 }
