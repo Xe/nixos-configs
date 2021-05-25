@@ -47,6 +47,7 @@
     set-default-source echocancel
     set-default-sink echocancel1
     .endif
+    load-module module-switch-on-connect
   '';
 
   programs.steam.enable = true;
