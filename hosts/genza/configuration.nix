@@ -79,12 +79,12 @@ hardware.pulseaudio.support32Bit = true;
       output = {
         "DP-1" = {
           res = "2560x1440";
-          pos = "0,0";
+          pos = "1920,0";
           bg = "~/Pictures/Baphomet-wallpaper7.jpg.png fill";
         };
         "eDP-1" = {
           res = "1920x1080";
-          pos = "1580,1440";
+          pos = "0,360";
           bg = "~/Pictures/Baphomet-wallpaper7.jpg.png fill";
         };
       };
@@ -107,5 +107,7 @@ hardware.pulseaudio.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
   };
+
+  security.sudo.wheelNeedsPassword = false;
 }
 
