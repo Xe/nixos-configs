@@ -131,6 +131,10 @@ hardware.pulseaudio.support32Bit = true;
         filesystems = {
           "rpool/safe<" = true;
         };
+        send = {
+          encrypted = true;
+          compressed = true;
+        };
         snapshotting = {
           type = "periodic";
           prefix = "zrepl_";

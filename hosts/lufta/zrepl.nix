@@ -27,6 +27,7 @@
           "rpool/safe/home" = true;
           "rpool/safe/root" = true;
         };
+        send.compressed = true;
         snapshotting = {
           type = "periodic";
           prefix = "zrepl_";
