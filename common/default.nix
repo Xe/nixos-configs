@@ -39,7 +39,7 @@ with lib; {
   config = {
     boot.cleanTmpDir = true;
 
-    environment.systemPackages = with pkgs; [ age minisign ];
+    environment.systemPackages = with pkgs; [ age minisign tmate ];
 
     nix = {
       autoOptimiseStore = true;

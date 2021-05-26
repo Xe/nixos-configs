@@ -1,7 +1,7 @@
 {
   "url": "https://tulpa.dev/cadey/printerfacts.git",
-  "rev": "dc3a4d261d0c0e31d424abbaf6d58ee3507b3426",
-  "sha256": "1rjq9gfkin0hxrcb9sggl6d3dpfhvw0vgfdm52apjlxxavagn3im",
+  "rev": "b0f04c10afd3a289e9c39dde6b816406aa2ba733",
+  "sha256": "00dy54p22v31qdyfkcd2xdiykki71nv9lm39dh8n68f3jn8f9nd2",
   "fetchSubmodules": false,
   "deepClone": false,
   "leaveDotGit": false
