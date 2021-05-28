@@ -79,5 +79,11 @@
   virtualisation.libvirtd.enable = true;
 
   security.sudo.wheelNeedsPassword = false;
+  services.znc = {
+    enable = true;
+    openFirewall = true;
+    config = import ./secret/znc.nix;
+    confOptions.passBlock = builtins.readFile ./secret/znc_passblock.txt;
+  };
 }
 
