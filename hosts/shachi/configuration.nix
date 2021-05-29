@@ -64,7 +64,7 @@ in {
     ltunify
     lagrange
     manuskript
-    nur.repos.mic92.pandoc-bin
+    weechat
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -266,5 +266,10 @@ in {
     ];
   };
 
-    nixpkgs.config.permittedInsecurePackages = [ "ffmpeg-3.4.8" ];
+  nixpkgs.config.permittedInsecurePackages = [ "ffmpeg-3.4.8" ];
+
+  networking.nat.enable = true;
+  networking.nat.internalInterfaces = [ "ve-+" ];
+  networking.nat.externalInterface = "eth0";
+  networking.networkmanager.unmanaged = [ "interface-name:ve-*" ];
 }

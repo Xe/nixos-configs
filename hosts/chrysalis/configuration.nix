@@ -15,6 +15,8 @@ in {
     ./furryhole.nix
     ./josh.nix
     ./prometheus.nix
+    ./solanum.nix
+    ./znc.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
