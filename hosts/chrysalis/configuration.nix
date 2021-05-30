@@ -99,5 +99,10 @@ in {
       addresses = true;
     };
   };
+
+  services.redis = {
+    enable = true;
+    bind = "100.97.53.92";
+  };
 }
 
