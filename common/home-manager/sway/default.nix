@@ -22,7 +22,7 @@ in {
             text = "#32302f";
           };
         in {
-          terminal = "${pkgs.nur.repos.xe.st}/bin/st";
+          terminal = "${pkgs.st}/bin/st";
           bars = [{
             fonts = [ "Primihi 11" "Hack 10" ];
             colors = {

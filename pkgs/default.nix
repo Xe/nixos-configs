@@ -88,4 +88,6 @@ pkgs: rec {
           [ availablePlugins.python.withPackages (_: [ weechat-matrix ]) ];
       };
     };
+
+  st = pkgs.callPackage ./st { };
 }
