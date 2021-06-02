@@ -80,12 +80,12 @@ hardware.pulseaudio.support32Bit = true;
         "DP-1" = {
           res = "2560x1440";
           pos = "1920,0";
-          bg = "~/Pictures/Baphomet-wallpaper7.jpg.png fill";
+          bg = "${./aegis_rollerblades.jpg} fill";
         };
         "eDP-1" = {
           res = "1920x1080";
           pos = "0,360";
-          bg = "~/Pictures/Baphomet-wallpaper7.jpg.png fill";
+          bg = "${./baphomet.png} fill";
         };
       };
     };
