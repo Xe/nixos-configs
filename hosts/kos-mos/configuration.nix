@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hacky_vscode.nix ];
+  imports = [ ./hacky_vscode.nix ./ghrunner.nix ];
 
   services.corerad = {
     enable = true;
