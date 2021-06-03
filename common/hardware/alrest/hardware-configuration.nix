@@ -6,7 +6,6 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
-  networking.hostId = "472479d4";
 
   fileSystems."/" = {
     device = "rpool/safe/root";

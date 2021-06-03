@@ -1,7 +1,5 @@
 {
-  network = {
-    description = "Avalon";
-  };
+  network = { description = "Avalon"; };
 
   "chrysalis" = { config, pkgs, lib, ... }:
     let metadata = pkgs.callPackage ../metadata/peers.nix { };
@@ -18,8 +16,11 @@
     in {
       deployment.targetUser = "root";
       deployment.targetHost = metadata.raw.kos-mos.ip_addr;
+      networking.hostName = "kos-mos";
+      networking.hostId = "472479d4";
 
-      imports = [ ../../hosts/kos-mos/configuration.nix ];
+      imports =
+        [ ../../common/hardware/alrest ../../hosts/kos-mos/configuration.nix ];
     };
 
   # "logos.alrest" = { config, pkgs, lib, ... }:

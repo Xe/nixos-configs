@@ -65,7 +65,7 @@ ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINT+TxO1wYtifFcd7b5+asgImZb5Re
 pubkey = "I9FhXd/V5mnbpt+3X9Ujr/Rf32pSyerExySPe+ATky4="
 port = 51823
 addrs = { v4 = "10.77.2.20", v6 = "ed22:33c2:b50a:e0bd:964d" }
-extra_addrs = [ "10.77.128.0/24", "2001:470:b1bb:278a::/64", "fda2:d982:1da2:278a::/64" ]
+#extra_addrs = [ "10.77.128.0/24", "2001:470:b1bb:278a::/64", "fda2:d982:1da2:278a::/64" ]
 
 [hosts.logos]
 network = "avalon"
@@ -76,7 +76,7 @@ ssh_pubkey = ""
 pubkey = "UzS3LhPwDDW2AjeYP9I6r1ZOtm+RTf2DbcnZn27CNyw="
 port = 51824
 addrs = { v4 = "10.77.2.21", v6 = "ed22:0a60:029e:327d:df92" }
-extra_addrs = [ "10.77.129.0/24", "2001:470:b1bb:5fd9::/64", "fda2:d982:1da2:5fd9::/64" ]
+#extra_addrs = [ "10.77.129.0/24", "2001:470:b1bb:5fd9::/64", "fda2:d982:1da2:5fd9::/64" ]
 
 [hosts.ontos]
 network = "avalon"
@@ -87,7 +87,7 @@ ssh_pubkey = ""
 pubkey = "IB6doRynP7Uzc5/HJykS3ijMlR1TNJ4AUtyLAW4KBkg="
 port = 51825
 addrs = { v4 = "10.77.2.22", v6 = "ed22:d052:8b54:cc73:c673" }
-extra_addrs = [ "10.77.130.0/24", "2001:470:b1bb:1562::/64", "fda2:d982:1da2:1562::/64" ]
+#extra_addrs = [ "10.77.130.0/24", "2001:470:b1bb:1562::/64", "fda2:d982:1da2:1562::/64" ]
 
 [hosts.pneuma]
 network = "avalon"
@@ -98,7 +98,7 @@ ssh_pubkey = ""
 pubkey = "0UEMluK05tjDU5buPMIewZbHIB93JHQH4fmx9tdZ6yY="
 port = 51825
 addrs = { v4 = "10.77.2.23", v6 = "ed22:eba3:7f7d:281a:a132" }
-extra_addrs = [ "10.77.131.0/24", "2001:470:b1bb:1562::/64", "fda2:d982:1da2:1562::/64" ]
+#extra_addrs = [ "10.77.131.0/24", "2001:470:b1bb:1562::/64", "fda2:d982:1da2:1562::/64" ]
 
 [hosts.keanu]
 network = "avalon"

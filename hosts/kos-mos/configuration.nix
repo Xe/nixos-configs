@@ -1,43 +1,28 @@
 { config, pkgs, ... }:
 
-let metadata = pkgs.callPackage ../../ops/metadata/peers.nix { };
-in {
-  imports = [
-    ./hardware-configuration.nix
-
-    ../../common
-    ../../common/services
-    ../../common/users/home-manager.nix
-  ];
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "zfs" ];
-  boot.zfs.devNodes = "/dev/disk/by-partuuid";
-  boot.kernelParams = [ "zfs.zfs_arc_max=1073741824" ];
-
-  networking.interfaces.enp2s0.useDHCP = true;
-
-  nixpkgs.config.allowUnfree = true;
-
-  networking.hostName = "kos-mos";
-  networking.firewall.enable = false;
-
-  services.openssh.enable = true;
-
-  environment.systemPackages = with pkgs; [ wget vim zfs ];
-
-  networking.wireguard.interfaces.akua =
-    metadata.hosts."${config.networking.hostName}";
-
-  services.zfs.autoScrub.enable = true;
-  services.zfs.autoSnapshot.enable = true;
-
-  cadey.cpu = {
+{
+  services.corerad = {
     enable = true;
-    vendor = "intel";
+    settings = {
+      interfaces = [{
+        name = "virbr0";
+        advertise = true;
+        prefix = [{ prefix = "fda2:d982:1da2:278a::/64"; }];
+      }];
+      debug = {
+        address = "10.77.2.20:38177";
+        prometheus = true;
+      };
+    };
   };
 
-  services.tailscale.enable = true;
-  virtualisation.libvirtd.enable = true;
+  networking.interfaces."virbr0".ipv6.addresses = [{
+    address = "fda2:d982:1da2:278a::";
+    prefixLength = 64;
+  }];
+
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_forward" = 1;
+    "net.ipv6.conf.all.forwarding" = 1;
+  };
 }
