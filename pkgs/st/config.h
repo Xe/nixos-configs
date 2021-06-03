@@ -86,7 +86,7 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 8;
 
-float alpha = 0.3;
+float alpha = 0.95;
 
 /* gruvbox-dark colorscheme */
 
