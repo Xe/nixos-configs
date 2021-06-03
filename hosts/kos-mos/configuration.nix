@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  imports = [ ./hacky_vscode.nix ];
+
   services.corerad = {
     enable = true;
     settings = {
@@ -16,10 +18,12 @@
     };
   };
 
-  networking.interfaces."virbr0".ipv6.addresses = [{
-    address = "fda2:d982:1da2:278a::";
-    prefixLength = 64;
-  }];
+  environment.systemPackages = with pkgs; [ nodejs-14_x ];
+
+  # networking.interfaces."virbr0".ipv6.addresses = [{
+  #   address = "fda2:d982:1da2:278a::";
+  #   prefixLength = 64;
+  # }];
 
   boot.kernel.sysctl = {
     "net.ipv4.ip_forward" = 1;
