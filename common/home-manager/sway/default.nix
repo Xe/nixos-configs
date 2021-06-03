@@ -101,7 +101,7 @@ in {
             let modifier = config.wayland.windowManager.sway.config.modifier;
             in lib.mkOptionDefault {
               "${modifier}+Shift+Return" =
-                "exec ${pkgs.nur.repos.xe.st}/bin/st";
+                "exec ${pkgs.st}/bin/st";
               "${modifier}+Shift+c" = "kill";
               "${modifier}+p" =
                 "exec ${pkgs.dmenu}/bin/dmenu_path | ${pkgs.dmenu}/bin/dmenu -nb '#1d2021' -nf '#ebdbb2' -sb '#b16286' -sf '#fbf1c7' | ${pkgs.findutils}/bin/xargs swaymsg exec --";
