@@ -48,26 +48,28 @@ let
     };
 in with metadata.hosts; rec {
   # expected peer lists
-  hexagone = [
+  avalon = [
     # cloud
     (serverPeer lufta)
     (serverPeer firgu)
     (serverPeer kahless)
-    # hexagone
+    # avalon
     (serverPeer chrysalis)
     (serverPeer keanu)
     (serverPeer shachi)
     (serverPeer genza)
+    (serverPeer kos-mos)
     # fake
     (roamPeer httpserver)
   ];
 
   cloud = [
-    # hexagone
+    # avalon
     (roamPeer chrysalis)
     (roamPeer keanu)
     (roamPeer shachi)
     (roamPeer genza)
+    (roamPeer kos-mos)
     # cloud
     (serverPeer lufta)
     (serverPeer firgu)
@@ -79,10 +81,11 @@ in with metadata.hosts; rec {
   roadwarrior = [ (serverPeer lufta) (serverPeer firgu) ];
 
   hosts = {
-    # hexagone
-    chrysalis = interfaceInfo chrysalis hexagone;
-    keanu = interfaceInfo keanu hexagone;
-    shachi = interfaceInfo shachi hexagone;
+    # avalon
+    chrysalis = interfaceInfo chrysalis avalon;
+    keanu = interfaceInfo keanu avalon;
+    shachi = interfaceInfo shachi avalon;
+    kos-mos = interfaceInfo kos-mos avalon;
 
     # cloud
     lufta = interfaceInfo lufta cloud;
@@ -90,7 +93,7 @@ in with metadata.hosts; rec {
     kahless = interfaceInfo kahless cloud;
 
     # roadwarrior
-    genza = interfaceInfo genza hexagone;
+    genza = interfaceInfo genza avalon;
   };
 
   raw = metadata.hosts;
