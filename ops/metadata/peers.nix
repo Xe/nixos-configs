@@ -92,6 +92,9 @@ in with metadata.hosts; rec {
     keanu = interfaceInfo keanu avalon;
     shachi = interfaceInfo shachi avalon;
     kos-mos = interfaceInfo kos-mos avalon;
+    logos = interfaceInfo logos avalon;
+    ontos = interfaceInfo ontos avalon;
+    pneuma = interfaceInfo pneuma avalon;
 
     # cloud
     lufta = interfaceInfo lufta cloud;

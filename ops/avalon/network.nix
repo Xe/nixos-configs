@@ -23,30 +23,39 @@
         [ ../../common/hardware/alrest ../../hosts/kos-mos/configuration.nix ];
     };
 
-  # "logos.alrest" = { config, pkgs, lib, ... }:
-  #   let metadata = pkgs.callPackage ../metadata/peers.nix { };
-  #   in {
-  #     deployment.targetUser = "root";
-  #     deployment.targetHost = metadata.raw.logos.ip_addr;
-  #
-  #     imports = [ ../../hosts/logos/configuration.nix ];
-  #   };
-  #
-  # "ontos.alrest" = { config, pkgs, lib, ... }:
-  #   let metadata = pkgs.callPackage ../metadata/peers.nix { };
-  #   in {
-  #     deployment.targetUser = "root";
-  #     deployment.targetHost = metadata.raw.ontos.ip_addr;
-  #
-  #     imports = [ ../../hosts/ontos/configuration.nix ];
-  #   };
-  #
-  # "pneuma.alrest" = { config, pkgs, lib, ... }:
-  #   let metadata = pkgs.callPackage ../metadata/peers.nix { };
-  #   in {
-  #     deployment.targetUser = "root";
-  #     deployment.targetHost = metadata.raw.pneuma.ip_addr;
-  #
-  #     imports = [ ../../hosts/pneuma/configuration.nix ];
-  #   };
+  "logos.alrest" = { config, pkgs, lib, ... }:
+    let metadata = pkgs.callPackage ../metadata/peers.nix { };
+    in {
+      deployment.targetUser = "root";
+      deployment.targetHost = metadata.raw.logos.ip_addr;
+      networking.hostName = "logos";
+      networking.hostId = "aeace675";
+
+      imports =
+        [ ../../common/hardware/alrest ../../hosts/logos/configuration.nix ];
+    };
+
+  "ontos.alrest" = { config, pkgs, lib, ... }:
+    let metadata = pkgs.callPackage ../metadata/peers.nix { };
+    in {
+      deployment.targetUser = "root";
+      deployment.targetHost = metadata.raw.ontos.ip_addr;
+      networking.hostName = "ontos";
+      networking.hostId = "07602ecc";
+
+      imports =
+        [ ../../common/hardware/alrest ../../hosts/ontos/configuration.nix ];
+    };
+
+  "pneuma.alrest" = { config, pkgs, lib, ... }:
+    let metadata = pkgs.callPackage ../metadata/peers.nix { };
+    in {
+      deployment.targetUser = "root";
+      deployment.targetHost = metadata.raw.pneuma.ip_addr;
+      networking.hostName = "pneuma";
+      networking.hostId = "34fbd94b";
+
+      imports =
+        [ ../../common/hardware/alrest ../../hosts/pneuma/configuration.nix ];
+    };
 }
