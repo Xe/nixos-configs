@@ -59,6 +59,9 @@ in with metadata.hosts; rec {
     (serverPeer shachi)
     (serverPeer genza)
     (serverPeer kos-mos)
+    (serverPeer logos)
+    (serverPeer ontos)
+    (serverPeer pneuma)
     # fake
     (roamPeer httpserver)
   ];
@@ -70,6 +73,9 @@ in with metadata.hosts; rec {
     (roamPeer shachi)
     (roamPeer genza)
     (roamPeer kos-mos)
+    (roamPeer logos)
+    (roamPeer ontos)
+    (roamPeer pneuma)
     # cloud
     (serverPeer lufta)
     (serverPeer firgu)

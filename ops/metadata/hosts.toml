@@ -25,6 +25,18 @@ v4 = "10.77.127.0"
 ula = "278a"
 v4 = "10.77.128.0"
 
+[networks.logos]
+ula = "5fd9"
+v4 = "10.77.129.0"
+
+[networks.ontos]
+ula = "1562"
+v4 = "10.77.130.0"
+
+[networks.pneuma]
+ula = "bb17"
+v4 = "10.77.131.0"
+
 # fake machines that use netstack
 [hosts.httpserver]
 network = "fake"
@@ -54,6 +66,39 @@ pubkey = "I9FhXd/V5mnbpt+3X9Ujr/Rf32pSyerExySPe+ATky4="
 port = 51823
 addrs = { v4 = "10.77.2.20", v6 = "ed22:33c2:b50a:e0bd:964d" }
 extra_addrs = [ "10.77.128.0/24", "2001:470:b1bb:278a::/64", "fda2:d982:1da2:278a::/64" ]
+
+[hosts.logos]
+network = "avalon"
+ip_addr = "192.168.2.33"
+ssh_pubkey = ""
+
+[hosts.logos.wireguard]
+pubkey = "UzS3LhPwDDW2AjeYP9I6r1ZOtm+RTf2DbcnZn27CNyw="
+port = 51824
+addrs = { v4 = "10.77.2.21", v6 = "ed22:0a60:029e:327d:df92" }
+extra_addrs = [ "10.77.129.0/24", "2001:470:b1bb:5fd9::/64", "fda2:d982:1da2:5fd9::/64" ]
+
+[hosts.ontos]
+network = "avalon"
+ip_addr = "192.168.2.34"
+ssh_pubkey = ""
+
+[hosts.ontos.wireguard]
+pubkey = "IB6doRynP7Uzc5/HJykS3ijMlR1TNJ4AUtyLAW4KBkg="
+port = 51825
+addrs = { v4 = "10.77.2.22", v6 = "ed22:d052:8b54:cc73:c673" }
+extra_addrs = [ "10.77.130.0/24", "2001:470:b1bb:1562::/64", "fda2:d982:1da2:1562::/64" ]
+
+[hosts.pneuma]
+network = "avalon"
+ip_addr = "192.168.2.35"
+ssh_pubkey = ""
+
+[hosts.pneuma.wireguard]
+pubkey = "0UEMluK05tjDU5buPMIewZbHIB93JHQH4fmx9tdZ6yY="
+port = 51825
+addrs = { v4 = "10.77.2.23", v6 = "ed22:eba3:7f7d:281a:a132" }
+extra_addrs = [ "10.77.131.0/24", "2001:470:b1bb:1562::/64", "fda2:d982:1da2:1562::/64" ]
 
 [hosts.keanu]
 network = "avalon"

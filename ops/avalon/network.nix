@@ -12,7 +12,7 @@
       imports = [ ../../hosts/chrysalis/configuration.nix ];
     };
 
-  # alres
+  # alrest
   "kos-mos.alrest" = { config, pkgs, lib, ... }:
     let metadata = pkgs.callPackage ../metadata/peers.nix { };
     in {
@@ -21,4 +21,31 @@
 
       imports = [ ../../hosts/kos-mos/configuration.nix ];
     };
+
+  # "logos.alrest" = { config, pkgs, lib, ... }:
+  #   let metadata = pkgs.callPackage ../metadata/peers.nix { };
+  #   in {
+  #     deployment.targetUser = "root";
+  #     deployment.targetHost = metadata.raw.logos.ip_addr;
+  #
+  #     imports = [ ../../hosts/logos/configuration.nix ];
+  #   };
+  #
+  # "ontos.alrest" = { config, pkgs, lib, ... }:
+  #   let metadata = pkgs.callPackage ../metadata/peers.nix { };
+  #   in {
+  #     deployment.targetUser = "root";
+  #     deployment.targetHost = metadata.raw.ontos.ip_addr;
+  #
+  #     imports = [ ../../hosts/ontos/configuration.nix ];
+  #   };
+  #
+  # "pneuma.alrest" = { config, pkgs, lib, ... }:
+  #   let metadata = pkgs.callPackage ../metadata/peers.nix { };
+  #   in {
+  #     deployment.targetUser = "root";
+  #     deployment.targetHost = metadata.raw.pneuma.ip_addr;
+  #
+  #     imports = [ ../../hosts/pneuma/configuration.nix ];
+  #   };
 }
