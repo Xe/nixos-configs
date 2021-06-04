@@ -38,6 +38,8 @@ in {
     vendor = "intel";
   };
 
+  security.sudo.wheelNeedsPassword = false;
+
   services.tailscale.enable = true;
   virtualisation.libvirtd.enable = true;
 }
