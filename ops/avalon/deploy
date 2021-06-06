@@ -1,0 +1,4 @@
+#!/usr/bin/env nix-shell
+#! nix-shell -p morph -i bash
+
+morph deploy ./network.nix --keep-result switch
