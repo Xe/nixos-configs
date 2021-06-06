@@ -7,46 +7,46 @@ in {
   services.solanum = {
     enable = true;
     motd = ''
-      MMMMMMMMMMMMMMMMMMNmmNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNmmmd.:mmMM
-      MMMMMMMMMMMMMMMMMNmmmNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNmmydmmmmmNMM
-      MMMMMMMMMMMMMMMMNm/:mNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNmms /mmmmmMMM
-      MMMMMMMMMMMMMMMNmm:-dmMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNmmmmdsdmmmmNMMM
-      MMMMMMMMMMMMMMMmmmmmmmNMMMMMMMMMMMNmmdhhddhhmNNMMMMMMMMMMMMMMMMNmy:hmmmmmmmmMMMM
-      MMMMMMMMMMMMMMNm++mmmmNMMMMMMmdyo/::.........-:/sdNMMMMMMMMMMNmmms`smmmmmmmNMMMM
-      MMMMMMMMMMMMMMmd.-dmmmmMMmhs/-....................-+dNMMMMMMNmmmmmmmmmmmmmmMMMMM
-      MMMMMMMMMMMMMNmmmmmmmmho:-...........................:sNMMNmmmmmmmmmmmmmmmNMNmdd
-      MMMMMMMMMMMMNmd+ydhs/-.................................-sNmmmmmmmmmmmmmmmdhyssss
-      MMMMMMMMMMMNNh+`........................................:dmmmmmmmmmmmmmmmyssssss
-      MMMMNNdhy+:-...........................................+dmmmmmmmmmmmmmmmdsssssss
-      MMMN+-...............................................-smmmmmmmmmmmmmmmmmysyyhdmN
-      MMMMNho:::-.--::-.......................----------..:hmmmmmmmmmmmmmmmmmmmNMMMMMM
-      MMMMMMMMNNNmmdo:......................--------------:ymmmmmmmmmmmmmmmmmmmMMMMMMM
-      MMMMMMMMMMds+........................-----------------+dmmmmmmmmmmmmmmmmmMMMMMMM
-      MMMMMMMMMh+........................--------------------:smmmmmmmmmmmmmmNMMMMMMMM
-      MMMMMMMNy/........................-------------::--------/hmmmmmmmmmmmNMMMMMMNmd
-      MMMMMMMd/........................--------------so----------odmmmmmmmmMMNmdhhysss
-      MMMMMMm/........................--------------+mh-----------:ymmmmdhhyysssssssss
-      MMMMMMo.......................---------------:dmmo------------+dmdysssssssssssss
+                        NmmN                                               Nmmmd.:mm  
+                       NmmmN                                             NmmydmmmmmN  
+                      Nm/:mN                                            Nmms /mmmmm   
+                     Nmm:-dm                                          NmmmmdsdmmmmN   
+                     mmmmmmmN           NmmdhhddhhmNN                Nmy:hmmmmmmmm    
+                    Nm++mmmmN      mdyo/::.........-:/sdN          Nmmms`smmmmmmmN    
+                    md.-dmmmm  mhs/-....................-+dN      Nmmmmmmmmmmmmmm     
+                   Nmmmmmmmmho:-...........................:sN  NmmmmmmmmmmmmmmmN Nmdd
+                  Nmd+ydhs/-.................................-sNmmmmmmmmmmmmmmmdhyssss
+                 NNh+`........................................:dmmmmmmmmmmmmmmmyssssss
+          NNdhy+:-...........................................+dmmmmmmmmmmmmmmmdsssssss
+         N+-...............................................-smmmmmmmmmmmmmmmmmysyyhdmN
+          Nho:::-.--::-.......................----------..:hmmmmmmmmmmmmmmmmmmmN      
+              NNNmmdo:......................--------------:ymmmmmmmmmmmmmmmmmmm       
+                ds+........................-----------------+dmmmmmmmmmmmmmmmmm       
+               h+........................--------------------:smmmmmmmmmmmmmmN        
+             Ny/........................-------------::--------/hmmmmmmmmmmmN      Nmd
+             d/........................--------------so----------odmmmmmmmm  Nmdhhysss
+            m/........................--------------+mh-----------:ymmmmdhhyysssssssss
+            o.......................---------------:dmmo------------+dmdysssssssssssss
       yhdmNh:......................---------------:dmmmm+------------:sssssssssssyhhdm
-      sssssy.......................--------------:hmmmmmmos++:---------/sssyyhdmNMMMMM
-      ssssso......................--------------:hmmmNNNMNdddysso:------:yNNMMMMMMMMMM
-      ysssss.....................--------------/dmNyy/mMMd``d/------------sNMMMMMMMMMM
-      MNmdhy-...................--------------ommmh`o/NM/. smh+-----------:yNMMMMMMMMM
-      MMMMMN+...................------------/hmmss: `-//-.smmmmd+----------:hMMMMMMMMM
-      MMMMMMd:..................----------:smmmmhy+oosyysdmmy+:.  `.--------/dMMMMMMMM
-      MMMMMMMh-................---------:smmmmmmmmmmmmmmmh/`      `/s:-------sMMMMMMMM
-      MMMMMMMms:...............-------/ymmmmmmmmmmmmmmmd/        :dMMNy/-----+mMMMMMMM
-      MMMMMMmyss/..............------ommmmmmmmmmmmmmmmd.       :yMMMMMMNs:---+mMMMMMMM
-      MMMMNdssssso-............----..odmmmmmmmmmmmmmmh:.`    .sNMMMMMMMMMd/--sMMMMMMMM
-      MMMmysssssssh/................`  -odmmmmmmmmmh+.     `omMMMMMMMMMMMMh/+mMMMMMMMM
-      MNdyssssssymMNy-..............     `/sssso+:.      `+mMMMMMMMMMMMMMMMdNMMMMMMMMM
-      NhssssssshNMMMMNo:............/.`                `+dMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-      ysssssssdMMMMMMMMm+-..........+ddy/.`          -omMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-      ssssssymMMMMMMMMMMMh/.........-oNMMNmy+--` `-+dNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-      ssssydNMMMMMMMMMMMMMNy:........-hMMMMMMMNmdmMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-      sssymMMMMMMMMMMMMMMMMMm+....-..:hMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-      symNMMMMMMMMMMMMMMMMMMMNo.../-/dMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-      dNMMMMMMMMMMMMMMMMMMMMMMh:.:hyNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+      sssssy.......................--------------:hmmmmmmos++:---------/sssyyhdmN     
+      ssssso......................--------------:hmmmNNN Ndddysso:------:yNN          
+      ysssss.....................--------------/dmNyy/m  d``d/------------sN          
+       Nmdhy-...................--------------ommmh`o/N /. smh+-----------:yN         
+           N+...................------------/hmmss: `-//-.smmmmd+----------:h         
+            d:..................----------:smmmmhy+oosyysdmmy+:.  `.--------/d        
+             h-................---------:smmmmmmmmmmmmmmmh/`      `/s:-------s        
+             ms:...............-------/ymmmmmmmmmmmmmmmd/        :d  Ny/-----+m       
+            myss/..............------ommmmmmmmmmmmmmmmd.       :y      Ns:---+m       
+          Ndssssso-............----..odmmmmmmmmmmmmmmh:.`    .sN         d/--s        
+         mysssssssh/................`  -odmmmmmmmmmh+.     `om            h/+m        
+       Ndyssssssym Ny-..............     `/sssso+:.      `+m               dN         
+      NhssssssshN    No:............/.`                `+d                            
+      ysssssssd        m+-..........+ddy/.`          -om                              
+      ssssssym           h/.........-oN  Nmy+--` `-+dN                                
+      ssssydN             Ny:........-h       Nmdm                                    
+      sssym                 m+....-..:h                                               
+      symN                   No.../-/d                                                
+      dN                      h:.:hyN                                                 
           '';
     config = ''
       loadmodule "extensions/chm_adminonly";

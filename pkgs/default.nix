@@ -90,4 +90,10 @@ pkgs: rec {
     };
 
   st = pkgs.callPackage ./st { };
+
+  solanum = pkgs.solanum.overrideAttrs (old: rec {
+    postPatch = ''
+      substituteInPlace include/defaults.h --replace 'ETCPATH "' '"/etc/solanum'
+    '';
+  });
 }
