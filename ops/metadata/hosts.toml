@@ -61,6 +61,10 @@ network = "avalon"
 ip_addr = "192.168.2.32"
 ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINT+TxO1wYtifFcd7b5+asgImZb5ReLV1dTj6C2qgKzK"
 
+[hosts.kos-mos.solanum]
+sid = "128"
+description = "Battle systems set to close quarters combat"
+
 [hosts.kos-mos.wireguard]
 pubkey = "I9FhXd/V5mnbpt+3X9Ujr/Rf32pSyerExySPe+ATky4="
 port = 51823
@@ -70,7 +74,11 @@ addrs = { v4 = "10.77.2.20", v6 = "ed22:33c2:b50a:e0bd:964d" }
 [hosts.logos]
 network = "avalon"
 ip_addr = "192.168.2.35"
-ssh_pubkey = ""
+ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO0KXXcAdzVVwjEjRCUahsRYyFxjMCpgbLf48LUKWWBC"
+
+[hosts.logos.solanum]
+sid = "129"
+description = "Time to take out the trash!"
 
 [hosts.logos.wireguard]
 pubkey = "UzS3LhPwDDW2AjeYP9I6r1ZOtm+RTf2DbcnZn27CNyw="
@@ -81,7 +89,11 @@ addrs = { v4 = "10.77.2.21", v6 = "ed22:0a60:029e:327d:df92" }
 [hosts.ontos]
 network = "avalon"
 ip_addr = "192.168.2.34"
-ssh_pubkey = ""
+ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGJ0MKlPgIfnS9T/sh57tz4pL5DND4RU7bXvhNCLo+8g"
+
+[hosts.ontos.solanum]
+sid = "130"
+description = "Feel my power!"
 
 [hosts.ontos.wireguard]
 pubkey = "IB6doRynP7Uzc5/HJykS3ijMlR1TNJ4AUtyLAW4KBkg="
@@ -92,7 +104,11 @@ addrs = { v4 = "10.77.2.22", v6 = "ed22:d052:8b54:cc73:c673" }
 [hosts.pneuma]
 network = "avalon"
 ip_addr = "192.168.2.33"
-ssh_pubkey = ""
+ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFMYB+fI24NlIA+Zc7G/3whu8vK4+EdGKkygrE++zTXq"
+
+[hosts.pneuma.solanum]
+sid = "131"
+description = "I am lost no longer"
 
 [hosts.pneuma.wireguard]
 pubkey = "0UEMluK05tjDU5buPMIewZbHIB93JHQH4fmx9tdZ6yY="

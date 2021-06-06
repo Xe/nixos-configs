@@ -17,7 +17,7 @@
         type = "push";
         connect = {
           type = "tcp";
-          address = "[fda2:d982:1da2:180d:ce10:49d:742d:aab7]:29491";
+          address = "kahless.akua.xeserv.us:29491";
         };
         filesystems = { "rpool/safe<" = true; };
         send = {
