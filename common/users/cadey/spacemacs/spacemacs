@@ -389,6 +389,20 @@ you should place your code here."
   ;; elm
   (add-hook 'elm-mode-hook 'elm-format-on-save-mode)
   (remove-hook 'elm-mode-hook 'elm-indent-mode)
+
+  ;; unheck tramp
+  (defun git-gutter+-remote-default-directory (dir file)
+    (let* ((vec (tramp-dissect-file-name file))
+           (method (tramp-file-name-method vec))
+           (user (tramp-file-name-user vec))
+           (domain (tramp-file-name-domain vec))
+           (host (tramp-file-name-host vec))
+           (port (tramp-file-name-port vec)))
+      (tramp-make-tramp-file-name method user domain host port dir)))
+
+  (defun git-gutter+-remote-file-path (dir file)
+    (let ((file (tramp-file-name-localname (tramp-dissect-file-name file))))
+      (replace-regexp-in-string (concat "\\`" dir) "" file)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
