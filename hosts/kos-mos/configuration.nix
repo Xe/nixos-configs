@@ -18,7 +18,7 @@
     };
   };
   
-  #users.motd = builtins.readFile ./motd;
+  users.motd = builtins.readFile ./motd;
   environment.systemPackages = with pkgs; [ nodejs-14_x ];
 
   # networking.interfaces."virbr0".ipv6.addresses = [{

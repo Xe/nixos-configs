@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
   
 {
-  #users.motd = builtins.readFile ./motd;
+  users.motd = builtins.readFile ./motd;
 }
