@@ -1,8 +1,7 @@
-pkgs: rec {
-  nur = import (builtins.fetchTarball
-    "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      inherit pkgs;
-    };
+pkgs:
+let sources = import ./nix/sources.nix;
+in rec {
+  nur = import sources.NUR { inherit pkgs; };
 
   github.com = {
     goproxyio.goproxy = pkgs.callPackage ./github.com/goproxyio/goproxy { };
@@ -23,8 +22,7 @@ pkgs: rec {
     };
   };
 
-  xe = import (builtins.fetchTarball
-    "https://github.com/Xe/xepkgs/archive/master.tar.gz") { inherit pkgs; };
+  xe.discord = pkgs.callPackage ./discord { };
 
   tulpa.dev = {
     cadey = let sw = github.com.jroimartin.sw;
@@ -73,8 +71,8 @@ pkgs: rec {
   fish-foreign-env = pkgs.fishPlugins.foreign-env;
   luakit = github.com.luakit.luakit;
 
-  weechat-matrix-fixed =
-    pkgs.weechatScripts.weechat-matrix.overrideAttrs (oldAttrs: rec {
+  weechat-matrix-fixed = pkgs.weechatScripts.weechat-matrix.overrideAttrs
+    (oldAttrs: rec {
       postFixup = oldAttrs.postFixup + ''
         substituteInPlace $out/lib/*/site-packages/matrix/server.py --replace "\"matrix_sso_helper\"" "\"$out/bin/matrix_sso_helper\""
       '';
@@ -89,6 +87,7 @@ pkgs: rec {
       };
     };
 
+  dwm = pkgs.callPackage ./dwm { };
   st = pkgs.callPackage ./st { };
 
   solanum = pkgs.solanum.overrideAttrs (old: rec {

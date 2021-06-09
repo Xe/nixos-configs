@@ -1,0 +1,26 @@
+{
+    "NUR": {
+        "branch": "master",
+        "description": "Nix User Repository: User contributed nix packages [maintainer=@Mic92]",
+        "homepage": "https://nur.nix-community.org/",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "3d1420c50cf15dd9a2c5f83767c3564acf313ac7",
+        "sha256": "0yzq8smw6wx2xbwiclkqqg3yy76zmii234lzfrn6vrk2522lr82j",
+        "type": "tarball",
+        "url": "https://github.com/nix-community/NUR/archive/3d1420c50cf15dd9a2c5f83767c3564acf313ac7.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "xepkgs": {
+        "branch": "master",
+        "description": "Xe's packages",
+        "homepage": "",
+        "owner": "Xe",
+        "repo": "xepkgs",
+        "rev": "5be834d0cfe1abedaaf9fd8ae20764649930df24",
+        "sha256": "1kcs2n2wa9wa3i69m4jhlrzi514clarcmm8nbyfa564pymgw92yb",
+        "type": "tarball",
+        "url": "https://github.com/Xe/xepkgs/archive/5be834d0cfe1abedaaf9fd8ae20764649930df24.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    }
+}

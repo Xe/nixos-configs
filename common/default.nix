@@ -57,9 +57,9 @@ with lib; {
 
     nixpkgs.config = {
       allowUnfree = true;
-      packageOverrides = import ../pkgs;
       overlays = [
-
+        (import ../pkgs/overlay.nix)
+        (self: super: { stdenv.lib = super.lib; })
       ];
     };
 

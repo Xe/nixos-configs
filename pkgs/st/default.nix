@@ -1,6 +1,6 @@
-{ stdenv, fetchurl, pkgconfig, writeText, libX11, ncurses, libXft }:
+{ stdenv, fetchurl, pkgconfig, writeText, libX11, ncurses, libXft, lib }:
 
-with stdenv.lib;
+with lib;
 
 stdenv.mkDerivation rec {
   name = "st-0.8.2";

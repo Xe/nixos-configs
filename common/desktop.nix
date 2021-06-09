@@ -25,11 +25,12 @@
     openssl
     unrar
     steam-run-native
+    st
   ];
 
   cadey = {
     discord.enable = true;
-    dwm.enable = true;
+    dwm.enable = false;
     gui.enable = true;
     kde.enable = true;
     telegram.enable = true;

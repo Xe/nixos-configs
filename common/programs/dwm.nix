@@ -7,12 +7,12 @@ in {
   options = { cadey.dwm.enable = mkEnableOption "dwm"; };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs.nur.repos.xe; [ dwm st ];
+    environment.systemPackages = with pkgs; [ dwm st ];
     programs.slock.enable = true;
     services.xserver.windowManager.session = singleton {
       name = "dwm";
       start = ''
-        ${pkgs.nur.repos.xe.dwm}/bin/dwm &
+        ${pkgs.dwm}/bin/dwm &
         waitPID=$!
       '';
     };
