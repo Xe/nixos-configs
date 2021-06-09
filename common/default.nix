@@ -58,9 +58,9 @@ with lib; {
     nixpkgs.config = {
       allowUnfree = true;
       overlays = [
-        (import ../pkgs/overlay.nix)
         (self: super: { stdenv.lib = super.lib; })
       ];
+      packageOverrides = import ../pkgs;
     };
 
     security.pam.loginLimits = [{

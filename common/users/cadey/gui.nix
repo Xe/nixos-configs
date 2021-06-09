@@ -5,7 +5,6 @@
     ./front
     ./media.nix
     ./obs.nix
-    ./st
   ];
 
   xe = {
