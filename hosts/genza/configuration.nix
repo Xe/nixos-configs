@@ -56,6 +56,7 @@ hardware.pulseaudio.support32Bit = true;
     wireguard
     tailscale
     pulsemixer
+    weechat
   ];
 
   programs.mtr.enable = true;
@@ -69,7 +70,7 @@ hardware.pulseaudio.support32Bit = true;
 
   cadey = {
     discord.enable = true;
-    dwm.enable = true;
+    dwm.enable = lib.mkForce true;
     gui.enable = true;
     git.email = "xe@tailscale.com";
     kde.enable = true;
