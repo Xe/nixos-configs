@@ -163,6 +163,7 @@ in {
   services.borgbackup.jobs."rsyncnet" = {
     paths = [
       "/home/cadey/.ssh"
+      "/home/cadey/.ssb"
       "/home/cadey/code/nixos-configs"
       "/home/cadey/books"
       "/home/cadey/Pictures"
