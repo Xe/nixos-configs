@@ -63,6 +63,17 @@ in {
   within.backups = {
     enable = true;
     repo = "57196@usw-s007.rsync.net:chrysalis";
+    paths = [
+      "/home/cadey/backup"
+      "/home/cadey/code"
+      "/home/cadey/git"
+      "/home/cadey/project"
+      "/srv"
+      "/var/lib/grafana"
+      "/var/lib/prometheus2"
+      "/var/lib/tailscale"
+      "/var/lib/znc"
+    ];
   };
 
   # monitoring

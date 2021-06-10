@@ -1,8 +1,20 @@
 { config, pkgs, lib, ... }:
 
 {
-  services.zrepl = {
+  within.backups = {
     enable = true;
+    paths =
+      [ "/home/cadey/.ssh" "/home/cadey/code" "/srv" "/var/lib/tailscale" ];
+    exclude = [
+      "'**/target'"
+      "'**/.cache'"
+      "'**/.nix-profile'"
+      "'**/.elm'"
+      "'**/.emacs.d'"
+    ];
+  };
+  services.zrepl = {
+    enable = false;
     settings = {
       global = {
         logging = [{

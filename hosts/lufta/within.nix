@@ -19,6 +19,7 @@ let
     "/srv/http/xena.greedo.xeserv.us/repo"
     "/srv/http/xena.greedo.xeserv.us/templates"
     "/srv/http/xena.greedo.xeserv.us/tumblr"
+    "/srv/gemini"
     "/home/cadey/prefix/flightjournal"
     "/run/keys"
     "/home/cadey/backup/ponychat"
