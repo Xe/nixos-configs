@@ -29,7 +29,6 @@ let
     # temporary files created by cargo
     "**/target"
     "/home/cadey/prefix/aura"
-    "/srv/within/aura"
     "/srv/http/xena.greedo.xeserv.us"
     "/srv/backup"
 

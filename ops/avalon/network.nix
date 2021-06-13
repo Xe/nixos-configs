@@ -32,6 +32,7 @@
       networking.hostName = "logos";
       networking.hostId = "aeace675";
       within.backups.repo = "57196@usw-s007.rsync.net:logos";
+      within.backups.paths = [ "/var/lib/libvirtd/images" ];
 
       imports =
         [ ../../common/hardware/alrest ../../hosts/logos/configuration.nix ];

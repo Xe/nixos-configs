@@ -246,7 +246,7 @@ in {
         "DP-1" = {
           res = "2560x1440";
           pos = "2560,0";
-          bg = "${./Bliss.jpg} fill";
+          bg = "${./waifus.jpg} fill";
         };
         "HDMI-A-1" = {
           res = "2560x1440";
