@@ -1,0 +1,8 @@
+{
+  "url": "git://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/fsverity-utils.git",
+  "rev": "a1243f21c7c268c32de326ab717a6648107f7112",
+  "sha256": "0n356qk35p83rfm1bd6942pmm69wsh7nbqk6lzmim9yjj8xaj68a",
+  "fetchSubmodules": false,
+  "deepClone": false,
+  "leaveDotGit": false
+}
