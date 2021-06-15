@@ -1,0 +1,4 @@
+#!/usr/bin/env nix-shell
+#! nix-shell -p nixos-generators -i bash
+
+nixos-generate -f iso -c ./iso.nix
