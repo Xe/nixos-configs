@@ -14,6 +14,7 @@ in rec {
     PonyvilleFM.aura = pkgs.callPackage ./github.com/PonyvilleFM/aura { };
     Xe = {
       GraphvizOnline = pkgs.callPackage ./github.com/Xe/GraphvizOnline { };
+      comicchat = pkgs.callPackage ./github.com/Xe/comicchat { };
       mi = pkgs.callPackage ./github.com/Xe/mi { };
       ircmon = pkgs.callPackage ./github.com/Xe/ircmon { };
       rhea = pkgs.callPackage ./github.com/Xe/rhea { };
