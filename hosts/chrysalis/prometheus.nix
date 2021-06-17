@@ -50,12 +50,24 @@
         static_configs = [{ targets = [ "10.77.2.8:9100" "10.77.2.8:9586" ]; }];
       }
       {
-        job_name = "keanu";
-        static_configs = [{ targets = [ "10.77.2.1:9100" "10.77.2.1:9586" ]; }];
-      }
-      {
         job_name = "lufta";
         static_configs = [{ targets = [ "10.77.3.1:9100" "10.77.3.1:9586" ]; }];
+      }
+      {
+        job_name = "kos-mos";
+        static_configs = [{ targets = [ "100.72.50.9:9100" "100.72.50.9:9586" ]; }];
+      }
+      {
+        job_name = "logos";
+        static_configs = [{ targets = [ "100.106.69.58:9100" "100.106.69.58:9586" ]; }];
+      }
+      {
+        job_name = "ontos";
+        static_configs = [{ targets = [ "100.66.226.109:9100" "100.66.226.109:9586" ]; }];
+      }
+      {
+        job_name = "pneuma";
+        static_configs = [{ targets = [ "100.120.235.118:9100" "100.120.235.118:9586" ]; }];
       }
     ];
 

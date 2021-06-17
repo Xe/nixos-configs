@@ -403,6 +403,9 @@ you should place your code here."
   (defun git-gutter+-remote-file-path (dir file)
     (let ((file (tramp-file-name-localname (tramp-dissect-file-name file))))
       (replace-regexp-in-string (concat "\\`" dir) "" file)))
+
+  ;; paths
+  (add-to-list 'tramp-remote-path "/usr/local/go/bin")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

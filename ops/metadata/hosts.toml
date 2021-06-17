@@ -60,6 +60,7 @@ addrs = { v4 = "10.77.1.4", v6 = "a88b:06c8:3903:be65:3261" }
 network = "avalon"
 ip_addr = "192.168.2.32"
 ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINT+TxO1wYtifFcd7b5+asgImZb5ReLV1dTj6C2qgKzK"
+tailscale = "100.72.50.9"
 
 [hosts.kos-mos.solanum]
 sid = "128"
@@ -75,6 +76,7 @@ addrs = { v4 = "10.77.2.20", v6 = "ed22:33c2:b50a:e0bd:964d" }
 network = "avalon"
 ip_addr = "192.168.2.35"
 ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO0KXXcAdzVVwjEjRCUahsRYyFxjMCpgbLf48LUKWWBC"
+tailscale = "100.106.69.58"
 
 [hosts.logos.solanum]
 sid = "129"
@@ -90,6 +92,7 @@ addrs = { v4 = "10.77.2.21", v6 = "ed22:0a60:029e:327d:df92" }
 network = "avalon"
 ip_addr = "192.168.2.34"
 ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGJ0MKlPgIfnS9T/sh57tz4pL5DND4RU7bXvhNCLo+8g"
+tailscale = "100.66.226.109"
 
 [hosts.ontos.solanum]
 sid = "130"
@@ -105,6 +108,7 @@ addrs = { v4 = "10.77.2.22", v6 = "ed22:d052:8b54:cc73:c673" }
 network = "avalon"
 ip_addr = "192.168.2.33"
 ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFMYB+fI24NlIA+Zc7G/3whu8vK4+EdGKkygrE++zTXq"
+tailscale = "100.120.235.118"
 
 [hosts.pneuma.solanum]
 sid = "131"

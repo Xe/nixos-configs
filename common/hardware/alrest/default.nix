@@ -4,6 +4,7 @@ let metadata = pkgs.callPackage ../../../ops/metadata/peers.nix { };
 in {
   imports = [
     ./hardware-configuration.nix
+    ./monitoring.nix
     ./solanum.nix
     ./zrepl.nix
 
