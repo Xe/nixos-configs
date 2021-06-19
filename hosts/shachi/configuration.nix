@@ -273,4 +273,7 @@ in {
   networking.nat.internalInterfaces = [ "ve-+" ];
   networking.nat.externalInterface = "eth0";
   networking.networkmanager.unmanaged = [ "interface-name:ve-*" ];
+
+  services.printing.enable = true;
+  services.printing.drivers = [ pkgs.gutenprint pkgs.gutenprintBin ];
 }

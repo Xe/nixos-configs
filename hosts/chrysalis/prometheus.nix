@@ -55,19 +55,19 @@
       }
       {
         job_name = "kos-mos";
-        static_configs = [{ targets = [ "100.72.50.9:9100" "100.72.50.9:9586" ]; }];
+        static_configs = [{ targets = [ "kos-mos:9100" "kos-mos:9586" ]; }];
       }
       {
         job_name = "logos";
-        static_configs = [{ targets = [ "100.106.69.58:9100" "100.106.69.58:9586" ]; }];
+        static_configs = [{ targets = [ "logos:9100" "logos:9586" ]; }];
       }
       {
         job_name = "ontos";
-        static_configs = [{ targets = [ "100.66.226.109:9100" "100.66.226.109:9586" ]; }];
+        static_configs = [{ targets = [ "ontos:9100" "ontos:9586" ]; }];
       }
       {
         job_name = "pneuma";
-        static_configs = [{ targets = [ "100.120.235.118:9100" "100.120.235.118:9586" ]; }];
+        static_configs = [{ targets = [ "pneuma:9100" "pneuma:9586" ]; }];
       }
     ];
 
