@@ -145,7 +145,7 @@ addrs = { v4 = "10.77.2.2", v6 = "ed22:9064:6df9:4855:611d" }
 network = "avalon"
 ip_addr = "192.168.2.14"
 ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL3Jt26HXD7mLNjg+B+pB5+fXtxEmMeR6Bqv1Z5/819n"
-tailscale = "100.67.184.57"
+tailscale = "100.87.242.16"
 
 [hosts.shachi.wireguard]
 pubkey = "S8XgS18Z8xiKwed6wu9FE/JEp1a/tFRemSgfUl3JPFw="
@@ -157,7 +157,7 @@ addrs = { v4 = "10.77.2.8", v6 = "ed22:a601:31ef:e676:e9bd" }
 network = "cloud"
 ip_addr = "135.181.162.99"
 ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMADhGV0hKt3ZY+uBjgOXX08txBS6MmHZcSL61KAd3df"
-tailscale = "100.108.231.33"
+tailscale = "100.103.44.76"
 
 [hosts.lufta.wireguard]
 pubkey = "GJMOmAHUXQ7NfAMuEKQ7zhMmd1TIuJKKGYiC8hVpgEU="

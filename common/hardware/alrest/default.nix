@@ -6,6 +6,7 @@ in {
     ./hardware-configuration.nix
     ./monitoring.nix
     ./solanum.nix
+    ./zfs.nix
     ./zrepl.nix
 
     ../..
@@ -34,6 +35,7 @@ in {
 
   services.zfs.autoScrub.enable = true;
   services.zfs.autoSnapshot.enable = true;
+  services.zfs.trim.enable = true;
 
   cadey.cpu = {
     enable = true;

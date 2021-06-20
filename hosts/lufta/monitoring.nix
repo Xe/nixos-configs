@@ -1,18 +1,20 @@
-{ ... }: {
+{ config, pkgs, ... }:
+
+{
   services.prometheus = {
     exporters = {
       node = {
         enable = true;
         enabledCollectors = [ "systemd" ];
-        listenAddress = "10.77.3.1";
+      };
+      wireguard = {
+        enable = true;
       };
       nginx = {
         enable = true;
-        listenAddress = "10.77.3.1";
       };
       nginxlog = {
         enable = true;
-        listenAddress = "10.77.3.1";
         settings = {
           namespaces = let
             format = ''
@@ -51,10 +53,6 @@
         };
         group = "nginx";
         user = "nginx";
-      };
-      wireguard = {
-        enable = true;
-        listenAddress = "10.77.3.1";
       };
     };
   };

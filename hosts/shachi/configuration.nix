@@ -65,6 +65,7 @@ in {
     lagrange
     manuskript
     weechat
+    retroarch
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -276,4 +277,10 @@ in {
 
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.gutenprint pkgs.gutenprintBin ];
+
+  nixpkgs.config.retroarch = {
+    enableDolphin = false;
+    enableMGBA = true;
+    enableBSNES = true;
+  };
 }

@@ -8,50 +8,50 @@
       # services
       {
         job_name = "mi";
-        static_configs = [{ targets = [ "10.77.3.1:38184" ]; }];
+        static_configs = [{ targets = [ "lufta:38184" ]; }];
       }
       {
         job_name = "site";
         metrics_path = "/xesite";
-        static_configs = [{ targets = [ "lufta.akua.xeserv.us:43705" ]; }];
+        static_configs = [{ targets = [ "lufta:43705" ]; }];
       }
       {
         job_name = "ircmon";
         metrics_path = "/ircmon";
-        static_configs = [{ targets = [ "lufta.akua.xeserv.us:43705" ]; }];
+        static_configs = [{ targets = [ "lufta:43705" ]; }];
       }
       {
         job_name = "corerad";
-        static_configs = [{ targets = [ "10.77.2.1:38177" ]; }];
+        static_configs = [{ targets = [ "keanu:38177" ]; }];
       }
       {
         job_name = "coredns";
-        static_configs = [{ targets = [ "10.77.2.2:47824" ]; }];
+        static_configs = [{ targets = [ "chrysalis:47824" ]; }];
       }
       {
         job_name = "nginx";
         static_configs = [{
-          targets = [ "10.77.3.1:9113" "10.77.3.1:9117" ];
+          targets = [ "lufta:9113" "lufta:9117" ];
           labels.host = "lufta";
         }];
       }
       {
         job_name = "rhea";
-        static_configs = [{ targets = [ "lufta.akua.xeserv.us:23818" ]; }];
+        static_configs = [{ targets = [ "lufta:23818" ]; }];
       }
 
       # computers
       {
         job_name = "chrysalis";
-        static_configs = [{ targets = [ "10.77.2.2:9100" "10.77.2.2:9586" ]; }];
+        static_configs = [{ targets = [ "chrysalis:9100" "chrysalis:9586" ]; }];
       }
       {
         job_name = "shachi";
-        static_configs = [{ targets = [ "10.77.2.8:9100" "10.77.2.8:9586" ]; }];
+        static_configs = [{ targets = [ "shachi:9100" "shachi:9586" ]; }];
       }
       {
         job_name = "lufta";
-        static_configs = [{ targets = [ "10.77.3.1:9100" "10.77.3.1:9586" ]; }];
+        static_configs = [{ targets = [ "lufta:9100" "lufta:9586" ]; }];
       }
       {
         job_name = "kos-mos";
