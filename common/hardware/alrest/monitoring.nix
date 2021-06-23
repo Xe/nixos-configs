@@ -7,11 +7,9 @@ in {
       node = {
         enable = true;
         enabledCollectors = [ "systemd" ];
-        listenAddress = metadata.raw."${config.networking.hostName}".tailscale;
       };
       wireguard = {
         enable = true;
-        listenAddress = metadata.raw."${config.networking.hostName}".tailscale;
       };
     };
   };

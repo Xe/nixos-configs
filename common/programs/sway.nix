@@ -7,13 +7,13 @@ in {
     enable = mkEnableOption "sway";
     i3status = mkEnableOption "use i3status?";
     output = mkOption {
-        type = types.attrsOf (types.attrsOf types.str);
-        default = { };
-        example = { "HDMI-A-2" = { bg = "~/path/to/background.png fill"; }; };
-        description = ''
-          An attribute set that defines output modules. See man sway_output for options.
-        '';
-      };
+      type = types.attrsOf (types.attrsOf types.str);
+      default = { };
+      example = { "HDMI-A-2" = { bg = "~/path/to/background.png fill"; }; };
+      description = ''
+        An attribute set that defines output modules. See man sway_output for options.
+      '';
+    };
   };
 
   config = mkIf cfg.enable {
@@ -24,7 +24,7 @@ in {
     #     waitPID=$!
     #   '';
     # };
-    environment.systemPackages = with pkgs; [wdisplays];
+    environment.systemPackages = with pkgs; [ wdisplays ];
     programs.sway.enable = true;
 
     nixpkgs.overlays = [

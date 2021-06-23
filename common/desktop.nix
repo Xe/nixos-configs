@@ -28,6 +28,8 @@
     st
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [ "rambox-0.7.7" ];
+
   cadey = {
     discord.enable = true;
     dwm.enable = false;
