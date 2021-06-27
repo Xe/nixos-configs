@@ -17,6 +17,7 @@
     slack
     rambox
     firefox
+    msedge
     wireguard
     killall
     file

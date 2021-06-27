@@ -3,6 +3,8 @@ let sources = import ./nix/sources.nix;
 in rec {
   nur = import sources.NUR { inherit pkgs; };
 
+  msedge = pkgs.callPackage ./msedge { };
+
   github.com = {
     goproxyio.goproxy = pkgs.callPackage ./github.com/goproxyio/goproxy { };
     jroimartin.sw = pkgs.callPackage ./github.com/jroimartin/sw { };
