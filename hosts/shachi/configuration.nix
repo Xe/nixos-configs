@@ -66,6 +66,7 @@ in {
     manuskript
     weechat
     retroarch
+    rambox
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -57,7 +57,15 @@ hardware.pulseaudio.support32Bit = true;
     tailscale
     pulsemixer
     weechat
+
+    # go
+    go
+    gopls
+    goimports
+    android-studio
   ];
+
+  programs.adb.enable = true;
 
   programs.mtr.enable = true;
   services.openssh.enable = true;

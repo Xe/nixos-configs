@@ -15,7 +15,6 @@
 
   environment.systemPackages = with pkgs; [
     slack
-    rambox
     firefox
     msedge
     wireguard
