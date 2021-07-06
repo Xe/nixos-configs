@@ -63,10 +63,10 @@ in {
     logitech-udev-rules
     ltunify
     lagrange
-    manuskript
     weechat
     retroarch
     rambox
+    android-studio
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
