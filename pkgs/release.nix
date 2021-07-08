@@ -34,6 +34,7 @@ in rec {
   johaus = x.johaus;
 
   st = myPkgs.st;
+  msedge = myPkgs.msedge;
 
   luakit = myPkgs.luakit;
 }

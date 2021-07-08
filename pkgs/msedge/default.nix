@@ -1,147 +1,158 @@
-{ stdenv
-, fetchurl
-, lib
+{ lib, stdenv, patchelf, makeWrapper, fetchurl
 
-, binutils-unwrapped
-, xz
-, gnutar
-, file
+# Linked dynamic libraries.
+, glib, fontconfig, freetype, pango, cairo, libX11, libXi, atk, nss, nspr
+, libXcursor, libXext, libXfixes, libXrender, libXScrnSaver, libXcomposite, libxcb
+, alsaLib, libXdamage, libXtst, libXrandr, libxshmfence, expat, cups
+, dbus, gtk3, gdk-pixbuf, gcc-unwrapped, at-spi2-atk, at-spi2-core
+, libkrb5, libdrm, mesa
+, libxkbcommon, wayland # ozone/wayland
 
-, gtk3, gtk4
-, glibc
-, glib
-, nss
-, nspr
-, atk
-, at_spi2_atk
-, xorg
-, cups
-, dbus_libs
-, expat
-, libdrm
-, libxkbcommon
-, gnome3
-, gnome2
-, cairo
-, gdk-pixbuf
-, mesa
-, alsaLib
-, at_spi2_core
-, libuuid
+# Command line programs
+, coreutils
+
+# command line arguments which are always set e.g "--disable-gpu"
+, commandLineArgs ? ""
+
+# Will crash without.
+, systemd
+
+# Loaded at runtime.
+, libexif
+
+# Additional dependencies according to other distros.
+## Ubuntu
+, liberation_ttf, curl, util-linux, xdg-utils, wget
+## Arch Linux.
+, flac, harfbuzz, icu, libpng, libopus, snappy, speechd
+## Gentoo
+, bzip2, libcap
+
+# Which distribution channel to use.
+, channel ? "beta"
+
+# Necessary for USB audio devices.
+, pulseSupport ? true, libpulseaudio ? null
+
+, gsettings-desktop-schemas
+, gnome
+
+# For video acceleration via VA-API (--enable-features=VaapiVideoDecoder)
+, libvaSupport ? true, libva
+
+# For Vulkan support (--enable-features=Vulkan)
+, vulkanSupport ? true, vulkan-loader
 }:
 
-stdenv.mkDerivation rec {
-  pname = "microsoft-edge-dev";
-  version = "93.0.926.1";
+with lib;
 
-  src = fetchurl {
-    url = "https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-dev/microsoft-edge-dev_${version}-1_amd64.deb";
-    sha256 = "0vbid3rhh9bbhga4h191kx1vc3yyhk5p44bqdlqyc5cksz5caf29";
+let
+  opusWithCustomModes = libopus.override {
+    withCustomModes = true;
   };
 
-  unpackCmd = ''
-    mkdir -p microsoft-edge-dev-${version}
-    ${binutils-unwrapped}/bin/ar p $src data.tar.xz | ${xz}/bin/xz -dc | ${gnutar}/bin/tar -C microsoft-edge-dev-${version} -xf -
+  version = "92.0.902.9";
+
+  deps = [
+    glib fontconfig freetype pango cairo libX11 libXi atk nss nspr
+    libXcursor libXext libXfixes libXrender libXScrnSaver libXcomposite libxcb
+    alsaLib libXdamage libXtst libXrandr libxshmfence expat cups
+    dbus gdk-pixbuf gcc-unwrapped.lib
+    systemd
+    libexif
+    liberation_ttf curl util-linux xdg-utils wget
+    flac harfbuzz icu libpng opusWithCustomModes snappy speechd
+    bzip2 libcap at-spi2-atk at-spi2-core
+    libkrb5 libdrm mesa coreutils
+    libxkbcommon wayland
+  ] ++ optional pulseSupport libpulseaudio
+    ++ optional libvaSupport libva
+    ++ optional vulkanSupport vulkan-loader
+    ++ [ gtk3 ];
+
+  suffix = "-" + channel;
+
+in stdenv.mkDerivation {
+  inherit version;
+
+  name = "microsoft-edge${suffix}-${version}";
+
+  src = fetchurl {
+    url = "https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-beta/microsoft-edge-beta_${version}-1_amd64.deb";
+    sha256 = "1kba75ms3y9cw8nbvmzd2zqj9f7ri628n7myrjddzq4kid0nglpx";
+  };
+
+  nativeBuildInputs = [ patchelf makeWrapper ];
+  buildInputs = [
+    # needed for GSETTINGS_SCHEMAS_PATH
+    gsettings-desktop-schemas glib gtk3
+
+    # needed for XDG_ICON_DIRS
+    gnome.adwaita-icon-theme
+  ];
+
+  unpackPhase = ''
+    ar x $src
+    tar xf data.tar.xz
   '';
 
-  dontConfigure = true;
-  dontBuild = true;
+  rpath = makeLibraryPath deps + ":" + makeSearchPathOutput "lib" "lib64" deps;
+  binpath = makeBinPath deps;
 
   installPhase = ''
-    mkdir -p $out
-    cp -R opt usr/bin usr/share $out
+    case ${channel} in
+      beta) appname=msedge-beta      dist=beta     ;;
+      dev)  appname=msedge-dev       dist=dev      ;;
+    esac
 
-    ln -sf $out/opt/microsoft/msedge-dev/microsoft-edge-dev $out/opt/microsoft/msedge-dev/microsoft-edge
-    ln -sf $out/opt/microsoft/msedge-dev/microsoft-edge-dev $out/bin/microsoft-edge-dev
+    exe=$out/bin/microsoft-edge-$dist
 
-    rm -rf $out/share/doc
-    rm -rf $out/opt/microsoft/msedge-dev/cron
+    mkdir -p $out/bin $out/share
 
-    substituteInPlace $out/share/applications/microsoft-edge-dev.desktop \
-      --replace /usr/bin/microsoft-edge-dev $out/bin/microsoft-edge-dev
+    cp -a opt/* $out/share
+    cp -a usr/share/* $out/share
 
-    substituteInPlace $out/share/gnome-control-center/default-apps/microsoft-edge-dev.xml \
-      --replace /opt/microsoft/msedge-dev $out/opt/microsoft/msedge-dev
+    # To fix --use-gl=egl:
+    test -e $out/share/microsoft/$appname/libEGL.so
+    ln -s libEGL.so $out/share/microsoft/$appname/libEGL.so.1
+    test -e $out/share/microsoft/$appname/libGLESv2.so
+    ln -s libGLESv2.so $out/share/microsoft/$appname/libGLESv2.so.2
 
-    substituteInPlace $out/share/menu/microsoft-edge-dev.menu \
-      --replace /opt/microsoft/msedge-dev $out/opt/microsoft/msedge-dev
+    substituteInPlace $out/share/applications/microsoft-edge-$dist.desktop \
+      --replace /usr/bin/microsoft-edge-$dist $exe
+    substituteInPlace $out/share/gnome-control-center/default-apps/microsoft-edge-$dist.xml \
+      --replace /opt/microsoft/$appname/microsoft-edge-$dist $exe
+    substituteInPlace $out/share/menu/microsoft-edge-$dist.menu \
+      --replace /opt $out/share \
+      --replace $out/share/microsoft/$appname/microsoft-edge-$dist $exe
 
-    substituteInPlace $out/opt/microsoft/msedge-dev/xdg-mime \
-      --replace "''${XDG_DATA_DIRS:-/usr/local/share:/usr/share}" "''${XDG_DATA_DIRS:-/run/current-system/sw/share}" \
-      --replace "xdg_system_dirs=/usr/local/share/:/usr/share/" "xdg_system_dirs=/run/current-system/sw/share/" \
-      --replace /usr/bin/file ${file}/bin/file
+    for icon_file in $out/share/microsoft/msedge*/product_logo_[0-9]*.png; do
+      num_and_suffix="''${icon_file##*logo_}"
+      icon_size="''${num_and_suffix%_*}"
+      logo_output_prefix="$out/share/icons/hicolor"
+      logo_output_path="$logo_output_prefix/''${icon_size}x''${icon_size}/apps"
+      mkdir -p "$logo_output_path"
+      mv "$icon_file" "$logo_output_path/microsoft-edge-$dist.png"
+    done
 
-    substituteInPlace $out/opt/microsoft/msedge-dev/default-app-block \
-      --replace /opt/microsoft/msedge-dev $out/opt/microsoft/msedge-dev
+    makeWrapper "$out/share/microsoft/$appname/microsoft-edge-$dist" "$exe" \
+      --prefix LD_LIBRARY_PATH : "$rpath" \
+      --prefix PATH            : "$binpath" \
+      --prefix XDG_DATA_DIRS   : "$XDG_ICON_DIRS:$GSETTINGS_SCHEMAS_PATH" \
+      --add-flags ${escapeShellArg commandLineArgs}
 
-    substituteInPlace $out/opt/microsoft/msedge-dev/xdg-settings \
-      --replace "''${XDG_DATA_DIRS:-/usr/local/share:/usr/share}" "''${XDG_DATA_DIRS:-/run/current-system/sw/share}" \
-      --replace "''${XDG_CONFIG_DIRS:-/etc/xdg}" "''${XDG_CONFIG_DIRS:-/run/current-system/sw/etc/xdg}"
+    for elf in $out/share/microsoft/$appname/{msedge,msedge-sandbox,crashpad_handler,nacl_helper}; do
+      patchelf --set-rpath $rpath $elf
+      patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" $elf
+    done
   '';
 
-  preFixup = let
-    libPath = {
-      msedge = lib.makeLibraryPath [
-        glibc glib nss nspr atk at_spi2_atk xorg.libX11
-        xorg.libxcb cups.lib dbus_libs.lib expat libdrm
-        xorg.libXcomposite xorg.libXdamage xorg.libXext
-        xorg.libXfixes xorg.libXrandr libxkbcommon
-        gnome3.gtk gnome2.pango cairo gdk-pixbuf mesa
-        alsaLib at_spi2_core xorg.libxshmfence gtk3 gtk4
-      ];
-      naclHelper = lib.makeLibraryPath [
-        glib
-      ];
-      libwidevinecdm = lib.makeLibraryPath [
-        glib nss nspr
-      ];
-      libGLESv2 = lib.makeLibraryPath [
-        xorg.libX11 xorg.libXext xorg.libxcb
-      ];
-      libsmartscreen = lib.makeLibraryPath [
-        libuuid stdenv.cc.cc.lib
-      ];
-    };
-  in ''
-    patchelf \
-      --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
-      --set-rpath "${libPath.msedge}" \
-      $out/opt/microsoft/msedge-dev/msedge
-
-    patchelf \
-      --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
-      $out/opt/microsoft/msedge-dev/msedge-sandbox
-
-    patchelf \
-      --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
-      $out/opt/microsoft/msedge-dev/crashpad_handler
-
-    patchelf \
-      --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
-      --set-rpath "${libPath.naclHelper}" \
-      $out/opt/microsoft/msedge-dev/nacl_helper
-
-    patchelf \
-      --set-rpath "${libPath.libwidevinecdm}" \
-      $out/opt/microsoft/msedge-dev/WidevineCdm/_platform_specific/linux_x64/libwidevinecdm.so
-
-    patchelf \
-      --set-rpath "${libPath.libGLESv2}" \
-      $out/opt/microsoft/msedge-dev/libGLESv2.so
-
-    patchelf \
-      --set-rpath "${libPath.libsmartscreen}" \
-      $out/opt/microsoft/msedge-dev/libsmartscreen.so
-  '';
-
-  meta = with lib; {
-    homepage = "https://www.microsoftedgeinsider.com/en-us/";
-    description = "Microsoft's fork of Chromium web browser";
+  meta = {
+    description = "A freeware web browser developed by Google";
+    homepage = "https://www.microsoftedgeinsider.com";
     license = licenses.unfree;
+    maintainers = with maintainers; [ leo60228 ];
     platforms = [ "x86_64-linux" ];
-    maintainers = [
-      { name = "Azure Zanculmarktum";
-        email = "zanculmarktum@gmail.com"; }
-    ];
+    mainProgram = "microsoft-edge-${channel}";
   };
 }
