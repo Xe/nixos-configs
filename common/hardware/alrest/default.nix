@@ -6,6 +6,7 @@ in {
     ./hardware-configuration.nix
     ./monitoring.nix
     ./solanum.nix
+    ./ts_gh_runner.nix
     ./zfs.nix
     ./zrepl.nix
 
@@ -42,11 +43,8 @@ in {
     vendor = "intel";
   };
 
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-
   security.sudo.wheelNeedsPassword = false;
 
   services.tailscale.enable = true;
   virtualisation.libvirtd.enable = true;
-  systemd.services.libvirtd.path = with pkgs; [ swtpm ];
 }
