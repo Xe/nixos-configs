@@ -125,7 +125,6 @@
   };
 
   services.tailscale.enable = true;
-  services.tor.enable = true;
 
   services.mysql = {
     enable = true;
