@@ -1,7 +1,7 @@
 {
   "url": "https://tulpa.dev/cadey/tron.git",
-  "rev": "88df80f30489c8433882e947c33607d8b34d0813",
-  "sha256": "0x01rf9bmdbq0nm2d9qj9jyax27lc2dk8ivarafkwq5cvpz631x4",
+  "rev": "20e69676d9899013b5c9630ad9ea01e73b8d2b06",
+  "sha256": "1qpkis92a837c4j1f17ic57l9qpzvnbxg61vccqhcjxfx5vbyc7k",
   "fetchSubmodules": false,
   "deepClone": false,
   "leaveDotGit": false
