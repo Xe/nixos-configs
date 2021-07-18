@@ -1,0 +1,5 @@
+#!/usr/bin/env nix-shell
+#! nix-shell -p nixos-generators -i bash
+
+export NIX_PATH=nixpkgs=channel:nixos-21.05:impermanence=https://github.com/nix-community/impermanence/archive/refs/heads/master.tar.gz
+nixos-generate -f install-iso -c ./iso.nix
