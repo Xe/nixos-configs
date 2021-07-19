@@ -1,7 +1,7 @@
 {
     "owner": "Xe",
     "repo": "site",
-    "rev": "aa6a92c06144b493641f059f562b4697eec2d7b4",
-    "sha256": "0cs4mgi5gw99nkgi0kn6yim4krmz8fppscjc3crlj9ywl4nqa2hr",
+    "rev": "d752cd91b1f3d92cbaad9444ee7ce052935153fc",
+    "sha256": "02k8c8ilm9vp0h5visj3f4knyi9ixb5srs0chq59qiwkq129ixpm",
     "fetchSubmodules": true
 }

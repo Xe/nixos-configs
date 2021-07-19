@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   fetchKeys = username:
@@ -17,4 +17,7 @@ in {
 
   services.openssh.enable = true;
   users.mutableUsers = false;
+
+  environment.defaultPackages = lib.mkForce [ ];
+  nix.allowedUsers = [ "root" ];
 }

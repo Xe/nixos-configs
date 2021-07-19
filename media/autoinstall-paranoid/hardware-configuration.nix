@@ -1,4 +1,4 @@
-{ config, pkgs, modulesPath, ... }: {
+{ config, lib, pkgs, modulesPath, ... }: {
   imports =
     [ (modulesPath + "/profiles/qemu-guest.nix")
       <impermanence/nixos.nix>
@@ -58,5 +58,4 @@
   fileSystems."/var/log".options = [ "noexec" ];
 
   boot.cleanTmpDir = true;
-  boot.tmpOnTmpfs = true;
 }
