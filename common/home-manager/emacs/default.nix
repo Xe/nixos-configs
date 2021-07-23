@@ -417,6 +417,7 @@ in {
 
           weechat.enable = true;
           systemd.enable = true;
+          terraform-mode.enable = true;
         };
       };
     };
