@@ -67,6 +67,7 @@ in {
     retroarch
     rambox
     android-studio
+    dolphin
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -245,7 +246,7 @@ in {
     sway = {
       enable = true;
       output = {
-        "DP-1" = {
+        "DP-3" = {
           res = "2560x1440";
           pos = "2560,0";
           bg = "${./win10_old.jpg} fill";
@@ -259,7 +260,7 @@ in {
     };
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_5_10;
+  boot.kernelPackages = pkgs.linuxPackages_5_13;
 
   security.auditd.enable = true;
   security.audit = {
@@ -284,4 +285,6 @@ in {
     enableMGBA = true;
     enableBSNES = true;
   };
+
+  services.flatpak.enable = true;
 }

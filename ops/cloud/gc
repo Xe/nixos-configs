@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+for host in firgu lufta
+do
+    ssh root@${host} nix-collect-garbage -d &
+done
+
+wait

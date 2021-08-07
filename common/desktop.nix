@@ -24,7 +24,7 @@
     element-desktop
     openssl
     unrar
-    steam-run-native
+    #steam-run-native
     st
   ];
 
@@ -52,8 +52,6 @@
     .endif
     load-module module-switch-on-connect
   '';
-
-  programs.steam.enable = true;
 
   fonts.fonts = [
     (pkgs.runCommandLocal "zbalermorna-fonts" {

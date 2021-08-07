@@ -24,19 +24,19 @@
         [ ../../common/hardware/alrest ../../hosts/kos-mos/configuration.nix ];
     };
 
-  "logos.alrest" = { config, pkgs, lib, ... }:
-    let metadata = pkgs.callPackage ../metadata/peers.nix { };
-    in {
-      deployment.targetUser = "root";
-      deployment.targetHost = metadata.raw.logos.ip_addr;
-      networking.hostName = "logos";
-      networking.hostId = "aeace675";
-      within.backups.repo = "57196@usw-s007.rsync.net:logos";
-      within.backups.paths = [ "/var/lib/libvirtd/images" ];
+  # "logos.alrest" = { config, pkgs, lib, ... }:
+  #   let metadata = pkgs.callPackage ../metadata/peers.nix { };
+  #   in {
+  #     deployment.targetUser = "root";
+  #     deployment.targetHost = metadata.raw.logos.ip_addr;
+  #     networking.hostName = "logos";
+  #     networking.hostId = "aeace675";
+  #     within.backups.repo = "57196@usw-s007.rsync.net:logos";
+  #     within.backups.paths = [ "/var/lib/libvirtd/images" ];
 
-      imports =
-        [ ../../common/hardware/alrest ../../hosts/logos/configuration.nix ];
-    };
+  #     imports =
+  #       [ ../../common/hardware/alrest ../../hosts/logos/configuration.nix ];
+  #   };
 
   "ontos.alrest" = { config, pkgs, lib, ... }:
     let metadata = pkgs.callPackage ../metadata/peers.nix { };

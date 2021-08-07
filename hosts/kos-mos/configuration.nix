@@ -25,9 +25,4 @@
   #   address = "fda2:d982:1da2:278a::";
   #   prefixLength = 64;
   # }];
-
-  boot.kernel.sysctl = {
-    "net.ipv4.ip_forward" = 1;
-    "net.ipv6.conf.all.forwarding" = 1;
-  };
 }
