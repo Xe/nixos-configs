@@ -20,6 +20,8 @@
     github.com.nomad-software.meme
   ];
 
+  services.gnome-keyring.enable = true;
+
   home.file = {
     "bin/memegen" = {
       executable = true;

@@ -404,6 +404,10 @@ you should place your code here."
     (let ((file (tramp-file-name-localname (tramp-dissect-file-name file))))
       (replace-regexp-in-string (concat "\\`" dir) "" file)))
 
+  ;; json comments
+  (defconst json-mode-comments-re (rx (group "//" (zero-or-more nonl) line-end)))
+  (push (list json-mode-comments-re 1 font-lock-comment-face) json-font-lock-keywords-1)
+
   ;; paths
   (add-to-list 'tramp-remote-path "/usr/local/go/bin")
   )

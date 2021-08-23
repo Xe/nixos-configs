@@ -35,7 +35,9 @@ in {
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
-hardware.pulseaudio.support32Bit = true;
+  hardware.pulseaudio.support32Bit = true;
+
+  services.gnome.gnome-keyring.enable = true;
 
   services.xserver.libinput.enable = true;
   virtualisation.docker.enable = true;
