@@ -107,7 +107,7 @@ in {
   boot.kernelPackages = pkgs.linuxPackages_5_10;
 
   services.zfs.autoScrub.enable = true;
-  services.zfs.autoSnapshot.enable = true;
+  services.zfs.autoSnapshot.enable = false;
 
   security.rtkit.enable = true;
   services.pipewire = {
@@ -122,7 +122,7 @@ in {
   security.sudo.wheelNeedsPassword = false;
 
   services.zrepl = {
-    enable = true;
+    enable = false;
     settings = {
       global = {
         logging = [{
