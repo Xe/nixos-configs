@@ -20,6 +20,7 @@
   
   users.motd = builtins.readFile ./motd;
   environment.systemPackages = with pkgs; [ nodejs-14_x ];
+  services.tailscale.port = 15428;
 
   # networking.interfaces."virbr0".ipv6.addresses = [{
   #   address = "fda2:d982:1da2:278a::";
