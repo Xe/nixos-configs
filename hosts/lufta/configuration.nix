@@ -51,6 +51,21 @@
     '';
   };
 
+  services.corerad = {
+    enable = true;
+    settings = {
+      interfaces = [{
+        name = "virbr0";
+        advertise = true;
+        prefix = [{ prefix = "fd69:420:e621:31a4::/64"; }];
+      }];
+      debug = {
+        address = "10.77.3.1:38177";
+        prometheus = true;
+      };
+    };
+  };
+
   boot.supportedFilesystems = [ "zfs" ];
 
   environment.systemPackages = with pkgs; [ wget vim zfs weechat tailscale ];

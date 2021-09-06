@@ -86,16 +86,6 @@ in {
 
   services.tailscale.enable = true;
 
-  services.nginx = {
-    appendHttpConfig = ''
-      server_names_hash_bucket_size 1024;
-    '';
-    virtualHosts."100.97.53.92".locations."/" = {
-      root = "/srv/http/iso";
-      extraConfig = "autoindex on;";
-    };
-  };
-
   within.coredns = {
     enable = true;
     addr = "10.77.2.2";
@@ -111,8 +101,21 @@ in {
     };
   };
 
-  services.redis = {
+  services.redis = { enable = true; };
+
+  services.corerad = {
     enable = true;
+    settings = {
+      interfaces = [{
+        name = "virbr0";
+        advertise = true;
+        prefix = [{ prefix = "fd69:420:e621:53f6::/64"; }];
+      }];
+      debug = {
+        address = "10.77.2.2:38177";
+        prometheus = true;
+      };
+    };
   };
 }
 
