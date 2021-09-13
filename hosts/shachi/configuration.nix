@@ -22,15 +22,6 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # 4 TB drive
-  boot.supportedFilesystems = [ "ntfs" ];
-
-  fileSystems."/data" = {
-    device = "/dev/disk/by-uuid/8464C10764C0FCC4";
-    fsType = "ntfs";
-    options = [ "rw" "uid=1001" ];
-  };
-
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/03CF-4140";
     fsType = "vfat";
@@ -69,6 +60,8 @@ in {
     android-studio
     dolphin
     bsnes-hd
+    gnome3.adwaita-icon-theme
+    gnomeExtensions.appindicator
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -104,6 +97,7 @@ in {
     pulse.enable = true;
     jack.enable = true;
   };
+  hardware.pulseaudio.enable = false;
 
   # bluetooth
   hardware.bluetooth.enable = true;
@@ -117,8 +111,7 @@ in {
   services.xserver.layout = "us";
 
   # Enable the KDE Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  #services.xserver.desktopManager.plasma5.enable = true;
 
   virtualisation.libvirtd.enable = true;
   networking.firewall.checkReversePath = false;
@@ -278,9 +271,6 @@ in {
   networking.nat.externalInterface = "eth0";
   networking.networkmanager.unmanaged = [ "interface-name:ve-*" ];
 
-  services.printing.enable = true;
-  services.printing.drivers = [ pkgs.gutenprint pkgs.gutenprintBin ];
-
   nixpkgs.config.retroarch = {
     enableDolphin = false;
     enableMGBA = true;
@@ -288,4 +278,10 @@ in {
   };
 
   services.flatpak.enable = true;
+
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+  services.udev.packages = with pkgs; [ gnome3.gnome-settings-daemon ];
+  programs.dconf.enable = true;
+  services.dbus.packages = with pkgs; [ gnome2.GConf ];
 }

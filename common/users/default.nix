@@ -42,7 +42,7 @@
   users.users.vic = {
     isNormalUser = true;
     extraGroups = [ "wheel" "libvirtd" "adbusers" "dialout" ];
-    shell = pkgs.powershell;
+    shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [
       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCZBjzU/7vrR8isVC2xzRamcREWw+oLeB2cS+zfZwqEwXHTI99LonR2ow5xlnngmBcJMQo8aIChwwX4iHVuUIx5ObvfbtauqWjImr8ItNqJgMnbPXwzNVJmuuhC7ThxoSYWlmyRQNChE1BAcVeSqU9Vjvc4No9GYAOMOazeAhz5jnesauemFU1WTgIcdnUyuBA2vHNYj/I0K5FHUSjpePccCwpCz+5ieELMcpGv+Wtlq8v8OiasxmLP7MORX6AClvqPtczd5M40rLlX96AoEXuviUbEvy2GzaKsutzyI7OdnfCMw2PWhxL0kjNWsU4VAYVH1EdOfoJeeEO8FuSUIQnd"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIChFSS2KUKbGYFrkbO2VwxuWqFkCSdzbxh68Edk+Pkss victo@Nami"

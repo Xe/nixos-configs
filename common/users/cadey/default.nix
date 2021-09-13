@@ -12,7 +12,7 @@
     fish.enable = true;
     htop.enable = true;
     neofetch.enable = true;
-    powershell.enable = true;
+    powershell.enable = false;
     tmux.enable = true;
     vim.enable = true;
   };

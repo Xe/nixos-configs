@@ -3,7 +3,7 @@
 {
   imports = [ ../../home-manager ];
 
-  xe.powershell.enable = true;
+  xe.powershell.enable = false;
 
   home.packages = [ pkgs.vim ];
 
