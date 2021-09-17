@@ -9,7 +9,7 @@
       interfaces = [
         {
           name = "virbr0";
-          advertise = true;
+          advertise = false;
           prefix = [{ prefix = "fd69:420:e621:278a::/64"; }];
         }
         {

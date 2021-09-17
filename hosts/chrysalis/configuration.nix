@@ -104,7 +104,7 @@ in {
   services.redis = { enable = true; };
 
   services.corerad = {
-    enable = true;
+    enable = false;
     settings = {
       interfaces = [{
         name = "virbr0";

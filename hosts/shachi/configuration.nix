@@ -51,6 +51,8 @@ in {
   environment.systemPackages = with pkgs; [
     wget
     vim
+    hack-font
+    vscode-with-extensions
     logitech-udev-rules
     ltunify
     lagrange
@@ -61,7 +63,15 @@ in {
     dolphin
     bsnes-hd
     gnome3.adwaita-icon-theme
+    gnome.gnome-themes-extra
+    amber-theme
+    gruvbox-dark-gtk
+    humanity-icon-theme
+    ubuntu-themes
+    gnomeExtensions.gsconnect
     gnomeExtensions.appindicator
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.nasa-apod
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

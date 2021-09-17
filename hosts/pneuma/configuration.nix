@@ -8,7 +8,7 @@
   services.tailscale.port = 15430;
 
   services.corerad = {
-    enable = true;
+    enable = false;
     settings = {
       interfaces = [{
         name = "virbr0";
