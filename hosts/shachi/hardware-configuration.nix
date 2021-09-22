@@ -17,14 +17,14 @@
     fsType = "ext4";
   };
 
-  fileSystems."/srv/within/backup" = {
-    device = "/dev/disk/by-uuid/8464C10764C0FCC4";
-    fsType = "ntfs";
-    options = [ "rw" "uid=1001" ];
-  };
-
   # 4 TB drive
   boot.supportedFilesystems = [ "ntfs" ];
+
+  fileSystems."/srv/within/backup" = {
+    device = "/dev/disk/by-uuid/1c10d17a-b27e-42fd-93a4-0f29b233aa16";
+    fsType = "btrfs";
+    options = [ "compress=zstd" ];
+  };
 
   fileSystems."/data" = {
     device = "/dev/disk/by-uuid/3485b24a-364c-484f-9c56-5a957fe5b269";
