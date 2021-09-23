@@ -2,6 +2,7 @@
   "url": "https://tulpa.dev/tulpa-ebooks/tulpanomicon.git",
   "rev": "68e61c63b01f45dfb34b80bd37c787c904b813c7",
   "sha256": "1graqxp7lh5b74fnnmqn485maqcrak4inyv1vfn2zz2381vic60r",
+  "fetchLFS": false,
   "fetchSubmodules": false,
   "deepClone": false,
   "leaveDotGit": false
