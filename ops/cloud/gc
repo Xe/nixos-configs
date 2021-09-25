@@ -2,7 +2,7 @@
 
 for host in firgu lufta
 do
-    ssh root@${host} nix-collect-garbage -d &
+    ssh root@${host} nix-collect-garbage --delete-older-than 7d &
 done
 
 wait
