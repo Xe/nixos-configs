@@ -65,7 +65,10 @@
     createHome = true;
     isSystemUser = true;
     extraGroups = [ "kvm" "keys" ];
+    group = "ghrunner";
   };
+
+  users.groups.ghrunner = {};
 
   # The default github-runner service sets a lot of isolation features
   # that attempt to limit the damage that malicious code can use.

@@ -24,7 +24,7 @@
     element-desktop
     openssl
     unrar
-    #steam-run-native
+    steam-run-native
     st
   ];
 
