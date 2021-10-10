@@ -39,7 +39,7 @@ with lib; {
   config = {
     boot.cleanTmpDir = true;
 
-    environment.systemPackages = with pkgs; [ age minisign tmate jq ];
+    environment.systemPackages = with pkgs; [ age minisign tmate jq nfs-utils ];
 
     nix = {
       autoOptimiseStore = true;
@@ -57,9 +57,7 @@ with lib; {
 
     nixpkgs.config = {
       allowUnfree = true;
-      overlays = [
-        (self: super: { stdenv.lib = super.lib; })
-      ];
+      overlays = [ (self: super: { stdenv.lib = super.lib; }) ];
       packageOverrides = import ../pkgs;
     };
 
