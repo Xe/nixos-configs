@@ -236,6 +236,8 @@ in {
     };
   };
 
+  services.gvfs.enable = true;
+
   programs.steam.enable = true;
   virtualisation.docker.enable = true;
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];

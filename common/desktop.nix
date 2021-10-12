@@ -28,6 +28,8 @@
     st
   ];
 
+  services.gvfs.enable = true;
+
   nixpkgs.config.permittedInsecurePackages = [ "rambox-0.7.7" ];
 
   cadey = {

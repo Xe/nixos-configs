@@ -1,0 +1,15 @@
+feeds:
+  - url: "https://nyaa.si/?page=rss&q=reborn+vending+machine+Digital&c=0_0&f=0&u=danke"
+  - url: "https://nyaa.si/?page=rss&q=scarlet+nexus+1080p&c=0_0&f=0&u=subsplease"
+  - url: "https://nyaa.si/?page=rss&q=I+Was+Reincarnated+as+the+7th+Prince+so+I+Can+Take+My+Time+Perfecting+My+Magical+Ability&c=0_0&f=0&u=danke"
+  - url: "https://nyaa.si/?page=rss&q=reincarnated+as+a+dragon+hatchling&c=0_0&f=0&u=danke"
+
+update_interval: 1800
+
+server:
+  host: 10.77.133.198
+  port: 8090
+  tls: false
+  rpc_path: "/transmission/rpc"
+
+seen_file: "/torrent/rss/seen"
