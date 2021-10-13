@@ -10,6 +10,17 @@
       imports = [ ../../hosts/chrysalis/configuration.nix ];
     };
 
+  "itsuki.alrest" = { config, pkgs, lib, ... }:
+    let metadata = pkgs.callPackage ../metadata/peers.nix { };
+    in {
+      deployment.targetUser = "root";
+      deployment.targetHost = metadata.raw.itsuki.ip_addr;
+      within.backups.repo = "57196@usw-s007.rsync.net:itsuki";
+
+      imports =
+        [ ../../common ../../hosts/itsuki/configuration.nix ];
+    };
+
   # alrest
   "kos-mos.alrest" = { config, pkgs, lib, ... }:
     let metadata = pkgs.callPackage ../metadata/peers.nix { };

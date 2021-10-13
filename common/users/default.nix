@@ -4,7 +4,7 @@
   users.users.cadey = {
     isNormalUser = true;
     extraGroups =
-      [ "wheel" "docker" "audio" "plugdev" "libvirtd" "adbusers" "dialout" ];
+      [ "wheel" "docker" "audio" "plugdev" "libvirtd" "adbusers" "dialout" "within" ];
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [
       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDK1sv1j0XAuHkcUB78D1S0Gv1mvJDjpCcZSTSgR5j3vxFoONctnb1BtnV75zR5YRkAfDNs00qeL+nyWA1s2VR9onaYRTQYO5TRsJhOgSijthn8qT8uK1ws1tWWui/sPzxbLu34nW8IsoQm3iFLD9yQCR7GK9e4WOU5itqLNMyh5jS7LTRKCSC2mi9IvYyTfFMggtuF3u7yFTksR02FOoox2YPzB8bHM3xBqPK46Z+fq+/mWaulnoXWcC3SZgjwpRmcEOAmTEQuk67jlpeumGqRU3lO6UFY3FDvQ8W1VYv2O1ZwPmV87S1pIEulX3WG+r7lO73bPT420PdoQehS/pY7"
@@ -31,6 +31,7 @@
   users.users.mai = {
     isNormalUser = true;
     shell = pkgs.fish;
+    extraGroups = [ "within" ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMOyr7PjUfbALe3+zgygnL0fQz4GhQ7qT9b0Lw+1Gzwk"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPg9gYKVglnO2HQodSJt4z4mNrUSUiyJQ7b+J798bwD9"
@@ -43,7 +44,7 @@
 
   users.users.vic = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "libvirtd" "adbusers" "dialout" ];
+    extraGroups = [ "wheel" "libvirtd" "adbusers" "dialout" "within" ];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [
       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCZBjzU/7vrR8isVC2xzRamcREWw+oLeB2cS+zfZwqEwXHTI99LonR2ow5xlnngmBcJMQo8aIChwwX4iHVuUIx5ObvfbtauqWjImr8ItNqJgMnbPXwzNVJmuuhC7ThxoSYWlmyRQNChE1BAcVeSqU9Vjvc4No9GYAOMOazeAhz5jnesauemFU1WTgIcdnUyuBA2vHNYj/I0K5FHUSjpePccCwpCz+5ieELMcpGv+Wtlq8v8OiasxmLP7MORX6AClvqPtczd5M40rLlX96AoEXuviUbEvy2GzaKsutzyI7OdnfCMw2PWhxL0kjNWsU4VAYVH1EdOfoJeeEO8FuSUIQnd"
