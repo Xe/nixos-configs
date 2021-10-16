@@ -64,9 +64,9 @@ addrs = { v4 = "10.77.1.4", v6 = "a88b:06c8:3903:be65:3261" }
 network = "avalon"
 ip_addr = "192.168.2.174"
 ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP0eD0K2FqhkkIsUrYfmHigwbaUgOSotdSsNlLMRJiqx"
-tailscale = "100.100.2.1"
+tailscale = "100.68.185.47"
 
-[hosts.istuki.wireguard]
+[hosts.itsuki.wireguard]
 pubkey = "lazlobf9iG07HXEeFOf2WNjw4xz13iGI5SMp50+MZ0U="
 port = 51823
 addrs = { v4 = "10.77.2.40", v6 = "ed22:ad46:b73c:2e67:8f7f" }

@@ -11,7 +11,6 @@ in {
   imports = [
     ../../common
     ../../common/desktop.nix
-    ../../common/programs/plex.nix
 
     ./dns.nix
     ./hardware-configuration.nix

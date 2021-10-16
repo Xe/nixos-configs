@@ -62,6 +62,7 @@ in with metadata.hosts; rec {
     (serverPeer logos)
     (serverPeer ontos)
     (serverPeer pneuma)
+    (serverPeer itsuki)
     # fake
     (roamPeer httpserver)
   ];
@@ -76,6 +77,7 @@ in with metadata.hosts; rec {
     (roamPeer logos)
     (roamPeer ontos)
     (roamPeer pneuma)
+    (roamPeer itsuki)
     # cloud
     (serverPeer lufta)
     (serverPeer firgu)
@@ -95,6 +97,7 @@ in with metadata.hosts; rec {
     logos = interfaceInfo logos avalon;
     ontos = interfaceInfo ontos avalon;
     pneuma = interfaceInfo pneuma avalon;
+    itsuki = interfaceInfo itsuki avalon;
 
     # cloud
     lufta = interfaceInfo lufta cloud;

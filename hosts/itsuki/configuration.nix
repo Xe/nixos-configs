@@ -4,13 +4,24 @@
 
 { config, pkgs, ... }:
 
-{
-  imports = [ ./hardware-configuration.nix ./smb.nix ];
+let
+  metadata =
+    pkgs.callPackage /home/cadey/code/nixos-configs/ops/metadata/peers.nix { };
+in {
+  imports = [
+    ./hardware-configuration.nix
+    ./plex.nix
+    ./smb.nix
+    ./zrepl.nix
+
+    ../../common/users/home-manager.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "zfs" ];
+  boot.kernelParams = [ "nomodeset" ];
 
   networking.hostName = "itsuki"; # Define your hostname.
   networking.hostId = "4d64f279";
@@ -22,5 +33,7 @@
   system.stateVersion = "21.05"; # Did you read the comment?
 
   services.tailscale.enable = true;
-}
 
+  networking.wireguard.interfaces.akua =
+    metadata.hosts."${config.networking.hostName}";
+}

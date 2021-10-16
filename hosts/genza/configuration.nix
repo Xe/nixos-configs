@@ -16,6 +16,7 @@ in {
   boot.kernelParams = [ "zfs.zfs_arc_max=1073741824" ];
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.devNodes = "/dev/disk/by-partuuid";
+  boot.zfs.requestEncryptionCredentials = false;
 
   networking.hostName = "genza"; # Define your hostname.
   networking.networkmanager.enable = true;
