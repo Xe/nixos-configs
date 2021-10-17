@@ -22,6 +22,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPYr9hiLtDHgd6lZDgQMkJzvYeAXmePOrgFaWHAjJvNU"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICmEyBV301bq2VMa0cm4aE4peh57TcmNq4jHVN3Clufp cadey@la-tahorskami"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBJHpoa7MSKy50Jv0cKjb1B/6jh/VtB71v8OGrt+lw3P cadey@genza"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK4mrGB2aTjHkp3r3Q7l8FHgtDPCCDqBUp9DykRWjcMA mara@blink"
     ];
   };
 

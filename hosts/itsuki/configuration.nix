@@ -23,6 +23,11 @@ in {
   boot.supportedFilesystems = [ "zfs" ];
   boot.kernelParams = [ "nomodeset" ];
 
+  virtualisation.docker.enable = true;
+  virtualisation.libvirtd.enable = true;
+  services.nfs.server.enable = true;
+  security.sudo.wheelNeedsPassword = false;
+
   networking.hostName = "itsuki"; # Define your hostname.
   networking.hostId = "4d64f279";
   networking.useDHCP = false;
@@ -32,8 +37,10 @@ in {
   networking.firewall.enable = false;
   system.stateVersion = "21.05"; # Did you read the comment?
 
+  environment.systemPackages = with pkgs; [ docker-compose ];
+
   services.tailscale.enable = true;
 
-  networking.wireguard.interfaces.akua =
-    metadata.hosts."${config.networking.hostName}";
+  # networking.wireguard.interfaces.akua =
+  #   metadata.hosts."${config.networking.hostName}";
 }
