@@ -26,6 +26,9 @@ in {
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
   services.nfs.server.enable = true;
+  services.nfs.server.exports = ''
+    /data 0.0.0.0/0(insecure,rw,sync,all_squash,anonuid=1000,anongid=996)
+  '';
   security.sudo.wheelNeedsPassword = false;
 
   networking.hostName = "itsuki"; # Define your hostname.
@@ -43,4 +46,21 @@ in {
 
   # networking.wireguard.interfaces.akua =
   #   metadata.hosts."${config.networking.hostName}";
+
+  services.nginx = {
+    enable = true;
+    virtualHosts."itsuki.shark-harmonic.ts.net" = {
+      forceSSL = true;
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:32400";
+        proxyWebsockets = true;
+      };
+      locations."/transmission" = {
+        proxyPass = "http://127.0.0.1:9091";
+        proxyWebsockets = true;
+      };
+      sslCertificate = "/srv/within/certs/itsuki.shark-harmonic.ts.net.crt";
+      sslCertificateKey = "/srv/within/certs/itsuki.shark-harmonic.ts.net.key";
+    };
+  };
 }

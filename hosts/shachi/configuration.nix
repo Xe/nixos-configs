@@ -235,7 +235,10 @@ in {
     };
   };
 
-  services.gvfs.enable = true;
+  services.gvfs = {
+    enable = true;
+    package = lib.mkForce pkgs.gnome3.gvfs;
+  };
 
   programs.steam.enable = true;
   virtualisation.docker.enable = true;
@@ -295,4 +298,10 @@ in {
   services.udev.packages = with pkgs; [ gnome3.gnome-settings-daemon ];
   programs.dconf.enable = true;
   services.dbus.packages = with pkgs; [ gnome2.GConf ];
+
+  fileSystems."/mnt/share" = {
+    device = "//itsuki/data";
+    fsType = "cifs";
+    options = [ "rw,guest,x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s" ];
+  };
 }
