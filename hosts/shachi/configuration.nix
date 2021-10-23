@@ -149,9 +149,6 @@ in {
     };
   };
 
-  networking.wireguard.interfaces.akua =
-    metadata.hosts."${config.networking.hostName}";
-
   services.prometheus = {
     exporters = {
       node = {

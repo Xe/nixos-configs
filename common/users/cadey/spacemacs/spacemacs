@@ -44,6 +44,7 @@ values."
      (docker :variables docker-dockerfile-backend 'lsp)
      (terraform :variables terraform-auto-format-on-save t)
      lua
+     haskell
      git
      markdown
      yaml

@@ -43,9 +43,6 @@ in {
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
 
-  networking.wireguard.interfaces.akua =
-    metadata.hosts."${config.networking.hostName}";
-
   # 9p
   services.diod = {
     allsquash = false;

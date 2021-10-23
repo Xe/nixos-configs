@@ -23,7 +23,7 @@ with lib; {
     git = {
       name = mkOption rec {
         type = types.str;
-        default = "Christine Dodrill";
+        default = "Xe";
         example = default;
         description = "Name to use with git commits";
       };

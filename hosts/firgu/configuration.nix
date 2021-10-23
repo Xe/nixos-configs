@@ -38,16 +38,6 @@ in {
 
   system.stateVersion = "20.09"; # Did you read the comment?
 
-  networking.wireguard.interfaces.akua =
-    metadata.hosts."${config.networking.hostName}";
-
-  within.coredns = {
-    enable = true;
-    addr = "10.77.3.2";
-    addServer = true;
-    prometheus.enable = true;
-  };
-
   within.services.snoo2nebby.enable = true;
 
   boot.kernel.sysctl = {

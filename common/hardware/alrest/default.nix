@@ -36,9 +36,6 @@ in {
 
   environment.systemPackages = with pkgs; [ wget vim zfs ];
 
-  networking.wireguard.interfaces.akua =
-    metadata.hosts."${config.networking.hostName}";
-
   services.zfs.autoScrub.enable = true;
   services.zfs.autoSnapshot.enable = true;
   services.zfs.trim.enable = true;

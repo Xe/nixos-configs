@@ -67,9 +67,6 @@ in {
     monthly = 1;
   };
 
-  networking.wireguard.interfaces.akua =
-    metadata.hosts."${config.networking.hostName}";
-
   within.backups = {
     enable = true;
     repo = "57196@usw-s007.rsync.net:keanu";

@@ -44,9 +44,6 @@ in {
 
   services.tailscale.enable = true;
 
-  # networking.wireguard.interfaces.akua =
-  #   metadata.hosts."${config.networking.hostName}";
-
   services.nginx = {
     enable = true;
     virtualHosts."itsuki.shark-harmonic.ts.net" = {
