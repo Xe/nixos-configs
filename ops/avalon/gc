@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-for host in kos-mos chrysalis ontos pneuma
+for host in kos-mos chrysalis ontos pneuma itsuki
 do
     ssh root@${host} nix-collect-garbage --delete-older-than 7d &
 done

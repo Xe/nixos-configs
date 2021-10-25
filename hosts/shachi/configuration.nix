@@ -265,7 +265,7 @@ in {
     };
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_5_13;
+  boot.kernelPackages = pkgs.linuxPackages_5_14;
 
   security.auditd.enable = true;
   security.audit = {

@@ -23,7 +23,14 @@ in {
   boot.supportedFilesystems = [ "zfs" ];
   boot.kernelParams = [ "nomodeset" ];
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "zfs";
+  };
+  systemd.services."docker" = {
+    path = [ pkgs.zfs ];
+  };
+
   virtualisation.libvirtd.enable = true;
   services.nfs.server.enable = true;
   services.nfs.server.exports = ''

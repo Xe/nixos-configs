@@ -101,6 +101,7 @@
   };
 
   virtualisation.docker.enable = true;
+  virtualisation.docker.storageDriver = "zfs";
   virtualisation.libvirtd.enable = true;
 
   systemd.services.nginx.serviceConfig.SupplementaryGroups = "within";

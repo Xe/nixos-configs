@@ -38,6 +38,7 @@ with lib; {
 
   config = {
     boot.cleanTmpDir = true;
+    boot.kernelModules = [ "wireguard" ];
 
     environment.systemPackages = with pkgs; [ age minisign tmate jq nfs-utils ];
 
