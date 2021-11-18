@@ -1,5 +1,5 @@
 let
-  pkgs = (import ./../../nixpkgs {});
+  pkgs = (import <nixpkgs> {});
   xe   = (import ../pkgs pkgs);
   vm   = pkgs.vmTools.diskImageFuns.debian8x86_64 {};
   args = {

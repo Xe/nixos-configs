@@ -237,6 +237,7 @@ in {
     package = lib.mkForce pkgs.gnome3.gvfs;
   };
 
+  security.sudo.wheelNeedsPassword = false;
   programs.steam.enable = true;
   virtualisation.docker.enable = true;
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
@@ -291,6 +292,7 @@ in {
   services.flatpak.enable = true;
 
   services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.wayland = false;
   services.xserver.desktopManager.gnome.enable = true;
   services.udev.packages = with pkgs; [ gnome3.gnome-settings-daemon ];
   programs.dconf.enable = true;

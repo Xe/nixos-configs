@@ -46,6 +46,10 @@ with lib; {
       autoOptimiseStore = true;
       useSandbox = true;
 
+      extraOptions = ''
+        experimental-features = nix-command
+      '';
+
       binaryCaches =
         [ "https://xe.cachix.org" "https://nix-community.cachix.org" ];
       binaryCachePublicKeys = [
