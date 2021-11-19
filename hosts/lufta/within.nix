@@ -112,10 +112,10 @@ in {
         domain = "christine.website";
       };
 
-      idp.enable = true;
+      #idp.enable = true;
       ircmon.enable = true;
-      johaus.enable = true;
-      withinwebsite.enable = true;
+      #johaus.enable = true;
+      #withinwebsite.enable = true;
       todayinmarch2020.enable = true;
 
       # bots
