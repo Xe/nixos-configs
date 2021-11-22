@@ -6,7 +6,7 @@
     ./dwm
     ./emacs
     ./fish
-    ./htop.nix
+    #./htop.nix
     ./k8s.nix
     ./keybase.nix
     ./luakit

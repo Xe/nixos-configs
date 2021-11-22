@@ -36,7 +36,7 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     helm
+     ivy
      auto-completion
      better-defaults
      emacs-lisp
@@ -408,6 +408,8 @@ you should place your code here."
   ;; json comments
   (defconst json-mode-comments-re (rx (group "//" (zero-or-more nonl) line-end)))
   (push (list json-mode-comments-re 1 font-lock-comment-face) json-font-lock-keywords-1)
+
+  (ido-mode -1)
 
   ;; paths
   (add-to-list 'tramp-remote-path "/usr/local/go/bin")
