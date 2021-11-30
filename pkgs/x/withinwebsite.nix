@@ -2,16 +2,17 @@
 
 stdenv.mkDerivation {
   name = "within.website";
-  src = builtins.fetchTarball {
+  src = builtins.fetchurl {
     url =
       "https://xena.greedo.xeserv.us/files/slugs/within.website-091120192252.tar.gz";
-    sha256 = "1c43w1smclyc2ziq4hcqk9cw0v14x12kan4bknsfccclxq6qacp8";
+    sha256 = "14h9ibsrs708r0sk90yb0qlqzcxdfxq0cmir9v7w4acayw0f2f6n";
   };
 
-  phases = "unpackPhase installPhase";
+  phases = "installPhase";
 
   installPhase = ''
+    tar xf $src
     mkdir -p $out/bin
-    cp $src/web $out/bin/withinwebsite
+    cp bin/web $out/bin/withinwebsite
   '';
 }

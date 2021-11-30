@@ -2,10 +2,10 @@
 
 stdenv.mkDerivation {
   name = "idp";
-  src = builtins.fetchTarball {
+  src = builtins.fetchurl {
     url =
       "https://xena.greedo.xeserv.us/files/slugs/idp-031320190918.tar.gz";
-    sha256 = "049nlgni1myai7l9jzhxvx3k9fv4cwv8dcjj0g3z686k3vijki5g";
+    sha256 = "10jh58npq33xr7038g35h7pyh0cpd12fl4bv028l9hvisv9bky2n";
   };
 
   phases = "unpackPhase installPhase";

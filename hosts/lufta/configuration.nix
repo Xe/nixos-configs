@@ -71,7 +71,7 @@
   environment.systemPackages = with pkgs; [ wget vim zfs weechat tailscale ];
 
   networking.firewall = {
-    enable = true;
+    enable = false;
     allowedTCPPorts = [ 22 80 443 1965 6667 6697 ];
     allowedUDPPorts = [ 41641 51822 51820 ];
 

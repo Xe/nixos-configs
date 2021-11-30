@@ -252,12 +252,15 @@ in {
     sway = {
       enable = true;
       output = {
+        "DP-2" = {
+          disable = "";
+        };
         "DP-3" = {
           res = "2560x1440";
           pos = "2560,0";
           bg = "${./win10_old.jpg} fill";
         };
-        "HDMI-A-1" = {
+        "DP-1" = {
           res = "2560x1440";
           pos = "0,0";
           bg = "${./first-sword.jpg} fill";
@@ -266,7 +269,7 @@ in {
     };
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_5_14;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   security.auditd.enable = true;
   security.audit = {
@@ -290,6 +293,10 @@ in {
   };
 
   services.flatpak.enable = true;
+
+  security.pam.services."gdm-launch-environment".enableGnomeKeyring = true;
+  security.pam.services."gdm-password".enableGnomeKeyring = true;
+  services.gnome3.gnome-keyring.enable = true;
 
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = false;

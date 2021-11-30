@@ -45,6 +45,7 @@ with lib; {
     nix = {
       autoOptimiseStore = true;
       useSandbox = true;
+      package = pkgs.nix_2_3;
 
       extraOptions = ''
         experimental-features = nix-command
@@ -66,6 +67,7 @@ with lib; {
       packageOverrides = import ../pkgs;
     };
 
+    security.acme.preliminarySelfsigned = false;
     security.pam.loginLimits = [{
       domain = "*";
       type = "soft";
