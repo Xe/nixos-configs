@@ -19,7 +19,7 @@
         }
       ];
       debug = {
-        address = "10.77.2.20:38177";
+        address = "[::]:38177";
         prometheus = true;
       };
     };

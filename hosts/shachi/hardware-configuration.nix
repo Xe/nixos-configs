@@ -26,12 +26,6 @@
     options = [ "compress=zstd" ];
   };
 
-  fileSystems."/data" = {
-    device = "/dev/disk/by-uuid/3485b24a-364c-484f-9c56-5a957fe5b269";
-    fsType = "btrfs";
-    options = [ "compress=zstd" ];
-  };
-
   swapDevices =
     [{ device = "/dev/disk/by-uuid/154a36c6-097b-4443-a6ae-ee7e9b1e5fc6"; }];
 
