@@ -252,9 +252,6 @@ in {
     sway = {
       enable = true;
       output = {
-        "DP-2" = {
-          disable = "";
-        };
         "DP-3" = {
           res = "2560x1440";
           pos = "2560,0";
