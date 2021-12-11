@@ -67,6 +67,8 @@ in {
     gruvbox-dark-gtk
     humanity-icon-theme
     ubuntu-themes
+    vulkan-tools
+
     gnomeExtensions.gsconnect
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-dock
@@ -238,7 +240,6 @@ in {
   };
 
   security.sudo.wheelNeedsPassword = false;
-  programs.steam.enable = true;
   virtualisation.docker.enable = true;
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
@@ -296,7 +297,7 @@ in {
   services.gnome3.gnome-keyring.enable = true;
 
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = false;
+  #services.xserver.displayManager.gdm.wayland = false;
   services.xserver.desktopManager.gnome.enable = true;
   services.udev.packages = with pkgs; [ gnome3.gnome-settings-daemon ];
   programs.dconf.enable = true;
@@ -307,4 +308,13 @@ in {
     fsType = "cifs";
     options = [ "rw,guest,x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s" ];
   };
+
+  # services.xserver.extraConfig = ''
+  #   Section "Monitor"
+  #     Identifier "DisplayPort-2"
+  #     Option "PreferredMode" "2880x1600"
+  #   EndSection
+  # '';
+
+  programs.steam.enable = true;
 }
