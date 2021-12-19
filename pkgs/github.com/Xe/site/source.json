@@ -1,7 +1,8 @@
 {
-    "owner": "Xe",
-    "repo": "site",
-    "rev": "540ae4a3a9735d3f55ebceb1d271e472cd7f950e",
-    "sha256": "0g42cs9l7w8yc80qpmzf2gsrdzwl36nhb51i5k09wcj93iqv5zdp",
-    "fetchSubmodules": true
+  "url": "https://github.com/Xe/site",
+  "rev": "6df97ccc87f426a994d1db48812910a9c27e75ee",
+  "sha256": "0hjmr4c5i617j5igpahl6bd1qrxwpkz1sxgs6bknq3f5h5l9xsn2",
+  "fetchSubmodules": false,
+  "deepClone": false,
+  "leaveDotGit": false
 }

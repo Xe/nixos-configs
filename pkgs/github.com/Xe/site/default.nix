@@ -1,4 +1,4 @@
-{ fetchFromGitHub ? (import <nixpkgs> { }).fetchFromGitHub }:
+{ fetchgit ? (import <nixpkgs> { }).fetchgit }:
 
-import (fetchFromGitHub (builtins.fromJSON (builtins.readFile ./source.json)))
+import (fetchgit (builtins.fromJSON (builtins.readFile ./source.json)))
 { }

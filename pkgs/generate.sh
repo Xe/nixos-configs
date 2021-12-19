@@ -19,7 +19,6 @@ github Xe comicchat &
 github Xe mi &
 github Xe ircmon &
 github Xe rhea &
-github Xe site &
 github Xe withinbot &
 github Xe GraphvizOnline &
 github goproxyio goproxy &
@@ -31,6 +30,7 @@ github luakit luakit &
 #github nomad-software meme &
 
 # git repos
+git https github.com/Xe/site &
 git https tulpa.dev/cadey/aegis &
 git https tulpa.dev/cadey/cabytcini &
 git https tulpa.dev/cadey/dwm &
