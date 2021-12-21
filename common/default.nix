@@ -45,10 +45,10 @@ with lib; {
     nix = {
       autoOptimiseStore = true;
       useSandbox = true;
-      package = pkgs.nix_2_3;
+      package = pkgs.nixFlakes;
 
       extraOptions = ''
-        experimental-features = nix-command
+        experimental-features = nix-command flakes
       '';
 
       binaryCaches =
