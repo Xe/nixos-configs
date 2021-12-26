@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
 #! nix-shell -p nixos-generators -i bash
 
-export NIX_PATH=nixpkgs=channel:nixos-21.05
+export NIX_PATH=nixpkgs=channel:nixos-21.11
 nixos-generate -f install-iso -c ./iso.nix

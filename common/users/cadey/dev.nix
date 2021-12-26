@@ -14,6 +14,5 @@
     nur.repos.xe.pridecat
   ];
 
-  programs.direnv.enable = true;
   programs.direnv.enableFishIntegration = true;
 }
