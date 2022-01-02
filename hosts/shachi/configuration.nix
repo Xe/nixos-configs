@@ -255,18 +255,19 @@ in {
       output = {
         "DP-1" = {
           res = "2560x1440";
-          pos = "0,0";
+          pos = "1440,560";
           bg = "${./first-sword.jpg} fill";
         };
         "DP-2" = {
           res = "2560x1440";
-          pos = "2560,0";
+          pos = "0,0";
+          transform = "90";
           bg = "${./win10_old.jpg} fill";
         };
-        "DP-3" = {
-          res = "2280x1440";
-          pos = "1050,1440";
-        };
+        # "DP-3" = {
+        #   res = "2280x1440";
+        #   pos = "1050,1440";
+        # };
       };
     };
   };
@@ -301,7 +302,7 @@ in {
   services.gnome3.gnome-keyring.enable = true;
 
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = false;
+  services.xserver.displayManager.gdm.wayland = true;
   services.xserver.desktopManager.gnome.enable = true;
   services.udev.packages = with pkgs; [ gnome3.gnome-settings-daemon ];
   programs.dconf.enable = true;
