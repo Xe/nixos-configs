@@ -2,16 +2,17 @@
 
 stdenv.mkDerivation {
   name = "johaus";
-  src = builtins.fetchTarball {
+  src = builtins.fetchurl {
     url =
       "https://xena.greedo.xeserv.us/files/slugs/johaus-061520192052.tar.gz";
-    sha256 = "10xa74rrdsd24z5xqqq3m44d1lv4vf8rl2vffys8vrvj3zcxma12";
+    sha256 = "0cfx2skh7bz9w4p6xbcns14wgf2szkqlrga6dvnxrhlh3i0if519";
   };
 
   phases = "unpackPhase installPhase";
 
   installPhase = ''
+    tar xf $src
     mkdir -p $out/bin
-    cp $src/web $out/bin/johaus
+    cp bin/web $out/bin/johaus
   '';
 }

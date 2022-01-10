@@ -8,10 +8,11 @@ stdenv.mkDerivation {
     sha256 = "10jh58npq33xr7038g35h7pyh0cpd12fl4bv028l9hvisv9bky2n";
   };
 
-  phases = "unpackPhase installPhase";
+  phases = "installPhase";
 
   installPhase = ''
+    tar xf $src
     mkdir -p $out/bin
-    cp $src/web $out/bin/idp
+    cp bin/web $out/bin/idp
   '';
 }

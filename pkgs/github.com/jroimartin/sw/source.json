@@ -1,9 +1,7 @@
 {
-    "owner": "jroimartin",
-    "repo": "sw",
-    "rev": "d8e8c8dc08cea31a45b6c7442ac6f212f6e5fdc9",
-    "sha256": "hllmb1dtN5X7d/YZOwLretjbOnwC/gKQpAP2Ri3/ZsE=",
-    "fetchSubmodules": false,
-    "leaveDotGit": false,
-    "deepClone": false
+  "owner": "jroimartin",
+  "repo": "sw",
+  "rev": "d8e8c8dc08cea31a45b6c7442ac6f212f6e5fdc9",
+  "sha256": "hllmb1dtN5X7d/YZOwLretjbOnwC/gKQpAP2Ri3/ZsE=",
+  "fetchSubmodules": false
 }

@@ -1,9 +1,7 @@
 {
-    "owner": "Xe",
-    "repo": "mi",
-    "rev": "01d418243c75b8b4c2f62c1bd97aec1c6ce30ab4",
-    "sha256": "oKU24KZcaeK9CHa8xrUPIKQxDsqs+b+VeNpSjAXoueA=",
-    "fetchSubmodules": false,
-    "leaveDotGit": false,
-    "deepClone": false
+  "owner": "Xe",
+  "repo": "mi",
+  "rev": "01d418243c75b8b4c2f62c1bd97aec1c6ce30ab4",
+  "sha256": "oKU24KZcaeK9CHa8xrUPIKQxDsqs+b+VeNpSjAXoueA=",
+  "fetchSubmodules": false
 }

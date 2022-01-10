@@ -1,9 +1,7 @@
 {
-    "owner": "PonyvilleFM",
-    "repo": "aura",
-    "rev": "eec9f1d1a2274a1ea260be710bc76fff785f54c8",
-    "sha256": "yMWJBdlCRo9KeeHHHZIQfgIqtsjHjcF+p59fsVUKQhg=",
-    "fetchSubmodules": false,
-    "leaveDotGit": false,
-    "deepClone": false
+  "owner": "PonyvilleFM",
+  "repo": "aura",
+  "rev": "eec9f1d1a2274a1ea260be710bc76fff785f54c8",
+  "sha256": "yMWJBdlCRo9KeeHHHZIQfgIqtsjHjcF+p59fsVUKQhg=",
+  "fetchSubmodules": false
 }

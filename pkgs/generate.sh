@@ -3,7 +3,7 @@
 
 function github() {
     mkdir -p ./github.com/$1/$2
-    nix-prefetch-github $1 $2 > ./github.com/$1/$2/source.json
+    nix-prefetch-github $1 $2 | jq 'del(.deepClone) | del(.leaveDotGit)' > ./github.com/$1/$2/source.json
     echo "updated github.com/$1/$2"
 }
 

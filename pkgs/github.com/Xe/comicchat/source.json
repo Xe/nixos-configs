@@ -1,9 +1,7 @@
 {
-    "owner": "Xe",
-    "repo": "comicchat",
-    "rev": "5be601a685583466875d6ca14c9b9e873a4721b4",
-    "sha256": "fp4PJ9HXsxKISyAe94RZS4WkJ6wM2+ncxbOWT6Se670=",
-    "fetchSubmodules": false,
-    "leaveDotGit": false,
-    "deepClone": false
+  "owner": "Xe",
+  "repo": "comicchat",
+  "rev": "5be601a685583466875d6ca14c9b9e873a4721b4",
+  "sha256": "fp4PJ9HXsxKISyAe94RZS4WkJ6wM2+ncxbOWT6Se670=",
+  "fetchSubmodules": false
 }
