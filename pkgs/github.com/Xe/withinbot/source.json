@@ -3,5 +3,7 @@
     "repo": "withinbot",
     "rev": "06c234927a8d7327e5d6a159fa2fd9cf7f25e51a",
     "sha256": "MEH9CgSVCODUqgNC2WS8PYRIc5ZHrB1owRVCW4h4GUo=",
-    "fetchSubmodules": true
+    "fetchSubmodules": false,
+    "leaveDotGit": false,
+    "deepClone": false
 }

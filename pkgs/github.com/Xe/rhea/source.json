@@ -3,5 +3,7 @@
     "repo": "rhea",
     "rev": "e7362f5a4e20cdc5d27f2e3b65773af260ed126d",
     "sha256": "DAq2Cq4kfVhZtIOlKWliQwI22l/sLBphXp3Q1+clCHI=",
-    "fetchSubmodules": true
+    "fetchSubmodules": false,
+    "leaveDotGit": false,
+    "deepClone": false
 }

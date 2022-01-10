@@ -145,12 +145,27 @@
   services.mysql = {
     enable = true;
     package = pkgs.mariadb;
-    bind = "127.0.0.1";
+    settings.mysqld.bind-address = "127.0.0.1";
   };
 
   services.zfs.autoScrub.enable = true;
   services.zfs.autoSnapshot = {
     enable = true;
     monthly = 1;
+  };
+
+  services.yggdrasil = {
+    enable = true;
+    persistentKeys = true;
+    openMulticastPort = true;
+    config = {
+      IfName = "yggdrasil0";
+      Peers = [
+        "tls://94.103.82.150:8080"
+        "tcp://ams1.y.sota.sh:8080"
+        "tls://45.147.198.155:6010"
+        "tls://ygg-nl.incognet.io:8884"
+      ];
+    };
   };
 }

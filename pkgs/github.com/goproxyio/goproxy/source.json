@@ -3,5 +3,7 @@
     "repo": "goproxy",
     "rev": "e03dc0f0bf84ec8ea486c6976e966dc3038772d3",
     "sha256": "xdnnxSIVWzyz1QyrGBnlij/XRco2MgtB5jpS+iUynBA=",
-    "fetchSubmodules": true
+    "fetchSubmodules": false,
+    "leaveDotGit": false,
+    "deepClone": false
 }

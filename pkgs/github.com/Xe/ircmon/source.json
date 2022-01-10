@@ -3,5 +3,7 @@
     "repo": "ircmon",
     "rev": "c9d29089bd6c8f0b9339ba74e34944ed243a7899",
     "sha256": "ilWF5tiMS6xj2ru1tbBHDGjf3D7FE6Vr+wi4w07F2U4=",
-    "fetchSubmodules": true
+    "fetchSubmodules": false,
+    "leaveDotGit": false,
+    "deepClone": false
 }

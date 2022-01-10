@@ -311,7 +311,9 @@ in {
   fileSystems."/mnt/share" = {
     device = "//itsuki/data";
     fsType = "cifs";
-    options = [ "rw,guest,x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s" ];
+    options = [
+      "rw,guest,x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s"
+    ];
   };
 
   # services.xserver.extraConfig = ''
@@ -322,4 +324,18 @@ in {
   # '';
 
   programs.steam.enable = true;
+
+  services.yggdrasil = {
+    enable = true;
+    persistentKeys = true;
+    openMulticastPort = true;
+    config = {
+      IfName = "yggdrasil0";
+      Peers = [
+        "tls://ca1.servers.devices.cwinfo.net:58226"
+        "tls://192.99.145.61:58226"
+        "tcp://kusoneko.moe:9002"
+      ];
+    };
+  };
 }

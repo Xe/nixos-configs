@@ -2,6 +2,8 @@
     "owner": "luakit",
     "repo": "luakit",
     "rev": "c6461c06ae060de06c1ef097b066938a32bf16f3",
-    "sha256": "gH2V4nJsg4CmclKSFKWOYFbcjoEcuPRu0fqQfrTEN0Q=",
-    "fetchSubmodules": true
+    "sha256": "5+AmPlsHVY6bGzJSIAEZ4Vl1kSKkBbWMSZbkPCvszJw=",
+    "fetchSubmodules": false,
+    "leaveDotGit": false,
+    "deepClone": false
 }
