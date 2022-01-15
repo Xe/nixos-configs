@@ -69,6 +69,10 @@ in {
     ubuntu-themes
     vulkan-tools
 
+    # vseeface
+    wine64
+    winetricks
+
     gnomeExtensions.gsconnect
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-dock
