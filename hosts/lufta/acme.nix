@@ -9,7 +9,7 @@ let
   extraLegoFlags = [ "--dns.resolvers=8.8.8.8:53" ];
 
 in {
-  security.acme.email = "me@christine.website";
+  security.acme.defaults.email = "me@christine.website";
   security.acme.acceptTerms = true;
 
   security.acme.certs."tulpa.dev" = {

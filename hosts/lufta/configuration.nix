@@ -138,6 +138,32 @@
       set_real_ip_from 2a06:98c0::/29;
       real_ip_header CF-Connecting-IP;
     '';
+
+    virtualHosts."withinwebsite" = {
+      locations = {
+        "/.well-known/matrix/server".extraConfig =
+          let
+            # use 443 instead of the default 8448 port to unite
+            # the client-server and server-server port for simplicity
+            server = { "m.server" = "matrix.within.website:443"; };
+          in ''
+            add_header Content-Type application/json;
+            return 200 '${builtins.toJSON server}';
+          '';
+
+        "/.well-known/matrix/client".extraConfig =
+          let
+            client = {
+              "m.homeserver" =  { "base_url" = "https://matrix.within.website"; };
+            };
+          # ACAO required to allow riot-web on any URL to request this json file
+          in ''
+            add_header Content-Type application/json;
+            add_header Access-Control-Allow-Origin *;
+            return 200 '${builtins.toJSON client}';
+          '';
+      };
+    };
   };
 
   services.tailscale.enable = true;

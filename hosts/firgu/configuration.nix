@@ -7,6 +7,7 @@ in {
     ../../common/services
     ../../common/users/home-manager.nix
     ./hardware-configuration.nix
+    ./matrix.nix
     ./shellbox.nix
   ];
 
@@ -18,6 +19,7 @@ in {
   networking.firewall.enable = false;
 
   i18n.defaultLocale = "en_US.UTF-8";
+  services.tailscale.enable = true;
 
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;

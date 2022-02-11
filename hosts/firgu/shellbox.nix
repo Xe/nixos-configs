@@ -95,6 +95,10 @@ in {
   services.nginx = {
     enable = true;
     group = "users";
+    recommendedTlsSettings = true;
+    recommendedOptimisation = true;
+    recommendedGzipSettings = true;
+    recommendedProxySettings = true;
     virtualHosts = {
       "sh.pony.dev" = {
         forceSSL = true;
