@@ -30,8 +30,8 @@ in {
       push.default = "current";
 
       url = {
-        "git@github.com:".insteadOf = "https://github.com/";
-        "git@ssh.tulpa.dev:".insteadOf = "https://tulpa.dev/";
+        #"git@github.com:".insteadOf = "https://github.com/";
+        #"git@ssh.tulpa.dev:".insteadOf = "https://tulpa.dev/";
       };
     };
   };
