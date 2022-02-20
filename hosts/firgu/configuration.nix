@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
-let metadata = pkgs.callPackage ../../ops/metadata/peers.nix { };
-in {
+{
   imports = [
     ../../common
     ../../common/services
@@ -23,18 +22,13 @@ in {
 
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/vda"; # or "nodev" for efi only
 
   environment.systemPackages = with pkgs; [
     wget
     vim
     python3
-    lua5_2
-    lua5_sec
+    lua5_3
     git
   ];
 

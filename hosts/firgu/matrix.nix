@@ -19,7 +19,6 @@ in {
     max_upload_size = "100M";
 
     enable_registration = true;
-    registration_shared_secret = builtins.readFile ./secret/regtoken;
 
     listeners = [
       {
