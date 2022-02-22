@@ -16,7 +16,7 @@ in {
   boot.kernelParams = [ "zfs.zfs_arc_max=1073741824" ];
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.devNodes = "/dev/disk/by-partuuid";
-  boot.zfs.requestEncryptionCredentials = false;
+  boot.zfs.requestEncryptionCredentials = true;
 
   networking.hostName = "genza"; # Define your hostname.
   networking.networkmanager.enable = true;
@@ -61,11 +61,25 @@ in {
     pulsemixer
     weechat
 
+    # vseeface
+    (wine.override { wineBuild = "wine64"; })
+    winetricks
+    wineWowPackages.stable
+    lutris
+    obs-studio
+
     # go
     go
     gopls
     goimports
     android-studio
+  ];
+
+  hardware.opengl.extraPackages = with pkgs; [
+    vaapiIntel
+    vaapiVdpau
+    libvdpau-va-gl
+    intel-media-driver
   ];
 
   programs.adb.enable = true;
@@ -75,9 +89,6 @@ in {
 
   networking.firewall.enable = false;
   system.stateVersion = "20.09";
-
-  networking.wireguard.interfaces.akua =
-    metadata.hosts."${config.networking.hostName}";
 
   cadey = {
     discord.enable = true;
