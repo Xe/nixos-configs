@@ -23,6 +23,8 @@ in {
   boot.supportedFilesystems = [ "zfs" ];
   boot.kernelParams = [ "nomodeset" ];
 
+  services.prometheus.exporters.node.enable = true;
+
   virtualisation.docker = {
     enable = true;
     storageDriver = "zfs";
