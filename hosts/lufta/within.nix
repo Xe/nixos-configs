@@ -48,17 +48,17 @@ let
     "'**/.emacs.d'"
   ];
 in {
-  services.borgbackup.jobs."hetzner" = {
-    inherit paths exclude;
-    repo = "ssh://u252481@u252481.your-storagebox.de:23/./lufta";
-    encryption = {
-      mode = "repokey-blake2";
-      passCommand = "cat /run/keys/borgbackup_passphrase";
-    };
-    environment.BORG_RSH = "ssh -i /root/.ssh/id_rsa";
-    compression = "auto,lzma";
-    startAt = "daily";
-  };
+  # services.borgbackup.jobs."hetzner" = {
+  #   inherit paths exclude;
+  #   repo = "ssh://u252481@u252481.your-storagebox.de:23/./lufta";
+  #   encryption = {
+  #     mode = "repokey-blake2";
+  #     passCommand = "cat /root/borgbackup_passphrase";
+  #   };
+  #   environment.BORG_RSH = "ssh -i /root/.ssh/id_rsa";
+  #   compression = "auto,lzma";
+  #   startAt = "daily";
+  # };
 
   within = {
     backups = {
