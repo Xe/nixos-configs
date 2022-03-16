@@ -113,7 +113,6 @@ in {
       };
 
       idp.enable = true;
-      ircmon.enable = true;
       johaus.enable = true;
       withinwebsite.enable = true;
       todayinmarch2020.enable = true;

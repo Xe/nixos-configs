@@ -68,8 +68,8 @@ in stdenv.mkDerivation rec {
     icon = pname;
     inherit desktopName;
     genericName = meta.description;
-    categories = "Network;InstantMessaging;";
-    mimeType = "x-scheme-handler/discord";
+    categories = [ "Network" "InstantMessaging" ];
+    mimeTypes = [ "x-scheme-handler/discord" ];
   };
 
   passthru.updateScript = writeScript "discord-update-script" ''

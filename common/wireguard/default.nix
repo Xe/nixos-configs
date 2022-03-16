@@ -12,5 +12,5 @@
 
   services.resolved.fallbackDns = config.networking.nameservers;
 
-  environment.systemPackages = with pkgs; [ wireguard ];
+  environment.systemPackages = with pkgs; [ wireguard-tools ];
 }

@@ -17,7 +17,7 @@
     slack
     firefox
     msedge
-    wireguard
+    wireguard-tools
     killall
     file
     gimp

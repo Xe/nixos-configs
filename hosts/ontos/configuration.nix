@@ -26,7 +26,7 @@
 
         # go
         go
-        goimports
+        gotools
         gopls
 
         # other
