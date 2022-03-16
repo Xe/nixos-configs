@@ -37,7 +37,7 @@
 
   system.stateVersion = "20.09"; # Did you read the comment?
 
-  within.services.snoo2nebby.enable = true;
+  #within.services.snoo2nebby.enable = true;
 
   boot.kernel.sysctl = {
     "net.ipv4.forward" = 1;

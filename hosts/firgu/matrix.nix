@@ -11,49 +11,51 @@ let
 in {
   services.matrix-synapse = {
     enable = true;
-    server_name = "within.website";
+    settings = {
+      server_name = "within.website";
 
-    enable_metrics = true;
-    url_preview_enabled = true;
+      enable_metrics = true;
+      url_preview_enabled = true;
 
-    max_upload_size = "100M";
+      max_upload_size = "100M";
 
-    enable_registration = true;
+      enable_registration = true;
 
-    listeners = [
-      {
-        bind_address = "127.0.0.1";
-        port = 8448;
-        type = "http";
-        tls = false;
-        x_forwarded = true;
-        resources = [{
-          compress = false;
-          names = [ "client" "federation" ];
-        }];
-      }
-      {
-        bind_address = "100.77.196.9";
-        port = 8448;
-        type = "http";
-        tls = false;
-        resources = [{
-          compress = false;
-          names = [ "client" "federation" ];
-        }];
-      }
-      {
-        bind_address = "100.77.196.9";
-        port = 9000;
-        type = "metrics";
-        tls = false;
-        resources = [ ];
-      }
-    ];
+      listeners = [
+        {
+          bind_addresses = [ "127.0.0.1" "::1" ];
+          port = 8448;
+          type = "http";
+          tls = false;
+          x_forwarded = true;
+          resources = [{
+            compress = false;
+            names = [ "client" "federation" ];
+          }];
+        }
+        {
+          bind_addresses = [ "100.77.196.9" ];
+          port = 8448;
+          type = "http";
+          tls = false;
+          resources = [{
+            compress = false;
+            names = [ "client" "federation" ];
+          }];
+        }
+        {
+          bind_addresses = [ "100.77.196.9" ];
+          port = 9000;
+          type = "metrics";
+          tls = false;
+          resources = [ ];
+        }
+      ];
 
-    extraConfig = ''
-      registration_requires_token: true
-    '';
+      extraConfig = ''
+        registration_requires_token: true
+      '';
+    };
   };
 
   services.nginx.virtualHosts = {
