@@ -11,7 +11,7 @@
     vim.enable = true;
   };
 
-  programs.direnv.enableFishIntegration = true;
+  #programs.direnv.enableFishIntegration = true;
 
   nixpkgs.config = {
     allowBroken = true;

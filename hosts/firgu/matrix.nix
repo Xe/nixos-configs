@@ -19,7 +19,7 @@ in {
 
       max_upload_size = "100M";
 
-      enable_registration = true;
+      enable_registration = false;
 
       listeners = [
         {
@@ -52,9 +52,7 @@ in {
         }
       ];
 
-      extraConfig = ''
-        registration_requires_token: true
-      '';
+      registration_requires_token = true;
     };
   };
 
