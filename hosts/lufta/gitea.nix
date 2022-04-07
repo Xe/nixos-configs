@@ -21,8 +21,15 @@ in {
     httpPort = 49381;
     log.level = "Error";
     settings = {
+      service.DISABLE_REGISTRATION = lib.mkForce true;
+      service.REGISTER_MANUAL_CONFIRM = true;
       server.SSH_DOMAIN = "ssh.tulpa.dev";
       other.SHOW_FOOTER_VERSION = false;
+      metrics = {
+        ENABLED = true;
+        ENABLED_ISSUE_BY_LABEL = true;
+        ENABLED_ISSUE_BY_REPOSITORY = true;
+      };
     };
     dump.enable = false;
     extraConfig = builtins.readFile ./secret/gitea.ini;
