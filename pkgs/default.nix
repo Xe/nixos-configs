@@ -74,21 +74,12 @@ in rec {
   fish-foreign-env = pkgs.fishPlugins.foreign-env;
   luakit = github.com.luakit.luakit;
 
-  weechat-matrix-fixed = pkgs.weechatScripts.weechat-matrix.overrideAttrs
-    (oldAttrs: rec {
-      postFixup = oldAttrs.postFixup + ''
-        substituteInPlace $out/lib/*/site-packages/matrix/server.py --replace "\"matrix_sso_helper\"" "\"$out/bin/matrix_sso_helper\""
-      '';
-    });
-
   weechat = with pkgs.weechatScripts;
     pkgs.weechat.override {
-      configure = { availablePlugins, ... }: {
-        scripts = [ weechat-otr weechat-matrix-fixed wee-slack multiline ];
-        extraBuildInputs =
-          [ availablePlugins.python.withPackages (_: [ weechat-matrix ]) ];
-      };
+      configure = { availablePlugins, ... }: { scripts = [ multiline ]; };
     };
+
+  #python39Packages.apsw = pkgs.callPackage ./hack/python-apsw.nix {};
 
   dwm = pkgs.callPackage ./dwm { };
   st = pkgs.callPackage ./st { };

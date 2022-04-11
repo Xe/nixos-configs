@@ -30,7 +30,7 @@
 
   services.gvfs.enable = true;
 
-  nixpkgs.config.permittedInsecurePackages = [ "rambox-0.7.7" ];
+  nixpkgs.config.permittedInsecurePackages = [ "rambox-0.7.7" "electron-12.2.3" ];
 
   cadey = {
     discord.enable = true;

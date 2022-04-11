@@ -57,7 +57,6 @@ in {
     lagrange
     weechat
     retroarch
-    rambox
     android-studio
     dolphin
     bsnes-hd
@@ -218,7 +217,7 @@ in {
   };
 
   services.minecraft-server = {
-    enable = true;
+    enable = false;
     eula =
       true; # set to true if you agree to Mojang's EULA: https://account.mojang.com/documents/minecraft_eula
     declarative = true;
