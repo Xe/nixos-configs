@@ -6,7 +6,6 @@ in {
     ./hardware-configuration.nix
     ./monitoring.nix
     ./solanum.nix
-    ./ts_gh_runner.nix
     ./zfs.nix
     ./zrepl.nix
 
