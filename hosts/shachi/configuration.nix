@@ -250,11 +250,11 @@ in {
     discord.enable = true;
     #dwm.enable = true;
     gui.enable = true;
-    kde.enable = true;
+    kde.enable = lib.mkForce false;
     telegram.enable = true;
 
     sway = {
-      enable = true;
+      enable = false;
       output = {
         "DP-1" = {
           res = "2560x1440";
@@ -322,7 +322,7 @@ in {
   #   EndSection
   # '';
 
-  programs.steam.enable = false;
+  programs.steam.enable = true;
 
   services.yggdrasil = {
     enable = true;

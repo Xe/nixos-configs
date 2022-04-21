@@ -11,7 +11,7 @@
     keybase.enable = true;
     keybase.gui = true;
     luakit.enable = false;
-    urxvt.enable = true;
+    urxvt.enable = false;
   };
 
   home.packages = with pkgs; [
