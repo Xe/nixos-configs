@@ -56,11 +56,12 @@ in {
     openssl
     unrar
     slack
-    wireguard
+    wireguard-tools
     tailscale
     pulsemixer
     weechat
     msedge
+    #weechat
 
     # vseeface
     (wine.override { wineBuild = "wine64"; })
@@ -70,10 +71,10 @@ in {
     obs-studio
 
     # go
-    go
-    gopls
-    goimports
-    android-studio
+    # go
+    # gopls
+    # gotools
+    # android-studio
   ];
 
   hardware.opengl.extraPackages = with pkgs; [
