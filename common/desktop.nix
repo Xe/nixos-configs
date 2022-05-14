@@ -26,6 +26,7 @@
     unrar
     steam-run-native
     st
+    yubikey-agent
   ];
 
   services.gvfs.enable = true;

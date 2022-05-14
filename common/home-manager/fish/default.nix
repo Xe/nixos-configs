@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, nixosConfig, pkgs, ... }:
 
 with lib;
 
@@ -59,6 +59,10 @@ in {
         # Set GPG TTY
         set -x GPG_TTY (tty)
       '';
+
+      # ".config/fish/conf.d/zzz_yubikey.fish".text = if nixosConfig.cadey.gui.enable then ''
+      #   set -gx SSH_AUTH_SOCK /run/user/(id -u)/yubikey-agent/yubikey-agent.sock
+      # '' else "";
     };
 
     home.packages = [ pkgs.fishPlugins.foreign-env ];
