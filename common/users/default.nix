@@ -22,7 +22,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICmEyBV301bq2VMa0cm4aE4peh57TcmNq4jHVN3Clufp cadey@la-tahorskami"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBJHpoa7MSKy50Jv0cKjb1B/6jh/VtB71v8OGrt+lw3P cadey@genza"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK4mrGB2aTjHkp3r3Q7l8FHgtDPCCDqBUp9DykRWjcMA mara@blink"
-      "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBN8IvCKTZW870OEEBAWqW5YhzgJCz2Yc/vUxGCmp4m6qudvRJtUkRAh0jQx1AZi6b0HRrnieObZKAP3W3iKPTaI=" # useless key yubikey
+      "sk-ecdsa-sha2-nistp256@openssh.com AAAAInNrLWVjZHNhLXNoYTItbmlzdHAyNTZAb3BlbnNzaC5jb20AAAAIbmlzdHAyNTYAAABBBNUAej4Q8+tZ4Wn0rjz+Jz6/eno7rlsuZBxJCmdDDiE5Teve2TTyFXJTifE4+w5xxbfkskR3pI9meAfq1+PdqmIAAAAEc3NoOg== cadey@shachi" # useless key yubikey
     ];
   };
 
