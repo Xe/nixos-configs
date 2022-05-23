@@ -16,7 +16,6 @@
   environment.systemPackages = with pkgs; [
     slack
     firefox
-    msedge
     wireguard-tools
     killall
     file

@@ -60,6 +60,7 @@ in {
     tailscale
     pulsemixer
     weechat
+    msedge
 
     # vseeface
     (wine.override { wineBuild = "wine64"; })
