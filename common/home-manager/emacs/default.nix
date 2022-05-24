@@ -17,10 +17,10 @@ in {
     };
 
     services.emacs.enable = true;
-    services.emacs.package = pkgs.emacsNativeComp;
+    #services.emacs.package = pkgs.emacsNativeComp;
     programs.emacs = {
       enable = true;
-      package = pkgs.emacsNativeComp;
+      #package = pkgs.emacsNativeComp;
 
       init = {
         enable = true;

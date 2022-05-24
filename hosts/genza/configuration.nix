@@ -62,6 +62,7 @@ in {
     weechat
     msedge
     #weechat
+    cider
 
     # vseeface
     (wine.override { wineBuild = "wine64"; })

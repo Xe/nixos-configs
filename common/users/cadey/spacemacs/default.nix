@@ -19,9 +19,9 @@ in
   home.packages = with pkgs; [ anonymousPro e ];
 
   programs.emacs.enable = true;
-  programs.emacs.package = pkgs.emacsNativeComp;
+  #programs.emacs.package = pkgs.emacsNativeComp;
   services.emacs.enable = true;
-  services.emacs.package = pkgs.emacsNativeComp;
+  #services.emacs.package = pkgs.emacsNativeComp;
 
   home.file.".spacemacs".source = ./spacemacs;
 
