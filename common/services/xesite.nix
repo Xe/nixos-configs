@@ -118,16 +118,23 @@ in {
       '';
     };
 
-    services.nginx.virtualHosts."xesite" = {
-      serverName = "${cfg.domain}";
-      locations."/" = {
+    services.nginx.virtualHosts."christine.website" = let proxyOld = {
         proxyPass = "http://unix:${toString cfg.sockPath}";
         proxyWebsockets = true;
-      };
+      }; in {
+      locations."/jsonfeed" = proxyOld;
+      locations."/.within/health" = proxyOld;
+      locations."/.within/website.within.xesite/new_post" = proxyOld;
+      locations."/blog.rss" = proxyOld;
+      locations."/blog.atom" = proxyOld;
+      locations."/blog.json" = proxyOld;
+      locations."/".extraConfig = ''
+        return 301 $scheme://xeiaso.net$uri;
+      '';
       forceSSL = cfg.useACME;
       useACMEHost = "christine.website";
       extraConfig = ''
-        access_log /var/log/nginx/xesite.access.log;
+        access_log /var/log/nginx/xesite_old.access.log;
       '';
     };
   };
