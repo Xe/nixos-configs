@@ -104,6 +104,20 @@ in {
       '';
     };
 
+    services.cfdyndns = mkIf cfg.useACME { records = [ "xeiaso.net" ]; };
+
+    services.nginx.virtualHosts."xeiaso.net" = {
+      locations."/" = {
+        proxyPass = "http://unix:${toString cfg.sockPath}";
+        proxyWebsockets = true;
+      };
+      forceSSL = cfg.useACME;
+      useACMEHost = "xeiaso.net";
+      extraConfig = ''
+        access_log /var/log/nginx/xesite.access.log;
+      '';
+    };
+
     services.nginx.virtualHosts."xesite" = {
       serverName = "${cfg.domain}";
       locations."/" = {
