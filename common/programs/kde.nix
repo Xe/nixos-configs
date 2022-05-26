@@ -9,7 +9,6 @@ in {
         amarok
         ark
         kate
-        latte-dock
         okular
         plasma-browser-integration
         spectacle
