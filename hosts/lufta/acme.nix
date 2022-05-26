@@ -12,6 +12,15 @@ in {
   security.acme.defaults.email = "me@christine.website";
   security.acme.acceptTerms = true;
 
+  security.acme.certs."xeiaso.net" = {
+    group = "nginx";
+    email = "me@christine.website";
+    dnsProvider = "cloudflare";
+    credentialsFile = "${creds}";
+    extraDomainNames = [ "*.xeiaso.net" ];
+    inherit extraLegoFlags;
+  };
+
   security.acme.certs."tulpa.dev" = {
     group = "nginx";
     email = "me@christine.website";
