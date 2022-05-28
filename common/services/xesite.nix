@@ -129,7 +129,7 @@ in {
       locations."/blog.atom" = proxyOld;
       locations."/blog.json" = proxyOld;
       locations."/".extraConfig = ''
-        return 301 $scheme://xeiaso.net$uri;
+        return 301 https://xeiaso.net$request_uri;
       '';
       forceSSL = cfg.useACME;
       useACMEHost = "christine.website";

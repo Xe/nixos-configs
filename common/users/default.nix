@@ -23,6 +23,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBJHpoa7MSKy50Jv0cKjb1B/6jh/VtB71v8OGrt+lw3P cadey@genza"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK4mrGB2aTjHkp3r3Q7l8FHgtDPCCDqBUp9DykRWjcMA mara@blink"
       "sk-ecdsa-sha2-nistp256@openssh.com AAAAInNrLWVjZHNhLXNoYTItbmlzdHAyNTZAb3BlbnNzaC5jb20AAAAIbmlzdHAyNTYAAABBBNUAej4Q8+tZ4Wn0rjz+Jz6/eno7rlsuZBxJCmdDDiE5Teve2TTyFXJTifE4+w5xxbfkskR3pI9meAfq1+PdqmIAAAAEc3NoOg== cadey@shachi" # useless key yubikey
+      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIKgGePSwpBuHUhrFCRLch9Usqi7L0fKtgTRnh6F/R+ruAAAABHNzaDo= cadey@shachi" # faded ring yubikey
     ];
   };
 

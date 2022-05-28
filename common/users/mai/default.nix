@@ -4,7 +4,7 @@
   imports = [ ../../home-manager ];
 
   xe = {
-    emacs.enable = true;
+    emacs.enable = false;
     fish.enable = true;
     tmux.enable = true;
     tmux.shortcut = "a";
