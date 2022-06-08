@@ -4,7 +4,6 @@
   imports = [
     ./acme.nix
     ./akua.nix
-    ./comicchat.nix
     ./docker.nix
     ./gitea.nix
     ./hardware-configuration.nix
