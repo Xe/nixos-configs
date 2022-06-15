@@ -1,7 +1,7 @@
 {
   "url": "https://github.com/Xe/site.git",
-  "rev": "ad6fba4c79e8b5ab08e2f0db8bc4087f03151f7f",
-  "sha256": "1jv5yp6b3l0z68k406hjbc3r7p4k75dqm928rir1qwzr245818jc",
+  "rev": "3a592f99dbf631e93a7f62de8680cbbb2f6a7bba",
+  "sha256": "0ajvlbgz91n80q8qci0sgnyr307n9j58x7jfaa4aahx8dfz7qfhs",
   "fetchLFS": false,
   "fetchSubmodules": false,
   "deepClone": false,
