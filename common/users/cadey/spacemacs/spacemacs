@@ -85,6 +85,7 @@ values."
                                       gemini-mode
                                       elpher
                                       weechat
+                                      fountain-mode
                                       darkroom)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
