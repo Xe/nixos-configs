@@ -13,7 +13,7 @@ in {
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelParams = [ "zfs.zfs_arc_max=1073741824" ];
+  boot.kernelParams = [ "zfs.zfs_arc_max=1073741824" "zfs.zfs_arc_min=1073741824" ];
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.devNodes = "/dev/disk/by-partuuid";
   boot.zfs.requestEncryptionCredentials = true;
