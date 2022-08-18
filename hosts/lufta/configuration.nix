@@ -34,6 +34,8 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPg9gYKVglnO2HQodSJt4z4mNrUSUiyJQ7b+J798bwD9 cadey@shachi"
   ];
 
+  security.polkit.enable = true; 
+
   networking.usePredictableInterfaceNames = false;
   systemd.network = {
     enable = true;
