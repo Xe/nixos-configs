@@ -6,6 +6,17 @@ let
     text = builtins.readFile ./secret/acme-cf.env;
   };
 
+  aws = {
+    "tulpanomicon.guide" = pkgs.writeTextFile {
+      name = "aws.env";
+      text = builtins.readFile ./secret/aws-tulpanomicon.guide.env;
+    };
+    "tulpaforce.xyz" = pkgs.writeTextFile {
+      name = "aws.env";
+      text = builtins.readFile ./secret/aws-tulpaforce.xyz.env;
+    };
+  };
+
   extraLegoFlags = [ "--dns.resolvers=8.8.8.8:53" ];
 
 in {
@@ -52,10 +63,20 @@ in {
   security.acme.certs."tulpanomicon.guide" = {
     group = "nginx";
     email = "me@christine.website";
-    dnsProvider = "cloudflare";
-    credentialsFile = "${creds}";
+    dnsProvider = "route53";
+    credentialsFile = "${aws."tulpanomicon.guide"}";
     extraDomainNames =
-      [ "*.tulpanomicon.guide" "tulpaforce.xyz" "*.tulpaforce.xyz" ];
+      [ "*.tulpanomicon.guide" ];
+    inherit extraLegoFlags;
+  };
+
+  security.acme.certs."tulpaforce.xyz" = {
+    group = "nginx";
+    email = "me@christine.website";
+    dnsProvider = "route53";
+    credentialsFile = "${aws."tulpaforce.xyz"}";
+    extraDomainNames =
+      [ "*.tulpaforce.xyz" ];
     inherit extraLegoFlags;
   };
 

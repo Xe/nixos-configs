@@ -11,7 +11,7 @@ in {
     services.nginx.virtualHosts."tulpaforce.xyz" = {
       locations."/".root = "${pkgs.tulpa.dev.cadey.tulpaforce}";
       forceSSL = true;
-      useACMEHost = "tulpanomicon.guide";
+      useACMEHost = "tulpaforce.xyz";
       extraConfig = ''
         access_log /var/log/nginx/tulpaforce.access.log;
       '';
