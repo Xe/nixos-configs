@@ -1,4 +1,4 @@
-{ ... }:
+{ nixosConfig, ... }:
 
 {
   imports = [
@@ -23,6 +23,7 @@
     ./pastebins
   ];
 
+  home.stateVersion = nixosConfig.system.stateVersion;
   nixpkgs.config = {
     allowBroken = true;
     allowUnfree = true;
