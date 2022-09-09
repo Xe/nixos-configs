@@ -67,7 +67,7 @@ with lib; {
     services.nginx.virtualHosts."aura" = {
       serverName = "${cfg.domain}";
       forceSSL = true;
-      enableACME = true;
+      useACMEHost = "pvfmsets.cf";
 
       locations."/".proxyPass = "http://127.0.0.1:${toString cfg.port}";
     };
