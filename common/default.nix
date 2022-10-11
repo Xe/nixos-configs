@@ -45,7 +45,7 @@ with lib; {
     nix = {
       autoOptimiseStore = true;
       useSandbox = true;
-      package = pkgs.nixFlakes;
+      package = pkgs.nixVersions.stable;
 
       extraOptions = ''
         experimental-features = nix-command flakes

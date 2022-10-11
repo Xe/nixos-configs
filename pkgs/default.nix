@@ -3,6 +3,11 @@ let sources = import ./nix/sources.nix;
 in rec {
   nur = import sources.NUR { inherit pkgs; };
 
+  # hacks
+  pkgconfig = pkgs.pkg-config;
+  virtmanager = pkgs.virt-manager;
+  alsaLib = pkgs.alsa-lib;
+
   msedge = pkgs.callPackage ./msedge { };
 
   github.com = {
