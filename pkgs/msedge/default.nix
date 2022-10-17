@@ -51,7 +51,7 @@ let
     withCustomModes = true;
   };
 
-  version = "103.0.1264.45";
+  version = "106.0.1370.30";
 
   deps = [
     glib fontconfig freetype pango cairo libX11 libXi atk nss nspr
@@ -79,7 +79,7 @@ in stdenv.mkDerivation {
 
   src = fetchurl {
     url = "https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-beta/microsoft-edge-beta_${version}-1_amd64.deb";
-    sha256 = "139r58yfnfqml8g1lgqhamm3c8z52fml25lrdcqnxvl5fchz7csk";
+    sha256 = "0fglhc9vldw2shyjycbp4f7xka8m6mqbm8zjs942mkss4dm7y3m8";
   };
 
   nativeBuildInputs = [ patchelf makeWrapper ];
