@@ -53,8 +53,19 @@ values."
      sql
      html
      systemd
-     nim
-     org
+     (org :variables
+          org-agenda-files '("~/org/daily/" "~/org/")
+          org-enable-org-journal-support t
+          org-enable-roam-support t
+          org-enable-sticky-header t
+          org-journal-dir "~/org/daily/"
+          org-journal-enable-agenda-integration t
+          org-journal-file-header "* Media\n* Calendar\n* Recurring\n** TODO Prune /r/tailscale\n** TODO Exercise\n** TODO Meditation\n"
+          org-journal-file-format "%Y%m%d.org"
+          org-journal-date-prefix "#+startup: logdrawer\n#+options: d:t\n#+TITLE: "
+          org-journal-time-prefix "* "
+          org-roam-directory "~/org/roam"
+          org-roam-database-connector 'sqlite3)
      rust
      shell
      spell-checking
@@ -64,7 +75,6 @@ values."
      kubernetes
      lsp
      typescript
-     elixir
      elm
      windows-scripts
      perl5
@@ -85,7 +95,8 @@ values."
                                       gemini-mode
                                       elpher
                                       weechat
-                                      fountain-mode
+                                      deno-fmt
+                                      emacsql-sqlite3
                                       darkroom)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -406,15 +417,15 @@ you should place your code here."
     (let ((file (tramp-file-name-localname (tramp-dissect-file-name file))))
       (replace-regexp-in-string (concat "\\`" dir) "" file)))
 
-  ;; json comments
-  (defconst json-mode-comments-re (rx (group "//" (zero-or-more nonl) line-end)))
-  (push (list json-mode-comments-re 1 font-lock-comment-face) json-font-lock-keywords-1)
-
   (ido-mode -1)
 
   ;; paths
   (add-to-list 'tramp-remote-path "/usr/local/go/bin")
-  )
+
+  ;; deno
+  (add-hook 'typescript-mode-hook 'deno-fmt-mode)
+  (add-hook 'js2-mode-hook 'deno-fmt-mode)
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
