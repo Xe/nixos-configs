@@ -66,12 +66,16 @@ with lib; {
         url =
           "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
       }))
+      (super: final: {
+        nginx = super.nginx.override { openssl = super.openssl_1_1; };
+      })
+      (super: final: import ../pkgs final)
+      #(self: super: { stdenv.lib = super.lib; })
     ];
 
     nixpkgs.config = {
       allowUnfree = true;
-      overlays = [ (self: super: { stdenv.lib = super.lib; }) ];
-      packageOverrides = import ../pkgs;
+      #packageOverrides = import ../pkgs;
     };
 
     security.acme.preliminarySelfsigned = false;

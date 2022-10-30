@@ -92,7 +92,7 @@
   };
 
   services.cfdyndns = {
-    enable = true;
+    enable = false;
     email = "shadow.h511@gmail.com";
     apikeyFile = "${pkgs.writeTextFile {
       text = builtins.readFile ./secret/cf-api-key;

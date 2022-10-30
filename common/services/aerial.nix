@@ -32,48 +32,6 @@ with lib; {
         Restart = "on-failure";
         WorkingDirectory = "/srv/within/aerial";
         RestartSec = "30s";
-
-        # security settings
-        CapabilityBoundingSet = "";
-        DeviceAllow = [];
-        NoNewPrivileges = "true";
-        ProtectControlGroups = "true";
-        ProtectClock = "true";
-        PrivateDevices = "true";
-        PrivateUsers = "true";
-        ProtectHome = "true";
-        ProtectHostname = "true";
-        ProtectKernelLogs = "true";
-        ProtectKernelModules = "true";
-        ProtectKernelTunables = "true";
-        ProtectSystem = "true";
-        ProtectProc = "invisible";
-        RemoveIPC = "true";
-        RestrictAddressFamilies = [ "~AF_UNIX" "~AF_NETLINK" ];
-        RestrictNamespaces = [
-          "CLONE_NEWCGROUP"
-          "CLONE_NEWIPC"
-          "CLONE_NEWNET"
-          "CLONE_NEWNS"
-          "CLONE_NEWPID"
-          "CLONE_NEWUTS"
-          "CLONE_NEWUSER"
-        ];
-        RestrictSUIDSGID = "true";
-        RestrictRealtime = "true";
-        SystemCallArchitectures = "native";
-        SystemCallFilter = [
-          "~@reboot"
-          "~@module"
-          "~@mount"
-          "~@swap"
-          "~@resources"
-          "~@cpu-emulation"
-          "~@obsolete"
-          "~@debug"
-          "~@privileged"
-        ];
-        UMask = "077";
       };
 
       script = let aura = pkgs.within.aura;

@@ -89,6 +89,9 @@ in rec {
   dwm = pkgs.callPackage ./dwm { };
   st = pkgs.callPackage ./st { };
 
+  # use OpenSSL 1.x for now
+  nginxStable = pkgs.nginxStable.override { openssl = pkgs.libressl; };
+
   solanum = pkgs.solanum.overrideAttrs (old: rec {
     postPatch = ''
       substituteInPlace include/defaults.h --replace 'ETCPATH "' '"/etc/solanum'
