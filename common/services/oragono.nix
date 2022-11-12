@@ -50,7 +50,7 @@ in {
 
     services.tor.relay.onionServices = {
       "oragono" = {
-        version = 2;
+        version = 3;
         map = [6667 23181];
       };
     };

@@ -52,6 +52,10 @@
     '';
   };
 
+  services.tor.enable = true;
+  services.tor.client.enable = true;
+  services.tor.settings.SOCKSPort = [ 9051 ];
+
   services.corerad = {
     enable = false;
     settings = {
