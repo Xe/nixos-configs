@@ -1,3 +1,6 @@
 { fetchgit ? (import <nixpkgs> { }).fetchgit }:
 
-import (fetchgit (builtins.fromJSON (builtins.readFile ./source.json))) {}
+let meta = builtins.fromJSON (builtins.readFile ./source.json);
+    src = fetchgit meta;
+    flake = import src;
+in flake.default
