@@ -6,55 +6,9 @@ let
     text = builtins.readFile ./secret/acme-cf.env;
   };
 
-  aws = {
-    "cetacean.club" = pkgs.writeTextFile {
+  aws  = pkgs.writeTextFile {
       name = "aws.env";
-      text = builtins.readFile ./secret/aws-cetacean.club.env;
-    };
-    "christine.website" = pkgs.writeTextFile {
-      name = "aws.env";
-      text = builtins.readFile ./secret/aws-christine.website.env;
-    };
-    "pvfmsets.cf" = pkgs.writeTextFile {
-      name = "aws.env";
-      text = builtins.readFile ./secret/aws-pvfmsets.cf.env;
-    };
-    "tulpa.dev" = pkgs.writeTextFile {
-      name = "aws.env";
-      text = builtins.readFile ./secret/aws-tulpa.dev.env;
-    };
-    "tulpaforce.tk" = pkgs.writeTextFile {
-      name = "aws.env";
-      text = builtins.readFile ./secret/aws-tulpaforce.tk.env;
-    };
-    "tulpaforce.xyz" = pkgs.writeTextFile {
-      name = "aws.env";
-      text = builtins.readFile ./secret/aws-tulpaforce.xyz.env;
-    };
-    "tulpanomicon.guide" = pkgs.writeTextFile {
-      name = "aws.env";
-      text = builtins.readFile ./secret/aws-tulpanomicon.guide.env;
-    };
-    "within.website" = pkgs.writeTextFile {
-      name = "aws.env";
-      text = builtins.readFile ./secret/aws-within.website.env;
-    };
-    "xeiaso.net" = pkgs.writeTextFile {
-      name = "aws.env";
-      text = builtins.readFile ./secret/aws-xeiaso.net.env;
-    };
-    "xeserv.us" = pkgs.writeTextFile {
-      name = "aws.env";
-      text = builtins.readFile ./secret/aws-xeserv.us.env;
-    };
-    "xn--sz8hf6d.ws" = pkgs.writeTextFile {
-      name = "aws.env";
-      text = builtins.readFile ./secret/aws-xn--sz8h6fd.ws.env;
-    };
-    "xn--u7hz981o.ws" = pkgs.writeTextFile {
-      name = "aws.env";
-      text = builtins.readFile ./secret/aws-xn--u7hz981o.ws.env;
-    };
+      text = builtins.readFile ./secret/aws.env;
   };
 
   extraLegoFlags = [ "--dns.resolvers=8.8.8.8:53" ];
@@ -67,8 +21,8 @@ in {
     group = "nginx";
     email = "me@christine.website";
     dnsProvider = "route53";
-    credentialsFile = "${aws."xeiaso.net"}";
-    extraDomainNames = [ "*.xeiaso.net" ];
+    credentialsFile = "${aws}";
+    extraDomainNames = [ "*.xeiaso.net" "xelaso.net" ];
     inherit extraLegoFlags;
   };
 
@@ -76,7 +30,7 @@ in {
     group = "nginx";
     email = "me@christine.website";
     dnsProvider = "route53";
-    credentialsFile = "${aws."tulpa.dev"}";
+    credentialsFile = "${aws}";
     extraDomainNames = [ "*.tulpa.dev" ];
     inherit extraLegoFlags;
   };
@@ -85,7 +39,7 @@ in {
     group = "nginx";
     email = "me@christine.website";
     dnsProvider = "route53";
-    credentialsFile = "${aws."christine.website"}";
+    credentialsFile = "${aws}";
     extraDomainNames = [ "*.christine.website" ];
     inherit extraLegoFlags;
   };
@@ -94,7 +48,7 @@ in {
     group = "nginx";
     email = "me@christine.website";
     dnsProvider = "route53";
-    credentialsFile = "${aws."cetacean.club"}";
+    credentialsFile = "${aws}";
     extraDomainNames =
       [ "*.cetacean.club" "*.kahless.cetacean.club" "*.lufta.cetacean.club" ];
     inherit extraLegoFlags;
@@ -104,7 +58,7 @@ in {
     group = "nginx";
     email = "me@christine.website";
     dnsProvider = "route53";
-    credentialsFile = "${aws."pvfmsets.cf"}";
+    credentialsFile = "${aws}";
     inherit extraLegoFlags;
   };
 
@@ -112,7 +66,7 @@ in {
     group = "nginx";
     email = "me@christine.website";
     dnsProvider = "route53";
-    credentialsFile = "${aws."tulpanomicon.guide"}";
+    credentialsFile = "${aws}";
     extraDomainNames =
       [ "*.tulpanomicon.guide" ];
     inherit extraLegoFlags;
@@ -122,7 +76,7 @@ in {
     group = "nginx";
     email = "me@christine.website";
     dnsProvider = "route53";
-    credentialsFile = "${aws."tulpaforce.xyz"}";
+    credentialsFile = "${aws}";
     extraDomainNames =
       [ "*.tulpaforce.xyz" ];
     inherit extraLegoFlags;
@@ -132,7 +86,7 @@ in {
     group = "nginx";
     email = "me@christine.website";
     dnsProvider = "route53";
-    credentialsFile = "${aws."within.website"}";
+    credentialsFile = "${aws}";
     extraDomainNames = [ "*.within.website" ];
     inherit extraLegoFlags;
   };
@@ -141,7 +95,7 @@ in {
     group = "nginx";
     email = "me@christine.website";
     dnsProvider = "route53";
-    credentialsFile = "${aws."xeserv.us"}";
+    credentialsFile = "${aws}";
     extraDomainNames = [
       "*.xeserv.us"
       "*.greedo.xeserv.us"
@@ -155,7 +109,7 @@ in {
     group = "nginx";
     email = "me@christine.website";
     dnsProvider = "route53";
-    credentialsFile = "${aws."xn--u7hz981o.ws"}";
+    credentialsFile = "${aws}";
     extraDomainNames = [ "*.xn--u7hz981o.ws" ];
     inherit extraLegoFlags;
   };
