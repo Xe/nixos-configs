@@ -6,9 +6,9 @@ let
     text = builtins.readFile ./secret/acme-cf.env;
   };
 
-  aws  = pkgs.writeTextFile {
-      name = "aws.env";
-      text = builtins.readFile ./secret/aws.env;
+  aws = pkgs.writeTextFile {
+    name = "aws.env";
+    text = builtins.readFile ./secret/aws.env;
   };
 
   extraLegoFlags = [ "--dns.resolvers=8.8.8.8:53" ];
@@ -67,8 +67,7 @@ in {
     email = "me@christine.website";
     dnsProvider = "route53";
     credentialsFile = "${aws}";
-    extraDomainNames =
-      [ "*.tulpanomicon.guide" ];
+    extraDomainNames = [ "*.tulpanomicon.guide" ];
     inherit extraLegoFlags;
   };
 
@@ -77,8 +76,7 @@ in {
     email = "me@christine.website";
     dnsProvider = "route53";
     credentialsFile = "${aws}";
-    extraDomainNames =
-      [ "*.tulpaforce.xyz" ];
+    extraDomainNames = [ "*.tulpaforce.xyz" ];
     inherit extraLegoFlags;
   };
 

@@ -1,6 +1,5 @@
-{...}:
+{ ... }:
 
 {
-  services.nginx.virtualHosts."certs.akua" = {
-  };
+  services.nginx.virtualHosts."certs.akua" = { };
 }

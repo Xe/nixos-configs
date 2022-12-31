@@ -34,7 +34,7 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPg9gYKVglnO2HQodSJt4z4mNrUSUiyJQ7b+J798bwD9 cadey@shachi"
   ];
 
-  security.polkit.enable = true; 
+  security.polkit.enable = true;
 
   networking.usePredictableInterfaceNames = false;
   systemd.network = {
@@ -146,27 +146,25 @@
 
     virtualHosts."withinwebsite" = {
       locations = {
-        "/.well-known/matrix/server".extraConfig =
-          let
-            # use 443 instead of the default 8448 port to unite
-            # the client-server and server-server port for simplicity
-            server = { "m.server" = "matrix.within.website:443"; };
-          in ''
-            add_header Content-Type application/json;
-            return 200 '${builtins.toJSON server}';
-          '';
+        "/.well-known/matrix/server".extraConfig = let
+          # use 443 instead of the default 8448 port to unite
+          # the client-server and server-server port for simplicity
+          server = { "m.server" = "matrix.within.website:443"; };
+        in ''
+          add_header Content-Type application/json;
+          return 200 '${builtins.toJSON server}';
+        '';
 
-        "/.well-known/matrix/client".extraConfig =
-          let
-            client = {
-              "m.homeserver" =  { "base_url" = "https://matrix.within.website"; };
-            };
+        "/.well-known/matrix/client".extraConfig = let
+          client = {
+            "m.homeserver" = { "base_url" = "https://matrix.within.website"; };
+          };
           # ACAO required to allow riot-web on any URL to request this json file
-          in ''
-            add_header Content-Type application/json;
-            add_header Access-Control-Allow-Origin *;
-            return 200 '${builtins.toJSON client}';
-          '';
+        in ''
+          add_header Content-Type application/json;
+          add_header Access-Control-Allow-Origin *;
+          return 200 '${builtins.toJSON client}';
+        '';
       };
     };
   };

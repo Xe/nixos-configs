@@ -96,27 +96,27 @@ in {
       '';
       forceSSL = true;
       useACMEHost = "cetacean.club";
-    extraConfig = ''
-      access_log /var/log/nginx/home.cetacean.club.access.log;
-    '';
+      extraConfig = ''
+        access_log /var/log/nginx/home.cetacean.club.access.log;
+      '';
     };
 
     "when-then-zen.christine.website" = {
       locations."/" = { proxyPass = "http://127.0.0.1:${toString port}"; };
       forceSSL = true;
       useACMEHost = "christine.website";
-    extraConfig = ''
-      access_log /var/log/nginx/when-then-zen.access.log;
-    '';
+      extraConfig = ''
+        access_log /var/log/nginx/when-then-zen.access.log;
+      '';
     };
 
     "xena.greedo.xeserv.us" = {
       locations."/".proxyPass = "http://127.0.0.1:${toString port}";
       forceSSL = true;
       useACMEHost = "xeserv.us";
-    extraConfig = ''
-      access_log /var/log/nginx/xenafiles.access.log;
-    '';
+      extraConfig = ''
+        access_log /var/log/nginx/xenafiles.access.log;
+      '';
     };
 
     "xn--u7hz981o.ws" = {
@@ -126,8 +126,12 @@ in {
     };
   };
 
-  services.cfdyndns.records =
-    [ "when-then-zen.christine.website" "xena.greedo.xeserv.us" "xn--u7hz981o.ws" "home.cetacean.club" ];
+  services.cfdyndns.records = [
+    "when-then-zen.christine.website"
+    "xena.greedo.xeserv.us"
+    "xn--u7hz981o.ws"
+    "home.cetacean.club"
+  ];
 
   systemd.services.caddy = {
     wantedBy = [ "multi-user.target" ];

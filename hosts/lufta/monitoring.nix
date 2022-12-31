@@ -7,12 +7,8 @@
         enable = true;
         enabledCollectors = [ "systemd" ];
       };
-      wireguard = {
-        enable = true;
-      };
-      nginx = {
-        enable = true;
-      };
+      wireguard = { enable = true; };
+      nginx = { enable = true; };
       nginxlog = {
         enable = true;
         settings = {
