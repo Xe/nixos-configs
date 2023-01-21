@@ -14,7 +14,7 @@ with lib; {
 
     domain = mkOption {
       type = types.str;
-      default = "pvfmsets.cf";
+      default = "pvfm.within.lgbt";
       example = "pvfm.akua";
       description =
         "The domain name that nginx should check against for HTTP hostnames";
@@ -67,7 +67,7 @@ with lib; {
     services.nginx.virtualHosts."aura" = {
       serverName = "${cfg.domain}";
       forceSSL = true;
-      useACMEHost = "pvfmsets.cf";
+      useACMEHost = "within.lgbt";
 
       locations."/".proxyPass = "http://127.0.0.1:${toString cfg.port}";
     };

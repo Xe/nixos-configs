@@ -1,7 +1,7 @@
 {
   "url": "https://tulpa.dev/cadey/lewa.git",
-  "rev": "e3a7f43364c6001d2d70c3692bc82ad7f2440d4a",
-  "sha256": "0dws0x8ak8f3y7wg2wjd5jwcq9dqx8ih38b83hllshgyfcwqvadv",
+  "rev": "cda2d2f55abf3312d7b7c5ef81c9bc715740cef6",
+  "sha256": "0jq47ksg3ns4qfdqfa9pr1smsqhjdx5rynv1a19dqhjjfiariyfz",
   "fetchLFS": false,
   "fetchSubmodules": false,
   "deepClone": false,
