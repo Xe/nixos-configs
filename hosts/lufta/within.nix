@@ -77,7 +77,7 @@ in {
       # webapps
       aura = {
         enable = true;
-        domain = "pvfmsets.cf";
+        domain = "pvfm.within.lgbt";
       };
 
       goproxy = {

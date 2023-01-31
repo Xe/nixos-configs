@@ -54,14 +54,6 @@ in {
     inherit extraLegoFlags;
   };
 
-  security.acme.certs."pvfmsets.cf" = {
-    group = "nginx";
-    email = "me@christine.website";
-    dnsProvider = "route53";
-    credentialsFile = "${aws}";
-    inherit extraLegoFlags;
-  };
-
   security.acme.certs."tulpanomicon.guide" = {
     group = "nginx";
     email = "me@christine.website";
@@ -77,6 +69,15 @@ in {
     dnsProvider = "route53";
     credentialsFile = "${aws}";
     extraDomainNames = [ "*.tulpaforce.xyz" ];
+    inherit extraLegoFlags;
+  };
+
+  security.acme.certs."within.lgbt" = {
+    group = "nginx";
+    email = "me@christine.website";
+    dnsProvider = "route53";
+    credentialsFile = "${aws}";
+    extraDomainNames = [ "*.within.lgbt" ];
     inherit extraLegoFlags;
   };
 
