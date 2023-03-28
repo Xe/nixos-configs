@@ -120,7 +120,6 @@ in {
       # bots
       aerial.enable = true;
       tron.enable = true;
-      withinbot.enable = true;
 
       # IRC
       oragono.enable = true;
