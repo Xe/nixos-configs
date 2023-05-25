@@ -156,6 +156,8 @@ in {
     };
   };
 
+  services.nginx.clientMaxBodySize = "0";
+
   cadey.rhea = {
     enable = true;
     sites = [

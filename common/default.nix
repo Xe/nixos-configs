@@ -40,6 +40,9 @@ with lib; {
     boot.cleanTmpDir = true;
     boot.kernelModules = [ "wireguard" ];
 
+    programs.fish.enable = true;
+    programs.zsh.enable = true;
+
     environment.systemPackages = with pkgs; [ age minisign tmate jq nfs-utils ];
 
     nix = {
