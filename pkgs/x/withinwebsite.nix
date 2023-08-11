@@ -3,9 +3,8 @@
 stdenv.mkDerivation {
   name = "within.website";
   src = builtins.fetchurl {
-    url =
-      "https://xena.greedo.xeserv.us/files/slugs/within.website-091120192252.tar.gz";
-    sha256 = "14h9ibsrs708r0sk90yb0qlqzcxdfxq0cmir9v7w4acayw0f2f6n";
+    url = (builtins.fromJSON "\"https://xena.greedo.xeserv.us/files/slugs/within.website-202308111926.tar.gz\"");
+    sha256 = (builtins.fromJSON "\"1mcpmkkqr4l7sgxa1fgmk266rfcy0j1wa5rqd9zflc0l7x55pls8\"");
   };
 
   phases = "installPhase";
@@ -13,6 +12,7 @@ stdenv.mkDerivation {
   installPhase = ''
     tar xf $src
     mkdir -p $out/bin
-    cp bin/web $out/bin/withinwebsite
+    cp bin/main $out/bin/withinwebsite
+    cp config.ts $out/config.ts
   '';
 }

@@ -20,6 +20,7 @@ in {
     httpPort = 49381;
     log.level = "Error";
     settings = {
+      actions.ENABLED = true;
       service.DISABLE_REGISTRATION = lib.mkForce true;
       service.REGISTER_MANUAL_CONFIRM = true;
       server.DOMAIN = "tulpa.dev";

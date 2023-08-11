@@ -39,15 +39,14 @@ in {
       serviceConfig = {
         User = "withinwebsite";
         Group = "within";
+        ExecStart = let ww = pkgs.x.withinwebsite;
+        in "${ww}/bin/withinwebsite --port=${
+          toString cfg.port
+        } --tyson-config ${ww}/config.ts";
         Restart = "on-failure";
         WorkingDirectory = "/srv/within/withinwebsite";
         RestartSec = "30s";
       };
-
-      script = let ww = pkgs.x.withinwebsite;
-      in ''
-        exec ${ww}/bin/withinwebsite -port=${toString cfg.port}
-      '';
     };
 
     services.cfdyndns.records = [ "${cfg.domain}" ];

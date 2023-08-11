@@ -71,6 +71,7 @@ in rec {
     idp = pkgs.callPackage ./x/idp.nix { };
     withinwebsite = pkgs.callPackage ./x/withinwebsite.nix { };
     johaus = pkgs.callPackage ./x/johaus.nix { };
+    todayinmarch2020 = pkgs.callPackage ./x/todayinmarch2020.nix { };
   };
 
   xxx.hack = { tailscale = pkgs.callPackage ./tailscale.nix { }; };

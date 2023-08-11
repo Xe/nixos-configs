@@ -46,7 +46,7 @@ in {
         UMask = "007";
       };
 
-      script = let h = pkgs.tulpa.dev.cadey.todayinmarch2020;
+      script = let h = pkgs.x.todayinmarch2020;
       in ''
         exec ${h}/bin/todayinmarch2020 -socket=${cfg.sockPath}
       '';
