@@ -1,7 +1,7 @@
 {
   "url": "https://tulpa.dev/cadey/hlang.git",
   "rev": "e34440a796daa70cec0d36efac11ecd0d2223e52",
-  "sha256": "09gv67xwqqyq0sz1m2wxbyr1irnz6b19r4wwxhdrvpq71djscpb3",
+  "hash": "sha256-Y12mZQsH350b7JyTnMIy3+YYsl+dixq+BthjzPsx+yU=",
   "fetchLFS": false,
   "fetchSubmodules": false,
   "deepClone": false,

@@ -1,7 +1,7 @@
 {
   "url": "https://tulpa.dev/Xe/quickserv.git",
   "rev": "9c8e407c2a69c6c6bdb46bfc6e8e7d6fb1bcaf7c",
-  "sha256": "0v3b8l4cbqx8vxi4dg44rvg61bc5rpmjxyzx015687n72vz9s7rn",
+  "hash": "sha256-Nh+d/hbHHmRKAP37LuvNha1g3s6EvEZi36jjxQhFa2w=",
   "fetchLFS": false,
   "fetchSubmodules": false,
   "deepClone": false,

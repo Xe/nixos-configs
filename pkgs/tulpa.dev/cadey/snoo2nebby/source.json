@@ -1,7 +1,7 @@
 {
   "url": "https://tulpa.dev/cadey/snoo2nebby.git",
   "rev": "4b0416555b41ea370e905d99d24d8f13331331c7",
-  "sha256": "0a3q8fwad8r8fq42i3vp8s46j9yrdidx361y33lkm982xq263p9j",
+  "hash": "sha256-Mt1hBO4CpTrpGD6Y0Vts2SdpiEZ3jygIdiijprhDeCg=",
   "fetchLFS": false,
   "fetchSubmodules": false,
   "deepClone": false,

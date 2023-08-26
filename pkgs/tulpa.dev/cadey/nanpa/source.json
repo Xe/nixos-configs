@@ -1,7 +1,7 @@
 {
   "url": "https://tulpa.dev/cadey/nanpa.git",
   "rev": "5c4ac7fe78d6647e24e1e6c22bef52f3f7981de6",
-  "sha256": "1w9g0zh3x1y09lk7sazpwnl1aj02dsbrsb02bs2pn81vrqlbzyss",
+  "hash": "sha256-Wvu/KM47IHuFXgIsnZduAkgVqOX3K30mTcCHPuAHL/E=",
   "fetchLFS": false,
   "fetchSubmodules": false,
   "deepClone": false,

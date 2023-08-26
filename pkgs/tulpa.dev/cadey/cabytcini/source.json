@@ -1,7 +1,7 @@
 {
   "url": "https://tulpa.dev/cadey/cabytcini.git",
   "rev": "858949745e897d086fe981685a122dee65d0a614",
-  "sha256": "0h9y1hhjrlblm3k4apgbibs887mzhnnbcrvz028xw7rg9w2k8xxs",
+  "hash": "sha256-unc0BU8vH96RAH9ntqyFvx6E9IrrXUXmqHTRLCEMPkE=",
   "fetchLFS": false,
   "fetchSubmodules": false,
   "deepClone": false,

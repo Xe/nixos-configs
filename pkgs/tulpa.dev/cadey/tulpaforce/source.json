@@ -1,7 +1,7 @@
 {
   "url": "https://tulpa.dev/cadey/tulpaforce.git",
   "rev": "43e05fbb17094788305113d499bb3e8da5a12bc3",
-  "sha256": "1w6v7gp0vijmvpwn6cfhg7gkmsvdqcjhznws5y63990y5hsc8xp3",
+  "hash": "sha256-43bENCwepDSML5rbDyXDbes633nQMWP53VXGDe472/A=",
   "fetchLFS": false,
   "fetchSubmodules": false,
   "deepClone": false,

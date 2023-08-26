@@ -9,7 +9,7 @@ function github() {
 
 function git() {
     mkdir -p ./$2
-    nix-prefetch-git --quiet $1://$2.git | jq 'del(.date)' | jq 'del(.path)' > ./$2/source.json
+    nix-prefetch-git --quiet $1://$2.git | jq 'del(.date)' | jq 'del(.path) | del(.sha256)' > ./$2/source.json
     echo "updated $1://$2.git"
 }
 
